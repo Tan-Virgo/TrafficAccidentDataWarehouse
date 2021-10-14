@@ -7,5 +7,5 @@ Nhóm TTKD-19
 
 Đồ án môn HTTT phục vụ trí tuệ kinh doanh HKI năm 2021 - 2022, Phân tích thiết kế cài đặt phục vụ nhu cầu báo cáo thống kê dữ liệu tai nạn giao thông ở nước Anh
 
-1. Mô tả dữ liệu 
+1. Mô tả dữ liệu : TTKD-19_DATH#1.docx
 2. Thực hiện ETL đổ dữ liệu từ Source -> Stage
