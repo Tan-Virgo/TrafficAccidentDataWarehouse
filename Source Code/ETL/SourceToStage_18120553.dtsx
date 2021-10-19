@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{374BBADB-A468-46CA-9A3F-9F6731F34C98}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{2BFF5F2A-4F50-4C05-8EEE-61A0514E77C7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -4445,223 +4445,69 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="199.2,41.6"
-          Id="Package\Source To Stage\Accident_Severity_Source"
-          TopLeft="50.0000008514949,62.7058832323675" />
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Source To Stage\Accident_Severity"
-          TopLeft="322.857148355367,65.0000009116004" />
-        <EdgeLayout
-          Id="Package\Source To Stage.Paths[Flat File Source Output]"
-          TopLeft="249.200000851495,84.652942071984">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="73.6571475038722,0"
-              Start="0,0"
-              End="66.1571475038722,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="66.1571475038722,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="164,41.6"
-          Id="Package\Source To Stage\Age_Band_Source"
-          TopLeft="48.5714293985951,110.117648603182" />
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\Source To Stage\Age_Band"
-          TopLeft="324.285719808267,111.647060389337" />
-        <EdgeLayout
-          Id="Package\Source To Stage.Paths[Flat File Source Output1]"
-          TopLeft="212.571429398595,131.68235449626">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111.714290409672,0"
-              Start="0,0"
-              End="104.214290409672,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="104.214290409672,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Source To Stage\Casualty_Class_Source"
-          TopLeft="48.5714293985951,158.294119867074" />
-        <NodeLayout
-          Size="148,41.6"
-          Id="Package\Source To Stage\Casualty_Class"
-          TopLeft="325.000005534717,163.788237546307" />
-        <EdgeLayout
-          Id="Package\Source To Stage.Paths[Flat File Source Output2]"
-          TopLeft="234.171429398595,181.841178706691">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="90.8285761361221,0"
-              Start="0,0"
-              End="83.3285761361221,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="83.3285761361221,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="184.8,41.6"
+          Id="Package\Source To Stage\Casualty_Type_Source"
+          TopLeft="50.0000008514949,350.388239916468" />
         <NodeLayout
           Size="199.2,41.6"
           Id="Package\Source To Stage\Casualty_Severity_Source"
           TopLeft="50.0000008514949,206.470591130966" />
         <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Source To Stage\Casualty_Severity"
-          TopLeft="325.714291261167,209.529414703277" />
-        <EdgeLayout
-          Id="Package\Source To Stage.Paths[Flat File Source Output3]"
-          TopLeft="249.200000851495,228.800002917122">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="76.5142904096721,0"
-              Start="0,0"
-              End="69.0142904096721,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="69.0142904096721,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="185.6,41.6"
+          Id="Package\Source To Stage\Casualty_Class_Source"
+          TopLeft="48.5714293985951,158.294119867074" />
         <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\Source To Stage\Day_of_Week_Source"
-          TopLeft="50.7142865779449,298.235298300285" />
+          Size="164,41.6"
+          Id="Package\Source To Stage\Age_Band_Source"
+          TopLeft="48.5714293985951,110.117648603182" />
         <NodeLayout
-          Size="143.2,41.6"
-          Id="Package\Source To Stage\Day_of_Week"
-          TopLeft="328.571434166967,301.458827218712" />
-        <EdgeLayout
-          Id="Package\Source To Stage.Paths[Flat File Source Output4]"
-          TopLeft="232.314286577945,320.647062759498">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="96.2571475890218,0"
-              Start="0,0"
-              End="88.7571475890218,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="88.7571475890218,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196.8,41.6"
-          Id="Package\Source To Stage\Journey_Purpose_Source"
-          TopLeft="50.714286577945,253.788237181667" />
+          Size="199.2,41.6"
+          Id="Package\Source To Stage\Accident_Severity_Source"
+          TopLeft="50.0000008514949,62.7058832323675" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Source To Stage\Journey_Purpose"
           TopLeft="333.571434252116,256.0823548609" />
-        <EdgeLayout
-          Id="Package\Source To Stage.Paths[Flat File Source Output5]"
-          TopLeft="247.514286577945,275.735296021283">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="86.0571476741712,0"
-              Start="0,0"
-              End="78.5571476741712,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="78.5571476741712,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="184.8,41.6"
-          Id="Package\Source To Stage\Casualty_Type_Source"
-          TopLeft="50.0000008514949,350.388239916468" />
+          Size="143.2,41.6"
+          Id="Package\Source To Stage\Day_of_Week"
+          TopLeft="328.571434166967,301.458827218712" />
         <NodeLayout
           Size="147.2,41.6"
           Id="Package\Source To Stage\Casualty_Type"
           TopLeft="333.571434252116,346.270590948646" />
-        <EdgeLayout
-          Id="Package\Source To Stage.Paths[Flat File Source Output6]"
-          TopLeft="234.800000851495,369.129415432557">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="98.7714334006212,0"
-              Start="0,0"
-              End="91.2714334006212,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="91.2714334006212,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="160.8,41.6"
           Id="Package\Source To Stage\Accidents_Source"
           TopLeft="57.8571438424442,6.88235303769887" />
         <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Source To Stage\Casualty_Severity"
+          TopLeft="325.714291261167,209.529414703277" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Source To Stage\Casualty_Class"
+          TopLeft="325.000005534717,163.788237546307" />
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\Source To Stage\Journey_Purpose_Source"
+          TopLeft="50.714286577945,253.788237181667" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Source To Stage\Age_Band"
+          TopLeft="324.285719808267,111.647060389337" />
+        <NodeLayout
           Size="123.2,41.6"
           Id="Package\Source To Stage\Accidents"
           TopLeft="334.285719978566,6.88235303769887" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Source To Stage\Day_of_Week_Source"
+          TopLeft="50.7142865779449,298.235298300285" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Source To Stage\Accident_Severity"
+          TopLeft="322.857148355367,65.0000009116004" />
         <EdgeLayout
           Id="Package\Source To Stage.Paths[Flat File Source Output7]"
           TopLeft="218.657143842444,27.6823530376989">
@@ -4684,50 +4530,165 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source To Stage.Paths[Flat File Source Output6]"
+          TopLeft="234.800000851495,369.129415432557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98.7714334006212,0"
+              Start="0,0"
+              End="91.2714334006212,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="91.2714334006212,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source To Stage.Paths[Flat File Source Output5]"
+          TopLeft="247.514286577945,275.735296021283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.0571476741712,0"
+              Start="0,0"
+              End="78.5571476741712,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="78.5571476741712,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source To Stage.Paths[Flat File Source Output4]"
+          TopLeft="232.314286577945,320.647062759498">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.2571475890218,0"
+              Start="0,0"
+              End="88.7571475890218,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="88.7571475890218,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source To Stage.Paths[Flat File Source Output3]"
+          TopLeft="249.200000851495,228.800002917122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.5142904096721,0"
+              Start="0,0"
+              End="69.0142904096721,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="69.0142904096721,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source To Stage.Paths[Flat File Source Output2]"
+          TopLeft="234.171429398595,181.841178706691">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="90.8285761361221,0"
+              Start="0,0"
+              End="83.3285761361221,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="83.3285761361221,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source To Stage.Paths[Flat File Source Output1]"
+          TopLeft="212.571429398595,131.68235449626">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.714290409672,0"
+              Start="0,0"
+              End="104.214290409672,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="104.214290409672,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Source To Stage.Paths[Flat File Source Output]"
+          TopLeft="249.200000851495,84.652942071984">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73.6571475038722,0"
+              Start="0,0"
+              End="66.1571475038722,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="66.1571475038722,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Source To Stage\Accident_Severity">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Source To Stage\Age_Band">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Source To Stage\Casualty_Class">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Source To Stage\Casualty_Severity">
+    design-time-name="Package\Source To Stage\Journey_Purpose">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4753,19 +4714,6 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Source To Stage\Journey_Purpose">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Source To Stage\Casualty_Type">
     <Properties>
       <Property>
@@ -4779,7 +4727,59 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Source To Stage\Casualty_Severity">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source To Stage\Casualty_Class">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source To Stage\Age_Band">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Source To Stage\Accidents">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Source To Stage\Accident_Severity">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
