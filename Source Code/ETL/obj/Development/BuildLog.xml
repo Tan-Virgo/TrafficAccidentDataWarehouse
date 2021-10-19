@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ETL</Name>
-    <LastWriteTime>2021-10-19T15:07:39.7485499Z</LastWriteTime>
+    <LastWriteTime>2021-10-19T16:46:04.46967Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,7 +18,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage_18120553.dtsx</Name>
-      <LastWriteTime>2021-10-19T15:07:39.6560384Z</LastWriteTime>
+      <LastWriteTime>2021-10-19T15:35:00.9530296Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -28,12 +28,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage_18120570.dtsx</Name>
-      <LastWriteTime>2021-10-19T15:07:39.6728486Z</LastWriteTime>
+      <LastWriteTime>2021-10-19T15:35:00.9570661Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage_18120590.dtsx</Name>
-      <LastWriteTime>2021-10-19T14:44:37.704526Z</LastWriteTime>
+      <LastWriteTime>2021-10-19T16:46:04.037021Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
