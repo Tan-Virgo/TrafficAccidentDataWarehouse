@@ -58,3 +58,37 @@ CREATE TABLE [Ped_Cross_Human] (
 	[Create_timestamp] datetime default getdate(),
     [Update_timestamp] datetime default getdate()
 )
+
+
+CREATE TABLE [UK_Postcode] (
+    [postcode] varchar(50),
+    [easting] varchar(50),
+    [northing] varchar(50),
+    [latitude] varchar(50),
+    [longitude] varchar(50),
+    [city] varchar(50),
+    [county] varchar(50),
+    [country_code] varchar(50),
+    [country_name] varchar(50),
+    [iso3166-2] varchar(50),
+    [region_code] varchar(50),
+    [region_name] varchar(50)
+)
+
+
+CREATE TABLE [LSOA_Postcode_Mapping] (
+    [pcd7] varchar(50),
+    [pcd8] varchar(50),
+    [pcds] varchar(50),
+    [dointr] varchar(50),
+    [doterm] varchar(50),
+    [usertype] varchar(50),
+    [oa11cd] varchar(50),
+    [lsoa11cd] varchar(50),
+    [msoa11cd] varchar(50),
+    [ladcd] varchar(50),
+    [lsoa11nm] varchar(100),
+    [msoa11nm] varchar(100),
+    [ladnm] varchar(100),
+    [ladnmw] varchar(100)
+)
