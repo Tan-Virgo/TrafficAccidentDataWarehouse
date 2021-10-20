@@ -1,20 +1,20 @@
 CREATE TABLE [Ped_Cross_Physical] (
     [ID_PedCrossPhysical] varchar(50),
-    [Name] varchar(50),
+    [Name] varchar(100),
 [Create_timestamp] datetime default getdate(),
 [Update_timestamp] datetime default getdate()
 )
 
 CREATE TABLE [Ped_Location] (
     [ID_PedLocation] varchar(50),
-    [Name] varchar(50),
+    [Name] varchar(100),
 [Create_timestamp] datetime default getdate(),
 [Update_timestamp] datetime default getdate()
-) 	
+)	
 
 CREATE TABLE [Ped_Movement] (
     [ID_PedMovement] varchar(50),
-    [Name] varchar(50),
+    [Name] varchar(200),
 [Create_timestamp] datetime default getdate(),
 [Update_timestamp] datetime default getdate()
 )
@@ -35,7 +35,7 @@ CREATE TABLE [Police_Force] (
 
 CREATE TABLE [Police_Officer_Attend] (
     [ID_PoliceOfficerAttend] varchar(50),
-    [Name] varchar(50),
+    [Name] varchar(100),
 [Create_timestamp] datetime default getdate(),
 [Update_timestamp] datetime default getdate()
 )
@@ -60,3 +60,9 @@ CREATE TABLE [Casualties] (
 [Update_timestamp] datetime default getdate()
 )
 
+CREATE TABLE [Road_Class] (
+    [ID_RoadClass] varchar(50),
+    [Name] varchar(50),
+[Create_timestamp] datetime default getdate(),
+[Update_timestamp] datetime default getdate()
+)
