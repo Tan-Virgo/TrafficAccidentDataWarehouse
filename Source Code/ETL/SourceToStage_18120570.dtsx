@@ -11,27 +11,15 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage_18120570"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{93645175-FD73-4423-89C9-138DC2D2A974}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{9EDC668C-288C-459F-8BB0-AC6C09536AA3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{23A66A0A-D21D-4161-9D9C-AB1F3CC43829}"
-      DTS:ObjectName="DESKTOP-4JS6BER\KOU.Stage">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{E91AAA9D-2E95-4522-9D51-A2674056A3DE}"
+      DTS:DTSID="{9826303C-289D-481F-B951-1FF29E3F232B}"
       DTS:ObjectName="Flat File Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -42,7 +30,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Ped_Cross_Physical.csv">
+          DTS:ConnectionString="D:\DATA\UK Car Accident Data (MainDatabase)\ReferenceTable\Ped_Cross_Physical.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -51,16 +39,16 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="code"
-              DTS:DTSID="{4CCBE68F-93F4-45BF-AEA1-024E16BB9848}"
+              DTS:DTSID="{2D671908-34EC-45E0-A3E0-A43912A61164}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="label"
-              DTS:DTSID="{B699D60E-0201-4315-8379-58AED7BF8737}"
+              DTS:DTSID="{716763C7-766F-4285-A24D-9B3EDD128213}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -69,7 +57,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{5D5DEE4E-1DA4-4F1A-964C-783AFB3AEE1E}"
+      DTS:DTSID="{41F45B75-1349-4717-BD7B-A265B8C10F75}"
       DTS:ObjectName="Flat File Connection Manager 1">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -80,7 +68,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Ped_Location.csv">
+          DTS:ConnectionString="D:\DATA\UK Car Accident Data (MainDatabase)\ReferenceTable\Ped_Location.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -89,16 +77,16 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="code"
-              DTS:DTSID="{15708DE5-918E-4235-92F8-469A14936D6D}"
+              DTS:DTSID="{1D9B565E-561D-4572-BED6-44D8087B294D}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="100"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="label"
-              DTS:DTSID="{B61F560A-5B52-4F29-8D87-7FCD1800FADD}"
+              DTS:DTSID="{AE0B4A66-3733-4F6E-9053-02340E3A9E1B}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -107,7 +95,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{1DE7FA61-94BC-4A26-9610-9B5524DFF6AC}"
+      DTS:DTSID="{10884B62-E024-4F15-BB6A-201FFDCB83FE}"
       DTS:ObjectName="Flat File Connection Manager 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -118,7 +106,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Ped_Movement.csv">
+          DTS:ConnectionString="D:\DATA\UK Car Accident Data (MainDatabase)\ReferenceTable\Ped_Movement.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -127,16 +115,16 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="code"
-              DTS:DTSID="{7C246BE7-182D-4A91-8C93-FD19330D7045}"
+              DTS:DTSID="{05862028-8FF1-49B2-8E96-2BACA7B697C0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="200"
+              DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="label"
-              DTS:DTSID="{AFD5AB69-DE8B-49F3-96B6-7BA8883DCB0D}"
+              DTS:DTSID="{6A36A16B-31AD-4956-B918-1F3C7F1198FE}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -145,7 +133,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 3]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{B0082D83-6711-48B6-A1ED-DBB03FC08324}"
+      DTS:DTSID="{FC312A48-78B5-4FDC-91F0-B31A1DA8A531}"
       DTS:ObjectName="Flat File Connection Manager 3">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -156,7 +144,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Ped_Location.csv">
+          DTS:ConnectionString="D:\DATA\UK Car Accident Data (MainDatabase)\ReferenceTable\Point_of_Impact.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -165,7 +153,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="code"
-              DTS:DTSID="{53D342FC-59D0-4D92-B088-14E5B86160E7}"
+              DTS:DTSID="{7F41D02D-5145-4667-834B-5765ED3543DC}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -174,7 +162,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="label"
-              DTS:DTSID="{11D83875-8028-4132-AAD4-627A898EC0D3}"
+              DTS:DTSID="{35E82D60-84F5-4621-9DA9-1716881CB569}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -183,7 +171,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 4]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{E308401E-F5F1-4627-B7B1-398B57F50141}"
+      DTS:DTSID="{436E4C79-278B-4098-ADD9-B3F865852DFD}"
       DTS:ObjectName="Flat File Connection Manager 4">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -194,7 +182,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Ped_Movement.csv">
+          DTS:ConnectionString="D:\DATA\UK Car Accident Data (MainDatabase)\ReferenceTable\Police_Force.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -203,7 +191,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="code"
-              DTS:DTSID="{A74748F1-AE5D-473C-9EB3-11F757ACFE34}"
+              DTS:DTSID="{0C8AB3E1-FF27-4BCA-8B0A-995B91625594}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -212,7 +200,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="label"
-              DTS:DTSID="{1E72C909-E56A-474C-A5DB-1C33D833C24C}"
+              DTS:DTSID="{5818A69C-A18B-4183-A78B-964DAE284D84}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -221,7 +209,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 5]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{56A67D4A-B32F-4AB1-8E9D-5E9FF303DF78}"
+      DTS:DTSID="{50786266-CA5B-4B57-944F-FE5DF297C536}"
       DTS:ObjectName="Flat File Connection Manager 5">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -232,7 +220,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Point_of_Impact.csv">
+          DTS:ConnectionString="D:\DATA\UK Car Accident Data (MainDatabase)\ReferenceTable\Police_Officer_Attend.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -241,7 +229,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="code"
-              DTS:DTSID="{6F7326E3-F9EC-42A8-ABB8-BE44C94E60A5}"
+              DTS:DTSID="{49AA967F-E537-42DB-8C90-FDC5983431FB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -250,7 +238,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="label"
-              DTS:DTSID="{1098E7B0-0057-44DD-9E8C-F33B62414E0E}"
+              DTS:DTSID="{CD80F73F-35DD-42DF-ABD7-DF38D519BED8}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -259,7 +247,7 @@
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 6]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{4B9EA074-F43F-4374-8B58-0825CA8A3601}"
+      DTS:DTSID="{DCD290A2-DD6A-4DA4-A6D6-082E3568B784}"
       DTS:ObjectName="Flat File Connection Manager 6">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -270,7 +258,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Police_Force.csv">
+          DTS:ConnectionString="D:\DATA\UK Car Accident Data (MainDatabase)\ReferenceTable\Road_Class.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -279,7 +267,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="code"
-              DTS:DTSID="{7175C281-B658-45B0-B35E-77FFD6083583}"
+              DTS:DTSID="{316FD456-7C52-45AA-817E-1BCA6824DAC7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -288,110 +276,22 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="label"
-              DTS:DTSID="{F4D8E06A-717A-4D16-8537-26D90A1F26C6}"
+              DTS:DTSID="{9459A0F4-47B0-42B6-8C3E-CD217CCEF2FD}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 7]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{05600FE3-3477-4F8F-82BA-BD15A6FF8C59}"
-      DTS:ObjectName="Flat File Connection Manager 7">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Police_Officer_Attend.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="code"
-              DTS:DTSID="{D7C10861-AB32-4147-96CE-0F908EE5F2ED}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="100"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="label"
-              DTS:DTSID="{9F1AED54-9710-465E-B6F4-F28596CF23A5}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 8]"
-      DTS:CreationName="FLATFILE"
-      DTS:DTSID="{485F9156-7DE2-470E-856B-37531F7AAA5E}"
-      DTS:ObjectName="Flat File Connection Manager 8">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:Format="Delimited"
-          DTS:LocaleID="1033"
-          DTS:HeaderRowDelimiter="_x000D__x000A_"
-          DTS:ColumnNamesInFirstDataRow="True"
-          DTS:RowDelimiter=""
-          DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="E:\BI\CSV\Road_Class.csv">
-          <DTS:FlatFileColumns>
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x002C_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="code"
-              DTS:DTSID="{6948EE0F-89F9-43EF-A910-60E376940BDF}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x000A_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="label"
-              DTS:DTSID="{F821C5BD-D226-458C-91B8-BA1FD08C6B22}"
-              DTS:CreationName="" />
-          </DTS:FlatFileColumns>
-        </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.Stage]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB_Stage]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{1754F628-F404-409F-B9FB-CE98E545D13A}"
-      DTS:ObjectName="LocalHost.Stage">
+      DTS:DTSID="{5CF92343-965A-4CA1-B915-7967318A5A06}"
+      DTS:ObjectName="LocalHost.DB_Stage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.Stage 1]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{269248D0-0CC8-43D5-A35F-C2FCCC7B6DDE}"
-      DTS:ObjectName="LocalHost.Stage 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -470,8 +370,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Ped_Cross_Physical.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -504,24 +404,14 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Ped_Cross_Physical.Inputs[OLE DB Destination Input].ExternalColumns[ID_PedCrossPhysical]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="ID_PedCrossPhysical" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Ped_Cross_Physical.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="50"
                       name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Ped_Cross_Physical.Inputs[OLE DB Destination Input].ExternalColumns[Create_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Create_timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Ped_Cross_Physical.Inputs[OLE DB Destination Input].ExternalColumns[Update_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Update_timestamp" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -638,7 +528,7 @@
                       refId="Package\Data Flow Task\Ped_Cross_Physical_Source.Outputs[Flat File Source Output].ExternalColumns[label]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="50"
                       name="label" />
                   </externalMetadataColumns>
                 </output>
@@ -730,8 +620,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Ped_Location.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -764,24 +654,14 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Ped_Location.Inputs[OLE DB Destination Input].ExternalColumns[ID_PedLocation]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="ID_PedLocation" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Ped_Location.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="50"
                       name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Ped_Location.Inputs[OLE DB Destination Input].ExternalColumns[Create_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Create_timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Ped_Location.Inputs[OLE DB Destination Input].ExternalColumns[Update_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Update_timestamp" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -898,7 +778,7 @@
                       refId="Package\Data Flow Task\Ped_Location_Source.Outputs[Flat File Source Output].ExternalColumns[label]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="50"
                       name="label" />
                   </externalMetadataColumns>
                 </output>
@@ -990,8 +870,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Ped_Movement.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1024,24 +904,14 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Ped_Movement.Inputs[OLE DB Destination Input].ExternalColumns[ID_PedMovement]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="ID_PedMovement" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Ped_Movement.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
+                      length="100"
                       name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Ped_Movement.Inputs[OLE DB Destination Input].ExternalColumns[Create_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Create_timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Ped_Movement.Inputs[OLE DB Destination Input].ExternalColumns[Update_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Update_timestamp" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1158,7 +1028,7 @@
                       refId="Package\Data Flow Task\Ped_Movement_Source.Outputs[Flat File Source Output].ExternalColumns[label]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
+                      length="50"
                       name="label" />
                   </externalMetadataColumns>
                 </output>
@@ -1250,8 +1120,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Point_of_Impact.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1289,18 +1159,8 @@
                       length="50"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Point_of_Impact.Inputs[OLE DB Destination Input].ExternalColumns[Create_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Create_timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Point_of_Impact.Inputs[OLE DB Destination Input].ExternalColumns[Update_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Update_timestamp" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Point_of_Impact.Inputs[OLE DB Destination Input].ExternalColumns[ID_PointofImpact]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="ID_PointofImpact" />
                   </externalMetadataColumns>
                 </input>
@@ -1352,8 +1212,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Point_of_Impact_Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 5]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 5]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 3]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 3]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -1510,8 +1370,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Police_Force.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1549,18 +1409,8 @@
                       length="50"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Police_Force.Inputs[OLE DB Destination Input].ExternalColumns[Create_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Create_timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Police_Force.Inputs[OLE DB Destination Input].ExternalColumns[Update_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Update_timestamp" />
-                    <externalMetadataColumn
                       refId="Package\Data Flow Task\Police_Force.Inputs[OLE DB Destination Input].ExternalColumns[ID_PoliceForce]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="ID_PoliceForce" />
                   </externalMetadataColumns>
                 </input>
@@ -1612,8 +1462,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Police_Force_Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 6]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 6]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 4]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 4]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -1770,8 +1620,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Police_Officer_Attend.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1804,24 +1654,14 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Police_Officer_Attend.Inputs[OLE DB Destination Input].ExternalColumns[ID_PoliceOfficerAttend]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="ID_PoliceOfficerAttend" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Police_Officer_Attend.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="50"
                       name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Police_Officer_Attend.Inputs[OLE DB Destination Input].ExternalColumns[Create_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Create_timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Police_Officer_Attend.Inputs[OLE DB Destination Input].ExternalColumns[Update_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Update_timestamp" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1872,8 +1712,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Police_Officer_Attend_Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 7]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 7]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 5]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 5]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -1938,7 +1778,7 @@
                       refId="Package\Data Flow Task\Police_Officer_Attend_Source.Outputs[Flat File Source Output].ExternalColumns[label]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
+                      length="50"
                       name="label" />
                   </externalMetadataColumns>
                 </output>
@@ -2030,8 +1870,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Road_Class.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-4JS6BER\KOU.Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2064,9 +1904,7 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Road_Class.Inputs[OLE DB Destination Input].ExternalColumns[ID_RoadClass]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="ID_RoadClass" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Road_Class.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
@@ -2074,14 +1912,6 @@
                       dataType="str"
                       length="50"
                       name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Road_Class.Inputs[OLE DB Destination Input].ExternalColumns[Create_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Create_timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Road_Class.Inputs[OLE DB Destination Input].ExternalColumns[Update_timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Update_timestamp" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2132,8 +1962,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Road_Class_Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 8]"
-                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 8]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 6]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 6]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -2286,7 +2116,7 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\Data Flow Task"
           TopLeft="123,60" />
       </GraphLayout>
@@ -2298,21 +2128,183 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="194,42"
+          Size="193.6,41.6"
           Id="Package\Data Flow Task\Point_of_Impact_Source"
           TopLeft="67,235" />
         <NodeLayout
-          Size="138,42"
+          Size="188.8,41.6"
+          Id="Package\Data Flow Task\Ped_Movement_Source"
+          TopLeft="108,177" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\Data Flow Task\Ped_Location_Source"
+          TopLeft="77,108" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\Data Flow Task\Ped_Cross_Physical_Source"
+          TopLeft="77,51" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\Data Flow Task\Road_Class"
+          TopLeft="330,418" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Data Flow Task\Police_Officer_Attend"
+          TopLeft="373,365" />
+        <NodeLayout
+          Size="137.6,41.6"
           Id="Package\Data Flow Task\Police_Force"
           TopLeft="324,293" />
         <NodeLayout
-          Size="156,42"
+          Size="156,41.6"
           Id="Package\Data Flow Task\Point_of_Impact"
           TopLeft="352,239" />
         <NodeLayout
-          Size="176,42"
+          Size="151.2,41.6"
+          Id="Package\Data Flow Task\Ped_Movement"
+          TopLeft="376,178" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task\Road_Class_Source"
+          TopLeft="53,419" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Data Flow Task\Ped_Location"
+          TopLeft="380,112" />
+        <NodeLayout
+          Size="217.6,41.6"
+          Id="Package\Data Flow Task\Police_Officer_Attend_Source"
+          TopLeft="61,355" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Data Flow Task\Ped_Cross_Physical"
+          TopLeft="384,57" />
+        <NodeLayout
+          Size="176,41.6"
           Id="Package\Data Flow Task\Police_Force_Source"
           TopLeft="60,300" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output6]"
+          TopLeft="297,198.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79,0"
+              Start="0,0"
+              End="71.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output5]"
+          TopLeft="279,376">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="94,10"
+              Start="0,0"
+              End="86.5,10">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43,0"
+                    Point2="47,0"
+                    Point3="47,4" />
+                  <mssgle:LineSegment
+                    End="47,6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47,6"
+                    Point2="47,10"
+                    Point3="51,10" />
+                  <mssgle:LineSegment
+                    End="86.5,10" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output4]"
+          TopLeft="256,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="124,0"
+              Start="0,0"
+              End="116.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="116.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output3]"
+          TopLeft="286,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98,0"
+              Start="0,0"
+              End="90.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="90.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Flat File Source Output2]"
+          TopLeft="224,439.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106,0"
+              Start="0,0"
+              End="98.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="98.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output1]"
           TopLeft="261,258">
@@ -2357,199 +2349,11 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Data Flow Task\Road_Class_Source"
-          TopLeft="53,419" />
-        <NodeLayout
-          Size="133,42"
-          Id="Package\Data Flow Task\Road_Class"
-          TopLeft="330,418" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output2]"
-          TopLeft="224,439.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="106,0"
-              Start="0,0"
-              End="98.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="98.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="209,42"
-          Id="Package\Data Flow Task\Ped_Cross_Physical_Source"
-          TopLeft="77,51" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Data Flow Task\Ped_Cross_Physical"
-          TopLeft="384,57" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output3]"
-          TopLeft="286,75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="98,0"
-              Start="0,0"
-              End="90.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="90.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="179,42"
-          Id="Package\Data Flow Task\Ped_Location_Source"
-          TopLeft="77,108" />
-        <NodeLayout
-          Size="142,42"
-          Id="Package\Data Flow Task\Ped_Location"
-          TopLeft="380,112" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output4]"
-          TopLeft="256,131">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="124,0"
-              Start="0,0"
-              End="116.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="116.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="218,42"
-          Id="Package\Data Flow Task\Police_Officer_Attend_Source"
-          TopLeft="61,355" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Data Flow Task\Police_Officer_Attend"
-          TopLeft="373,365" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output5]"
-          TopLeft="279,376">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="94,10"
-              Start="0,0"
-              End="86.5,10">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="43,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="43,0"
-                    Point2="47,0"
-                    Point3="47,4" />
-                  <mssgle:LineSegment
-                    End="47,6" />
-                  <mssgle:CubicBezierSegment
-                    Point1="47,6"
-                    Point2="47,10"
-                    Point3="51,10" />
-                  <mssgle:LineSegment
-                    End="86.5,10" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Data Flow Task\Ped_Movement_Source"
-          TopLeft="108,177" />
-        <NodeLayout
-          Size="151,42"
-          Id="Package\Data Flow Task\Ped_Movement"
-          TopLeft="376,178" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output6]"
-          TopLeft="297,198.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="79,0"
-              Start="0,0"
-              End="71.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="71.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Road_Class">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Ped_Cross_Physical">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Ped_Location">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2575,7 +2379,59 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Police_Force">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Point_of_Impact">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Ped_Movement">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Ped_Location">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Ped_Cross_Physical">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
