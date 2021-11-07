@@ -50,6 +50,8 @@ DELETE [LSOA_Postcode_Mapping]
 
 
 
+--=================== CREATE ALL TABLE FOR SOURCE ==============
+
 CREATE TABLE [Accident_Severity] (
 		[ID_AccidentSeverity] INT,
 		[Name] varchar(50),
@@ -687,9 +689,6 @@ OR (Update_Timestamp < GETDATE() AND Update_Timestamp > ?)
 
 
 
-
-
-
 INSERT INTO [DataFlow] (Name, LSET) VALUES ('Accident_Severity', '1/1/2021')
 INSERT INTO [DataFlow] (Name, LSET) VALUES ('Age_Band', '1/1/2021')
 INSERT INTO [DataFlow] (Name, LSET) VALUES ('Casualty_Class', '1/1/2021')
@@ -723,7 +722,44 @@ INSERT INTO [DataFlow] (Name, LSET) VALUES ('Vehicle_Location', '1/1/2021')
 INSERT INTO [DataFlow] (Name, LSET) VALUES ('Vehicle_Manoeuvre ', '1/1/2021')
 INSERT INTO [DataFlow] (Name, LSET) VALUES ('Vehicle_Type', '1/1/2021')
 INSERT INTO [DataFlow] (Name, LSET) VALUES ('Vehicle', '1/1/2021')
+ALTER TABLE [DataFlow]
+ADD Source NVARCHAR(50)
 
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Accident_Severity'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Age_Band'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Casualty_Class'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Casualty_Severity'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Journey_Purpose'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Day_of_Week'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Casualty_Type'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Casualties'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Accidents'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Junction_Control'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Junction_Detail'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Junction_Location'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Light_Conditions'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Local_Authority_District'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Local_Authority_Highway'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Ped_Cross_Human'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Ped_Cross_Physical'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Ped_Location'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Ped_Movement'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Point_of_Impact'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Police_Force'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Police_Officer_Attend'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Road_Class'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Road_Type'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Road_Accident_Safety_Data_Guide'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Sex_of_Driver'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Urban_Rural'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Vehicle_Manoeuvre'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Vehicle_Type'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Vehicle'
+UPDATE DataFlow SET Source = 'UK_CAR_Accident' WHERE Name = 'Vehicle_Location'
+UPDATE DataFlow SET Source = 'LSOA_Postcode_Mapping' WHERE Name = 'LSOA_Postcode_Mapping'
+UPDATE DataFlow SET Source = 'UK_Postcode' WHERE Name = 'UK_Postcode'
+
+	
 DELETE DataFlow
 SELECT * FROM DataFlow
 
