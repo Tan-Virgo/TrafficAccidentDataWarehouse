@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage_18120560"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{526D6D26-CFBE-42E7-9445-F3E853B1C08E}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{12269B47-5F99-461D-BAF8-78C405537788}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3844,21 +3844,25 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Source To Stage\Ped_Cross_Human"
+          TopLeft="416.142857009051,477.294117314593" />
+        <NodeLayout
+          Size="245.6,41.6"
+          Id="Package\Source To Stage\Local_Authority_Highway_Source"
+          TopLeft="118.000000596047,403.611764641534" />
+        <NodeLayout
+          Size="228.8,41.6"
+          Id="Package\Source To Stage\Local_Authority_District_Source"
+          TopLeft="68.0000000000002,339.2" />
+        <NodeLayout
           Size="227.2,41.6"
           Id="Package\Source To Stage\Light_Conditions_Source"
-          TopLeft="73.9999999999999,261" />
-        <NodeLayout
-          Size="177.6,41.6"
-          Id="Package\Source To Stage\UK_Postcode_Source"
-          TopLeft="71.4285726449927,558.5647097218" />
+          TopLeft="94.0000003405979,261" />
         <NodeLayout
           Size="200.8,41.6"
           Id="Package\Source To Stage\Junction_Location_Source"
-          TopLeft="45,188" />
-        <NodeLayout
-          Size="235.2,41.6"
-          Id="Package\Source To Stage\LSOA_Postcode_Mapping_Source"
-          TopLeft="61.4285724746937,620.835297753324" />
+          TopLeft="75.0000005108969,196.411764823854" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\Source To Stage\Junction_Detail_Source"
@@ -3866,15 +3870,23 @@
         <NodeLayout
           Size="205.6,41.6"
           Id="Package\Source To Stage\Junction_Control_Source"
-          TopLeft="78.0000000000001,25" />
+          TopLeft="117.285714954746,31.1176471446212" />
+        <NodeLayout
+          Size="213.6,48"
+          Id="Package\Source To Stage\Ped_Cross_Human_Source"
+          TopLeft="53.2857134220552,476.25882338999" />
+        <NodeLayout
+          Size="235.2,41.6"
+          Id="Package\Source To Stage\LSOA_Postcode_Mapping_Source"
+          TopLeft="61.4285724746937,620.835297753324" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\Source To Stage\UK_Postcode_Source"
+          TopLeft="71.4285726449927,558.5647097218" />
         <NodeLayout
           Size="140,41.6"
           Id="Package\Source To Stage\UK_Postcode"
           TopLeft="472.142865183402,561.729414885597" />
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Source To Stage\Ped_Cross_Human"
-          TopLeft="416.142857009051,477.294117314593" />
         <NodeLayout
           Size="197.6,41.6"
           Id="Package\Source To Stage\LSOA_Postcode_Mapping"
@@ -3896,25 +3908,13 @@
           Id="Package\Source To Stage\Junction_Location"
           TopLeft="380,190" />
         <NodeLayout
-          Size="213.6,48"
-          Id="Package\Source To Stage\Ped_Cross_Human_Source"
-          TopLeft="53.2857134220552,476.25882338999" />
-        <NodeLayout
           Size="150.4,41.6"
           Id="Package\Source To Stage\Junction_Detail"
           TopLeft="433,118.2" />
         <NodeLayout
-          Size="245.6,41.6"
-          Id="Package\Source To Stage\Local_Authority_Highway_Source"
-          TopLeft="83.0000000000002,408.2" />
-        <NodeLayout
           Size="170.4,41.6"
           Id="Package\Source To Stage\Junction_Control"
           TopLeft="457.2857143587,32.0588233899905" />
-        <NodeLayout
-          Size="228.8,41.6"
-          Id="Package\Source To Stage\Local_Authority_District_Source"
-          TopLeft="68.0000000000002,339.2" />
         <EdgeLayout
           Id="Package\Source To Stage.Paths[Flat File Source Output8]"
           TopLeft="296.628572474694,640.152944533305">
@@ -3961,18 +3961,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Source To Stage.Paths[Flat File Source Output6]"
-          TopLeft="245.8,209.8">
+          TopLeft="275.800000510897,214.005882411927">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="134.2,0"
+              EndConnector="104.199999489103,0"
               Start="0,0"
-              End="126.7,0">
+              End="96.6999994891031,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="126.7,0" />
+                    End="96.6999994891031,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4005,18 +4005,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Source To Stage.Paths[Flat File Source Output4]"
-          TopLeft="328.6,429.4">
+          TopLeft="363.600000596047,427.105882320767">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="88.3999999999998,0"
+              EndConnector="53.3999994039533,0"
               Start="0,0"
-              End="80.8999999999998,0">
+              End="45.8999994039533,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="80.8999999999998,0" />
+                    End="45.8999994039533,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4049,18 +4049,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Source To Stage.Paths[Flat File Source Output2]"
-          TopLeft="301.2,282.3">
+          TopLeft="321.200000340598,282.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="137.8,0"
+              EndConnector="117.799999659402,0"
               Start="0,0"
-              End="130.3,0">
+              End="110.299999659402,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="130.3,0" />
+                    End="110.299999659402,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4093,18 +4093,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Source To Stage.Paths[Flat File Source Output]"
-          TopLeft="283.6,49.3294116949953">
+          TopLeft="322.885714954746,52.3882352673059">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="173.685714358699,0"
+              EndConnector="134.399999403954,0"
               Start="0,0"
-              End="166.185714358699,0">
+              End="126.899999403954,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="166.185714358699,0" />
+                    End="126.899999403954,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4117,7 +4117,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Source To Stage\UK_Postcode">
+    design-time-name="Package\Source To Stage\Ped_Cross_Human">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -4130,7 +4130,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Source To Stage\Ped_Cross_Human">
+    design-time-name="Package\Source To Stage\UK_Postcode">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

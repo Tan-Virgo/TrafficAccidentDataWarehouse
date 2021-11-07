@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Load_CSV_To_DBSource", "Load_CSV_To_DBSource\Load_CSV_To_DBSource.dtproj", "{0F3E0A8B-8D54-4807-963C-40F820D6AB77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F3E0A8B-8D54-4807-963C-40F820D6AB77}.Development|Default.ActiveCfg = Development
+		{0F3E0A8B-8D54-4807-963C-40F820D6AB77}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF523A5C-30BF-4C8A-9A28-88517A31CDB7}
+	EndGlobalSection
+EndGlobal
