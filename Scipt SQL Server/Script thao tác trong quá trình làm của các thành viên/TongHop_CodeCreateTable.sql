@@ -687,7 +687,7 @@ WHERE (Create_Timestamp < GETDATE() AND Create_Timestamp >? )
 OR (Update_Timestamp < GETDATE() AND Update_Timestamp > ?)
 
 
-
+--============================ INSERT THÔNG TIN BAN ĐẦU CHO Metadata ===========
 
 INSERT INTO [DataFlow] (Name, LSET) VALUES ('Accident_Severity', '1/1/2021')
 INSERT INTO [DataFlow] (Name, LSET) VALUES ('Age_Band', '1/1/2021')

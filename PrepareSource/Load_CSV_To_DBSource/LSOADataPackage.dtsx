@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{3C6D04EC-1EB9-4521-8552-B3E50B05A203}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{CD6A39F1-78CB-42BA-B373-41A6FE568DC4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -237,7 +237,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -992,13 +992,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="235.2,41.6"
-          Id="Package\LSOA Postcode Mapping\LSOA_Postcode_Mapping_Source"
-          TopLeft="60,62.964706440038" />
-        <NodeLayout
           Size="197.6,41.6"
           Id="Package\LSOA Postcode Mapping\LSOA_Postcode_Mapping"
           TopLeft="437.142863565562,60" />
+        <NodeLayout
+          Size="235.2,41.6"
+          Id="Package\LSOA Postcode Mapping\LSOA_Postcode_Mapping_Source"
+          TopLeft="60,62.964706440038" />
         <EdgeLayout
           Id="Package\LSOA Postcode Mapping.Paths[Flat File Source Output]"
           TopLeft="295.2,82.282353220019">

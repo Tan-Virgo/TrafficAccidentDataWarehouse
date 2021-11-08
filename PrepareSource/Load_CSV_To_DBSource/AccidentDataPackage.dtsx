@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{451E8949-571F-4B45-9112-5904E92D8647}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{E268C63B-56A7-435E-BFFF-139602235BC5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3090,7 +3090,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -4183,35 +4183,43 @@
           Id="Package\Accident table"
           TopLeft="134.285716572587,116.235295747803" />
         <NodeLayout
+          Size="152,41.6"
+          Id="Package\Casualties table"
+          TopLeft="187.142860329881,200.352943986345" />
+        <NodeLayout
           Size="159.2,43.2"
           Id="Package\Reference Tables"
-          TopLeft="9.28571444384905,16.0588237546307" />
+          TopLeft="56.4285723895443,19.1176473269413" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Vehicles table"
+          TopLeft="290.000004938671,308.941180803372" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="88.885714443849,59.2588237546307">
+          TopLeft="136.028572389544,62.3176473269413">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="117.800002128738,56.9764719931723"
+              EndConnector="70.6571441830428,53.9176484208617"
               Start="0,0"
-              End="117.800002128738,49.4764719931723">
+              End="70.6571441830428,46.4176484208617">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.4882359965861" />
+                    End="0,22.9588242104308" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.4882359965861"
-                    Point2="0,28.4882359965861"
-                    Point3="4,28.4882359965861" />
+                    Point1="0,22.9588242104308"
+                    Point2="0,26.9588242104308"
+                    Point3="4,26.9588242104308" />
                   <mssgle:LineSegment
-                    End="113.800002128738,28.4882359965861" />
+                    End="66.6571441830428,26.9588242104308" />
                   <mssgle:CubicBezierSegment
-                    Point1="113.800002128738,28.4882359965861"
-                    Point2="117.800002128738,28.4882359965861"
-                    Point3="117.800002128738,32.4882359965861" />
+                    Point1="66.6571441830428,26.9588242104308"
+                    Point2="70.6571441830428,26.9588242104308"
+                    Point3="70.6571441830428,30.9588242104308" />
                   <mssgle:LineSegment
-                    End="117.800002128738,49.4764719931723" />
+                    End="70.6571441830428,46.4176484208617" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4220,10 +4228,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="152,41.6"
-          Id="Package\Casualties table"
-          TopLeft="187.142860329881,200.352943986345" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="206.685716572587,157.835295747803">
@@ -4258,10 +4262,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="143.2,41.6"
-          Id="Package\Vehicles table"
-          TopLeft="290.000004938671,308.941180803372" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="263.142860329881,241.952943986345">
@@ -4303,15 +4303,15 @@
     design-time-name="Package\Accident table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\Accident table\Accidents_Source"
-          TopLeft="60,61.0235305593091" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="123.2,41.6"
           Id="Package\Accident table\Accidents"
           TopLeft="360.714290835419,60" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Accident table\Accidents_Source"
+          TopLeft="60,61.0235305593091" />
         <EdgeLayout
           Id="Package\Accident table.Paths[Flat File Source Output]"
           TopLeft="220.8,81.311765279654">
@@ -4331,7 +4331,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4354,7 +4356,7 @@
     design-time-name="Package\Casualties table">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\Casualties table\Casualties_Source"
@@ -4382,7 +4384,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
