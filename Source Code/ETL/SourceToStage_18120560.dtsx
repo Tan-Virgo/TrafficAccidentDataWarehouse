@@ -11,16 +11,16 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage_18120560"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{3CE126F6-231A-4CC2-B0D3-DA0C7D4E1354}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{27303229-2C93-4FE9-9D22-8BA1DB08F65A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_MetaData]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB_MetaData]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
-      DTS:ObjectName="DESKTOP-T3NO52J\SQLEXPRESS.DB_MetaData">
+      DTS:DTSID="{176AFFDF-3496-414E-885C-D49544FA744A}"
+      DTS:ObjectName="LocalHost.DB_MetaData">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -29,34 +29,22 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB_Stage]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
-      DTS:ObjectName="DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage">
+      DTS:DTSID="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
+      DTS:ObjectName="LocalHost.DB_Stage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-T3NO52J\SQLEXPRESS;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage 1]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.LSOA_Postcode_Mapping]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{D74E4CB3-8974-44D5-8AD2-87381A953282}"
-      DTS:ObjectName="DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-T3NO52J\SQLEXPRESS;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.LSOA_Postcode_Mapping]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{90E031AD-A797-4D14-ACE8-37EEA90FF143}"
-      DTS:ObjectName="DESKTOP-T3NO52J\SQLEXPRESS.LSOA_Postcode_Mapping">
+      DTS:DTSID="{C78A9971-A86E-4194-8973-F0C892C77648}"
+      DTS:ObjectName="LocalHost.LSOA_Postcode_Mapping">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -65,22 +53,22 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{6B8FF117-CB69-4F77-B045-189CC345D96B}"
-      DTS:ObjectName="DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident">
+      DTS:DTSID="{FD8D1C84-388F-4BFE-82EC-4AB5E576DA18}"
+      DTS:ObjectName="LocalHost.UK_CAR_Accident">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-T3NO52J\SQLEXPRESS;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_Postcode]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.UK_Postcode]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{9ACE89AD-135C-43BA-9E80-CD6D41E04E18}"
-      DTS:ObjectName="DESKTOP-T3NO52J\SQLEXPRESS.UK_Postcode">
+      DTS:DTSID="{DD7504B7-A64B-4BE0-BE33-39478A6E85E4}"
+      DTS:ObjectName="LocalHost.UK_Postcode">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
@@ -120,11 +108,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Junction_Control'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -142,11 +130,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Junction_Detail'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -164,11 +152,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Junction_Location'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -186,11 +174,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Light_Conditions'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -212,7 +200,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Local_Authority_District'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -230,11 +218,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Local_Authority_Highway'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -252,11 +240,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Ped_Cross_Human'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -274,11 +262,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'LSOA_Postcode_Mapping'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -296,11 +284,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 9"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'UK_Postcode'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -339,7 +327,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Accident_Severity]</property>
+                  name="OpenRowset">[dbo].[Junction_Control]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -374,8 +362,8 @@
               <connections>
                 <connection
                   refId="Package\Junction_Control\Junction_Control DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -548,8 +536,8 @@
               <connections>
                 <connection
                   refId="Package\Junction_Control\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -657,7 +645,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Accident_Severity]</property>
+                  name="OpenRowset">[dbo].[Junction_Detail]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -692,8 +680,8 @@
               <connections>
                 <connection
                   refId="Package\Junction_Detail\Junction_Detail DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -866,8 +854,8 @@
               <connections>
                 <connection
                   refId="Package\Junction_Detail\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1010,8 +998,8 @@
               <connections>
                 <connection
                   refId="Package\Junction_Location\Junction_Location DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1184,8 +1172,8 @@
               <connections>
                 <connection
                   refId="Package\Junction_Location\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1328,8 +1316,8 @@
               <connections>
                 <connection
                   refId="Package\Light_Conditions\Light_Conditions DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1502,8 +1490,8 @@
               <connections>
                 <connection
                   refId="Package\Light_Conditions\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1646,8 +1634,8 @@
               <connections>
                 <connection
                   refId="Package\Local_Authority_District\Local_Authority_District DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1820,8 +1808,8 @@
               <connections>
                 <connection
                   refId="Package\Local_Authority_District\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1964,8 +1952,8 @@
               <connections>
                 <connection
                   refId="Package\Local_Authority_Highway\Local_Authority_Highway DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2144,8 +2132,8 @@
               <connections>
                 <connection
                   refId="Package\Local_Authority_Highway\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2292,8 +2280,8 @@
               <connections>
                 <connection
                   refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.LSOA_Postcode_Mapping]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.LSOA_Postcode_Mapping]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.LSOA_Postcode_Mapping]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.LSOA_Postcode_Mapping]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2760,8 +2748,8 @@
               <connections>
                 <connection
                   refId="Package\LSOA_Postcode_Mapping\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3084,8 +3072,8 @@
               <connections>
                 <connection
                   refId="Package\Ped_Cross_Human\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3207,8 +3195,8 @@
               <connections>
                 <connection
                   refId="Package\Ped_Cross_Human\Ped_Cross_Human DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_CAR_Accident]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3348,11 +3336,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Junction_Control'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3365,11 +3353,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Junction_Detail'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3382,11 +3370,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Junction_Location'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3399,11 +3387,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Light_Conditions'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3420,7 +3408,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Local_Authority_District'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3433,11 +3421,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Local_Authority_Highway'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3450,11 +3438,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Ped_Cross_Human'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3467,11 +3455,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'LSOA_Postcode_Mapping'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3484,11 +3472,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 9"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{D3C17E30-C314-4287-9916-63AB8C5F75FB}"
+          SQLTask:Connection="{176AFFDF-3496-414E-885C-D49544FA744A}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'UK_Postcode'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3501,11 +3489,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Junction_Control" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3518,11 +3506,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Junction_Detail" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3535,11 +3523,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Junction_Location" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3552,11 +3540,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Light_Conditions" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3573,7 +3561,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Local_Authority_District" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3586,11 +3574,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Local_Authority_Highway" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3603,11 +3591,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Ped_Cross_Human" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3620,11 +3608,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE LSOA_Postcode_Mapping" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3637,11 +3625,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 9"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{88949F3B-FD7D-4D82-8FBC-EDF2C9C258ED}"
+          SQLTask:Connection="{199E50E6-0CDD-4CBA-B561-02EACF1CCBDF}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE UK_Postcode" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3718,8 +3706,8 @@
               <connections>
                 <connection
                   refId="Package\UK_Postcode\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.DB_Stage]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3981,8 +3969,8 @@
               <connections>
                 <connection
                   refId="Package\UK_Postcode\UK_Postcode DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_Postcode]"
-                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-T3NO52J\SQLEXPRESS.UK_Postcode]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_Postcode]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_Postcode]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4675,7 +4663,7 @@
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Set LSET 6"
-          TopLeft="609.142867610163,556.638238594647" />
+          TopLeft="657.714297008758,556.638238594647" />
         <NodeLayout
           Size="129.6,41.6"
           Id="Package\Set LSET 7"
@@ -5260,30 +5248,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9 1 1 1 1 1]"
-          TopLeft="511.514292836433,601.297062166958">
+          TopLeft="611.114292836433,578.967650380802">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="162.42857477373,-3.05882357231064"
+              EndConnector="46.6000041723252,0"
               Start="0,0"
-              End="162.42857477373,4.44117642768936">
+              End="39.1000041723252,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.5"
-                    Point2="0,22.5"
-                    Point3="4,22.5" />
-                  <mssgle:LineSegment
-                    End="158.42857477373,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="158.42857477373,22.5"
-                    Point2="162.42857477373,22.5"
-                    Point3="162.42857477373,18.5" />
-                  <mssgle:LineSegment
-                    End="162.42857477373,4.44117642768936" />
+                    End="39.1000041723252,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5365,7 +5341,7 @@
     design-time-name="Package\Junction_Control">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Junction_Control\Junction_Control DB"
@@ -5405,7 +5381,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5416,6 +5394,11 @@
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -5436,7 +5419,7 @@
     design-time-name="Package\Junction_Detail">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Junction_Detail\Junction_Detail DB"
@@ -5476,7 +5459,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5487,6 +5472,11 @@
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -5507,7 +5497,7 @@
     design-time-name="Package\Junction_Location">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="179.2,41.6"
           Id="Package\Junction_Location\Junction_Location DB"
@@ -5547,7 +5537,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5578,7 +5570,7 @@
     design-time-name="Package\Light_Conditions">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="173.6,41.6"
           Id="Package\Light_Conditions\Light_Conditions DB"
@@ -5618,7 +5610,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5649,7 +5643,7 @@
     design-time-name="Package\Local_Authority_District">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="206.4,41.6"
           Id="Package\Local_Authority_District\Local_Authority_District DB"
@@ -5689,7 +5683,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5720,7 +5716,7 @@
     design-time-name="Package\Local_Authority_Highway">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="214.4,41.6"
           Id="Package\Local_Authority_Highway\Local_Authority_Highway DB"
@@ -5748,7 +5744,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5779,7 +5777,7 @@
     design-time-name="Package\LSOA_Postcode_Mapping">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\LSOA_Postcode_Mapping\OLE DB Destination"
@@ -5807,7 +5805,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5838,7 +5838,7 @@
     design-time-name="Package\Ped_Cross_Human">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\Ped_Cross_Human\Ped_Cross_Human DB"
@@ -5878,7 +5878,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -5909,7 +5911,7 @@
     design-time-name="Package\UK_Postcode">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\UK_Postcode\OLE DB Destination"
@@ -5949,7 +5951,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
