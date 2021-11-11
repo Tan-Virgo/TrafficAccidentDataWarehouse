@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage_18120570"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{706D8317-1F89-4222-B8A5-3C2A73349B56}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{4E5B3259-88EC-4299-9311-76DBB5BA1D31}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,7 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -49,7 +49,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -96,7 +96,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -140,7 +140,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -162,7 +162,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -184,7 +184,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -201,34 +201,12 @@
       DTS:refId="Package\GET LSET 7"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{5ade92a6-001b-4896-8709-b289f10814b1}"
+      DTS:DTSID="{c05ebc7d-7ae9-4ae9-b550-6cbe985c459f}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="GET LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{FFE2A150-B44A-4492-BC1C-CEE4DD016808}"
-          SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Road_Accident_Safety_Data_Guide'"
-          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
-          <SQLTask:ResultBinding
-            SQLTask:ResultName="LSET"
-            SQLTask:DtsVariableName="User::LSETResult" />
-        </SQLTask:SqlTaskData>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\GET LSET 8"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{c05ebc7d-7ae9-4ae9-b550-6cbe985c459f}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="GET LSET 8"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2150,324 +2128,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Road_Accident_Safety_Data_Guide"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{f07f6fcb-0019-472d-8964-beb02e6ff570}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Road_Accident_Safety_Data_Guide"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Road_Accident_Safety_Data_Guide]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Name"
-                      externalMetadataColumnId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[Name]" />
-                    <inputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_RoadAccidentSafetyDataGuide]"
-                      cachedDataType="i4"
-                      cachedName="ID_RoadAccidentSafetyDataGuide"
-                      externalMetadataColumnId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_RoadAccidentSafetyDataGuide]"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[ID_RoadAccidentSafetyDataGuide]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_RoadAccidentSafetyDataGuide]"
-                      dataType="i4"
-                      name="ID_RoadAccidentSafetyDataGuide" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="Road_Accident_Safety_Data_Guide DB"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Road_Accident_Safety_Data_Guide]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Road_Accident_Safety_Data_Guide WHERE (Create_Timestamp &lt; GETDATE() AND Create_Timestamp &gt; ?) OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{E268220C-350A-49CB-A64A-29BFA6063A1E};"Parameter1:Input",{E268220C-350A-49CB-A64A-29BFA6063A1E};</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[Name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                      length="50"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[Name]"
-                      name="Name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[Create_Timestamp]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].ExternalColumns[Create_Timestamp]"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[Create_Timestamp]"
-                      name="Create_Timestamp"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[Update_Timestamp]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].ExternalColumns[Update_Timestamp]"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[Update_Timestamp]"
-                      name="Update_Timestamp"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[ID_RoadAccidentSafetyDataGuide]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].ExternalColumns[ID_RoadAccidentSafetyDataGuide]"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].Columns[ID_RoadAccidentSafetyDataGuide]"
-                      name="ID_RoadAccidentSafetyDataGuide"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].ExternalColumns[Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].ExternalColumns[Create_Timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Create_Timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].ExternalColumns[Update_Timestamp]"
-                      dataType="dbTimeStamp"
-                      name="Update_Timestamp" />
-                    <externalMetadataColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output].ExternalColumns[ID_RoadAccidentSafetyDataGuide]"
-                      dataType="i4"
-                      name="ID_RoadAccidentSafetyDataGuide" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[ID_RoadAccidentSafetyDataGuide]"
-                      dataType="i4"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[ID_RoadAccidentSafetyDataGuide]"
-                      name="ID_RoadAccidentSafetyDataGuide" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[Name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[Name]"
-                      name="Name" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[Create_Timestamp]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[Create_Timestamp]"
-                      name="Create_Timestamp" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[Update_Timestamp]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[Update_Timestamp]"
-                      name="Update_Timestamp" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Road_Accident_Safety_Data_Guide.Paths[OLE DB Source Output]"
-              endId="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination.Inputs[OLE DB Destination Input]"
-              name="OLE DB Source Output"
-              startId="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Road_Class"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -2811,7 +2471,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2845,7 +2505,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2862,7 +2522,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2879,7 +2539,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2891,29 +2551,12 @@
       DTS:refId="Package\Set LSET 7"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{26050802-bfe9-44b6-9fb1-83c81dc87bc2}"
+      DTS:DTSID="{64cd2e18-751a-452c-8cf2-378499cbfe28}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{FFE2A150-B44A-4492-BC1C-CEE4DD016808}"
-          SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Road_Accident_Safety_Data_Guide'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Set LSET 8"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{64cd2e18-751a-452c-8cf2-378499cbfe28}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Set LSET 8"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2947,7 +2590,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2981,7 +2624,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2998,7 +2641,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3015,7 +2658,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3027,29 +2670,12 @@
       DTS:refId="Package\Truncase Table 7"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
-      DTS:DTSID="{27a21f02-a476-450b-82f0-173377f0dc84}"
+      DTS:DTSID="{2fa81fcf-ab85-4fc6-b5e5-7814af663eef}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{65B739F8-3F51-46D9-999E-1FC60FC3AC6C}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE Road_Accident_Safety_Data_Guide" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Truncase Table 8"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2fa81fcf-ab85-4fc6-b5e5-7814af663eef}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Truncase Table 8"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3108,18 +2734,10 @@
       DTS:ObjectName="Constraint 1 1 2 1 1"
       DTS:To="Package\Police_Officer_Attend" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 2 1 1 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{f29c98bc-e7f6-4beb-895f-abb1c83e972d}"
-      DTS:From="Package\GET LSET 7"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1 1 2 1 1 1"
-      DTS:To="Package\Road_Accident_Safety_Data_Guide" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 2 1 1 2]"
       DTS:CreationName=""
       DTS:DTSID="{9b19dd5a-10f4-4a43-8425-eaf5844ee16e}"
-      DTS:From="Package\GET LSET 8"
+      DTS:From="Package\GET LSET 7"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1 1 2 1 1 2"
       DTS:To="Package\Road_Class" />
@@ -3164,21 +2782,13 @@
       DTS:ObjectName="Constraint 2 2 1 1"
       DTS:To="Package\GET LSET 6" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2 2 1 1 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{1721e964-d6a5-420e-83b6-49423a4df003}"
-      DTS:From="Package\Truncase Table 7"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2 2 1 1 1"
-      DTS:To="Package\GET LSET 7" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2 2 1 1 2]"
       DTS:CreationName=""
       DTS:DTSID="{f81d98ca-32a7-4386-80a8-f9ec35c20000}"
-      DTS:From="Package\Truncase Table 8"
+      DTS:From="Package\Truncase Table 7"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2 2 1 1 2"
-      DTS:To="Package\GET LSET 8" />
+      DTS:To="Package\GET LSET 7" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -3236,21 +2846,13 @@
       DTS:ObjectName="Constraint 9 1 2 1 1"
       DTS:To="Package\Set LSET 6" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 9 1 2 1 1 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{c8268fbf-fd38-434e-89f3-b37111b4a9fb}"
-      DTS:From="Package\Road_Accident_Safety_Data_Guide"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 9 1 2 1 1 1"
-      DTS:To="Package\Set LSET 7" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 9 1 2 1 1 2]"
       DTS:CreationName=""
       DTS:DTSID="{76c8c5c4-8c0f-49db-a956-0907b75f7a71}"
       DTS:From="Package\Road_Class"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 9 1 2 1 1 2"
-      DTS:To="Package\Set LSET 8" />
+      DTS:To="Package\Set LSET 7" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -3265,133 +2867,117 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="133.6,41.6"
+          Size="134,42"
           Id="Package\GET LSET 1"
           TopLeft="250.714288962131,63.4705891254452" />
         <NodeLayout
-          Size="133.6,41.6"
+          Size="134,42"
           Id="Package\GET LSET 2"
           TopLeft="250.714288962131,172.864706804678" />
         <NodeLayout
-          Size="133.6,41.6"
+          Size="134,42"
           Id="Package\GET LSET 3"
           TopLeft="250.714288962131,282.258824483911" />
         <NodeLayout
-          Size="133.6,41.6"
+          Size="134,42"
           Id="Package\GET LSET 4"
           TopLeft="250.714288962131,391.652942163144" />
         <NodeLayout
-          Size="133.6,41.6"
+          Size="134,42"
           Id="Package\GET LSET 5"
           TopLeft="250.714288962131,501.047059842377" />
         <NodeLayout
-          Size="133.6,41.6"
+          Size="134,42"
           Id="Package\GET LSET 6"
           TopLeft="250.714288962131,610.44117752161" />
         <NodeLayout
-          Size="133.6,41.6"
+          Size="134,42"
           Id="Package\GET LSET 7"
-          TopLeft="250.714288962131,719.835295200842" />
+          TopLeft="226.714288962131,695.229412880075" />
         <NodeLayout
-          Size="133.6,41.6"
-          Id="Package\GET LSET 8"
-          TopLeft="250.714288962131,829.229412880075" />
-        <NodeLayout
-          Size="170.4,41.6"
+          Size="170,42"
           Id="Package\Ped_Cross_Physical"
           TopLeft="431.642863565562,63.0588235723106" />
         <NodeLayout
-          Size="140.8,41.6"
+          Size="141,42"
           Id="Package\Ped_Location"
           TopLeft="431.642863565562,172.452941251543" />
         <NodeLayout
-          Size="150.4,41.6"
+          Size="150,42"
           Id="Package\Ped_Movement"
           TopLeft="424.285721511257,275.705883414688" />
         <NodeLayout
-          Size="156,41.6"
+          Size="156,42"
           Id="Package\Point_of_Impact"
           TopLeft="428.071434933312,388.947058930776" />
         <NodeLayout
-          Size="136.8,41.6"
+          Size="137,42"
           Id="Package\Police_Force"
           TopLeft="431.642863565562,500.635294289242" />
         <NodeLayout
-          Size="179.2,41.6"
+          Size="179,42"
           Id="Package\Police_Officer_Attend"
           TopLeft="431.642863565562,610.029411968475" />
         <NodeLayout
-          Size="244,41.6"
-          Id="Package\Road_Accident_Safety_Data_Guide"
-          TopLeft="431.642863565562,719.423529647708" />
-        <NodeLayout
-          Size="132,41.6"
+          Size="132,42"
           Id="Package\Road_Class"
-          TopLeft="431.642863565562,828.817647326941" />
+          TopLeft="407.642863565562,694.817647326941" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Set LSET 1"
           TopLeft="628.071438339292,60" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Set LSET 2"
           TopLeft="628.071438339292,169.394117679233" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Set LSET 3"
           TopLeft="628.071438339292,278.788235358466" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Set LSET 4"
           TopLeft="628.071438339292,388.182353037699" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Set LSET 5"
           TopLeft="628.071438339292,497.576470716932" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Set LSET 6"
           TopLeft="653.785724491489,606.970588396164" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Set LSET 7"
-          TopLeft="733.585725768731,716.364706075397" />
+          TopLeft="595.500009621892,691.75882375463" />
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Set LSET 8"
-          TopLeft="619.500009621892,825.75882375463" />
-        <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Truncase Table 1"
           TopLeft="60,67.7941176792329" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Truncase Table 2"
           TopLeft="60,177.188235358466" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Truncase Table 3"
           TopLeft="62.1428571793498,286.582353037699" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Truncase Table 4"
           TopLeft="60,395.976470716932" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Truncase Table 5"
           TopLeft="60,505.370588396164" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Truncase Table 6"
           TopLeft="60,614.764706075397" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Truncase Table 7"
-          TopLeft="60,724.15882375463" />
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Truncase Table 8"
-          TopLeft="60,833.552941433863" />
+          TopLeft="36,699.552941433863" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="219.2,86.432353402339">
@@ -3525,30 +3111,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 1 2 1 1 1]"
-          TopLeft="384.314288962131,740.429412424275">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="47.328574603431,0"
-              Start="0,0"
-              End="39.828574603431,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="39.828574603431,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 2 1 1 2]"
-          TopLeft="384.314288962131,849.823530103508">
+          TopLeft="360.314288962131,715.823530103508">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3679,30 +3243,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2 2 1 1 1]"
-          TopLeft="219.2,742.797059477736">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="31.514288962131,0"
-              Start="0,0"
-              End="24.014288962131,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="24.014288962131,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2 2 1 1 2]"
-          TopLeft="219.2,852.191177156969">
+          TopLeft="195.2,718.191177156969">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3877,30 +3419,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 9 1 2 1 1 1]"
-          TopLeft="675.642863565562,738.694117861553">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="57.9428622031694,0"
-              Start="0,0"
-              End="50.4428622031694,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="50.4428622031694,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9 1 2 1 1 2]"
-          TopLeft="563.642863565562,848.088235540785">
+          TopLeft="539.642863565562,714.088235540785">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4380,84 +3900,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Police_Officer_Attend\Police_Officer_Attend DB">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Road_Accident_Safety_Data_Guide">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="260.8,41.6"
-          Id="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB"
-          TopLeft="53.5714294837446,39.7647064400379" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination"
-          TopLeft="76.4285727301423,180.470590766326" />
-        <EdgeLayout
-          Id="Package\Road_Accident_Safety_Data_Guide.Paths[OLE DB Source Output]"
-          TopLeft="183.971429483745,81.3647064400379">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-22.3428567536023,99.1058843262881"
-              Start="0,0"
-              End="-22.3428567536023,91.6058843262881">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.5529421631441" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.5529421631441"
-                    Point2="0,49.5529421631441"
-                    Point3="-4,49.5529421631441" />
-                  <mssgle:LineSegment
-                    End="-18.3428567536023,49.5529421631441" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.3428567536023,49.5529421631441"
-                    Point2="-22.3428567536023,49.5529421631441"
-                    Point3="-22.3428567536023,53.5529421631441" />
-                  <mssgle:LineSegment
-                    End="-22.3428567536023,91.6058843262881" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Road_Accident_Safety_Data_Guide\Road_Accident_Safety_Data_Guide DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

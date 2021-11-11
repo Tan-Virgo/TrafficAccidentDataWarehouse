@@ -132,7 +132,7 @@ CREATE TABLE [LSOA_Postcode_Mapping_NDS]
 
 --DELETE [Accident_Severity]
 --DROP TABLE [Accident_Severity]
-CREATE TABLE [Accident_Severity] 
+CREATE TABLE [Accident_Severity_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
 	[ID_AccidentSeverity] INT,
@@ -147,7 +147,7 @@ GO
 
 --DELETE [Age_Band]
 --DROP TABLE [Age_Band]
-CREATE TABLE [Age_Band] 
+CREATE TABLE [Age_Band_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_AgeBand] INT,
@@ -162,7 +162,7 @@ GO
 
 --DELETE [Casualty_Severity]
 --DROP TABLE [Casualty_Severity]
-CREATE TABLE [Casualty_Severity] 
+CREATE TABLE [Casualty_Severity_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_CasualtySeverity] INT,
@@ -177,7 +177,7 @@ GO
 
 --DELETE [Journey_Purpose]
 --DROP TABLE [Journey_Purpose]
-CREATE TABLE [Journey_Purpose] 
+CREATE TABLE [Journey_Purpose_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_JourneyPurpose] INT,
@@ -192,7 +192,7 @@ GO
 
 -- DELETE [Casualty_Type]
 --DROP TABLE [Casualty_Type]
-CREATE TABLE [Casualty_Type] 
+CREATE TABLE [Casualty_Type_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_CasualtyType]INT,
@@ -207,7 +207,7 @@ GO
 
 --DELETE [Local_Authority_District]
 --DROP TABLE [Local_Authority_District]
-CREATE TABLE [Local_Authority_District] 
+CREATE TABLE [Local_Authority_District_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
 	[ID_LocalAuthorityDistrict] int,
@@ -222,7 +222,7 @@ GO
 
 -- DELETE [Road_Type]
 --DROP TABLE [Road_Type]
-CREATE TABLE [Road_Type] 
+CREATE TABLE [Road_Type_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_RoadType] INT,
@@ -237,7 +237,7 @@ GO
 
 --DELETE [Urban_Rural]
 --DROP TABLE [Urban_Rural]
-CREATE TABLE [Urban_Rural] 
+CREATE TABLE [Urban_Rural_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_UrbanRural] INT,
@@ -252,7 +252,7 @@ GO
 
 --DELETE [Vehicle_Type]
 --DROP TABLE [Vehicle_Type]
-CREATE TABLE [Vehicle_Type] 
+CREATE TABLE [Vehicle_Type_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_VehicleType] INT,

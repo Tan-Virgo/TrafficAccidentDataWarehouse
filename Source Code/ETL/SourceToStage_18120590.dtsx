@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage_18120590"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{5235371A-E46B-4B08-81D4-EB30247D69D6}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{2C6607A5-C2A3-462D-8A07-116B91274DA1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -37,7 +37,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -49,7 +49,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -83,7 +83,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -100,7 +100,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -117,7 +117,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -134,7 +134,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -151,7 +151,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -185,7 +185,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -202,7 +202,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -855,7 +855,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -872,7 +872,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -889,7 +889,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -906,7 +906,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -923,7 +923,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -957,7 +957,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -974,7 +974,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1309,7 +1309,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1326,7 +1326,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1343,7 +1343,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1360,7 +1360,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1377,7 +1377,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1411,7 +1411,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1428,7 +1428,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -3924,131 +3924,131 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="131.2,41.6"
+          Size="131,42"
           Id="Package\Get LSET 1"
           TopLeft="273.666666666667,9.99999999999992" />
         <NodeLayout
-          Size="121.6,41.6"
+          Size="122,42"
           Id="Package\Get LSET 2"
           TopLeft="278.666666666667,121" />
         <NodeLayout
-          Size="121.6,41.6"
+          Size="122,42"
           Id="Package\Get LSET 3"
           TopLeft="278.666666666667,223" />
         <NodeLayout
-          Size="121.6,41.6"
+          Size="122,42"
           Id="Package\Get LSET 4"
           TopLeft="278.666666666667,325" />
         <NodeLayout
-          Size="121.6,41.6"
+          Size="122,42"
           Id="Package\Get LSET 5"
           TopLeft="278.666666666667,427" />
         <NodeLayout
-          Size="121.6,41.6"
+          Size="122,42"
           Id="Package\Get LSET 6"
           TopLeft="278.666666666667,529" />
         <NodeLayout
-          Size="121.6,41.6"
+          Size="122,42"
           Id="Package\Get LSET 7"
           TopLeft="278.666666666667,631" />
         <NodeLayout
-          Size="121.6,41.6"
+          Size="122,42"
           Id="Package\Get LSET 8"
           TopLeft="278.666666666667,733" />
         <NodeLayout
-          Size="151.2,64.8"
+          Size="151,65"
           Id="Package\Road_Accident_Safety_Data_Guide"
           TopLeft="440.666666666667,108" />
         <NodeLayout
-          Size="132,41.6"
+          Size="132,42"
           Id="Package\Road_Type"
           TopLeft="440.666666666667,10.9999999999999" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Set LSET 1"
           TopLeft="654.666666666667,6.99999999999992" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Set LSET 2"
           TopLeft="655.666666666667,120.666666666667" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Set LSET 3"
           TopLeft="655.666666666667,222.666666666666" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Set LSET 4"
           TopLeft="655.666666666667,324.666666666666" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Set LSET 5"
           TopLeft="655.666666666667,426.666666666666" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Set LSET 6"
           TopLeft="655.666666666667,528.666666666667" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Set LSET 7"
           TopLeft="655.666666666667,630.666666666667" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Set LSET 8"
           TopLeft="655.666666666667,732.666666666667" />
         <NodeLayout
-          Size="144.8,41.6"
+          Size="145,42"
           Id="Package\Sex_of_Driver"
           TopLeft="441.666666666667,230" />
         <NodeLayout
-          Size="156,41.6"
+          Size="156,42"
           Id="Package\Truncate table 1"
           TopLeft="72.6666666666667,15.9999999999999" />
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147,42"
           Id="Package\Truncate table 2"
           TopLeft="72.6666666666667,118" />
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147,42"
           Id="Package\Truncate table 3"
           TopLeft="72.6666666666667,220" />
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147,42"
           Id="Package\Truncate table 4"
           TopLeft="72.6666666666667,322" />
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147,42"
           Id="Package\Truncate table 5"
           TopLeft="72.6666666666667,424" />
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147,42"
           Id="Package\Truncate table 6"
           TopLeft="72.6666666666667,526" />
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147,42"
           Id="Package\Truncate table 7"
           TopLeft="72.6666666666667,628" />
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147,42"
           Id="Package\Truncate table 8"
           TopLeft="72.6666666666667,730" />
         <NodeLayout
-          Size="137.6,41.6"
+          Size="138,42"
           Id="Package\Urban_Rural"
           TopLeft="439.666666666667,328" />
         <NodeLayout
-          Size="112,41.6"
+          Size="112,42"
           Id="Package\Vehicle"
           TopLeft="435,736.666666666667" />
         <NodeLayout
-          Size="158.4,41.6"
+          Size="158,42"
           Id="Package\Vehicle_Location"
           TopLeft="431.666666666667,430" />
         <NodeLayout
-          Size="169.6,41.6"
+          Size="170,42"
           Id="Package\Vehicle_Manoeuvre"
           TopLeft="425,526.666666666667" />
         <NodeLayout
-          Size="140.8,41.6"
+          Size="141,42"
           Id="Package\Vehicle_Type"
           TopLeft="435,630" />
         <EdgeLayout
