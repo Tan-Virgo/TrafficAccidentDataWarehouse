@@ -116,6 +116,7 @@ CREATE TABLE [UK_Postcode_NDS]
 )
 GO
 
+
 --DELETE [LSOA_Postcode_Mapping_NDS]
 --DROP TABLE [LSOA_Postcode_Mapping_NDS]
 CREATE TABLE [LSOA_Postcode_Mapping_NDS] 
@@ -123,11 +124,13 @@ CREATE TABLE [LSOA_Postcode_Mapping_NDS]
 	ID INT IDENTITY(1, 1) PRIMARY KEY,
     [LSOA_code] VARCHAR(50),
 	[LSOA_name] VARCHAR(50),
+	[Postcode] INT,
 	[SourceID] INT,
 	CreatedDate DATETIME,
 	UpdatedDate DATETIME
 
 	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID]),
+	FOREIGN KEY ([Postcode]) REFERENCES [UK_Postcode_NDS]([ID])
 )
 
 --DELETE [Accident_Severity]
@@ -265,3 +268,76 @@ CREATE TABLE [Vehicle_Type_NDS]
 )
 GO
 -------------------------------------------------
+
+
+--DELETE [Accidents_NDS]
+--DROP TABLE [Accidents_NDS]
+CREATE TABLE [Accidents_NDS] 
+(
+	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
+    [Accident_Index] VARCHAR(50),
+    [Location_Easting_OSGR] INT,
+    [Location_Northing_OSGR] INT,
+    [Longitude] INT,
+    [Latitude] INT,
+    [Accident_Severity] INT,
+    [Date] DATE,
+    [Time] TIME,
+    [Local_Authority_(District)] INT,
+    [Road_Type] INT,
+    [Speed_limit] INT,
+    [Urban_or_Rural_Area] INT,
+    [LSOA_of_Accident_Location] INT,
+	[CreatedDate] DATETIME,
+	[UpdatedDate] DATETIME,
+	SourceID INT,
+	
+	FOREIGN KEY (SourceID) REFERENCES Sources_NDS(ID),
+	FOREIGN KEY ([Accident_Severity]) REFERENCES [Accident_Severity_NDS](ID),
+	FOREIGN KEY ([Local_Authority_(District)]) REFERENCES [Local_Authority_District_NDS](ID),
+	FOREIGN KEY ([Road_Type]) REFERENCES [Road_Type_NDS](ID),
+	FOREIGN KEY ([Urban_or_Rural_Area]) REFERENCES [Urban_Rural_NDS](ID),
+	FOREIGN KEY ([LSOA_of_Accident_Location]) REFERENCES [LSOA_Postcode_Mapping_NDS](ID)
+)
+GO
+
+--DROP TABLE [Vehicles_NDS]
+CREATE TABLE [Vehicles_NDS] 
+(
+	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
+    [Accident_Index] INT,
+    [Vehicle_Reference] VARCHAR(50),
+    [Vehicle_Type] INT,
+    [Journey_Purpose_of_Driver] INT,
+	[CreatedDate] DATETIME,
+	[UpdatedDate] DATETIME,
+	SourceID INT,
+	
+	FOREIGN KEY (SourceID) REFERENCES Sources_NDS(ID),
+	FOREIGN KEY ([Accident_Index]) REFERENCES [Accidents_NDS](ID),
+	FOREIGN KEY ([Vehicle_Type]) REFERENCES [Vehicle_Type_NDS](ID),
+	FOREIGN KEY ([Journey_Purpose_of_Driver]) REFERENCES [Journey_Purpose_NDS](ID)
+)
+GO
+
+-- DROP TABLE [Casualties_NDS]
+CREATE TABLE [Casualties_NDS] 
+(
+	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
+    [ID_Vehicles] INT,
+    [Casualty_Reference] INT,
+    [Age_Band_of_Casualty] INT,
+    [Casualty_Severity] INT,
+    [Casualty_Type] INT,
+	[CreatedDate] DATETIME,
+	[UpdatedDate] DATETIME,
+	SourceID INT,
+	
+	FOREIGN KEY (SourceID) REFERENCES Sources_NDS(ID),
+	FOREIGN KEY ([ID_Vehicles]) REFERENCES [Vehicles_NDS](ID),
+	FOREIGN KEY ([Age_Band_of_Casualty]) REFERENCES [Age_Band_NDS](ID),
+	FOREIGN KEY ([Casualty_Severity]) REFERENCES [Casualty_Severity_NDS](ID),
+	FOREIGN KEY ([Casualty_Type]) REFERENCES [Casualty_Type_NDS](ID)
+)
+GO
+

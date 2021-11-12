@@ -11,45 +11,45 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{2032C7FF-C834-41FB-B79E-79FBF3A1650B}">
+  DTS:VersionBuild="64"
+  DTS:VersionGUID="{56AFFAF4-EC52-4194-972C-8BB644A24598}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.DB_MetaData]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+      DTS:DTSID="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
       DTS:ObjectName="LocalHost.DB_MetaData">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.DB_Stage]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+      DTS:DTSID="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
       DTS:ObjectName="LocalHost.DB_Stage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{B9715652-96BE-4F8A-BCB5-39F8E16E08A5}"
+      DTS:DTSID="{94176DDA-137C-42E1-8D20-374BAADD454E}"
       DTS:ObjectName="LocalHost.UK_CAR_Accident">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -125,7 +125,7 @@
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -1769,11 +1769,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">true</property>
+                  name="FastLoadKeepIdentity">false</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -1936,15 +1936,6 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
                       name="Update_Timestamp"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].Columns[ID_AgeBand]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].ExternalColumns[ID_AgeBand]"
-                      lineageId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].Columns[ID_AgeBand]"
-                      name="ID_AgeBand"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].Columns[Name]"
                       codePage="1252"
                       dataType="str"
@@ -1954,6 +1945,15 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
                       length="50"
                       lineageId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].Columns[Name]"
                       name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].Columns[ID_AgeBand]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].ExternalColumns[ID_AgeBand]"
+                      lineageId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].Columns[ID_AgeBand]"
+                      name="ID_AgeBand"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -1967,15 +1967,15 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
                       dataType="dbTimeStamp"
                       name="Update_Timestamp" />
                     <externalMetadataColumn
-                      refId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].ExternalColumns[ID_AgeBand]"
-                      dataType="i4"
-                      name="ID_AgeBand" />
-                    <externalMetadataColumn
                       refId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Age_Band\Age_Band DB.Outputs[OLE DB Source Output].ExternalColumns[ID_AgeBand]"
+                      dataType="i4"
+                      name="ID_AgeBand" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2093,7 +2093,7 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">true</property>
+                  name="FastLoadKeepNulls">false</property>
                 <property
                   dataType="System.String"
                   description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
@@ -2811,25 +2811,19 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
                       cachedName="Name"
                       externalMetadataColumnId="Package\Casualty_Class\Casualty_Class.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\Casualty_Class\Casualty_Class DB.Outputs[OLE DB Source Output].Columns[Name]" />
-                    <inputColumn
-                      refId="Package\Casualty_Class\Casualty_Class.Inputs[OLE DB Destination Input].Columns[ID_CasualtyClass]"
-                      cachedDataType="i4"
-                      cachedName="ID_CasualtyClass"
-                      externalMetadataColumnId="Package\Casualty_Class\Casualty_Class.Inputs[OLE DB Destination Input].ExternalColumns[ID_CasualtyClass]"
-                      lineageId="Package\Casualty_Class\Casualty_Class DB.Outputs[OLE DB Source Output].Columns[ID_CasualtyClass]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Casualty_Class\Casualty_Class.Inputs[OLE DB Destination Input].ExternalColumns[ID_CasualtyClass]"
-                      dataType="i4"
-                      name="ID_CasualtyClass" />
                     <externalMetadataColumn
                       refId="Package\Casualty_Class\Casualty_Class.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Casualty_Class\Casualty_Class.Inputs[OLE DB Destination Input].ExternalColumns[ID_CasualtyClass]"
+                      dataType="i4"
+                      name="ID_CasualtyClass" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -4000,11 +3994,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Accident_Severity'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4022,11 +4016,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Age_Band'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4048,7 +4042,7 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Casualty_Class'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4066,11 +4060,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Casualty_Severity'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4088,11 +4082,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Casualty_Type'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4114,7 +4108,7 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Day_of_Week'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4132,11 +4126,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Journey_Purpose'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4154,11 +4148,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Accidents'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4176,11 +4170,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 9"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow  WHERE Name = 'Casualties'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -4518,11 +4512,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Accident_Severity'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4535,11 +4529,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Age_Band'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4556,7 +4550,7 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Casualty_Class'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4569,11 +4563,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Casualty_Severity'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4586,11 +4580,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Casualty_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4607,7 +4601,7 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Day_of_Week'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4620,11 +4614,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Journey_Purpose'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4637,11 +4631,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Accidents'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4654,11 +4648,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 9"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{3E5E0A34-C526-4386-A485-FBD08A377BBD}"
+          SQLTask:Connection="{46A0C290-2515-481D-A4C0-9E6D69DB4152}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE  Name = 'Casualties'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4671,11 +4665,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="8">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Accident_Severity" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4688,11 +4682,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="8">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Age_Band" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4709,7 +4703,7 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Casualty_Class" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4722,11 +4716,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Casualty_Severity" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4739,11 +4733,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Casualty_Type" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4760,7 +4754,7 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Day_of_Week" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4773,11 +4767,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Journey_Purpose" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4790,11 +4784,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Accidents" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -4807,11 +4801,11 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncase Table 9"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{15F2E77E-CFE6-48FE-B2A9-3A25B3E88CBB}"
+          SQLTask:Connection="{F349BEAA-5E8D-4DA2-9C3E-E9808D589D4A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Casualties" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -5047,147 +5041,147 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\Accident_Severity"
           TopLeft="416.428578520308,30.5882357231061" />
         <NodeLayout
-          Size="123,42"
+          Size="123.2,41.6"
           Id="Package\Accidents"
           TopLeft="446.428579031205,647.882361242103" />
         <NodeLayout
-          Size="126,42"
+          Size="126.4,41.6"
           Id="Package\Age_Band"
           TopLeft="435.000007408006,115.470589854726" />
         <NodeLayout
-          Size="126,42"
+          Size="126.4,41.6"
           Id="Package\Casualties"
           TopLeft="442.142864672506,747.141185726014" />
         <NodeLayout
-          Size="148,42"
+          Size="148,41.6"
           Id="Package\Casualty_Class"
           TopLeft="430.714293049306,203.411767558655" />
         <NodeLayout
-          Size="162,42"
+          Size="161.6,41.6"
           Id="Package\Casualty_Severity"
           TopLeft="405.000006897109,294.411768834897" />
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\Casualty_Type"
           TopLeft="410.000006982259,373.941181714972" />
         <NodeLayout
-          Size="143,42"
+          Size="143.2,41.6"
           Id="Package\Day_of_Week"
           TopLeft="417.857149973208,464.176477098135" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 1"
           TopLeft="256.428575795524,34.4117651884943" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 2"
           TopLeft="258.571432974874,113.094116585313" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 3"
           TopLeft="260.000004427774,205.623529647709" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 4"
           TopLeft="240.000004087176,298.152942710105" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 5"
           TopLeft="237.142861181376,377.68235559018" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 6"
           TopLeft="242.857146992976,470.211768652576" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 7"
           TopLeft="242.142861266526,551.270593318808" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 8"
           TopLeft="259.285718701324,646.858829953514" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Get LSET 9"
           TopLeft="266.428575965823,741.682360695143" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Journey_Purpose"
           TopLeft="414.071435529359,549.205889978211" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 1"
           TopLeft="612.857153294038,27.5294121507955" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 2"
           TopLeft="603.35715303859,115.823528736108" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 3"
           TopLeft="618.585723895443,207.152941433864" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 4"
           TopLeft="617.271438935338,290.505883779328" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 5"
           TopLeft="627.985724150892,366.976473087093" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 6"
           TopLeft="634.157153549487,456.447062577179" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 7"
           TopLeft="636.985724917237,546.682357960342" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 8"
           TopLeft="637.642867908186,652.976477098135" />
         <NodeLayout
-          Size="130,42"
+          Size="129.6,41.6"
           Id="Package\Set LSET 9"
           TopLeft="628.271437828395,740.152948908987" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 1"
           TopLeft="44.785714954746,35.3235298300284" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 2"
           TopLeft="44.0714292282961,113.094116585313" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 3"
           TopLeft="44.785714954746,206.388235540786" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 4"
           TopLeft="40.5000005960465,303.176472540133" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 5"
           TopLeft="44.785714954746,379.211767376336" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 6"
           TopLeft="45.500000681196,470.211768652576" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 7"
           TopLeft="46.9285721340958,555.96471099804" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 8"
           TopLeft="47.6428578605457,647.623535846592" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Truncase Table 9"
           TopLeft="44.785714954746,746.270596053609" />
         <EdgeLayout
@@ -5262,14 +5256,14 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="55.3000037465776,0"
+              EndConnector="55.3000037465779,0"
               Start="0,0"
-              End="47.8000037465776,0">
+              End="47.8000037465779,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="47.8000037465776,0" />
+                    End="47.8000037465779,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5955,9 +5949,9 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="100.885714285714,69.8285714285715"
+              EndConnector="100.885714285715,69.8285714285714"
               Start="0,0"
-              End="100.885714285714,62.3285714285715">
+              End="100.885714285715,62.3285714285714">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -5968,13 +5962,13 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
                     Point2="0,34.9142857142857"
                     Point3="4,34.9142857142857" />
                   <mssgle:LineSegment
-                    End="96.8857142857144,34.9142857142857" />
+                    End="96.8857142857147,34.9142857142857" />
                   <mssgle:CubicBezierSegment
-                    Point1="96.8857142857144,34.9142857142857"
-                    Point2="100.885714285714,34.9142857142857"
-                    Point3="100.885714285714,38.9142857142857" />
+                    Point1="96.8857142857147,34.9142857142857"
+                    Point2="100.885714285715,34.9142857142857"
+                    Point3="100.885714285715,38.9142857142857" />
                   <mssgle:LineSegment
-                    End="100.885714285714,62.3285714285715" />
+                    End="100.885714285715,62.3285714285714" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6089,15 +6083,15 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
     design-time-name="Package\Casualty_Class">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Casualty_Class\Casualty_Class DB"
-          TopLeft="26.4285718786473,48.9411771569698" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="148,41.6"
           Id="Package\Casualty_Class\Casualty_Class"
           TopLeft="172.642859989283,158.44117861553" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Casualty_Class\Casualty_Class DB"
+          TopLeft="26.4285718786473,48.9411771569698" />
         <EdgeLayout
           Id="Package\Casualty_Class.Paths[OLE DB Source Output]"
           TopLeft="108.828571878647,90.5411771569698">
@@ -6129,9 +6123,7 @@ OR (Update_Timestamp &lt; GETDATE() AND Update_Timestamp &gt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

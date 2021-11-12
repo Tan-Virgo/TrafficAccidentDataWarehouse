@@ -11,45 +11,45 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="SourceToStage_18120590"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{2C6607A5-C2A3-462D-8A07-116B91274DA1}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{28681B6B-C3AD-4537-9EA2-71BA154DD94D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.DB_MetaData]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+      DTS:DTSID="{F288A65F-EA51-490D-A02E-8106362646DA}"
       DTS:ObjectName="LocalHost.DB_MetaData">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.DB_Stage]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+      DTS:DTSID="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
       DTS:ObjectName="LocalHost.DB_Stage">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[LocalHost.UK_CAR_Accident]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{E556767B-2141-4E66-B453-9B6B621798B3}"
+      DTS:DTSID="{D6E2F049-497B-4B4F-B587-F6DCB0B021EE}"
       DTS:ObjectName="LocalHost.UK_CAR_Accident">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=DESKTOP-4JS6BER\KOU;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=UK_CAR_Accident;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -87,7 +87,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow WHERE NAME = ' Road_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -100,11 +100,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow WHERE NAME = ' Road_Accident_Safety_Data_Guide'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -117,11 +117,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow WHERE NAME = ' Sex_of_Driver'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -134,11 +134,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow WHERE NAME = ' Urban_Rural'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -151,11 +151,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow WHERE NAME = ' Vehicle_Location'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -168,11 +168,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow WHERE NAME = ' Vehicle_Manoeuvre'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -185,11 +185,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow WHERE NAME = ' Vehicle_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -202,11 +202,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Get LSET 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="SELECT LSET FROM DataFlow WHERE NAME = ' Vehicle'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -859,7 +859,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE Name = 'Road_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -872,11 +872,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE Name = 'Road_Accident_Safety_Data_Guide'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -889,11 +889,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE Name = 'Sex_of_Driver'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -906,11 +906,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE Name = 'Urban_Rural'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -923,11 +923,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE Name = 'Vehicle_Location'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -940,11 +940,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE Name = 'Vehicle_Manoeuvre'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -957,11 +957,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE Name = 'Vehicle_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -974,11 +974,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Set LSET 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{30C223DF-E80B-4564-B90C-1F4CDD286EF1}"
+          SQLTask:Connection="{F288A65F-EA51-490D-A02E-8106362646DA}"
           SQLTask:SqlStatementSource="UPDATE DataFlow SET LSET = GETDATE() WHERE Name = 'Vehicle'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1313,7 +1313,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+          SQLTask:Connection="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
           SQLTask:SqlStatementSource="Truncate table Road_Type" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1326,11 +1326,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+          SQLTask:Connection="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Road_Accident_Safety_Data_Guide" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1343,11 +1343,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="5">
+      DTS:ThreadHint="3">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+          SQLTask:Connection="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Sex_of_Driver" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1360,11 +1360,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="6">
+      DTS:ThreadHint="4">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+          SQLTask:Connection="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Urban_Rural" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1377,11 +1377,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="7">
+      DTS:ThreadHint="5">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+          SQLTask:Connection="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Vehicle_Location" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1394,11 +1394,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="3">
+      DTS:ThreadHint="6">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+          SQLTask:Connection="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Vehicle_Manoeuvre" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1411,11 +1411,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 7"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="4">
+      DTS:ThreadHint="7">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+          SQLTask:Connection="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Vehicle_Type" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -1428,11 +1428,11 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Truncate table 8"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{538D65FB-1BDA-4FF4-81BD-208B40F5C2E8}"
+          SQLTask:Connection="{2389EE41-CC17-4A85-8033-F5C5D194E03A}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE Vehicle" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -3450,7 +3450,7 @@
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">3</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.Boolean"
                   description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
@@ -3924,131 +3924,131 @@
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="131,42"
+          Size="131.2,41.6"
           Id="Package\Get LSET 1"
           TopLeft="273.666666666667,9.99999999999992" />
         <NodeLayout
-          Size="122,42"
+          Size="121.6,41.6"
           Id="Package\Get LSET 2"
           TopLeft="278.666666666667,121" />
         <NodeLayout
-          Size="122,42"
+          Size="121.6,41.6"
           Id="Package\Get LSET 3"
           TopLeft="278.666666666667,223" />
         <NodeLayout
-          Size="122,42"
+          Size="121.6,41.6"
           Id="Package\Get LSET 4"
           TopLeft="278.666666666667,325" />
         <NodeLayout
-          Size="122,42"
+          Size="121.6,41.6"
           Id="Package\Get LSET 5"
           TopLeft="278.666666666667,427" />
         <NodeLayout
-          Size="122,42"
+          Size="121.6,41.6"
           Id="Package\Get LSET 6"
           TopLeft="278.666666666667,529" />
         <NodeLayout
-          Size="122,42"
+          Size="121.6,41.6"
           Id="Package\Get LSET 7"
           TopLeft="278.666666666667,631" />
         <NodeLayout
-          Size="122,42"
+          Size="121.6,41.6"
           Id="Package\Get LSET 8"
           TopLeft="278.666666666667,733" />
         <NodeLayout
-          Size="151,65"
+          Size="151.2,64.8"
           Id="Package\Road_Accident_Safety_Data_Guide"
           TopLeft="440.666666666667,108" />
         <NodeLayout
-          Size="132,42"
+          Size="132,41.6"
           Id="Package\Road_Type"
           TopLeft="440.666666666667,10.9999999999999" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Set LSET 1"
           TopLeft="654.666666666667,6.99999999999992" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Set LSET 2"
           TopLeft="655.666666666667,120.666666666667" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Set LSET 3"
           TopLeft="655.666666666667,222.666666666666" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Set LSET 4"
           TopLeft="655.666666666667,324.666666666666" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Set LSET 5"
           TopLeft="655.666666666667,426.666666666666" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Set LSET 6"
           TopLeft="655.666666666667,528.666666666667" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Set LSET 7"
           TopLeft="655.666666666667,630.666666666667" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Set LSET 8"
           TopLeft="655.666666666667,732.666666666667" />
         <NodeLayout
-          Size="145,42"
+          Size="144.8,41.6"
           Id="Package\Sex_of_Driver"
           TopLeft="441.666666666667,230" />
         <NodeLayout
-          Size="156,42"
+          Size="156,41.6"
           Id="Package\Truncate table 1"
           TopLeft="72.6666666666667,15.9999999999999" />
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\Truncate table 2"
           TopLeft="72.6666666666667,118" />
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\Truncate table 3"
           TopLeft="72.6666666666667,220" />
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\Truncate table 4"
           TopLeft="72.6666666666667,322" />
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\Truncate table 5"
           TopLeft="72.6666666666667,424" />
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\Truncate table 6"
           TopLeft="72.6666666666667,526" />
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\Truncate table 7"
           TopLeft="72.6666666666667,628" />
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\Truncate table 8"
           TopLeft="72.6666666666667,730" />
         <NodeLayout
-          Size="138,42"
+          Size="137.6,41.6"
           Id="Package\Urban_Rural"
           TopLeft="439.666666666667,328" />
         <NodeLayout
-          Size="112,42"
+          Size="112,41.6"
           Id="Package\Vehicle"
           TopLeft="435,736.666666666667" />
         <NodeLayout
-          Size="158,42"
+          Size="158.4,41.6"
           Id="Package\Vehicle_Location"
           TopLeft="431.666666666667,430" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Vehicle_Manoeuvre"
           TopLeft="425,526.666666666667" />
         <NodeLayout
-          Size="141,42"
+          Size="140.8,41.6"
           Id="Package\Vehicle_Type"
           TopLeft="435,630" />
         <EdgeLayout
@@ -4588,11 +4588,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Road_Accident_Safety_Data_Guide\OLE DB Source"
           TopLeft="129,67" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Road_Accident_Safety_Data_Guide\OLE DB Destination"
           TopLeft="140,177" />
         <EdgeLayout
@@ -4659,11 +4659,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Road_Type\OLE DB Source"
           TopLeft="112,32" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Road_Type\OLE DB Destination"
           TopLeft="148,144" />
         <EdgeLayout
@@ -4730,39 +4730,39 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Sex_of_Driver\OLE DB Source"
           TopLeft="152,47" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Sex_of_Driver\OLE DB Destination"
-          TopLeft="201,167" />
+          TopLeft="186,148" />
         <EdgeLayout
           Id="Package\Sex_of_Driver.Paths[OLE DB Source Output]"
-          TopLeft="227,89">
+          TopLeft="227.2,88.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="59.5,78"
+              EndConnector="44.4,59.4"
               Start="0,0"
-              End="59.5,70.5">
+              End="44.4,51.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35" />
+                    End="0,25.7" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35"
-                    Point2="0,39"
-                    Point3="4,39" />
+                    Point1="0,25.7"
+                    Point2="0,29.7"
+                    Point3="4,29.7" />
                   <mssgle:LineSegment
-                    End="55.5,39" />
+                    End="40.4,29.7" />
                   <mssgle:CubicBezierSegment
-                    Point1="55.5,39"
-                    Point2="59.5,39"
-                    Point3="59.5,43" />
+                    Point1="40.4,29.7"
+                    Point2="44.4,29.7"
+                    Point3="44.4,33.7" />
                   <mssgle:LineSegment
-                    End="59.5,70.5" />
+                    End="44.4,51.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4801,39 +4801,39 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="149.6,41.6"
           Id="Package\Urban_Rural\OLE DB Source"
           TopLeft="140,60" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Urban_Rural\OLE DB Destination"
           TopLeft="243,153" />
         <EdgeLayout
           Id="Package\Urban_Rural.Paths[OLE DB Source Output]"
-          TopLeft="215,102">
+          TopLeft="214.8,101.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="113.5,51"
+              EndConnector="113.8,51.4"
               Start="0,0"
-              End="113.5,43.5">
+              End="113.8,43.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="0,21.7" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="4,25.5" />
+                    Point1="0,21.7"
+                    Point2="0,25.7"
+                    Point3="4,25.7" />
                   <mssgle:LineSegment
-                    End="109.5,25.5" />
+                    End="109.8,25.7" />
                   <mssgle:CubicBezierSegment
-                    Point1="109.5,25.5"
-                    Point2="113.5,25.5"
-                    Point3="113.5,29.5" />
+                    Point1="109.8,25.7"
+                    Point2="113.8,25.7"
+                    Point3="113.8,29.7" />
                   <mssgle:LineSegment
-                    End="113.5,43.5" />
+                    End="113.8,43.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4872,13 +4872,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Vehicle\OLE DB Source"
-          TopLeft="168,36" />
-        <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Vehicle\OLE DB Destination"
           TopLeft="245,169" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Vehicle\OLE DB Source"
+          TopLeft="168,36" />
         <EdgeLayout
           Id="Package\Vehicle.Paths[OLE DB Source Output]"
           TopLeft="243,78">
@@ -4943,39 +4943,39 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Vehicle_Location\OLE DB Source"
           TopLeft="187,83" />
         <NodeLayout
-          Size="171,42"
+          Size="170.4,41.6"
           Id="Package\Vehicle_Location\OLE DB Destination"
           TopLeft="322,176" />
         <EdgeLayout
           Id="Package\Vehicle_Location.Paths[OLE DB Source Output]"
-          TopLeft="262,125">
+          TopLeft="262.2,124.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="145.5,51"
+              EndConnector="145,51.4"
               Start="0,0"
-              End="145.5,43.5">
+              End="145,43.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.5" />
+                    End="0,21.7" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="4,25.5" />
+                    Point1="0,21.7"
+                    Point2="0,25.7"
+                    Point3="4,25.7" />
                   <mssgle:LineSegment
-                    End="141.5,25.5" />
+                    End="141,25.7" />
                   <mssgle:CubicBezierSegment
-                    Point1="141.5,25.5"
-                    Point2="145.5,25.5"
-                    Point3="145.5,29.5" />
+                    Point1="141,25.7"
+                    Point2="145,25.7"
+                    Point3="145,29.7" />
                   <mssgle:LineSegment
-                    End="145.5,43.5" />
+                    End="145,43.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5014,11 +5014,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Vehicle_Manoeuvre\OLE DB Source"
           TopLeft="192,123" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Vehicle_Manoeuvre\OLE DB Destination"
           TopLeft="254,203" />
         <EdgeLayout
@@ -5085,11 +5085,11 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Vehicle_Type\OLE DB Source"
           TopLeft="151,67" />
         <NodeLayout
-          Size="171,42"
+          Size="171.2,41.6"
           Id="Package\Vehicle_Type\OLE DB Destination"
           TopLeft="193,178" />
         <EdgeLayout
