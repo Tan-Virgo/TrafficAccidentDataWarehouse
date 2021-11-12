@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{18A9D9F2-712B-4418-992C-98810DC2979E}">
+  DTS:VersionBuild="59"
+  DTS:VersionGUID="{74D41737-AA4B-4982-86F7-051ECDDB83A7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -584,10 +584,11 @@ where [refTable].[LSOA_code] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT TOP 60000
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
 	REPLACE(lsoa11cd, '"', '') AS LSOA_code,
 	REPLACE(lsoa11nm, '"', '') AS LSOA_name,
-	LEFT(REPLACE(pcds, '"', ''), 3) AS Postcode
+	REPLACE(REPLACE(REPLACE(pcds, '"', ''), RIGHT(REPLACE(pcds, '"', ''), 3), ''), ' ', '')
+	 AS Postcode
 FROM LSOA_Postcode_Mapping</property>
                 <property
                   dataType="System.String"
@@ -676,7 +677,7 @@ FROM LSOA_Postcode_Mapping</property>
                       refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="8000"
                       name="Postcode" />
                   </externalMetadataColumns>
                 </output>
@@ -703,7 +704,7 @@ FROM LSOA_Postcode_Mapping</property>
                       refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[Postcode]"
                       codePage="1252"
                       dataType="str"
-                      length="3"
+                      length="8000"
                       lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[Postcode]"
                       name="Postcode" />
                     <outputColumn
@@ -5449,79 +5450,79 @@ WHERE region_code = ? AND SourceID = ?</property>
               startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in Country_NDS.Outputs[Derived Column Output]" />
             <path
               refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output10]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert City_NDS.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in City_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output9]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update Country_NDS.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in Country_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output8]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert Country_NDS.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in Country_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output7]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update County_NDS.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in County_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output6]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert Region_NDS.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in Region_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output11]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup City_NDS.Inputs[Lookup Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in City_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output4]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update City_NDS.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in City_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output3]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup County_NDS.Inputs[Lookup Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in County_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output2]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update Region_NDS.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in Region_NDS.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output1]"
               endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert County_NDS.Inputs[OLE DB Command Input]"
               name="Derived Column Output"
               startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in County_NDS.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output5]"
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output9]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update Region_NDS.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in Region_NDS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output8]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup County_NDS.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in County_NDS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output7]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update City_NDS.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in City_NDS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output6]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup City_NDS.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in City_NDS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output11]"
               endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup Region_NDS.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in Region_NDS.Outputs[Derived Column Output]" />
             <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output4]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update County_NDS.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in County_NDS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output3]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert Country_NDS.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in Country_NDS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output2]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update Country_NDS.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in Country_NDS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output1]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert City_NDS.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in City_NDS.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output5]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert Region_NDS.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in Region_NDS.Outputs[Derived Column Output]" />
+            <path
               refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output2]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in County_NDS.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup County_NDS.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output3]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in City_NDS.Inputs[Derived Column Input]"
-              name="Lookup Error Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup City_NDS.Outputs[Lookup Error Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output]"
               endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in Region_NDS.Inputs[Derived Column Input]"
               name="Lookup Error Output"
               startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup Region_NDS.Outputs[Lookup Error Output]" />
             <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output1]"
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output3]"
               endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in Country_NDS.Inputs[Derived Column Input]"
               name="Lookup Error Output"
               startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup Country_NDS.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in County_NDS.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup County_NDS.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output1]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Insert CreatedDate, UpdatedDate in City_NDS.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup City_NDS.Outputs[Lookup Error Output]" />
             <path
               refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Match Output]"
               endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Update UpdatedDate in Region_NDS.Inputs[Derived Column Input]"
@@ -5544,19 +5545,19 @@ WHERE region_code = ? AND SourceID = ?</property>
               startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Lookup County_NDS.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output2]"
+              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in Region_NDS.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\UK_Postcode Stage To Split Region.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output]"
               endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in County_NDS.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\UK_Postcode Stage To Split County.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output]"
+              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output1]"
               endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in City_NDS.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\UK_Postcode Stage To Split City.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output1]"
-              endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in Region_NDS.Inputs[Derived Column Input]"
-              name="OLE DB Source Output"
-              startId="Package\Split UK_Postcode into Country_NDS and Region_NDS\UK_Postcode Stage To Split Region.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output3]"
               endId="Package\Split UK_Postcode into Country_NDS and Region_NDS\Add column SourceID in Country_NDS.Inputs[Derived Column Input]"
@@ -19321,64 +19322,64 @@ WHERE postcode = ? AND SourceID = ?</property>
               startId="Package\UK_Postcode\Merge Join UK_Postcode_Region.Outputs[Merge Join Output]" />
             <path
               refId="Package\UK_Postcode.Paths[OLE DB Source Output4]"
-              endId="Package\UK_Postcode\Sort County_NDS.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\UK_Postcode\County_NDS.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\UK_Postcode.Paths[OLE DB Source Output3]"
-              endId="Package\UK_Postcode\Sort UK_Postcode.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\UK_Postcode\UK_Postcode Stage.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\UK_Postcode.Paths[OLE DB Source Output1]"
-              endId="Package\UK_Postcode\Sort Regon_NDS.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\UK_Postcode\Region_NDS.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\UK_Postcode.Paths[OLE DB Source Output]"
-              endId="Package\UK_Postcode\Sort Country_NDS.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\UK_Postcode\Country_NDS.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\UK_Postcode.Paths[OLE DB Source Output2]"
               endId="Package\UK_Postcode\Sort City_NDS.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\UK_Postcode\City_NDS.Outputs[OLE DB Source Output]" />
             <path
+              refId="Package\UK_Postcode.Paths[OLE DB Source Output3]"
+              endId="Package\UK_Postcode\Sort Country_NDS.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\UK_Postcode\Country_NDS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\UK_Postcode.Paths[OLE DB Source Output1]"
+              endId="Package\UK_Postcode\Sort UK_Postcode.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\UK_Postcode\UK_Postcode Stage.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\UK_Postcode.Paths[OLE DB Source Output]"
+              endId="Package\UK_Postcode\Sort County_NDS.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\UK_Postcode\County_NDS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\UK_Postcode.Paths[OLE DB Source Output2]"
+              endId="Package\UK_Postcode\Sort Regon_NDS.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\UK_Postcode\Region_NDS.Outputs[OLE DB Source Output]" />
+            <path
               refId="Package\UK_Postcode.Paths[Sort Output6]"
+              endId="Package\UK_Postcode\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\UK_Postcode\Sort UK_Postcode_City.Outputs[Sort Output]" />
+            <path
+              refId="Package\UK_Postcode.Paths[Sort Output]"
               endId="Package\UK_Postcode\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\UK_Postcode\Sort County_NDS.Outputs[Sort Output]" />
             <path
-              refId="Package\UK_Postcode.Paths[Sort Output]"
+              refId="Package\UK_Postcode.Paths[Sort Output1]"
               endId="Package\UK_Postcode\Merge Join UK_Postcode_Country.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\UK_Postcode\Sort Country_NDS.Outputs[Sort Output]" />
             <path
-              refId="Package\UK_Postcode.Paths[Sort Output1]"
+              refId="Package\UK_Postcode.Paths[Sort Output2]"
               endId="Package\UK_Postcode\Merge Join UK_Postcode_Country.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\UK_Postcode\Sort UK_Postcode.Outputs[Sort Output]" />
             <path
-              refId="Package\UK_Postcode.Paths[Sort Output2]"
+              refId="Package\UK_Postcode.Paths[Sort Output3]"
               endId="Package\UK_Postcode\Merge Join UK_Postcode_City.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\UK_Postcode\Sort City_NDS.Outputs[Sort Output]" />
             <path
-              refId="Package\UK_Postcode.Paths[Sort Output3]"
+              refId="Package\UK_Postcode.Paths[Sort Output4]"
               endId="Package\UK_Postcode\Merge Join UK_Postcode_Region.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\UK_Postcode\Sort Regon_NDS.Outputs[Sort Output]" />
             <path
-              refId="Package\UK_Postcode.Paths[Sort Output4]"
+              refId="Package\UK_Postcode.Paths[Sort Output5]"
               endId="Package\UK_Postcode\Merge Join UK_Postcode_Region.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\UK_Postcode\Sort UK_Postcode_Country.Outputs[Sort Output]" />
-            <path
-              refId="Package\UK_Postcode.Paths[Sort Output5]"
-              endId="Package\UK_Postcode\Merge Join.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\UK_Postcode\Sort UK_Postcode_City.Outputs[Sort Output]" />
             <path
               refId="Package\UK_Postcode.Paths[Sort Output7]"
               endId="Package\UK_Postcode\Merge Join UK_Postcode_City.Inputs[Merge Join Left Input]"
@@ -20498,30 +20499,18 @@ WHERE postcode = ? AND SourceID = ?</property>
           TopLeft="134.666666666667,644.933333333334" />
         <EdgeLayout
           Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output11]"
-          TopLeft="254.266666666667,686.533333333334">
+          TopLeft="994.771428571429,162.980952380952">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.1142857142861,53.7333333333329"
+              EndConnector="0,57.0666666666666"
               Start="0,0"
-              End="14.1142857142861,46.2333333333329">
+              End="0,49.5666666666666">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.8666666666664" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.8666666666664"
-                    Point2="0,26.8666666666664"
-                    Point3="4,26.8666666666664" />
-                  <mssgle:LineSegment
-                    End="10.1142857142861,26.8666666666664" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.1142857142861,26.8666666666664"
-                    Point2="14.1142857142861,26.8666666666664"
-                    Point3="14.1142857142861,30.8666666666664" />
-                  <mssgle:LineSegment
-                    End="14.1142857142861,46.2333333333329" />
+                    End="0,49.5666666666666" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -20534,18 +20523,18 @@ WHERE postcode = ? AND SourceID = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output7]"
-          TopLeft="842.280952380953,895.904761904762">
+          TopLeft="124.680952380952,872.485714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.3619047619039"
+              EndConnector="0,58.361904761904"
               Start="0,0"
-              End="0,50.8619047619039">
+              End="0,50.861904761904">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.8619047619039" />
+                    End="0,50.861904761904" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -20558,18 +20547,30 @@ WHERE postcode = ? AND SourceID = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output8]"
-          TopLeft="431.933333333333,344.4">
+          TopLeft="971.866666666667,709.95238095238">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.3333333333332"
+              EndConnector="14.1142857142863,53.7333333333331"
               Start="0,0"
-              End="0,45.8333333333332">
+              End="14.1142857142863,46.2333333333331">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.8333333333332" />
+                    End="0,22.8666666666666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8666666666666"
+                    Point2="0,26.8666666666666"
+                    Point3="4,26.8666666666666" />
+                  <mssgle:LineSegment
+                    End="10.1142857142863,26.8666666666666" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.1142857142863,26.8666666666666"
+                    Point2="14.1142857142863,26.8666666666666"
+                    Point3="14.1142857142863,30.8666666666666" />
+                  <mssgle:LineSegment
+                    End="14.1142857142863,46.2333333333331" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -20582,18 +20583,30 @@ WHERE postcode = ? AND SourceID = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output9]"
-          TopLeft="134.080952380952,346.219047619048">
+          TopLeft="816.414285714286,368.585714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,58.3619047619046"
+              EndConnector="36.0999999999999,73.8428571428573"
               Start="0,0"
-              End="0,50.8619047619046">
+              End="36.0999999999999,66.3428571428573">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.8619047619046" />
+                    End="0,32.9214285714286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32.9214285714286"
+                    Point2="0,36.9214285714286"
+                    Point3="4,36.9214285714286" />
+                  <mssgle:LineSegment
+                    End="32.0999999999999,36.9214285714286" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.0999999999999,36.9214285714286"
+                    Point2="36.0999999999999,36.9214285714286"
+                    Point3="36.0999999999999,40.9214285714286" />
+                  <mssgle:LineSegment
+                    End="36.0999999999999,66.3428571428573" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -20606,18 +20619,18 @@ WHERE postcode = ? AND SourceID = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output10]"
-          TopLeft="422.533333333333,870.666666666667">
+          TopLeft="1140.13333333333,894.085714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.333333333333"
+              EndConnector="0,53.3333333333329"
               Start="0,0"
-              End="0,45.833333333333">
+              End="0,45.8333333333329">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.833333333333" />
+                    End="0,45.8333333333329" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -20690,30 +20703,6 @@ WHERE postcode = ? AND SourceID = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output]"
-          TopLeft="255.819047619048,585.628571428571">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.304761904762"
-              Start="0,0"
-              End="0,51.804761904762">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,51.804761904762" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output2]"
           TopLeft="973.419047619048,609.047619047619">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -20737,7 +20726,7 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output1]"
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output2]"
           TopLeft="995.404761904762,60.3142857142858">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -20750,6 +20739,30 @@ WHERE postcode = ? AND SourceID = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,53.5666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[OLE DB Source Output1]"
+          TopLeft="255.819047619048,585.628571428571">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.304761904762"
+              Start="0,0"
+              End="0,51.804761904762">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.804761904762" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -20906,78 +20919,6 @@ WHERE postcode = ? AND SourceID = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output1]"
-          TopLeft="305.980952380953,223.781818181818">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="127.885714285714,79.0181818181818"
-              Start="0,0"
-              End="127.885714285714,71.5181818181818">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.028703030303" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.028703030303"
-                    Point2="0,32.028703030303"
-                    Point3="4,32.028703030303" />
-                  <mssgle:LineSegment
-                    End="123.885714285714,32.028703030303" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.885714285714,32.028703030303"
-                    Point2="127.885714285714,32.028703030303"
-                    Point3="127.885714285714,36.028703030303" />
-                  <mssgle:LineSegment
-                    End="127.885714285714,71.5181818181818" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="18.076470424107,37.028703030303,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output]"
-          TopLeft="1019.5380952381,261.647619047619">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="154.047619047619,73.5190476190476"
-              Start="0,0"
-              End="154.047619047619,66.0190476190476">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.808632034632" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.808632034632"
-                    Point2="0,29.808632034632"
-                    Point3="4,29.808632034632" />
-                  <mssgle:LineSegment
-                    End="150.047619047619,29.808632034632" />
-                  <mssgle:CubicBezierSegment
-                    Point1="150.047619047619,29.808632034632"
-                    Point2="154.047619047619,29.808632034632"
-                    Point3="154.047619047619,33.808632034632" />
-                  <mssgle:LineSegment
-                    End="154.047619047619,66.0190476190476" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="31.1574228050595,34.808632034632,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output3]"
           TopLeft="293.714285714286,781.866666666666">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21013,7 +20954,7 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output2]"
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output]"
           TopLeft="1013.84761904762,805.285714285714">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21049,7 +20990,211 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output3]"
+          TopLeft="305.980952380953,223.781818181818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.885714285714,79.0181818181818"
+              Start="0,0"
+              End="127.885714285714,71.5181818181818">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.028703030303" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.028703030303"
+                    Point2="0,32.028703030303"
+                    Point3="4,32.028703030303" />
+                  <mssgle:LineSegment
+                    End="123.885714285714,32.028703030303" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.885714285714,32.028703030303"
+                    Point2="127.885714285714,32.028703030303"
+                    Point3="127.885714285714,36.028703030303" />
+                  <mssgle:LineSegment
+                    End="127.885714285714,71.5181818181818" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="18.076470424107,37.028703030303,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Lookup Error Output2]"
+          TopLeft="1019.5380952381,261.647619047619">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="154.047619047619,73.5190476190476"
+              Start="0,0"
+              End="154.047619047619,66.0190476190476">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.808632034632" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.808632034632"
+                    Point2="0,29.808632034632"
+                    Point3="4,29.808632034632" />
+                  <mssgle:LineSegment
+                    End="150.047619047619,29.808632034632" />
+                  <mssgle:CubicBezierSegment
+                    Point1="150.047619047619,29.808632034632"
+                    Point2="154.047619047619,29.808632034632"
+                    Point3="154.047619047619,33.808632034632" />
+                  <mssgle:LineSegment
+                    End="154.047619047619,66.0190476190476" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="31.1574228050595,34.808632034632,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output6]"
+          TopLeft="254.266666666667,686.533333333334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.1142857142861,53.7333333333329"
+              Start="0,0"
+              End="14.1142857142861,46.2333333333329">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8666666666664" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8666666666664"
+                    Point2="0,26.8666666666664"
+                    Point3="4,26.8666666666664" />
+                  <mssgle:LineSegment
+                    End="10.1142857142861,26.8666666666664" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.1142857142861,26.8666666666664"
+                    Point2="14.1142857142861,26.8666666666664"
+                    Point3="14.1142857142861,30.8666666666664" />
+                  <mssgle:LineSegment
+                    End="14.1142857142861,46.2333333333329" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output1]"
+          TopLeft="422.533333333333,870.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.333333333333"
+              Start="0,0"
+              End="0,45.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output2]"
+          TopLeft="134.080952380952,346.219047619048">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.3619047619046"
+              Start="0,0"
+              End="0,50.8619047619046">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.8619047619046" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output3]"
+          TopLeft="431.933333333333,344.4">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.3333333333332"
+              Start="0,0"
+              End="0,45.8333333333332">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.8333333333332" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output4]"
+          TopLeft="842.280952380953,895.904761904762">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.3619047619039"
+              Start="0,0"
+              End="0,50.8619047619039">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.8619047619039" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output5]"
           TopLeft="1173.58571428571,376.766666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21074,150 +21219,6 @@ WHERE postcode = ? AND SourceID = ?</property>
                     Point3="45.8190476190473,35.3095238095237" />
                   <mssgle:LineSegment
                     End="45.8190476190473,55.1190476190474" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output1]"
-          TopLeft="1140.13333333333,894.085714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53.3333333333329"
-              Start="0,0"
-              End="0,45.8333333333329">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.8333333333329" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output2]"
-          TopLeft="816.414285714286,368.585714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="36.0999999999999,73.8428571428573"
-              Start="0,0"
-              End="36.0999999999999,66.3428571428573">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.9214285714286" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.9214285714286"
-                    Point2="0,36.9214285714286"
-                    Point3="4,36.9214285714286" />
-                  <mssgle:LineSegment
-                    End="32.0999999999999,36.9214285714286" />
-                  <mssgle:CubicBezierSegment
-                    Point1="32.0999999999999,36.9214285714286"
-                    Point2="36.0999999999999,36.9214285714286"
-                    Point3="36.0999999999999,40.9214285714286" />
-                  <mssgle:LineSegment
-                    End="36.0999999999999,66.3428571428573" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output3]"
-          TopLeft="971.866666666667,709.95238095238">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="14.1142857142863,53.7333333333331"
-              Start="0,0"
-              End="14.1142857142863,46.2333333333331">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.8666666666666" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.8666666666666"
-                    Point2="0,26.8666666666666"
-                    Point3="4,26.8666666666666" />
-                  <mssgle:LineSegment
-                    End="10.1142857142863,26.8666666666666" />
-                  <mssgle:CubicBezierSegment
-                    Point1="10.1142857142863,26.8666666666666"
-                    Point2="14.1142857142863,26.8666666666666"
-                    Point3="14.1142857142863,30.8666666666666" />
-                  <mssgle:LineSegment
-                    End="14.1142857142863,46.2333333333331" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output4]"
-          TopLeft="124.680952380952,872.485714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58.361904761904"
-              Start="0,0"
-              End="0,50.861904761904">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.861904761904" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Split UK_Postcode into Country_NDS and Region_NDS.Paths[Derived Column Output5]"
-          TopLeft="994.771428571429,162.980952380952">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.0666666666666"
-              Start="0,0"
-              End="0,49.5666666666666">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,49.5666666666666" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -23902,42 +23903,6 @@ WHERE postcode = ? AND SourceID = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\UK_Postcode.Paths[Sort Output]"
-          TopLeft="393.538461538462,158.523076923077">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-129.312820512821,86.8615384615384"
-              Start="0,0"
-              End="-129.312820512821,79.3615384615384">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.7671450696954" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.7671450696954"
-                    Point2="0,51.7671450696954"
-                    Point3="-4,51.7671450696954" />
-                  <mssgle:LineSegment
-                    End="-125.312820512821,51.7671450696954" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-125.312820512821,51.7671450696954"
-                    Point2="-129.312820512821,51.7671450696954"
-                    Point3="-129.312820512821,55.7671450696954" />
-                  <mssgle:LineSegment
-                    End="-129.312820512821,79.3615384615384" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\UK_Postcode.Paths[Sort Output6]"
           TopLeft="470.76923076923,786.061538461538">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -23973,7 +23938,7 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_Postcode.Paths[Sort Output5]"
+          Id="Package\UK_Postcode.Paths[Sort Output6]"
           TopLeft="178.953846153846,793.969230769231">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24009,7 +23974,7 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_Postcode.Paths[Sort Output4]"
+          Id="Package\UK_Postcode.Paths[Sort Output5]"
           TopLeft="245.917948717949,382.369230769231">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24033,7 +23998,7 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_Postcode.Paths[Sort Output3]"
+          Id="Package\UK_Postcode.Paths[Sort Output4]"
           TopLeft="540.707692307692,387.753846153846">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24069,7 +24034,7 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_Postcode.Paths[Sort Output2]"
+          Id="Package\UK_Postcode.Paths[Sort Output3]"
           TopLeft="480.092307692308,584.676923076923">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24105,7 +24070,7 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_Postcode.Paths[Sort Output1]"
+          Id="Package\UK_Postcode.Paths[Sort Output2]"
           TopLeft="136.584615384615,160.830769230769">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24141,67 +24106,43 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\UK_Postcode.Paths[Sort Output1]"
+          TopLeft="393.538461538462,158.523076923077">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-129.312820512821,86.8615384615384"
+              Start="0,0"
+              End="-129.312820512821,79.3615384615384">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.7671450696954" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.7671450696954"
+                    Point2="0,51.7671450696954"
+                    Point3="-4,51.7671450696954" />
+                  <mssgle:LineSegment
+                    End="-125.312820512821,51.7671450696954" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-125.312820512821,51.7671450696954"
+                    Point2="-129.312820512821,51.7671450696954"
+                    Point3="-129.312820512821,55.7671450696954" />
+                  <mssgle:LineSegment
+                    End="-129.312820512821,79.3615384615384" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\UK_Postcode.Paths[OLE DB Source Output]"
-          TopLeft="396.015384615385,69.2923076923077">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.6307692307692"
-              Start="0,0"
-              End="0,40.1307692307692">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,40.1307692307692" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\UK_Postcode.Paths[OLE DB Source Output1]"
-          TopLeft="576.092307692308,246.984615384615">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-35.3846153846154,99.1692307692308"
-              Start="0,0"
-              End="-35.3846153846154,91.6692307692308">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.5846153846154" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,45.5846153846154"
-                    Point2="0,49.5846153846154"
-                    Point3="-4,49.5846153846154" />
-                  <mssgle:LineSegment
-                    End="-31.3846153846154,49.5846153846154" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-31.3846153846154,49.5846153846154"
-                    Point2="-35.3846153846154,49.5846153846154"
-                    Point3="-35.3846153846154,53.5846153846154" />
-                  <mssgle:LineSegment
-                    End="-35.3846153846154,91.6692307692308" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\UK_Postcode.Paths[OLE DB Source Output4]"
           TopLeft="596.953846153847,676.215384615385">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24237,7 +24178,43 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_Postcode.Paths[OLE DB Source Output2]"
+          Id="Package\UK_Postcode.Paths[OLE DB Source Output1]"
+          TopLeft="106.184615384615,64.5230769230769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="30.4,54.7076923076923"
+              Start="0,0"
+              End="30.4,47.2076923076923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.3538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.3538461538462"
+                    Point2="0,27.3538461538462"
+                    Point3="4,27.3538461538462" />
+                  <mssgle:LineSegment
+                    End="26.4,27.3538461538462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.4,27.3538461538462"
+                    Point2="30.4,27.3538461538462"
+                    Point3="30.4,31.3538461538462" />
+                  <mssgle:LineSegment
+                    End="30.4,47.2076923076923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\UK_Postcode.Paths[OLE DB Source Output4]"
           TopLeft="638.892307692308,473.138461538462">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -24273,31 +24250,55 @@ WHERE postcode = ? AND SourceID = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_Postcode.Paths[OLE DB Source Output3]"
-          TopLeft="106.184615384615,64.5230769230769">
+          Id="Package\UK_Postcode.Paths[OLE DB Source Output2]"
+          TopLeft="576.092307692308,246.984615384615">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="30.4,54.7076923076923"
+              EndConnector="-35.3846153846154,99.1692307692308"
               Start="0,0"
-              End="30.4,47.2076923076923">
+              End="-35.3846153846154,91.6692307692308">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.3538461538462" />
+                    End="0,45.5846153846154" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.3538461538462"
-                    Point2="0,27.3538461538462"
-                    Point3="4,27.3538461538462" />
+                    Point1="0,45.5846153846154"
+                    Point2="0,49.5846153846154"
+                    Point3="-4,49.5846153846154" />
                   <mssgle:LineSegment
-                    End="26.4,27.3538461538462" />
+                    End="-31.3846153846154,49.5846153846154" />
                   <mssgle:CubicBezierSegment
-                    Point1="26.4,27.3538461538462"
-                    Point2="30.4,27.3538461538462"
-                    Point3="30.4,31.3538461538462" />
+                    Point1="-31.3846153846154,49.5846153846154"
+                    Point2="-35.3846153846154,49.5846153846154"
+                    Point3="-35.3846153846154,53.5846153846154" />
                   <mssgle:LineSegment
-                    End="30.4,47.2076923076923" />
+                    End="-35.3846153846154,91.6692307692308" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\UK_Postcode.Paths[OLE DB Source Output3]"
+          TopLeft="396.015384615385,69.2923076923077">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.6307692307692"
+              Start="0,0"
+              End="0,40.1307692307692">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.1307692307692" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
