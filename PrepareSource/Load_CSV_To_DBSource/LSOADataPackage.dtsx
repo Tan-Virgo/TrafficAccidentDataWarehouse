@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{CD6A39F1-78CB-42BA-B373-41A6FE568DC4}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{C09FF236-13EF-4CAE-BA6A-02B2050D3042}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -39,7 +39,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="pcd7"
-              DTS:DTSID="{3ABB4734-9692-4A00-8561-760516AB22C6}"
+              DTS:DTSID="{5D338C37-7DF3-4A67-AE09-058B846A1436}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="pcd8"
-              DTS:DTSID="{70E033E0-FC76-4B20-8F5A-C94DF6FE019B}"
+              DTS:DTSID="{017C07BA-9A6F-42E9-A606-5F98F34D3ED5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,7 +57,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="pcds"
-              DTS:DTSID="{89AF7B8C-C2D9-4346-8911-4DFA339FD755}"
+              DTS:DTSID="{6ACF05E0-A256-41CA-B71D-4EE1CB7DD7EB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -66,7 +66,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="dointr"
-              DTS:DTSID="{C55F0663-1397-433F-B982-C6EC27E5B477}"
+              DTS:DTSID="{EF74DBDB-80AC-4E41-8705-F1CF8CCF777C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -75,7 +75,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="doterm"
-              DTS:DTSID="{F76A86FD-53AA-4B4A-AFE4-6352A3DD8F95}"
+              DTS:DTSID="{AC0673EB-8A1D-4B9F-B2C6-C16E0469ADFB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -84,7 +84,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="usertype"
-              DTS:DTSID="{36244253-0BE3-40E6-8A81-A9AD6228E4FD}"
+              DTS:DTSID="{19320AF7-318A-44A0-9263-DA0AEB898CE2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -93,7 +93,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="oa11cd"
-              DTS:DTSID="{4670C792-0DF8-439A-8239-FE6852BD14C0}"
+              DTS:DTSID="{95D93F43-FAA9-433D-B813-B28D6D77703F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -102,7 +102,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="lsoa11cd"
-              DTS:DTSID="{1F28CE95-F110-4005-89D8-3D7C465A94EA}"
+              DTS:DTSID="{4CA98AEC-FF2C-421F-A38E-1EE14E0D9DBD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -111,7 +111,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="msoa11cd"
-              DTS:DTSID="{2C6B7FF9-3660-4C1A-B1D9-32BB3830E631}"
+              DTS:DTSID="{1B03D161-4261-4111-A790-5F9278F984E8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -120,7 +120,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ladcd"
-              DTS:DTSID="{DDC86189-FA42-436A-B201-59350E1282D8}"
+              DTS:DTSID="{EB0AD1D8-0E86-43E5-BD2E-9C77277F40B8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -129,7 +129,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="lsoa11nm"
-              DTS:DTSID="{AADBA924-3799-47D7-A661-BE380E646839}"
+              DTS:DTSID="{9CF3333D-39C5-41CF-8840-12F54AA9AD43}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -138,7 +138,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="msoa11nm"
-              DTS:DTSID="{6A9A8B91-2AE0-42AB-ADC1-9D83EF7784B5}"
+              DTS:DTSID="{727B79E9-026E-405A-9C2F-111A7EFFDC8C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -147,7 +147,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ladnm"
-              DTS:DTSID="{6B4133C0-9416-40F3-9ACF-4CE4674E1441}"
+              DTS:DTSID="{3C54A5DD-F8AB-4645-9F1F-DE730B9827F2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -156,7 +156,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="ladnmw"
-              DTS:DTSID="{A240D878-92C0-44F1-BEA1-48DA031E5EE8}"
+              DTS:DTSID="{7832F2EF-FA7A-47B0-8527-94E530A23ABA}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -998,10 +998,10 @@
         <NodeLayout
           Size="235.2,41.6"
           Id="Package\LSOA Postcode Mapping\LSOA_Postcode_Mapping_Source"
-          TopLeft="60,62.964706440038" />
+          TopLeft="60,63.7294123331157" />
         <EdgeLayout
           Id="Package\LSOA Postcode Mapping.Paths[Flat File Source Output]"
-          TopLeft="295.2,82.282353220019">
+          TopLeft="295.2,82.6647061665578">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

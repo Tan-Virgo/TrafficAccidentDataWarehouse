@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{E5BD1930-A004-4533-AC3F-6CCBA6E0D1A2}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{DDA97213-F8F4-42DA-9BD2-979B44E832C8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2328,7 +2328,8 @@
                       cachedLength="100"
                       cachedName="label"
                       externalMetadataColumnId="Package\Casualty_Type\Casualty_Type.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
-                      lineageId="Package\Casualty_Type\Casualty_Type_Source.Outputs[Flat File Source Output].Columns[label]" />
+                      lineageId="Package\Casualty_Type\Casualty_Type_Source.Outputs[Flat File Source Output].Columns[label]"
+                      name="label" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2340,7 +2341,7 @@
                       refId="Package\Casualty_Type\Casualty_Type.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="100"
                       name="Name" />
                     <externalMetadataColumn
                       refId="Package\Casualty_Type\Casualty_Type.Inputs[OLE DB Destination Input].ExternalColumns[Create_Timestamp]"
@@ -9033,13 +9034,13 @@
           Id="Package\Accident_Severity"
           TopLeft="56.4285723895443,27.5294121507955" />
         <NodeLayout
-          Size="148,41.6"
-          Id="Package\Casualty_Class"
-          TopLeft="51.9285722192453,168.38235522554" />
-        <NodeLayout
           Size="125.6,41.6"
           Id="Package\Age_Band"
           TopLeft="56.4285723895443,100.94117788625" />
+        <NodeLayout
+          Size="148,41.6"
+          Id="Package\Casualty_Class"
+          TopLeft="51.9285722192453,168.38235522554" />
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\Casualty_Severity"
@@ -9135,7 +9136,7 @@
         <NodeLayout
           Size="169.6,41.6"
           Id="Package\Vehicle_Manoeuvre"
-          TopLeft="912.314297136482,155.035296112443" />
+          TopLeft="913.028582862932,154.270590219365" />
         <NodeLayout
           Size="140.8,41.6"
           Id="Package\Vehicle_Type"
@@ -9149,13 +9150,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Accident_Severity\Accident_Severity"
-          TopLeft="332.857147503872,62.2941176792329" />
-        <NodeLayout
           Size="199.2,41.6"
           Id="Package\Accident_Severity\Accident_Severity_Source"
           TopLeft="60,60" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Accident_Severity\Accident_Severity"
+          TopLeft="332.857147503872,62.2941176792329" />
         <EdgeLayout
           Id="Package\Accident_Severity.Paths[Flat File Source Output]"
           TopLeft="259.2,81.9470588396164">
@@ -9183,6 +9184,57 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Accident_Severity\Accident_Severity">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Age_Band">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Age_Band\Age_Band_Source"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="125.6,41.6"
+          Id="Package\Age_Band\Age_Band"
+          TopLeft="335.714290409672,61.529411786155" />
+        <EdgeLayout
+          Id="Package\Age_Band.Paths[Flat File Source Output]"
+          TopLeft="224,81.564705893078">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.714290409672,0"
+              Start="0,0"
+              End="104.214290409672,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="104.214290409672,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Age_Band\Age_Band">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9232,57 +9284,6 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\Age_Band">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\Age_Band\Age_Band"
-          TopLeft="335.714290409672,61.529411786155" />
-        <NodeLayout
-          Size="164,41.6"
-          Id="Package\Age_Band\Age_Band_Source"
-          TopLeft="60,60" />
-        <EdgeLayout
-          Id="Package\Age_Band.Paths[Flat File Source Output]"
-          TopLeft="224,81.564705893078">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="111.714290409672,0"
-              Start="0,0"
-              End="104.214290409672,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="104.214290409672,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Age_Band\Age_Band">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Casualty_Class\Casualty_Class">
     <Properties>
@@ -9812,13 +9813,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\Ped_Cross_Human\Ped_Cross_Human"
-          TopLeft="422.857143586996,61.035293924603" />
-        <NodeLayout
           Size="213.6,48"
           Id="Package\Ped_Cross_Human\Ped_Cross_Human_Source"
           TopLeft="60,60" />
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\Ped_Cross_Human\Ped_Cross_Human"
+          TopLeft="422.857143586996,61.035293924603" />
         <EdgeLayout
           Id="Package\Ped_Cross_Human.Paths[Flat File Source Output]"
           TopLeft="273.6,82.9176469623019">
@@ -9861,7 +9862,7 @@
     design-time-name="Package\Ped_Cross_Physical">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="208.8,41.6"
           Id="Package\Ped_Cross_Physical\Ped_Cross_Physical_Source"
@@ -9889,7 +9890,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10179,7 +10182,7 @@
     design-time-name="Package\Road_Class">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="171.2,41.6"
           Id="Package\Road_Class\Road_Class_Source"
@@ -10207,7 +10210,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10487,13 +10492,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="169.6,41.6"
-          Id="Package\Vehicle_Manoeuvre\Vehicle_Manoeuvre"
-          TopLeft="411,63" />
-        <NodeLayout
           Size="208,41.6"
           Id="Package\Vehicle_Manoeuvre\Vehicle_Manoeuvre_Source"
           TopLeft="60,60" />
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\Vehicle_Manoeuvre\Vehicle_Manoeuvre"
+          TopLeft="411,63" />
         <EdgeLayout
           Id="Package\Vehicle_Manoeuvre.Paths[Flat File Source Output]"
           TopLeft="268,82.5">
@@ -10538,13 +10543,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="140.8,41.6"
-          Id="Package\Vehicle_Type\Vehicle_Type"
-          TopLeft="397,60" />
-        <NodeLayout
           Size="179.2,41.6"
           Id="Package\Vehicle_Type\Vehicle_Type_Source"
           TopLeft="60,62" />
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Vehicle_Type\Vehicle_Type"
+          TopLeft="397,60" />
         <EdgeLayout
           Id="Package\Vehicle_Type.Paths[Flat File Source Output]"
           TopLeft="239,82">
