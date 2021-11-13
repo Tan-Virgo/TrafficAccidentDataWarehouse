@@ -2,48 +2,48 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ETL</Name>
-    <LastWriteTime>2021-11-12T10:11:46.4699421Z</LastWriteTime>
+    <LastWriteTime>2021-11-13T06:49:05.5496741Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>MainPackage_SourceToStage.dtsx</Name>
-      <LastWriteTime>2021-11-11T14:50:33.3678791Z</LastWriteTime>
+      <LastWriteTime>2021-11-13T06:39:25.764025Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>MainPackage.dtsx</Name>
-      <LastWriteTime>2021-11-11T14:50:33.367263Z</LastWriteTime>
+      <LastWriteTime>2021-11-13T06:39:25.764025Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage_18120553.dtsx</Name>
-      <LastWriteTime>2021-11-12T05:57:37.5725166Z</LastWriteTime>
+      <LastWriteTime>2021-11-13T06:39:25.7749953Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage_18120560.dtsx</Name>
-      <LastWriteTime>2021-11-12T03:48:07.0843763Z</LastWriteTime>
+      <LastWriteTime>2021-11-13T06:39:25.775993Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage_18120570.dtsx</Name>
-      <LastWriteTime>2021-11-12T03:48:07.0713433Z</LastWriteTime>
+      <LastWriteTime>2021-11-13T06:39:25.7769903Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SourceToStage_18120590.dtsx</Name>
-      <LastWriteTime>2021-11-12T03:48:06.993134Z</LastWriteTime>
+      <LastWriteTime>2021-11-13T06:39:25.7789852Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>MainPackage_StageToNDS.dtsx</Name>
-      <LastWriteTime>2021-11-12T12:48:20.4558404Z</LastWriteTime>
+      <LastWriteTime>2021-11-13T17:42:06.2783949Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Package2.dtsx</Name>
-      <LastWriteTime>2021-11-12T10:11:46.3755156Z</LastWriteTime>
+      <LastWriteTime>2021-11-13T06:39:25.7720036Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
