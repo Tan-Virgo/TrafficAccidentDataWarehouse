@@ -1,0 +1,2506 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/18/2021 9:11:26 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ADMIN"
+  DTS:CreatorName="ADMIN\Administrator"
+  DTS:DTSID="{C781739A-8F59-47DD-9516-EEF41FAB8648}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1066"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{2E6D33C0-7DA9-4A84-8ACB-D87FBD031A82}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB_NDS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0E409CFC-8EDF-438D-A809-66BD301CE856}"
+      DTS:ObjectName="LocalHost.DB_NDS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_NDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB_Stage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{56905CD6-ED86-421D-9873-21F4AED44F37}"
+      DTS:ObjectName="LocalHost.DB_Stage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_Stage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LSOA_Postcode_Mapping"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{f143c2dd-6327-4ff1-a708-75c44ae7511b}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LSOA_Postcode_Mapping"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Output].Columns[SourceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Output].Columns[SourceID]"
+                      name="SourceID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">3</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">3</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Iinsert"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Iinsert"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO LSOA_Postcode_Mapping_NDS
+(Postcode, LSOA_code, LSOA_name, SourceID, CreatedDate, UpdatedDate)
+VALUES (?,?,?,?,?,?)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LSOA_Postcode_Mapping\Iinsert.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_NDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].Columns[LSOA_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_code"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_code]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].Columns[LSOA_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_name"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_name]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].Columns[CreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedDate"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Output].Columns[CreatedDate]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].Columns[UpdatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdatedDate"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Output].Columns[UpdatedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="dbTimeStamp"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="dbTimeStamp"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Iinsert.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Iinsert.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Iinsert.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Iinsert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Iinsert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Insert CreatedDate, updatedDate"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Output].Columns[UpdatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Output].Columns[UpdatedDate]"
+                      name="UpdatedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[LSOA_Postcode_Mapping_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[LSOA_Postcode_Mapping_NDS]) [refTable]
+where [refTable].[LSOA_code] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LSOA_code" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="LSOA_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Postcode" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_code]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LSOA_Postcode_Mapping\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_NDS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Lookup.Inputs[Lookup Input].Columns[LSOA_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_code"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_code]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">LSOA_code</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="LSOA_Postcode_Mapping"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT 
+REPLACE(lsoa11cd, '"', '') AS LSOA_code,
+REPLACE(lsoa11nm, '"', '') AS LSOA_name,
+REPLACE(REPLACE(REPLACE(pcds, '"', ''), RIGHT(REPLACE(pcds, '"', ''), 3), ''), ' ', '') AS Postcode
+FROM LSOA_Postcode_Mapping</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_Stage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[LSOA_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].ExternalColumns[LSOA_code]"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[LSOA_code]"
+                      name="LSOA_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[LSOA_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].ExternalColumns[LSOA_name]"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[LSOA_name]"
+                      name="LSOA_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                      length="10"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[Postcode]"
+                      name="Postcode"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].ExternalColumns[LSOA_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="LSOA_code" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].ExternalColumns[LSOA_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="LSOA_name" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].ExternalColumns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="Postcode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[LSOA_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[LSOA_code]"
+                      name="LSOA_code" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[LSOA_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[LSOA_name]"
+                      name="LSOA_name" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[Postcode]"
+                      name="Postcode" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Left Input].Columns[Postcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Postcode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[Postcode]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Left Input].Columns[LSOA_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_code"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[LSOA_code]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Left Input].Columns[LSOA_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_name"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[LSOA_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Right Input].Columns[postcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="postcode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[postcode]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Right Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_code]"
+                      name="LSOA_code">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Left Input].Columns[LSOA_code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_name]"
+                      name="LSOA_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Left Input].Columns[LSOA_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[ID]"
+                      name="ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Right Input].Columns[ID]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort  UK_Postcode_NDS"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[postcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="postcode"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[postcode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[easting]"
+                      cachedDataType="i4"
+                      cachedName="easting"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[easting]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[northing]"
+                      cachedDataType="i4"
+                      cachedName="northing"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[northing]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[latitude]"
+                      cachedDataType="r8"
+                      cachedName="latitude"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[latitude]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[longitude]"
+                      cachedDataType="r8"
+                      cachedName="longitude"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[longitude]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[city]"
+                      cachedDataType="i4"
+                      cachedName="city"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[county]"
+                      cachedDataType="i4"
+                      cachedName="county"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[county]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[country]"
+                      cachedDataType="i4"
+                      cachedName="country"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[iso3166_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="iso3166_2"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[iso3166_2]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[region]"
+                      cachedDataType="i4"
+                      cachedName="region"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[region]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[SourceID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[CreatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="CreatedDate"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[CreatedDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input].Columns[UpdatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdatedDate"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[UpdatedDate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[ID]"
+                      name="ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[postcode]"
+                      name="postcode"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[postcode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[easting]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[easting]"
+                      name="easting">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[easting]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[northing]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[northing]"
+                      name="northing">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[northing]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[latitude]"
+                      dataType="r8"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[latitude]"
+                      name="latitude">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[latitude]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[longitude]"
+                      dataType="r8"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[longitude]"
+                      name="longitude">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[longitude]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[city]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[city]"
+                      name="city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[county]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[county]"
+                      name="county">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[county]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[country]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[country]"
+                      name="country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[iso3166_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[iso3166_2]"
+                      name="iso3166_2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[iso3166_2]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[region]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[region]"
+                      name="region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[region]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[SourceID]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[SourceID]"
+                      name="SourceID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[SourceID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[CreatedDate]"
+                      name="CreatedDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[CreatedDate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[UpdatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output].Columns[UpdatedDate]"
+                      name="UpdatedDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[UpdatedDate]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort LSOA_Postcode_Mapping"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Inputs[Sort Input].Columns[LSOA_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_code"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[LSOA_code]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Inputs[Sort Input].Columns[LSOA_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_name"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[LSOA_name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Inputs[Sort Input].Columns[Postcode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Postcode"
+                      lineageId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[Postcode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[LSOA_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[LSOA_code]"
+                      name="LSOA_code">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[LSOA_code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[LSOA_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[LSOA_name]"
+                      name="LSOA_name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[LSOA_name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[Postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output].Columns[Postcode]"
+                      name="Postcode"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output].Columns[Postcode]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="UK_Postcode_NDS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[UK_Postcode_NDS]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_NDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
+                      length="50"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[postcode]"
+                      name="postcode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[easting]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[easting]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[easting]"
+                      name="easting"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[northing]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[northing]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[northing]"
+                      name="northing"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[latitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[latitude]"
+                      name="latitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[longitude]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[longitude]"
+                      name="longitude"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[city]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[county]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[county]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[county]"
+                      name="county"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[country]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[iso3166_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[iso3166_2]"
+                      length="50"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[iso3166_2]"
+                      name="iso3166_2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[region]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[region]"
+                      name="region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[SourceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[SourceID]"
+                      name="SourceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[CreatedDate]"
+                      name="CreatedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[UpdatedDate]"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
+                      name="UpdatedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="postcode" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[easting]"
+                      dataType="i4"
+                      name="easting" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[northing]"
+                      dataType="i4"
+                      name="northing" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
+                      dataType="r8"
+                      name="latitude" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
+                      dataType="r8"
+                      name="longitude" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      dataType="i4"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[county]"
+                      dataType="i4"
+                      name="county" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[country]"
+                      dataType="i4"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[iso3166_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="iso3166_2" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[region]"
+                      dataType="i4"
+                      name="region" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
+                      dataType="i4"
+                      name="SourceID" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      name="CreatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output].ExternalColumns[UpdatedDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdatedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[postcode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[postcode]"
+                      name="postcode" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[easting]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[easting]"
+                      name="easting" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[northing]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[northing]"
+                      name="northing" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                      dataType="r8"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[latitude]"
+                      name="latitude" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                      dataType="r8"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[longitude]"
+                      name="longitude" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[city]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[county]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[county]"
+                      name="county" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[country]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[iso3166_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[iso3166_2]"
+                      name="iso3166_2" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[region]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[region]"
+                      name="region" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[SourceID]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[SourceID]"
+                      name="SourceID" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
+                      name="CreatedDate" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[UpdatedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[UpdatedDate]"
+                      name="UpdatedDate" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Update"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [LSOA_Postcode_Mapping_NDS]
+ SET
+LSOA_name = ?,
+UpdatedDate = ?
+WHERE Postcode = ? AND LSOA_name = ? AND SourceID = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LSOA_Postcode_Mapping\Update.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_NDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_NDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].Columns[LSOA_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_name"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_name]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].Columns[UpdatedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdatedDate"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Output].Columns[UpdatedDate]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].Columns[LSOA_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="LSOA_code"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output].Columns[LSOA_code]" />
+                    <inputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Output].Columns[SourceID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="dbTimeStamp"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Update.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Update.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Update.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Update.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LSOA_Postcode_Mapping\Update UpdatedDate"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Update UpdatedDate"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Output].Columns[UpdatedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Output].Columns[UpdatedDate]"
+                      name="UpdatedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[Derived Column Output]"
+              endId="Package\LSOA_Postcode_Mapping\Lookup.Inputs[Lookup Input]"
+              name="Derived Column Output"
+              startId="Package\LSOA_Postcode_Mapping\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[Derived Column Output1]"
+              endId="Package\LSOA_Postcode_Mapping\Update.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[Derived Column Output2]"
+              endId="Package\LSOA_Postcode_Mapping\Iinsert.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[Lookup Error Output]"
+              endId="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate.Inputs[Derived Column Input]"
+              name="Lookup Error Output"
+              startId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[Lookup Match Output]"
+              endId="Package\LSOA_Postcode_Mapping\Update UpdatedDate.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\LSOA_Postcode_Mapping\Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[Merge Join Output]"
+              endId="Package\LSOA_Postcode_Mapping\Derived Column.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\LSOA_Postcode_Mapping\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[OLE DB Source Output]"
+              endId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[OLE DB Source Output1]"
+              endId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[Sort Output]"
+              endId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping.Outputs[Sort Output]" />
+            <path
+              refId="Package\LSOA_Postcode_Mapping.Paths[Sort Output1]"
+              endId="Package\LSOA_Postcode_Mapping\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\LSOA_Postcode_Mapping"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LSOA_Postcode_Mapping">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="192,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Sort  UK_Postcode_NDS"
+          TopLeft="295.333330693699,188.082350485218" />
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Update"
+          TopLeft="67.2857148695965,600.200006016563" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Merge Join"
+          TopLeft="180.000003065382,271.117648056222" />
+        <NodeLayout
+          Size="108.8,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Iinsert"
+          TopLeft="313.571433485771,604.317651520304" />
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS"
+          TopLeft="325.857141287959,97.4235272775472" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping"
+          TopLeft="32.0714278659042,174.813725415123" />
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping"
+          TopLeft="31.2857147844472,90.1456580917098" />
+        <NodeLayout
+          Size="235.2,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate"
+          TopLeft="247.857147078125,526.670593501127" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Update UpdatedDate"
+          TopLeft="32.8571434166967,532.552947085786" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Derived Column"
+          TopLeft="158.714283342264,350.133330780852" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Lookup"
+          TopLeft="146.428573922235,431.800005651923" />
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Derived Column Output2]"
+          TopLeft="366.714290281948,568.270593501127">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.047058019177"
+              Start="0,0"
+              End="0,28.547058019177">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.547058019177" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Derived Column Output1]"
+          TopLeft="122.271429143147,574.152947085786">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.047058930777"
+              Start="0,0"
+              End="0,18.547058930777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.547058930777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Derived Column Output]"
+          TopLeft="235.114283342264,391.733330780852">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32.2857094200289,40.0666748710713"
+              Start="0,0"
+              End="-32.2857094200289,32.5666748710713">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.0333374355356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.0333374355356"
+                    Point2="0,20.0333374355356"
+                    Point3="-4,20.0333374355356" />
+                  <mssgle:LineSegment
+                    End="-28.2857094200289,20.0333374355356" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28.2857094200289,20.0333374355356"
+                    Point2="-32.2857094200289,20.0333374355356"
+                    Point3="-32.2857094200289,24.0333374355356" />
+                  <mssgle:LineSegment
+                    End="-32.2857094200289,32.5666748710713" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Sort Output1]"
+          TopLeft="391.333330693699,229.682350485218">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-126.26666096165,41.435297571004"
+              Start="0,0"
+              End="-126.26666096165,33.935297571004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5579934384243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5579934384243"
+                    Point2="0,24.5579934384243"
+                    Point3="-4,24.5579934384243" />
+                  <mssgle:LineSegment
+                    End="-122.26666096165,24.5579934384243" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-122.26666096165,24.5579934384243"
+                    Point2="-126.26666096165,24.5579934384243"
+                    Point3="-126.26666096165,28.5579934384243" />
+                  <mssgle:LineSegment
+                    End="-126.26666096165,33.935297571004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Sort Output]"
+          TopLeft="142.071427865904,216.413725415123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82.4619085328111,54.703922641099"
+              Start="0,0"
+              End="82.4619085328111,47.203922641099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.4220809799684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.4220809799684"
+                    Point2="0,32.4220809799684"
+                    Point3="4,32.4220809799684" />
+                  <mssgle:LineSegment
+                    End="78.4619085328111,32.4220809799684" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.4619085328111,32.4220809799684"
+                    Point2="82.4619085328111,32.4220809799684"
+                    Point3="82.4619085328111,36.4220809799684" />
+                  <mssgle:LineSegment
+                    End="82.4619085328111,47.203922641099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[OLE DB Source Output1]"
+          TopLeft="130.085714784447,131.74565809171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.985713081457,43.0680673234132"
+              Start="0,0"
+              End="11.985713081457,35.5680673234132">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5340336617066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5340336617066"
+                    Point2="0,21.5340336617066"
+                    Point3="4,21.5340336617066" />
+                  <mssgle:LineSegment
+                    End="7.98571308145702,21.5340336617066" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.98571308145702,21.5340336617066"
+                    Point2="11.985713081457,21.5340336617066"
+                    Point3="11.985713081457,25.5340336617066" />
+                  <mssgle:LineSegment
+                    End="11.985713081457,35.5680673234132" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[OLE DB Source Output]"
+          TopLeft="408.657141287959,139.023527277547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.3238105942599,49.0588232076708"
+              Start="0,0"
+              End="-17.3238105942599,41.5588232076708">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5294116038354" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5294116038354"
+                    Point2="0,24.5294116038354"
+                    Point3="-4,24.5294116038354" />
+                  <mssgle:LineSegment
+                    End="-13.3238105942599,24.5294116038354" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.3238105942599,24.5294116038354"
+                    Point2="-17.3238105942599,24.5294116038354"
+                    Point3="-17.3238105942599,28.5294116038354" />
+                  <mssgle:LineSegment
+                    End="-17.3238105942599,41.5588232076708" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Merge Join Output]"
+          TopLeft="244.800003065382,312.717648056222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.68571972311776,37.41568272463"
+              Start="0,0"
+              End="-9.68571972311776,29.91568272463">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.707841362315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.707841362315"
+                    Point2="0,18.707841362315"
+                    Point3="-4,18.707841362315" />
+                  <mssgle:LineSegment
+                    End="-5.68571972311776,18.707841362315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.68571972311776,18.707841362315"
+                    Point2="-9.68571972311776,18.707841362315"
+                    Point3="-9.68571972311776,22.707841362315" />
+                  <mssgle:LineSegment
+                    End="-9.68571972311776,29.91568272463" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Lookup Match Output]"
+          TopLeft="185.361907255569,473.400005651923">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-64.1047638388718,59.1529414338634"
+              Start="0,0"
+              End="-64.1047638388718,51.6529414338634">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.1575648932701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.1575648932701"
+                    Point2="0,24.1575648932701"
+                    Point3="-4,24.1575648932701" />
+                  <mssgle:LineSegment
+                    End="-60.1047638388718,24.1575648932701" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-60.1047638388718,24.1575648932701"
+                    Point2="-64.1047638388718,24.1575648932701"
+                    Point3="-64.1047638388718,28.1575648932701" />
+                  <mssgle:LineSegment
+                    End="-64.1047638388718,51.6529414338634" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-80.2437686381859,29.1575648932701,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Lookup Error Output]"
+          TopLeft="220.295240588902,473.400005651923">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145.161906489223,53.2705878492043"
+              Start="0,0"
+              End="145.161906489223,45.7705878492043">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.755261051703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.755261051703"
+                    Point2="0,21.755261051703"
+                    Point3="4,21.755261051703" />
+                  <mssgle:LineSegment
+                    End="141.161906489223,21.755261051703" />
+                  <mssgle:CubicBezierSegment
+                    Point1="141.161906489223,21.755261051703"
+                    Point2="145.161906489223,21.755261051703"
+                    Point3="145.161906489223,25.755261051703" />
+                  <mssgle:LineSegment
+                    End="145.161906489223,45.7705878492043" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="26.7145665258615,26.755261051703,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

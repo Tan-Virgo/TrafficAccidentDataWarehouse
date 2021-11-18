@@ -278,14 +278,14 @@ CREATE TABLE [Accidents_NDS]
     [Accident_Index] VARCHAR(50),
     [Location_Easting_OSGR] INT,
     [Location_Northing_OSGR] INT,
-    [Longitude] INT,
-    [Latitude] INT,
+    [Longitude] FLOAT,
+    [Latitude] FLOAT,
     [Accident_Severity] INT,
     [Date] DATE,
-    [Time] TIME,
+    [Time] VARCHAR(50),
     [Local_Authority_(District)] INT,
     [Road_Type] INT,
-    [Speed_limit] INT,
+    [Speed_limit] FLOAT,
     [Urban_or_Rural_Area] INT,
     [LSOA_of_Accident_Location] INT,
 	[CreatedDate] DATETIME,
@@ -301,6 +301,7 @@ CREATE TABLE [Accidents_NDS]
 )
 GO
 
+--DELETE Vehicles_NDS
 --DROP TABLE [Vehicles_NDS]
 CREATE TABLE [Vehicles_NDS] 
 (
@@ -325,6 +326,8 @@ CREATE TABLE [Casualties_NDS]
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_Vehicles] INT,
+	[Accident_Index] INT,
+    [Vehicle_Reference] VARCHAR(50),
     [Casualty_Reference] INT,
     [Age_Band_of_Casualty] INT,
     [Casualty_Severity] INT,
