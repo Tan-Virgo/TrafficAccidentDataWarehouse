@@ -1,0 +1,537 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/29/2021 9:44:08 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ADMIN"
+  DTS:CreatorName="ADMIN\Administrator"
+  DTS:DTSID="{BA918041-6B42-4D60-B054-3CC1EED796E9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1066"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{8D3075AB-F06A-41A1-92FF-D8E0594EA8DF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB_MetaData]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
+      DTS:ObjectName="LocalHost.DB_MetaData">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_MetaData;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B2B81E98-9F2C-4655-BC82-A70AEC55F428}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LSETResult">
+      <DTS:VariableValue
+        DTS:DataType="7">1/1/1900</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\dim_Accident_Severity"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{ac9b2845-21a0-4843-9cd3-fd5364e4f24f}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dim_Accident_Severity"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\dim_Age_Band"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{b324421d-1301-494f-adf7-649eb6e57f9b}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dim_Age_Band"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get LSET of dim_Accident_Severity in DB_MetaData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b33e430b-d929-4f6c-8593-08a2bb2bdd9d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get LSET of dim_Accident_Severity in DB_MetaData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'Accident_Severity' )"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSETResult" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get LSET of dim_Age_Band DB_MetaData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7bbbab3e-2600-4cd0-89ab-7e3c5df0e8ee}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get LSET of dim_Age_Band DB_MetaData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A32E55C-5F7D-4470-846C-ADB5583AEFC8}"
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'Sources' )"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSETResult" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LSET of dim_Accident_Severity in DB_MetaData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{a101bf99-5bbb-4000-8eda-179e36b722a9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LSET of dim_Accident_Severity in DB_MetaData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Accident_Severity'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Set LSET of dim_Age_Band in DB_MetaData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{cd9908ac-6d39-4c87-a8b6-536603487ef3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Set LSET of dim_Age_Band in DB_MetaData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0A32E55C-5F7D-4470-846C-ADB5583AEFC8}"
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Sources'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{73bcfea7-b2f6-4f41-9067-c163c2e3af60}"
+      DTS:From="Package\Get LSET of dim_Accident_Severity in DB_MetaData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\dim_Accident_Severity" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{da168dbb-f754-4c51-92be-2a90f3303aee}"
+      DTS:From="Package\Get LSET of dim_Age_Band DB_MetaData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\dim_Age_Band" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A4645E38-056F-4E2F-A2E6-C9BB5AC4F9C5}"
+      DTS:From="Package\Set LSET of dim_Accident_Severity in DB_MetaData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Get LSET of dim_Age_Band DB_MetaData" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{01d481c2-55e7-45c6-8d5b-7e6ca2852270}"
+      DTS:From="Package\dim_Accident_Severity"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Set LSET of dim_Accident_Severity in DB_MetaData" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{6ac5987d-03b3-4481-a31d-ec992c13c019}"
+      DTS:From="Package\dim_Age_Band"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3 1"
+      DTS:To="Package\Set LSET of dim_Age_Band in DB_MetaData" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184.8,41.6"
+          Id="Package\dim_Accident_Severity"
+          TopLeft="139.285715635942,135.811767194015" />
+        <NodeLayout
+          Size="323.2,41.6"
+          Id="Package\Get LSET of dim_Accident_Severity in DB_MetaData"
+          TopLeft="60,60" />
+        <NodeLayout
+          Size="321.6,41.6"
+          Id="Package\Set LSET of dim_Accident_Severity in DB_MetaData"
+          TopLeft="65.0000000851494,219.823531653229" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="221.6,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.0857156359417,34.2117671940154"
+              Start="0,0"
+              End="10.0857156359417,26.7117671940154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.1058835970077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.1058835970077"
+                    Point2="0,17.1058835970077"
+                    Point3="4,17.1058835970077" />
+                  <mssgle:LineSegment
+                    End="6.08571563594171,17.1058835970077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.08571563594171,17.1058835970077"
+                    Point2="10.0857156359417,17.1058835970077"
+                    Point3="10.0857156359417,21.1058835970077" />
+                  <mssgle:LineSegment
+                    End="10.0857156359417,26.7117671940154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="228.742857860546,177.411767194015">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.4117644592133"
+              Start="0,0"
+              End="0,34.9117644592133">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.9117644592133" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\dim_Age_Band"
+          TopLeft="549.2857226182,397.235298847244" />
+        <NodeLayout
+          Size="276,41.6"
+          Id="Package\Get LSET of dim_Age_Band DB_MetaData"
+          TopLeft="470.000006982259,321.423531653229" />
+        <NodeLayout
+          Size="286.4,41.6"
+          Id="Package\Set LSET of dim_Age_Band in DB_MetaData"
+          TopLeft="475.714292793858,480.48235741338" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="608.000006982259,363.023531653229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.6857156359416,34.2117671940154"
+              Start="0,0"
+              End="15.6857156359416,26.7117671940154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.1058835970077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.1058835970077"
+                    Point2="0,17.1058835970077"
+                    Point3="4,17.1058835970077" />
+                  <mssgle:LineSegment
+                    End="11.6857156359416,17.1058835970077" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.6857156359416,17.1058835970077"
+                    Point2="15.6857156359416,17.1058835970077"
+                    Point3="15.6857156359416,21.1058835970077" />
+                  <mssgle:LineSegment
+                    End="15.6857156359416,26.7117671940154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3 1]"
+          TopLeft="621.300007706029,438.835298847244">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.6470585661356"
+              Start="0,0"
+              End="0,34.1470585661356">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.1470585661356" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="225.800000085149,261.423531653229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="382.200006897109,60"
+              Start="0,0"
+              End="382.200006897109,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="378.200006897109,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="378.200006897109,30"
+                    Point2="382.200006897109,30"
+                    Point3="382.200006897109,34" />
+                  <mssgle:LineSegment
+                    End="382.200006897109,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\dim_Accident_Severity">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="1"
+          TopLeft="202.857146311779,26.0000003646401" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="47"
+          TopLeft="216.428575114328,110.88235449626" />
+        <EdgeLayout
+          Id="67"
+          TopLeft="272.642860713054,67.6000003646401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.2823541316195"
+              Start="0,0"
+              End="0,35.7823541316195">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7823541316195" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="82"
+          TopLeft="172.857145800883,224.058826671752" />
+        <EdgeLayout
+          Id="92"
+          TopLeft="272.828575114328,152.48235449626">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5714293134454,71.5764721754925"
+              Start="0,0"
+              End="-15.5714293134454,64.0764721754925">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7882360877462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7882360877462"
+                    Point2="0,35.7882360877462"
+                    Point3="-4,35.7882360877462" />
+                  <mssgle:LineSegment
+                    End="-11.5714293134454,35.7882360877462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5714293134454,35.7882360877462"
+                    Point2="-15.5714293134454,35.7882360877462"
+                    Point3="-15.5714293134454,39.7882360877462" />
+                  <mssgle:LineSegment
+                    End="-15.5714293134454,64.0764721754925" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-53.6521013754727,40.7882360877462,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\dim_Age_Band">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="1"
+          TopLeft="202.857146311779,26.0000003646401" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="47"
+          TopLeft="216.428575114328,110.88235449626" />
+        <EdgeLayout
+          Id="67"
+          TopLeft="272.642860713054,67.6000003646401">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.2823541316195"
+              Start="0,0"
+              End="0,35.7823541316195">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7823541316195" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="82"
+          TopLeft="172.857145800883,224.058826671752" />
+        <EdgeLayout
+          Id="92"
+          TopLeft="272.828575114328,152.48235449626">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.5714293134454,71.5764721754925"
+              Start="0,0"
+              End="-15.5714293134454,64.0764721754925">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7882360877462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.7882360877462"
+                    Point2="0,35.7882360877462"
+                    Point3="-4,35.7882360877462" />
+                  <mssgle:LineSegment
+                    End="-11.5714293134454,35.7882360877462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5714293134454,35.7882360877462"
+                    Point2="-15.5714293134454,35.7882360877462"
+                    Point3="-15.5714293134454,39.7882360877462" />
+                  <mssgle:LineSegment
+                    End="-15.5714293134454,64.0764721754925" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-53.6521013754727,40.7882360877462,91.7327734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
