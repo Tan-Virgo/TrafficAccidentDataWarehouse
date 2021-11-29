@@ -10,3 +10,4 @@ Nhóm TTKD-19
 1. Mô tả dữ liệu : TTKD-19_DATH#1.docx
 2. Thực hiện ETL đổ dữ liệu từ Source -> Stage
 3. Thực hiện ETL từ Stage -> NDS
+4. Thực hiện ETL từ NDS -> DDS
