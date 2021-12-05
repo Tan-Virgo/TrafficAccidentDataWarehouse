@@ -142,32 +142,37 @@ CREATE TABLE [dim_Region]
 	[ID] INT PRIMARY KEY,
 	[region_code] VARCHAR(50),
     [region_name] VARCHAR(50),
+	[ID_Country] INT,
 	[SourceID] INT,
 
-	FOREIGN KEY ([SourceID]) REFERENCES [dim_Sources]([ID])
+	FOREIGN KEY ([SourceID]) REFERENCES [dim_Sources]([ID]),
+	FOREIGN KEY ([ID_Country]) REFERENCES [dim_Country]([ID])
 )
 GO
 
-
-
-CREATE TABLE [dim_City]
-(
-	[ID] INT PRIMARY KEY,
-    [city_name] VARCHAR(50),
-	[SourceID] INT,
-
-	FOREIGN KEY ([SourceID]) REFERENCES [dim_Sources]([ID])
-)
-GO
 
 CREATE TABLE [dim_County]
 (
 	[ID] INT PRIMARY KEY,
     [county_name] VARCHAR(50),
+	[ID_Region] INT,
 	[SourceID] INT,
 	
 
-	FOREIGN KEY ([SourceID]) REFERENCES [dim_Sources]([ID])
+	FOREIGN KEY ([SourceID]) REFERENCES [dim_Sources]([ID]),
+	FOREIGN KEY ([ID_Region]) REFERENCES [dim_Region]([ID])
+)
+GO
+
+CREATE TABLE [dim_City]
+(
+	[ID] INT PRIMARY KEY,
+    [city_name] VARCHAR(50),
+	[ID_County] INT,
+	[SourceID] INT,
+
+	FOREIGN KEY ([SourceID]) REFERENCES [dim_Sources]([ID]),
+	FOREIGN KEY ([ID_County]) REFERENCES [dim_County]([ID])
 )
 GO
 
@@ -282,16 +287,11 @@ CREATE TABLE [dim_UK_Postcode]
     [northing] INT,
     [latitude] FLOAT,
     [longitude] FLOAT,
-    [city] INT,
-    [county] INT,
-    [country] INT,
+    [ID_City] INT,
     [iso3166_2] VARCHAR(50),
-	[region] INT,
 	[SourceID] INT,
-	CONSTRAINT FK_Country FOREIGN KEY ([country]) REFERENCES [dim_Country]([ID]),
-	CONSTRAINT FK_Region FOREIGN KEY ([region]) REFERENCES [dim_Region]([ID]),
-	CONSTRAINT FK_City FOREIGN KEY (city) REFERENCES [dim_City]([ID]),
-	CONSTRAINT FK_County FOREIGN KEY ([county]) REFERENCES [dim_County]([ID]),
+
+	CONSTRAINT FK_City FOREIGN KEY (ID_City) REFERENCES [dim_City]([ID]),
 	FOREIGN KEY ([SourceID]) REFERENCES [dim_Sources]([ID])
 )
 GO

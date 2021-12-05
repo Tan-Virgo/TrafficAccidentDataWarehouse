@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{F3599473-30D4-45F4-82F3-11D9A59CE183}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{2A1E98F4-A5F1-4BB0-96EE-0132F1B46FF2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -113,23 +113,6 @@
         <ExecutePackageTask>
           <UseProjectReference>True</UseProjectReference>
           <PackageName>NDSToDDS_dim Reference Table not Foreign key - 2.dtsx</PackageName>
-        </ExecutePackageTask>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\dim_LSOA_Postcode_Mapping"
-      DTS:CreationName="Microsoft.ExecutePackageTask"
-      DTS:Description="Execute Package Task"
-      DTS:DTSID="{645992C8-60A6-4193-9FA3-36335E1FDA35}"
-      DTS:ExecutableType="Microsoft.ExecutePackageTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="dim_LSOA_Postcode_Mapping"
-      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <ExecutePackageTask>
-          <UseProjectReference>True</UseProjectReference>
-          <PackageName>NDSToDDS_dim_LSOA_Postcode_Mapping.dtsx</PackageName>
         </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
@@ -609,14 +592,6 @@ OR (S.UpdatedDate &lt; GETDATE() AND S.UpdatedDate &gt; ?)</property>
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\dim Reference Table not Foreign key - 2" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{E093B51C-FD57-4333-8297-77457557921C}"
-      DTS:From="Package\dim Reference Table not Foreign key - 2"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
-      DTS:To="Package\dim_LSOA_Postcode_Mapping" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
       DTS:DTSID="{32995606-A83C-45EB-8ABB-E9495FB97DE8}"
@@ -747,44 +722,6 @@ OR (S.UpdatedDate &lt; GETDATE() AND S.UpdatedDate &gt; ?)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,34.9117644592141" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="220.8,41.6"
-          Id="Package\dim_LSOA_Postcode_Mapping"
-          TopLeft="168.571431442183,537.152948362027" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="249.714287684888,480.000005834243">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="29.2571437572953,57.1529425277845"
-              Start="0,0"
-              End="29.2571437572953,49.6529425277845">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5764712638922" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.5764712638922"
-                    Point2="0,28.5764712638922"
-                    Point3="4,28.5764712638922" />
-                  <mssgle:LineSegment
-                    End="25.2571437572953,28.5764712638922" />
-                  <mssgle:CubicBezierSegment
-                    Point1="25.2571437572953,28.5764712638922"
-                    Point2="29.2571437572953,28.5764712638922"
-                    Point3="29.2571437572953,32.5764712638922" />
-                  <mssgle:LineSegment
-                    End="29.2571437572953,49.6529425277845" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

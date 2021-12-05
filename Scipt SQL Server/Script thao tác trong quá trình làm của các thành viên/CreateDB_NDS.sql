@@ -45,33 +45,17 @@ CREATE TABLE [Region_NDS]
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
 	[region_code] VARCHAR(50),
     [region_name] VARCHAR(50),
+	[ID_Country] INT,
 	[SourceID] INT,
 	CreatedDate DATETIME,
 	UpdatedDate DATETIME
 
-	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID])
+	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID]),
+	FOREIGN KEY ([ID_Country]) REFERENCES [Country_NDS]([ID]),
 )
 GO
 INSERT INTO [Region_NDS] (region_code, region_name, SourceID, CreatedDate, UpdatedDate)
 VALUES ('', '', 2, '1/1/2021', '1/1/2021')
-
---DELETE [City_NDS]
---DROP TABLE [City_NDS]
-CREATE TABLE [City_NDS]
-(
-	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
-    [city_name] VARCHAR(50),
-	[SourceID] INT,
-	CreatedDate DATETIME,
-	UpdatedDate DATETIME
-
-	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID])
-)
-GO
-INSERT INTO [City_NDS] (city_name, SourceID, CreatedDate, UpdatedDate) 
-VALUES ('', 2, '1/1/2021', '1/1/2021')
-
-
 
 --DELETE [County_NDS]
 --DROP TABLE [County_NDS]
@@ -79,15 +63,40 @@ CREATE TABLE [County_NDS]
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [county_name] VARCHAR(50),
+	[ID_Region] INT,
 	[SourceID] INT,
 	CreatedDate DATETIME,
 	UpdatedDate DATETIME
 
-	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID])
+	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID]),
+	FOREIGN KEY ([ID_Region]) REFERENCES [Region_NDS]([ID])
 )
 GO
 INSERT INTO [County_NDS] (county_name, SourceID, CreatedDate, UpdatedDate)
 VALUES ('', 2, '1/1/2021', '1/1/2021')
+
+
+--DELETE [City_NDS]
+--DROP TABLE [City_NDS]
+CREATE TABLE [City_NDS]
+(
+	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
+    [city_name] VARCHAR(50),
+	[ID_County] INT,
+	[SourceID] INT,
+	CreatedDate DATETIME,
+	UpdatedDate DATETIME
+
+	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID]),
+	FOREIGN KEY ([ID_County]) REFERENCES [County_NDS]([ID])
+)
+GO
+INSERT INTO [City_NDS] (city_name, SourceID, CreatedDate, UpdatedDate) 
+VALUES ('', 2, '1/1/2021', '1/1/2021')
+
+
+
+
 
 --DELETE [UK_Postcode_NDS]
 --DROP TABLE [UK_Postcode_NDS]
@@ -99,19 +108,13 @@ CREATE TABLE [UK_Postcode_NDS]
     [northing] INT,
     [latitude] FLOAT,
     [longitude] FLOAT,
-    [city] INT,
-    [county] INT,
-    [country] INT,
+    [ID_City] INT,
     [iso3166_2] VARCHAR(50),
-	[region] INT,
 	[SourceID] INT,
 	[CreatedDate] DATETIME,
 	[UpdatedDate] DATETIME
 
-	CONSTRAINT FK_Country FOREIGN KEY ([country]) REFERENCES [Country_NDS]([ID]),
-	CONSTRAINT FK_Region FOREIGN KEY ([region]) REFERENCES [Region_NDS]([ID]),
-	CONSTRAINT FK_City FOREIGN KEY (city) REFERENCES [City_NDS]([ID]),
-	CONSTRAINT FK_County FOREIGN KEY ([county]) REFERENCES [County_NDS]([ID]),
+	CONSTRAINT FK_City FOREIGN KEY (ID_City) REFERENCES [City_NDS]([ID]),
 	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID])
 )
 GO
@@ -132,6 +135,7 @@ CREATE TABLE [LSOA_Postcode_Mapping_NDS]
 	FOREIGN KEY ([SourceID]) REFERENCES [Sources_NDS]([ID]),
 	FOREIGN KEY ([Postcode]) REFERENCES [UK_Postcode_NDS]([ID])
 )
+GO
 
 --DELETE [Accident_Severity]
 --DROP TABLE [Accident_Severity]

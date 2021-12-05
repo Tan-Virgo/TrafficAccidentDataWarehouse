@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{303430A1-EF54-44BF-A7DF-959347D9C3F3}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{288742B9-E4EB-47D0-8867-430C0129C782}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1094,7 +1094,7 @@ where [refTable].[Vehicle_Reference] = ? and [refTable].[Accident_Index] = ?</pr
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\UK_CAR_Accident - Vehicle\Merge Join Vehicle - Accident.Outputs[Merge Join Output].Columns[Vehicle_Reference]};#{Package\UK_CAR_Accident - Vehicle\Merge Join Vehicle - Accident.Outputs[Merge Join Output].Columns[ID_Accident]};</property>
+                  name="ParameterMap">#{Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[Vehicle_Reference]};#{Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[ID_Accident]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3993,24 +3993,24 @@ FROM Vehicle V</property>
               startId="Package\UK_CAR_Accident - Vehicle\Merge Join Vehicle - Accident.Outputs[Merge Join Output]" />
             <path
               refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output3]"
-              endId="Package\UK_CAR_Accident - Vehicle\Sort Vehicle type.Inputs[Sort Input]"
+              endId="Package\UK_CAR_Accident - Vehicle\Sort Journey_Purpose.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\UK_CAR_Accident - Vehicle\Vehicle Type NDS.Outputs[OLE DB Source Output]" />
+              startId="Package\UK_CAR_Accident - Vehicle\Journey_Purpose NDS.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output2]"
-              endId="Package\UK_CAR_Accident - Vehicle\Sort Vehicle - Vehicle Type.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\UK_CAR_Accident - Vehicle\Vehicle Stage.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output1]"
               endId="Package\UK_CAR_Accident - Vehicle\Sort Accident.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\UK_CAR_Accident - Vehicle\Accident NDS.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output]"
-              endId="Package\UK_CAR_Accident - Vehicle\Sort Journey_Purpose.Inputs[Sort Input]"
+              refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output1]"
+              endId="Package\UK_CAR_Accident - Vehicle\Sort Vehicle - Vehicle Type.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\UK_CAR_Accident - Vehicle\Journey_Purpose NDS.Outputs[OLE DB Source Output]" />
+              startId="Package\UK_CAR_Accident - Vehicle\Vehicle Stage.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output]"
+              endId="Package\UK_CAR_Accident - Vehicle\Sort Vehicle type.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\UK_CAR_Accident - Vehicle\Vehicle Type NDS.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\UK_CAR_Accident - Vehicle.Paths[Sort Output]"
               endId="Package\UK_CAR_Accident - Vehicle\Merge Join Vehicle - Vehicle Type.Inputs[Merge Join Right Input]"
@@ -4395,18 +4395,30 @@ FROM Vehicle V</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output]"
-          TopLeft="438.857148781115,228.952943804025">
+          TopLeft="389.371433826369,53.0705883961648">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,75.400001640881"
+              EndConnector="-22.7142860670481,51.6941189554733"
               Start="0,0"
-              End="0,67.900001640881">
+              End="-22.7142860670481,44.1941189554733">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,67.900001640881" />
+                    End="0,21.8470594777367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8470594777367"
+                    Point2="0,25.8470594777367"
+                    Point3="-4,25.8470594777367" />
+                  <mssgle:LineSegment
+                    End="-18.7142860670481,25.8470594777367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.7142860670481,25.8470594777367"
+                    Point2="-22.7142860670481,25.8470594777367"
+                    Point3="-22.7142860670481,29.8470594777367" />
+                  <mssgle:LineSegment
+                    End="-22.7142860670481,44.1941189554733" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4417,40 +4429,6 @@ FROM Vehicle V</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output1]"
-          TopLeft="419.371434507564,446.776475092614">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-69.6857154656429,58.8705878492046"
-              Start="0,0"
-              End="-69.6857154656429,51.3705878492046">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.4352939246023" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,25.4352939246023"
-                    Point2="0,29.4352939246023"
-                    Point3="-4,29.4352939246023" />
-                  <mssgle:LineSegment
-                    End="-65.6857154656429,29.4352939246023" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-65.6857154656429,29.4352939246023"
-                    Point2="-69.6857154656429,29.4352939246023"
-                    Point3="-69.6857154656429,33.4352939246023" />
-                  <mssgle:LineSegment
-                    End="-69.6857154656429,51.3705878492046" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output2]"
           TopLeft="124.371429483745,48.4823530376989">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4484,31 +4462,53 @@ FROM Vehicle V</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output3]"
-          TopLeft="389.371433826369,53.0705883961648">
+          Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output2]"
+          TopLeft="419.371434507564,446.776475092614">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22.7142860670481,51.6941189554733"
+              EndConnector="-69.6857154656429,58.8705878492046"
               Start="0,0"
-              End="-22.7142860670481,44.1941189554733">
+              End="-69.6857154656429,51.3705878492046">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.8470594777367" />
+                    End="0,25.4352939246023" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,21.8470594777367"
-                    Point2="0,25.8470594777367"
-                    Point3="-4,25.8470594777367" />
+                    Point1="0,25.4352939246023"
+                    Point2="0,29.4352939246023"
+                    Point3="-4,29.4352939246023" />
                   <mssgle:LineSegment
-                    End="-18.7142860670481,25.8470594777367" />
+                    End="-65.6857154656429,29.4352939246023" />
                   <mssgle:CubicBezierSegment
-                    Point1="-18.7142860670481,25.8470594777367"
-                    Point2="-22.7142860670481,25.8470594777367"
-                    Point3="-22.7142860670481,29.8470594777367" />
+                    Point1="-65.6857154656429,29.4352939246023"
+                    Point2="-69.6857154656429,29.4352939246023"
+                    Point3="-69.6857154656429,33.4352939246023" />
                   <mssgle:LineSegment
-                    End="-22.7142860670481,44.1941189554733" />
+                    End="-69.6857154656429,51.3705878492046" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output3]"
+          TopLeft="438.857148781115,228.952943804025">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.400001640881"
+              Start="0,0"
+              End="0,67.900001640881">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.900001640881" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4796,5 +4796,28 @@ FROM Vehicle V</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\UK_CAR_Accident - Vehicle\Vehicle Type NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\UK_CAR_Accident - Vehicle\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

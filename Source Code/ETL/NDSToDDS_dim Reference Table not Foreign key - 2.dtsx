@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{538F1285-F8C5-4305-A17C-28E933B6169C}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{92739387-D591-4942-9E49-066A19522B02}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -723,681 +723,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\dim_Region"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{baab0ebe-e2e7-436a-be0e-2eb482b5962f}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="dim_Region"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\dim_Region\dim_Region"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="dim_Region"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Region_NDS]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Region_NDS
-WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
-OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};"Parameter1:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_Region\dim_Region.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_NDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[ID]"
-                      name="ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[SourceID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[SourceID]"
-                      name="SourceID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[CreatedDate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[CreatedDate]"
-                      name="CreatedDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[UpdatedDate]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
-                      name="UpdatedDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_code]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[region_code]"
-                      length="50"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_code]"
-                      name="region_code"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[region_name]"
-                      length="50"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_name]"
-                      name="region_name"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
-                      dataType="dbTimeStamp"
-                      name="CreatedDate" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[UpdatedDate]"
-                      dataType="dbTimeStamp"
-                      name="UpdatedDate" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[region_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="region_code" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].ExternalColumns[region_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="region_name" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[ID]"
-                      dataType="i4"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[ID]"
-                      name="ID" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[region_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[region_code]"
-                      name="region_code" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[region_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[region_name]"
-                      name="region_name" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
-                      name="CreatedDate" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[UpdatedDate]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[UpdatedDate]"
-                      name="UpdatedDate" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[SourceID]"
-                      dataType="i4"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[SourceID]"
-                      name="SourceID" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\dim_Region\Insert Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Insert Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[dim_Region]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_Region\Insert Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      externalMetadataColumnId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[ID]" />
-                    <inputColumn
-                      refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].Columns[region_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="region_code"
-                      externalMetadataColumnId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_code]" />
-                    <inputColumn
-                      refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].Columns[region_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="region_name"
-                      externalMetadataColumnId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[region_name]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_name]" />
-                    <inputColumn
-                      refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
-                      cachedDataType="i4"
-                      cachedName="SourceID"
-                      externalMetadataColumnId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[SourceID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[region_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="region_code" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[region_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="region_name" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_Region\Insert Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_Region\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\dim_Region\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\dim_Region\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\dim_Region\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\dim_Region\OLE DB Command"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_Region] SET [region_name] = ? WHERE [region_code] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_Region\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input].Columns[region_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="region_code"
-                      externalMetadataColumnId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_code]" />
-                    <inputColumn
-                      refId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input].Columns[region_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="region_name"
-                      externalMetadataColumnId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_name]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_Region\OLE DB Command.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_Region\OLE DB Command.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_Region\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\dim_Region\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\dim_Region\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\dim_Region\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\dim_Region\Slowly Changing Dimension"
-              componentClassID="Microsoft.SCD"
-              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
-              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
-              name="Slowly Changing Dimension"
-              version="3">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SELECT statement used to create a schema rowset."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [region_code], [region_name] FROM [dbo].[dim_Region]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                  name="CurrentRowWhere"></property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
-                  name="UpdateChangingAttributeHistory">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                  name="FailOnFixedAttributeChange">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the column name for the inferred member."
-                  name="InferredMemberIndicator"></property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether inferred member updates are detected."
-                  name="EnableInferredMember">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
-                  name="FailOnLookupFailure">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies that all rows in the input are new or the transformation detects the change type."
-                  name="IncomingRowChangeType"
-                  typeConverter="IncomingRowChangeType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_Region\Slowly Changing Dimension.Connections[LookupConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  description="Defines the connection to use for lookups in the dimension table"
-                  name="LookupConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
-                  name="Slowly Changing Dimension Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[region_code]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="region_code"
-                      externalMetadataColumnId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[region_code]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_code]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[region_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="region_name"
-                      externalMetadataColumnId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[region_name]"
-                      lineageId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output].Columns[region_name]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[region_code]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="region_code" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[region_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="region_name" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_Region\Slowly Changing Dimension.Outputs[Unchanged Output]"
-                  description="Unchanged rows"
-                  exclusionGroup="1"
-                  name="Unchanged Output"
-                  synchronousInputId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_Region\Slowly Changing Dimension.Outputs[New Output]"
-                  description="New rows"
-                  exclusionGroup="1"
-                  name="New Output"
-                  synchronousInputId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_Region\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
-                  description="Rows with changes in columns tagged FixedAttribute"
-                  exclusionGroup="1"
-                  name="Fixed Attribute Output"
-                  synchronousInputId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_Region\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
-                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
-                  exclusionGroup="1"
-                  name="Changing Attribute Updates Output"
-                  synchronousInputId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_Region\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
-                  description="HistoricalAttribute (Type 2) changes result in these new rows"
-                  exclusionGroup="2"
-                  name="Historical Attribute Inserts Output"
-                  synchronousInputId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_Region\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
-                  description="Information to update unpopulated initial dimension row"
-                  exclusionGroup="1"
-                  name="Inferred Member Updates Output"
-                  synchronousInputId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\dim_Region.Paths[Changing Attribute Updates Output]"
-              endId="Package\dim_Region\OLE DB Command.Inputs[OLE DB Command Input]"
-              name="Changing Attribute Updates Output"
-              startId="Package\dim_Region\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
-            <path
-              refId="Package\dim_Region.Paths[New Output]"
-              endId="Package\dim_Region\Insert Destination.Inputs[OLE DB Destination Input]"
-              name="New Output"
-              startId="Package\dim_Region\Slowly Changing Dimension.Outputs[New Output]" />
-            <path
-              refId="Package\dim_Region.Paths[OLE DB Source Output]"
-              endId="Package\dim_Region\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
-              name="OLE DB Source Output"
-              startId="Package\dim_Region\dim_Region.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\dim_Road_Type"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
@@ -2050,923 +1375,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               endId="Package\dim_Road_Type\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
               name="OLE DB Source Output"
               startId="Package\dim_Road_Type\dim_Road_Type.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\dim_UK_Postcode"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{f7a62de0-f391-4fe8-9d45-62a876b92cb9}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="dim_UK_Postcode"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\dim_UK_Postcode\dim_UK_Postcode"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="dim_UK_Postcode"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[UK_Postcode_NDS]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM UK_Postcode_NDS
-WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
-OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"Parameter0:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};"Parameter1:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_UK_Postcode\dim_UK_Postcode.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_NDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_NDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[ID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[ID]"
-                      name="ID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[SourceID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[SourceID]"
-                      name="SourceID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[CreatedDate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[CreatedDate]"
-                      name="CreatedDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[UpdatedDate]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
-                      name="UpdatedDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[postcode]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
-                      length="50"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[postcode]"
-                      name="postcode"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[easting]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[easting]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[easting]"
-                      name="easting"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[northing]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[northing]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[northing]"
-                      name="northing"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[latitude]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[latitude]"
-                      name="latitude"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[longitude]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[longitude]"
-                      name="longitude"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[city]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[city]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[city]"
-                      name="city"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[county]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[county]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[county]"
-                      name="county"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[country]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[country]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[country]"
-                      name="country"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[iso3166_2]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[iso3166_2]"
-                      length="50"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[iso3166_2]"
-                      name="iso3166_2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[region]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[region]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[region]"
-                      name="region"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
-                      dataType="dbTimeStamp"
-                      name="CreatedDate" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[UpdatedDate]"
-                      dataType="dbTimeStamp"
-                      name="UpdatedDate" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[postcode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="postcode" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[easting]"
-                      dataType="i4"
-                      name="easting" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[northing]"
-                      dataType="i4"
-                      name="northing" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[latitude]"
-                      dataType="r8"
-                      name="latitude" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[longitude]"
-                      dataType="r8"
-                      name="longitude" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[city]"
-                      dataType="i4"
-                      name="city" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[county]"
-                      dataType="i4"
-                      name="county" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[country]"
-                      dataType="i4"
-                      name="country" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[iso3166_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="iso3166_2" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].ExternalColumns[region]"
-                      dataType="i4"
-                      name="region" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[ID]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[ID]"
-                      name="ID" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[postcode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[postcode]"
-                      name="postcode" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[easting]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[easting]"
-                      name="easting" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[northing]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[northing]"
-                      name="northing" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[latitude]"
-                      dataType="r8"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[latitude]"
-                      name="latitude" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[longitude]"
-                      dataType="r8"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[longitude]"
-                      name="longitude" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[city]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[city]"
-                      name="city" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[county]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[county]"
-                      name="county" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[country]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[country]"
-                      name="country" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[iso3166_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[iso3166_2]"
-                      name="iso3166_2" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[region]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[region]"
-                      name="region" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[CreatedDate]"
-                      name="CreatedDate" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[UpdatedDate]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[UpdatedDate]"
-                      name="UpdatedDate" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[SourceID]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[SourceID]"
-                      name="SourceID" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\dim_UK_Postcode\Insert Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="Insert Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[dim_UK_Postcode]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_UK_Postcode\Insert Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[ID]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[postcode]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="postcode"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[postcode]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[easting]"
-                      cachedDataType="i4"
-                      cachedName="easting"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[easting]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[easting]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[northing]"
-                      cachedDataType="i4"
-                      cachedName="northing"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[northing]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[northing]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[latitude]"
-                      cachedDataType="r8"
-                      cachedName="latitude"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[latitude]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[longitude]"
-                      cachedDataType="r8"
-                      cachedName="longitude"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[longitude]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[city]"
-                      cachedDataType="i4"
-                      cachedName="city"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[city]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[county]"
-                      cachedDataType="i4"
-                      cachedName="county"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[county]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[county]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[country]"
-                      cachedDataType="i4"
-                      cachedName="country"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[country]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[iso3166_2]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="iso3166_2"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[iso3166_2]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[iso3166_2]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[region]"
-                      cachedDataType="i4"
-                      cachedName="region"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[region]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
-                      cachedDataType="i4"
-                      cachedName="SourceID"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[SourceID]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[postcode]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="postcode" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[easting]"
-                      dataType="i4"
-                      name="easting" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[northing]"
-                      dataType="i4"
-                      name="northing" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[latitude]"
-                      dataType="r8"
-                      name="latitude" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[longitude]"
-                      dataType="r8"
-                      name="longitude" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      dataType="i4"
-                      name="city" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[county]"
-                      dataType="i4"
-                      name="county" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
-                      dataType="i4"
-                      name="country" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[iso3166_2]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="iso3166_2" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[region]"
-                      dataType="i4"
-                      name="region" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_UK_Postcode\Insert Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\dim_UK_Postcode\OLE DB Command"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dim_UK_Postcode] SET [city] = ?,[region] = ? WHERE [ID] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_UK_Postcode\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].Columns[city]"
-                      cachedDataType="i4"
-                      cachedName="city"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[city]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[ID]" />
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].Columns[region]"
-                      cachedDataType="i4"
-                      cachedName="region"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[region]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="i4"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_UK_Postcode\OLE DB Command.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_UK_Postcode\OLE DB Command.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\dim_UK_Postcode\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\dim_UK_Postcode\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\dim_UK_Postcode\Slowly Changing Dimension"
-              componentClassID="Microsoft.SCD"
-              contactInfo="Slowly Changing Dimension;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
-              description="Updates a SQL Server Analysis Services data warehouse dimension. Update dimension records that are already present and  insert dimension records that aren't. For example, update the DimProduct table of the AdventureWorksDW OLAP database with data from the Products table in the AdventureWorks OLTP database."
-              name="Slowly Changing Dimension"
-              version="3">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SELECT statement used to create a schema rowset."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [city], [ID], [region] FROM [dbo].[dim_UK_Postcode]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
-                  name="CurrentRowWhere"></property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether historical attribute updates are directed to the transformation output for changing attribute updates."
-                  name="UpdateChangingAttributeHistory">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the transformation fails when columns with fixed attributes contain changes."
-                  name="FailOnFixedAttributeChange">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the column name for the inferred member."
-                  name="InferredMemberIndicator"></property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether inferred member updates are detected."
-                  name="EnableInferredMember">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the transformation fails when a lookup of an existing record fails."
-                  name="FailOnLookupFailure">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies that all rows in the input are new or the transformation detects the change type."
-                  name="IncomingRowChangeType"
-                  typeConverter="IncomingRowChangeType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Connections[LookupConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  description="Defines the connection to use for lookups in the dimension table"
-                  name="LookupConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
-                  name="Slowly Changing Dimension Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[city]"
-                      cachedDataType="i4"
-                      cachedName="city"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[city]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[city]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[ID]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[region]"
-                      cachedDataType="i4"
-                      cachedName="region"
-                      externalMetadataColumnId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[region]"
-                      lineageId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[region]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">2</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[city]"
-                      dataType="i4"
-                      name="city" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[region]"
-                      dataType="i4"
-                      name="region" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Outputs[Unchanged Output]"
-                  description="Unchanged rows"
-                  exclusionGroup="1"
-                  name="Unchanged Output"
-                  synchronousInputId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Outputs[New Output]"
-                  description="New rows"
-                  exclusionGroup="1"
-                  name="New Output"
-                  synchronousInputId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Outputs[Fixed Attribute Output]"
-                  description="Rows with changes in columns tagged FixedAttribute"
-                  exclusionGroup="1"
-                  name="Fixed Attribute Output"
-                  synchronousInputId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]"
-                  description="These rows contain new information for ChangingAttribute (Type 1) column changes"
-                  exclusionGroup="1"
-                  name="Changing Attribute Updates Output"
-                  synchronousInputId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]"
-                  description="HistoricalAttribute (Type 2) changes result in these new rows"
-                  exclusionGroup="2"
-                  name="Historical Attribute Inserts Output"
-                  synchronousInputId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_UK_Postcode\Slowly Changing Dimension.Outputs[Inferred Member Updates Output]"
-                  description="Information to update unpopulated initial dimension row"
-                  exclusionGroup="1"
-                  name="Inferred Member Updates Output"
-                  synchronousInputId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\dim_UK_Postcode.Paths[Changing Attribute Updates Output]"
-              endId="Package\dim_UK_Postcode\OLE DB Command.Inputs[OLE DB Command Input]"
-              name="Changing Attribute Updates Output"
-              startId="Package\dim_UK_Postcode\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
-            <path
-              refId="Package\dim_UK_Postcode.Paths[New Output]"
-              endId="Package\dim_UK_Postcode\Insert Destination.Inputs[OLE DB Destination Input]"
-              name="New Output"
-              startId="Package\dim_UK_Postcode\Slowly Changing Dimension.Outputs[New Output]" />
-            <path
-              refId="Package\dim_UK_Postcode.Paths[OLE DB Source Output]"
-              endId="Package\dim_UK_Postcode\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
-              name="OLE DB Source Output"
-              startId="Package\dim_UK_Postcode\dim_UK_Postcode.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -4303,23 +2711,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Get LSET of dim_Region"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{93c93c29-e1d5-470c-b908-6a6fbeb19395}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Get LSET of dim_Region"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'dim_Region' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Get LSET of dim_Road_Type"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -4334,23 +2725,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
           SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'dim_Road_Type' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Get LSET of dim_UK_Postcode"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{98e67fb7-8ea9-4e30-98c6-d3bff308f0e9}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Get LSET of dim_UK_Postcode"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'dim_UK_Postcode' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4405,23 +2779,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Set LSET of dim_Region"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{703eac22-56ef-44e8-abac-91d1a96d2ac1}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Set LSET of dim_Region"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Region'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Set LSET of dim_Road_Type"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -4436,23 +2793,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
           SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Road_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Set LSET of dim_UK_Postcode"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Execute SQL Task"
-      DTS:DTSID="{2bd7807f-b9ff-4cf6-9c2f-a1bc80087067}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Set LSET of dim_UK_Postcode"
-      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'UK_Postcode'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4502,11 +2842,11 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{77ddbc7a-bf38-45c6-ac4c-0dddc4274ffb}"
-      DTS:From="Package\Get LSET of dim_Region"
+      DTS:DTSID="{066E2588-D4C6-40AD-B11E-29029A0BE6D5}"
+      DTS:From="Package\Set LSET of dim_Local_Authority_District"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\dim_Region" />
+      DTS:To="Package\Get LSET of dim_Road_Type" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
       DTS:CreationName=""
@@ -4532,22 +2872,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       DTS:ObjectName="Constraint 1 1 1 1"
       DTS:To="Package\dim_Vehicle_Type" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 1 1 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{4ec0f740-5314-4e62-89e0-5a7518db6502}"
-      DTS:From="Package\Get LSET of dim_UK_Postcode"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 1 1 1 1 1"
-      DTS:To="Package\dim_UK_Postcode" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
-      DTS:CreationName=""
-      DTS:DTSID="{2368450E-CA79-46B4-ADC9-6A2912B5352E}"
-      DTS:From="Package\Set LSET of dim_Local_Authority_District"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 2"
-      DTS:To="Package\Get LSET of dim_Region" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
       DTS:DTSID="{170f938f-5ab9-41f1-8e53-41b9de80a193}"
@@ -4555,14 +2879,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
       DTS:To="Package\Set LSET of dim_Local_Authority_District" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{ef0bd1da-48fa-4201-b4a5-12c10d10b0dd}"
-      DTS:From="Package\dim_Region"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3 1"
-      DTS:To="Package\Set LSET of dim_Region" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3 1 1]"
       DTS:CreationName=""
@@ -4588,22 +2904,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       DTS:ObjectName="Constraint 3 1 1 1 1"
       DTS:To="Package\Set LSET of dim_Vehicle_Type" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 3 1 1 1 1 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{13bdec6e-3596-4c38-b98d-831523cb799a}"
-      DTS:From="Package\dim_UK_Postcode"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 3 1 1 1 1 1"
-      DTS:To="Package\Set LSET of dim_UK_Postcode" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
-      DTS:CreationName=""
-      DTS:DTSID="{AAC1757D-1393-45B6-AD1E-7BDD1BF3DF78}"
-      DTS:From="Package\Set LSET of dim_Region"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 4"
-      DTS:To="Package\Get LSET of dim_Road_Type" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
       DTS:DTSID="{7308BF35-CD91-4324-BA2B-12725D64E0E6}"
@@ -4619,14 +2919,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\Get LSET of dim_Vehicle_Type" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
-      DTS:CreationName=""
-      DTS:DTSID="{B7627557-E0B8-4618-B80A-E9A89A74BC8C}"
-      DTS:From="Package\Set LSET of dim_Vehicle_Type"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 7"
-      DTS:To="Package\Get LSET of dim_UK_Postcode" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -4639,82 +2931,58 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="212.8,41.6"
           Id="Package\dim_Local_Authority_District"
-          TopLeft="65.2857155507926,126.811767194015" />
-        <NodeLayout
-          Size="134.4,41.6"
-          Id="Package\dim_Region"
-          TopLeft="565.285715550793,281.635298847244" />
+          TopLeft="406.714292793858,127.576473087093" />
         <NodeLayout
           Size="155.2,41.6"
           Id="Package\dim_Road_Type"
           TopLeft="67.2857155507926,425.458830500473" />
         <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\dim_UK_Postcode"
-          TopLeft="564.285715635942,837.811767194015" />
-        <NodeLayout
           Size="160.8,41.6"
           Id="Package\dim_Urban_Rural"
-          TopLeft="568.285715550793,561.282362153702" />
+          TopLeft="569.714287003693,666.811775398418" />
         <NodeLayout
           Size="164,41.6"
           Id="Package\dim_Vehicle_Type"
-          TopLeft="77.285715635942,699.811767194015" />
+          TopLeft="83.7142871739914,901.741179344811" />
         <NodeLayout
           Size="272,41.6"
           Id="Package\Get LSET of dim_Local_Authority_District"
-          TopLeft="30.9999999148506,49" />
-        <NodeLayout
-          Size="192.8,41.6"
-          Id="Package\Get LSET of dim_Region"
-          TopLeft="531.999999914851,206.823531653229" />
+          TopLeft="372.428577157916,49.7647058930777" />
         <NodeLayout
           Size="214.4,41.6"
           Id="Package\Get LSET of dim_Road_Type"
           TopLeft="32.9999999148506,354.647063306458" />
         <NodeLayout
-          Size="222.4,41.6"
-          Id="Package\Get LSET of dim_UK_Postcode"
-          TopLeft="530,767" />
-        <NodeLayout
           Size="220,41.6"
           Id="Package\Get LSET of dim_Urban_Rural"
-          TopLeft="533.999999914851,490.470594959687" />
+          TopLeft="535.428571367751,596.000008204403" />
         <NodeLayout
           Size="223.2,41.6"
           Id="Package\Get LSET of dim_Vehicle_Type"
-          TopLeft="43,629" />
+          TopLeft="49.4285715380494,830.929412150796" />
         <NodeLayout
           Size="271.2,41.6"
           Id="Package\Set LSET of dim_Local_Authority_District"
-          TopLeft="33,199.823531653229" />
-        <NodeLayout
-          Size="192,41.6"
-          Id="Package\Set LSET of dim_Region"
-          TopLeft="533,349.647063306458" />
+          TopLeft="374.428577243065,200.588237546307" />
         <NodeLayout
           Size="212.8,41.6"
           Id="Package\Set LSET of dim_Road_Type"
           TopLeft="43,490.470594959687" />
         <NodeLayout
-          Size="220.8,41.6"
-          Id="Package\Set LSET of dim_UK_Postcode"
-          TopLeft="540.000000085149,902.823531653229" />
-        <NodeLayout
           Size="217.6,41.6"
           Id="Package\Set LSET of dim_Urban_Rural"
-          TopLeft="544,626.294126612916" />
+          TopLeft="545.4285714529,731.823539857632" />
         <NodeLayout
           Size="222.4,41.6"
           Id="Package\Set LSET of dim_Vehicle_Type"
-          TopLeft="53.0000000851494,764.823531653229" />
+          TopLeft="59.4285716231988,966.752943804025" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="169.392857732822,91">
+          TopLeft="510.821434975887,91.7647058930777">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4726,28 +2994,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,28.311767194015" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="630.392857732822,248.823531653229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.811767194015"
-              Start="0,0"
-              End="0,25.311767194015">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.311767194015" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4780,7 +3026,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 1]"
-          TopLeft="646.392857732822,532.470594959687">
+          TopLeft="647.821429185722,638.000008204403">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4802,7 +3048,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1 1 1 1]"
-          TopLeft="156.892857817971,671">
+          TopLeft="163.32142935602,872.929412150796">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4814,50 +3060,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,21.311767194015" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1 1 1 1 1]"
-          TopLeft="643.392857817971,809">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.811767194015"
-              Start="0,0"
-              End="0,21.311767194015">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.311767194015" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="304,224.323531653229">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="227.999999914851,0"
-              Start="0,0"
-              End="220.499999914851,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="220.499999914851,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4868,7 +3070,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="170.142857775396,168.811767194015">
+          TopLeft="511.571435018462,169.576473087093">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4880,28 +3082,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,23.511764459214" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 1]"
-          TopLeft="630.642857775396,323.635298847244">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.011764459214"
-              Start="0,0"
-              End="0,18.511764459214">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.511764459214" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4934,7 +3114,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 1 1 1]"
-          TopLeft="650.892857775396,603.282362153702">
+          TopLeft="652.321429228296,708.811775398418">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4956,7 +3136,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3 1 1 1 1]"
-          TopLeft="161.642857860546,741.811767194015">
+          TopLeft="168.071429398595,943.741179344811">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -4968,50 +3148,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,15.511764459214" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 3 1 1 1 1 1]"
-          TopLeft="648.142857860546,879.811767194015">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,23.011764459214"
-              Start="0,0"
-              End="0,15.511764459214">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.511764459214" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="533,373.147063306458">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-286.000000085149,0"
-              Start="0,0"
-              End="-278.500000085149,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-278.500000085149,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5022,18 +3158,30 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="256,511.470594959687">
+          TopLeft="149.4,532.070594959687">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="277.999999914851,0"
+              EndConnector="496.028571367751,63.9294132447159"
               Start="0,0"
-              End="270.499999914851,0">
+              End="496.028571367751,56.4294132447159">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="270.499999914851,0" />
+                    End="0,27.9647066223579" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9647066223579"
+                    Point2="0,31.9647066223579"
+                    Point3="4,31.9647066223579" />
+                  <mssgle:LineSegment
+                    End="492.028571367751,31.9647066223579" />
+                  <mssgle:CubicBezierSegment
+                    Point1="492.028571367751,31.9647066223579"
+                    Point2="496.028571367751,31.9647066223579"
+                    Point3="496.028571367751,35.9647066223579" />
+                  <mssgle:LineSegment
+                    End="496.028571367751,56.4294132447159" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5044,18 +3192,30 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="544,648.647063306458">
+          TopLeft="654.2285714529,773.423539857632">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-278,0"
+              EndConnector="-493.199999914851,57.5058722931636"
               Start="0,0"
-              End="-270.5,0">
+              End="-493.199999914851,50.0058722931636">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-270.5,0" />
+                    End="0,24.7529361465818" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.7529361465818"
+                    Point2="0,28.7529361465818"
+                    Point3="-4,28.7529361465818" />
+                  <mssgle:LineSegment
+                    End="-489.199999914851,28.7529361465818" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-489.199999914851,28.7529361465818"
+                    Point2="-493.199999914851,28.7529361465818"
+                    Point3="-493.199999914851,32.7529361465818" />
+                  <mssgle:LineSegment
+                    End="-493.199999914851,50.0058722931636" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5065,19 +3225,31 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="275.000000085149,786.911765826615">
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="510.028577243065,242.188237546307">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="254.999999914851,0"
+              EndConnector="-369.828577328215,112.458825760151"
               Start="0,0"
-              End="247.499999914851,0">
+              End="-369.828577328215,104.958825760151">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="247.499999914851,0" />
+                    End="0,52.2294128800757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.2294128800757"
+                    Point2="0,56.2294128800757"
+                    Point3="-4,56.2294128800757" />
+                  <mssgle:LineSegment
+                    End="-365.828577328215,56.2294128800757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-365.828577328215,56.2294128800757"
+                    Point2="-369.828577328215,56.2294128800757"
+                    Point3="-369.828577328215,60.2294128800757" />
+                  <mssgle:LineSegment
+                    End="-369.828577328215,104.958825760151" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5264,192 +3436,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\dim_Local_Authority_District\dim_Local_Authority_District">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\dim_Region">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\dim_Region\Slowly Changing Dimension"
-          TopLeft="440,107.5" />
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\dim_Region\OLE DB Command"
-          TopLeft="461.5,209.5" />
-        <NodeLayout
-          Size="134.4,41.6"
-          Id="Package\dim_Region\dim_Region"
-          TopLeft="477.5,5.49999999999989" />
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\dim_Region\Insert Destination"
-          TopLeft="238,209.5" />
-        <EdgeLayout
-          Id="Package\dim_Region.Paths[OLE DB Source Output]"
-          TopLeft="544.5,47.4999999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_Region.Paths[New Output]"
-          TopLeft="511,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-191.5,60"
-              Start="0,0"
-              End="-191.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-187.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-187.5,24.2735042735043"
-                    Point2="-191.5,24.2735042735043"
-                    Point3="-191.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-191.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_Region.Paths[Changing Attribute Updates Output]"
-          TopLeft="578,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
-              Start="0,0"
-              End="-33.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-33.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_Region\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{51D98373-A84E-4545-9A2B-623883F8BD70}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[dim_Region]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_Region.Outputs[OLE DB Source Output].Columns[ID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_Region.Outputs[OLE DB Source Output].Columns[region_code]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;region_code&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_Region.Outputs[OLE DB Source Output].Columns[region_name]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;region_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_Region.Outputs[OLE DB Source Output].Columns[SourceID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;SourceID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_Region\dim_Region">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5657,240 +3643,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\dim_UK_Postcode">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\dim_UK_Postcode\OLE DB Command"
-          TopLeft="465,209.5" />
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\dim_UK_Postcode\Insert Destination"
-          TopLeft="241.5,209.5" />
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\dim_UK_Postcode\dim_UK_Postcode"
-          TopLeft="466.5,5.49999999999989" />
-        <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\dim_UK_Postcode\Slowly Changing Dimension"
-          TopLeft="443.5,107.5" />
-        <EdgeLayout
-          Id="Package\dim_UK_Postcode.Paths[Changing Attribute Updates Output]"
-          TopLeft="581.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
-              Start="0,0"
-              End="-33.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-33.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_UK_Postcode.Paths[OLE DB Source Output]"
-          TopLeft="548,47.4999999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_UK_Postcode.Paths[New Output]"
-          TopLeft="514.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-191.5,60"
-              Start="0,0"
-              End="-191.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-187.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-187.5,24.2735042735043"
-                    Point2="-191.5,24.2735042735043"
-                    Point3="-191.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-191.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_UK_Postcode\dim_UK_Postcode">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_UK_Postcode\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{51D98373-A84E-4545-9A2B-623883F8BD70}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[dim_UK_Postcode]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[city]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;city&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[country]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;country&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[county]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;county&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[easting]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;easting&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[ID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[iso3166_2]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;iso3166_2&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[latitude]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;latitude&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[longitude]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;longitude&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[northing]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;northing&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[postcode]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;postcode&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[region]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;region&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_UK_Postcode.Outputs[OLE DB Source Output].Columns[SourceID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;SourceID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
