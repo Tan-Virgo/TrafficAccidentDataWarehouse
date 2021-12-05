@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="11/29/2021 9:13:39 AM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{A576AB7B-3C10-4593-8ECB-6F9A4B0078C1}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{6693A42F-E902-4E05-B1C2-6553B40C6F2A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1100,6 +1100,341 @@ FROM dim_TimeInDay</property>
               </outputs>
             </component>
             <component
+              refId="Package\dim_Accidents\Insert fact_Accidents"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Insert fact_Accidents"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO [fact_Accidents]
+(
+[ID], 
+[Accident_Index], 
+[Location_Easting_OSGR], 
+[Location_Northing_OSGR], 
+[Longitude], [Latitude], 
+[Accident_Severity], 
+[TimeInDay], 
+[Local_Authority_(District)], 
+[Road_Type], 
+[Speed_limit], 
+[Urban_or_Rural_Area], 
+[LSOA_of_Accident_Location], 
+SourceID)
+VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dim_Accidents\Insert fact_Accidents.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Accident_Index]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Accident_Index"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Accident_Index]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Location_Easting_OSGR]"
+                      cachedDataType="i4"
+                      cachedName="Location_Easting_OSGR"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Location_Easting_OSGR]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Location_Northing_OSGR]"
+                      cachedDataType="i4"
+                      cachedName="Location_Northing_OSGR"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Location_Northing_OSGR]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Longitude]"
+                      cachedDataType="r8"
+                      cachedName="Longitude"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Longitude]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Latitude]"
+                      cachedDataType="r8"
+                      cachedName="Latitude"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Latitude]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Accident_Severity]"
+                      cachedDataType="i4"
+                      cachedName="Accident_Severity"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Accident_Severity]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[ID_TimeInDay]"
+                      cachedDataType="i4"
+                      cachedName="ID_TimeInDay"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[ID_TimeInDay]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Local_Authority_(District)]"
+                      cachedDataType="i4"
+                      cachedName="Local_Authority_(District)"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Local_Authority_(District)]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Road_Type]"
+                      cachedDataType="i4"
+                      cachedName="Road_Type"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Road_Type]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Speed_limit]"
+                      cachedDataType="r8"
+                      cachedName="Speed_limit"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Speed_limit]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[Urban_or_Rural_Area]"
+                      cachedDataType="i4"
+                      cachedName="Urban_or_Rural_Area"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Urban_or_Rural_Area]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[LSOA_of_Accident_Location]"
+                      cachedDataType="i4"
+                      cachedName="LSOA_of_Accident_Location"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[LSOA_of_Accident_Location]" />
+                    <inputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].Columns[SourceID]"
+                      cachedDataType="i4"
+                      cachedName="SourceID"
+                      externalMetadataColumnId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[SourceID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="r8"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="r8"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      dataType="i4"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="i4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="r8"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      dataType="i4"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      dataType="i4"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      dataType="i4"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dim_Accidents\Insert fact_Accidents.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\dim_Accidents\Insert fact_Accidents.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dim_Accidents\Insert fact_Accidents.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dim_Accidents\Insert fact_Accidents.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dim_Accidents\Insert fact_Accidents.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\dim_Accidents\Lookup Accident_Severity in DDS"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -1327,8 +1662,7 @@ where [refTable].[Accident_Index] = ?</property>
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Accident_Index"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Accident_Index]">
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Accident_Index]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -2790,254 +3124,6 @@ where [refTable].[ID] = ?</property>
                           name="InputColumnID">#{Package\dim_Accidents\Merge Join into Year, Quarter, month, Day, Time.Inputs[Merge Join Right Input].Columns[ID_TimeInDay]}</property>
                       </properties>
                     </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\dim_Accidents\OLE DB Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[fact_Accidents]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1258</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_Accidents\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[ID]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Accident_Index]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Accident_Index"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Index]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Accident_Index]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Location_Easting_OSGR]"
-                      cachedDataType="i4"
-                      cachedName="Location_Easting_OSGR"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_Easting_OSGR]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Location_Easting_OSGR]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Location_Northing_OSGR]"
-                      cachedDataType="i4"
-                      cachedName="Location_Northing_OSGR"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_Northing_OSGR]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Location_Northing_OSGR]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Longitude]"
-                      cachedDataType="r8"
-                      cachedName="Longitude"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Longitude]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Latitude]"
-                      cachedDataType="r8"
-                      cachedName="Latitude"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Latitude]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Accident_Severity]"
-                      cachedDataType="i4"
-                      cachedName="Accident_Severity"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Severity]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Accident_Severity]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Local_Authority_(District)]"
-                      cachedDataType="i4"
-                      cachedName="Local_Authority_(District)"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Local_Authority_(District)]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Local_Authority_(District)]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Road_Type]"
-                      cachedDataType="i4"
-                      cachedName="Road_Type"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Road_Type]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Road_Type]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Speed_limit]"
-                      cachedDataType="r8"
-                      cachedName="Speed_limit"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Speed_limit]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Speed_limit]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Urban_or_Rural_Area]"
-                      cachedDataType="i4"
-                      cachedName="Urban_or_Rural_Area"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Urban_or_Rural_Area]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Urban_or_Rural_Area]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LSOA_of_Accident_Location]"
-                      cachedDataType="i4"
-                      cachedName="LSOA_of_Accident_Location"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LSOA_of_Accident_Location]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[LSOA_of_Accident_Location]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
-                      cachedDataType="i4"
-                      cachedName="SourceID"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[SourceID]" />
-                    <inputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TimeInDay]"
-                      cachedDataType="i4"
-                      cachedName="ID_TimeInDay"
-                      externalMetadataColumnId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeInDay]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[ID_TimeInDay]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      dataType="i4"
-                      name="ID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Index]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      name="Accident_Index" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_Easting_OSGR]"
-                      dataType="i4"
-                      name="Location_Easting_OSGR" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Location_Northing_OSGR]"
-                      dataType="i4"
-                      name="Location_Northing_OSGR" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
-                      dataType="r8"
-                      name="Longitude" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
-                      dataType="r8"
-                      name="Latitude" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Accident_Severity]"
-                      dataType="i4"
-                      name="Accident_Severity" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TimeInDay]"
-                      dataType="i4"
-                      name="TimeInDay" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Local_Authority_(District)]"
-                      dataType="i4"
-                      name="Local_Authority_(District)" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Road_Type]"
-                      dataType="i4"
-                      name="Road_Type" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Speed_limit]"
-                      dataType="r8"
-                      name="Speed_limit" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Urban_or_Rural_Area]"
-                      dataType="i4"
-                      name="Urban_or_Rural_Area" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LSOA_of_Accident_Location]"
-                      dataType="i4"
-                      name="LSOA_of_Accident_Location" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_Accidents\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\dim_Accidents\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4677,455 +4763,6 @@ where [refTable].[ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\dim_Accidents\Sort to remove duplicate"
-              componentClassID="Microsoft.Sort"
-              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort to remove duplicate"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
-                  name="EliminateDuplicates">true</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the maximum number of threads to use for sorting."
-                  expressionType="Notify"
-                  name="MaximumThreads">-1</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input]"
-                  name="Sort Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[ID]"
-                      cachedDataType="i4"
-                      cachedName="ID"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[ID]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Accident_Index]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="Accident_Index"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Accident_Index]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">1</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Location_Easting_OSGR]"
-                      cachedDataType="i4"
-                      cachedName="Location_Easting_OSGR"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Location_Easting_OSGR]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Location_Northing_OSGR]"
-                      cachedDataType="i4"
-                      cachedName="Location_Northing_OSGR"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Location_Northing_OSGR]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Longitude]"
-                      cachedDataType="r8"
-                      cachedName="Longitude"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Longitude]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Latitude]"
-                      cachedDataType="r8"
-                      cachedName="Latitude"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Latitude]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Accident_Severity]"
-                      cachedDataType="i4"
-                      cachedName="Accident_Severity"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Accident_Severity]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Local_Authority_(District)]"
-                      cachedDataType="i4"
-                      cachedName="Local_Authority_(District)"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Local_Authority_(District)]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Road_Type]"
-                      cachedDataType="i4"
-                      cachedName="Road_Type"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Road_Type]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Speed_limit]"
-                      cachedDataType="r8"
-                      cachedName="Speed_limit"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Speed_limit]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[Urban_or_Rural_Area]"
-                      cachedDataType="i4"
-                      cachedName="Urban_or_Rural_Area"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Urban_or_Rural_Area]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[LSOA_of_Accident_Location]"
-                      cachedDataType="i4"
-                      cachedName="LSOA_of_Accident_Location"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[LSOA_of_Accident_Location]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[SourceID]"
-                      cachedDataType="i4"
-                      cachedName="SourceID"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[SourceID]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input].Columns[ID_TimeInDay]"
-                      cachedDataType="i4"
-                      cachedName="ID_TimeInDay"
-                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[ID_TimeInDay]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the comparison options for character data."
-                          name="NewComparisonFlags">0</property>
-                        <property
-                          dataType="System.Int32"
-                          description="Specifies the sort order of the column."
-                          name="NewSortKeyPosition">0</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output]"
-                  isSorted="true"
-                  name="Sort Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[ID]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[ID]"
-                      name="ID">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[ID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Accident_Index]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Accident_Index]"
-                      name="Accident_Index"
-                      sortKeyPosition="1">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Accident_Index]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Location_Easting_OSGR]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Location_Easting_OSGR]"
-                      name="Location_Easting_OSGR">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Location_Easting_OSGR]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Location_Northing_OSGR]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Location_Northing_OSGR]"
-                      name="Location_Northing_OSGR">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Location_Northing_OSGR]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Longitude]"
-                      dataType="r8"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Longitude]"
-                      name="Longitude">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Longitude]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Latitude]"
-                      dataType="r8"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Latitude]"
-                      name="Latitude">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Latitude]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Accident_Severity]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Accident_Severity]"
-                      name="Accident_Severity">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Accident_Severity]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Local_Authority_(District)]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Local_Authority_(District)]"
-                      name="Local_Authority_(District)">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Local_Authority_(District)]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Road_Type]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Road_Type]"
-                      name="Road_Type">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Road_Type]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Speed_limit]"
-                      dataType="r8"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Speed_limit]"
-                      name="Speed_limit">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Speed_limit]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Urban_or_Rural_Area]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Urban_or_Rural_Area]"
-                      name="Urban_or_Rural_Area">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Urban_or_Rural_Area]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[LSOA_of_Accident_Location]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[LSOA_of_Accident_Location]"
-                      name="LSOA_of_Accident_Location">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[LSOA_of_Accident_Location]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[SourceID]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[SourceID]"
-                      name="SourceID">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[SourceID]}</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[ID_TimeInDay]"
-                      dataType="i4"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[ID_TimeInDay]"
-                      name="ID_TimeInDay">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[ID_TimeInDay]}</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\dim_Accidents\Update fact_Accidents"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -5178,39 +4815,38 @@ WHERE [Accident_Index] = ?</property>
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Accident_Index"
-                      cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Accident_Index]" />
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Accident_Index]" />
                     <inputColumn
                       refId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].Columns[Location_Easting_OSGR]"
                       cachedDataType="i4"
                       cachedName="Location_Easting_OSGR"
                       externalMetadataColumnId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Location_Easting_OSGR]" />
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Location_Easting_OSGR]" />
                     <inputColumn
                       refId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].Columns[Location_Northing_OSGR]"
                       cachedDataType="i4"
                       cachedName="Location_Northing_OSGR"
                       externalMetadataColumnId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Location_Northing_OSGR]" />
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Location_Northing_OSGR]" />
                     <inputColumn
                       refId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].Columns[Longitude]"
                       cachedDataType="r8"
                       cachedName="Longitude"
                       externalMetadataColumnId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Longitude]" />
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Longitude]" />
                     <inputColumn
                       refId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].Columns[Latitude]"
                       cachedDataType="r8"
                       cachedName="Latitude"
                       externalMetadataColumnId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Latitude]" />
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Latitude]" />
                     <inputColumn
                       refId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].Columns[Speed_limit]"
                       cachedDataType="r8"
                       cachedName="Speed_limit"
                       externalMetadataColumnId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output].Columns[Speed_limit]" />
+                      lineageId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output].Columns[Speed_limit]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5321,69 +4957,74 @@ WHERE [Accident_Index] = ?</property>
           <paths>
             <path
               refId="Package\dim_Accidents.Paths[Lookup Error Output]"
-              endId="Package\dim_Accidents\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\dim_Accidents\Insert fact_Accidents.Inputs[OLE DB Command Input]"
               name="Lookup Error Output"
               startId="Package\dim_Accidents\Lookup fact_Accidents in DDS.Outputs[Lookup Error Output]" />
             <path
               refId="Package\dim_Accidents.Paths[Lookup Match Output]"
-              endId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input]"
-              name="Lookup Match Output"
-              startId="Package\dim_Accidents\Lookup fact_Accidents in DDS.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\dim_Accidents.Paths[Lookup Match Output1]"
-              endId="Package\dim_Accidents\Lookup LSOA in DDS.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\dim_Accidents\Lookup Urban_Rural in DDS.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\dim_Accidents.Paths[Lookup Match Output2]"
               endId="Package\dim_Accidents\Lookup Local_Authority_District in DDS.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\dim_Accidents\Lookup Accident_Severity in DDS.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\dim_Accidents.Paths[Lookup Match Output3]"
+              refId="Package\dim_Accidents.Paths[Lookup Match Output1]"
               endId="Package\dim_Accidents\Lookup Road_Type in DDS.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\dim_Accidents\Lookup Local_Authority_District in DDS.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\dim_Accidents.Paths[Lookup Match Output4]"
+              refId="Package\dim_Accidents.Paths[Lookup Match Output2]"
               endId="Package\dim_Accidents\Lookup Urban_Rural in DDS.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\dim_Accidents\Lookup Road_Type in DDS.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\dim_Accidents.Paths[Lookup Match Output3]"
+              endId="Package\dim_Accidents\Lookup LSOA in DDS.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\dim_Accidents\Lookup Urban_Rural in DDS.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\dim_Accidents.Paths[Lookup Match Output4]"
+              endId="Package\dim_Accidents\Update fact_Accidents.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\dim_Accidents\Lookup fact_Accidents in DDS.Outputs[Lookup Match Output]" />
             <path
               refId="Package\dim_Accidents.Paths[Lookup Match Output5]"
               endId="Package\dim_Accidents\Sort by Date and Time.Inputs[Sort Input]"
               name="Lookup Match Output"
               startId="Package\dim_Accidents\Lookup LSOA in DDS.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\dim_Accidents.Paths[Merge Join Output]"
+              refId="Package\dim_Accidents.Paths[Merge Join Output2]"
               endId="Package\dim_Accidents\Sort.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\dim_Accidents\Merge Join into Year, Quarter, month, Day, Time.Outputs[Merge Join Output]" />
             <path
               refId="Package\dim_Accidents.Paths[Merge Join Output1]"
-              endId="Package\dim_Accidents\Sort by ID_MonthInQuarter.Inputs[Sort Input]"
-              name="Merge Join Output"
-              startId="Package\dim_Accidents\Merge Join into Year, Quarter, Month.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\dim_Accidents.Paths[Merge Join Output2]"
-              endId="Package\dim_Accidents\Sort to remove duplicate.Inputs[Sort Input]"
-              name="Merge Join Output"
-              startId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\dim_Accidents.Paths[Merge Join Output3]"
               endId="Package\dim_Accidents\Sort by ID_DayInMonth.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\dim_Accidents\Merge Join in Year, Quarter, Month, Day.Outputs[Merge Join Output]" />
             <path
-              refId="Package\dim_Accidents.Paths[OLE DB Source Output4]"
-              endId="Package\dim_Accidents\Sort TimeInDay by ID_DayInMonth.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\dim_Accidents\Get TimeInDay in DDS.Outputs[OLE DB Source Output]" />
+              refId="Package\dim_Accidents.Paths[Merge Join Output]"
+              endId="Package\dim_Accidents\Sort by ID_MonthInQuarter.Inputs[Sort Input]"
+              name="Merge Join Output"
+              startId="Package\dim_Accidents\Merge Join into Year, Quarter, Month.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\dim_Accidents.Paths[Merge Join Output3]"
+              endId="Package\dim_Accidents\Lookup fact_Accidents in DDS.Inputs[Lookup Input]"
+              name="Merge Join Output"
+              startId="Package\dim_Accidents\Merge Join.Outputs[Merge Join Output]" />
             <path
               refId="Package\dim_Accidents.Paths[OLE DB Source Output3]"
               endId="Package\dim_Accidents\Sort DayInMonth by ID_MonthInQuarter.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\dim_Accidents\Get DayInMonth in DDS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\dim_Accidents.Paths[OLE DB Source Output2]"
+              endId="Package\dim_Accidents\Sort MonthInQuarter by ID_QuarterInYear.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\dim_Accidents\Get MonthInQuarter in DDS.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\dim_Accidents.Paths[OLE DB Source Output4]"
+              endId="Package\dim_Accidents\Sort TimeInDay by ID_DayInMonth.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\dim_Accidents\Get TimeInDay in DDS.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\dim_Accidents.Paths[OLE DB Source Output1]"
               endId="Package\dim_Accidents\Sort by ID_QuarterInYear.Inputs[Sort Input]"
@@ -5395,25 +5036,15 @@ WHERE [Accident_Index] = ?</property>
               name="OLE DB Source Output"
               startId="Package\dim_Accidents\Get Accidents in NDS.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\dim_Accidents.Paths[OLE DB Source Output2]"
-              endId="Package\dim_Accidents\Sort MonthInQuarter by ID_QuarterInYear.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\dim_Accidents\Get MonthInQuarter in DDS.Outputs[OLE DB Source Output]" />
+              refId="Package\dim_Accidents.Paths[Sort Output1]"
+              endId="Package\dim_Accidents\Merge Join into Year, Quarter, Month.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\dim_Accidents\Sort MonthInQuarter by ID_QuarterInYear.Outputs[Sort Output]" />
             <path
               refId="Package\dim_Accidents.Paths[Sort Output7]"
-              endId="Package\dim_Accidents\Merge Join into Year, Quarter, month, Day, Time.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\dim_Accidents\Sort TimeInDay by ID_DayInMonth.Outputs[Sort Output]" />
-            <path
-              refId="Package\dim_Accidents.Paths[Sort Output]"
               endId="Package\dim_Accidents\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\dim_Accidents\Sort.Outputs[Sort Output]" />
-            <path
-              refId="Package\dim_Accidents.Paths[Sort Output1]"
-              endId="Package\dim_Accidents\Merge Join.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\dim_Accidents\Sort by Date and Time.Outputs[Sort Output]" />
             <path
               refId="Package\dim_Accidents.Paths[Sort Output2]"
               endId="Package\dim_Accidents\Merge Join in Year, Quarter, Month, Day.Inputs[Merge Join Left Input]"
@@ -5421,29 +5052,29 @@ WHERE [Accident_Index] = ?</property>
               startId="Package\dim_Accidents\Sort by ID_MonthInQuarter.Outputs[Sort Output]" />
             <path
               refId="Package\dim_Accidents.Paths[Sort Output3]"
-              endId="Package\dim_Accidents\Merge Join into Year, Quarter, month, Day, Time.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\dim_Accidents\Sort by ID_DayInMonth.Outputs[Sort Output]" />
-            <path
-              refId="Package\dim_Accidents.Paths[Sort Output4]"
               endId="Package\dim_Accidents\Merge Join in Year, Quarter, Month, Day.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\dim_Accidents\Sort DayInMonth by ID_MonthInQuarter.Outputs[Sort Output]" />
             <path
-              refId="Package\dim_Accidents.Paths[Sort Output5]"
-              endId="Package\dim_Accidents\Merge Join into Year, Quarter, Month.Inputs[Merge Join Right Input]"
+              refId="Package\dim_Accidents.Paths[Sort Output4]"
+              endId="Package\dim_Accidents\Merge Join into Year, Quarter, month, Day, Time.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\dim_Accidents\Sort MonthInQuarter by ID_QuarterInYear.Outputs[Sort Output]" />
+              startId="Package\dim_Accidents\Sort by ID_DayInMonth.Outputs[Sort Output]" />
+            <path
+              refId="Package\dim_Accidents.Paths[Sort Output5]"
+              endId="Package\dim_Accidents\Merge Join into Year, Quarter, month, Day, Time.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\dim_Accidents\Sort TimeInDay by ID_DayInMonth.Outputs[Sort Output]" />
             <path
               refId="Package\dim_Accidents.Paths[Sort Output6]"
+              endId="Package\dim_Accidents\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\dim_Accidents\Sort by Date and Time.Outputs[Sort Output]" />
+            <path
+              refId="Package\dim_Accidents.Paths[Sort Output]"
               endId="Package\dim_Accidents\Merge Join into Year, Quarter, Month.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\dim_Accidents\Sort by ID_QuarterInYear.Outputs[Sort Output]" />
-            <path
-              refId="Package\dim_Accidents.Paths[Sort Output8]"
-              endId="Package\dim_Accidents\Lookup fact_Accidents in DDS.Inputs[Lookup Input]"
-              name="Sort Output"
-              startId="Package\dim_Accidents\Sort to remove duplicate.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -5653,7 +5284,7 @@ WHERE [Accident_Index] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Lookup Match Output1]"
+          Id="Package\dim_Accidents.Paths[Lookup Match Output3]"
           TopLeft="137.057142863225,538.276470352291">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5677,7 +5308,7 @@ WHERE [Accident_Index] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Lookup Match Output4]"
+          Id="Package\dim_Accidents.Paths[Lookup Match Output2]"
           TopLeft="139.914285769025,425.970587849204">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5701,7 +5332,7 @@ WHERE [Accident_Index] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Lookup Match Output3]"
+          Id="Package\dim_Accidents.Paths[Lookup Match Output1]"
           TopLeft="139.914285769025,310.605881773806">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5725,7 +5356,7 @@ WHERE [Accident_Index] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Lookup Match Output2]"
+          Id="Package\dim_Accidents.Paths[Lookup Match Output]"
           TopLeft="139.914285769025,181.476469623011">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5755,44 +5386,84 @@ WHERE [Accident_Index] = ?</property>
         <NodeLayout
           Size="219.2,41.6"
           Id="Package\dim_Accidents\Lookup fact_Accidents in DDS"
-          TopLeft="161.428574177683,971.294122237235" />
+          TopLeft="157.857145545434,881.82353274715" />
+        <NodeLayout
+          Size="177.6,41.6"
+          Id="Package\dim_Accidents\Insert fact_Accidents"
+          TopLeft="302.85714801477,1008.18823791095" />
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\dim_Accidents\Update fact_Accidents"
-          TopLeft="51.4285723043948,1052.72941616184" />
+          TopLeft="52.8571437572947,1007.61176847026" />
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Lookup Match Output]"
-          TopLeft="235.828574177683,1012.89412223724">
+          Id="Package\dim_Accidents.Paths[Lookup Match Output4]"
+          TopLeft="232.257145545434,923.42353274715">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-92.8000018732885,39.8352939246021"
+              EndConnector="-87.800001788139,84.1882357231061"
               Start="0,0"
-              End="-92.8000018732885,32.3352939246021">
+              End="-87.800001788139,76.6882357231061">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.1073144999478" />
+                    End="0,30.0413300967342" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.1073144999478"
-                    Point2="0,16.1073144999478"
-                    Point3="-4,16.1073144999478" />
+                    Point1="0,30.0413300967342"
+                    Point2="0,34.0413300967342"
+                    Point3="-4,34.0413300967342" />
                   <mssgle:LineSegment
-                    End="-88.8000018732885,16.1073144999478" />
+                    End="-83.800001788139,34.0413300967342" />
                   <mssgle:CubicBezierSegment
-                    Point1="-88.8000018732885,16.1073144999478"
-                    Point2="-92.8000018732885,16.1073144999478"
-                    Point3="-92.8000018732885,20.1073144999478" />
+                    Point1="-83.800001788139,34.0413300967342"
+                    Point2="-87.800001788139,34.0413300967342"
+                    Point3="-87.800001788139,38.0413300967342" />
                   <mssgle:LineSegment
-                    End="-92.8000018732885,32.3352939246021" />
+                    End="-87.800001788139,76.6882357231061" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-94.5913876553942,21.1073144999478,96.3827734375,11.609375"
+              BoundingBox="-92.0913876128195,39.0413300967342,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_Accidents.Paths[Lookup Error Output]"
+          TopLeft="302.657145545434,923.42353274715">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89.0000024693367,84.7647051637975"
+              Start="0,0"
+              End="89.0000024693367,77.2647051637975">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2744242618834" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2744242618834"
+                    Point2="0,34.2744242618834"
+                    Point3="4,34.2744242618834" />
+                  <mssgle:LineSegment
+                    End="85.0000024693367,34.2744242618834" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85.0000024693367,34.2744242618834"
+                    Point2="89.0000024693367,34.2744242618834"
+                    Point3="89.0000024693367,38.2744242618834" />
+                  <mssgle:LineSegment
+                    End="89.0000024693367,77.2647051637975" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-1.36638548408165,39.2744242618834,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -5865,7 +5536,7 @@ WHERE [Accident_Index] = ?</property>
           Id="Package\dim_Accidents\Merge Join into Year, Quarter, Month"
           TopLeft="289.285719212221,171.294120049394" />
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Sort Output6]"
+          Id="Package\dim_Accidents.Paths[Sort Output]"
           TopLeft="387.457147759321,125.717648238542">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5899,7 +5570,7 @@ WHERE [Accident_Index] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Sort Output5]"
+          Id="Package\dim_Accidents.Paths[Sort Output1]"
           TopLeft="702.057152442543,124.952942345464">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -5937,7 +5608,7 @@ WHERE [Accident_Index] = ?</property>
           Id="Package\dim_Accidents\Sort by ID_MonthInQuarter"
           TopLeft="295.71429075027,263.82353311179" />
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Merge Join Output1]"
+          Id="Package\dim_Accidents.Paths[Merge Join Output]"
           TopLeft="416.085719212221,212.894120049394">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6023,7 +5694,7 @@ WHERE [Accident_Index] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Sort Output4]"
+          Id="Package\dim_Accidents.Paths[Sort Output3]"
           TopLeft="681.542866460645,307.470589854726">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6061,7 +5732,7 @@ WHERE [Accident_Index] = ?</property>
           Id="Package\dim_Accidents\Sort by ID_DayInMonth"
           TopLeft="342.142862969515,467.576473634053" />
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Merge Join Output3]"
+          Id="Package\dim_Accidents.Paths[Merge Join Output1]"
           TopLeft="447.257148185068,416.82353256483">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6125,7 +5796,7 @@ WHERE [Accident_Index] = ?</property>
           Id="Package\dim_Accidents\Merge Join into Year, Quarter, month, Day, Time"
           TopLeft="348.571434507565,605.811768287936" />
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Sort Output3]"
+          Id="Package\dim_Accidents.Paths[Sort Output4]"
           TopLeft="437.342862969515,509.176473634053">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6159,7 +5830,7 @@ WHERE [Accident_Index] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Sort Output7]"
+          Id="Package\dim_Accidents.Paths[Sort Output5]"
           TopLeft="703.828581330241,509.070590584006">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6237,7 +5908,7 @@ WHERE [Accident_Index] = ?</property>
           Id="Package\dim_Accidents\Sort"
           TopLeft="316.428576817318,710.294120596354" />
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Merge Join Output]"
+          Id="Package\dim_Accidents.Paths[Merge Join Output2]"
           TopLeft="502.971434507565,647.411768287936">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6275,7 +5946,7 @@ WHERE [Accident_Index] = ?</property>
           Id="Package\dim_Accidents\Merge Join"
           TopLeft="230.714289643327,795.764708627879" />
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Sort Output1]"
+          Id="Package\dim_Accidents.Paths[Sort Output6]"
           TopLeft="187.400001617841,746.470590401686">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6309,7 +5980,7 @@ WHERE [Accident_Index] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Sort Output]"
+          Id="Package\dim_Accidents.Paths[Sort Output7]"
           TopLeft="365.228576817318,751.894120596354">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -6342,110 +6013,32 @@ WHERE [Accident_Index] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\dim_Accidents\OLE DB Destination"
-          TopLeft="309.285719552819,1069.95294690347" />
         <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Lookup Error Output]"
-          TopLeft="306.228574177683,1012.89412223724">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="88.2571453751354,57.0588246662311"
-              Start="0,0"
-              End="88.2571453751354,49.5588246662311">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.0716117128674" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.0716117128674"
-                    Point2="0,23.0716117128674"
-                    Point3="4,23.0716117128674" />
-                  <mssgle:LineSegment
-                    End="84.2571453751354,23.0716117128674" />
-                  <mssgle:CubicBezierSegment
-                    Point1="84.2571453751354,23.0716117128674"
-                    Point2="88.2571453751354,23.0716117128674"
-                    Point3="88.2571453751354,27.0716117128674" />
-                  <mssgle:LineSegment
-                    End="88.2571453751354,49.5588246662311" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-1.73781403118231,28.0716117128674,91.7327734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="194.4,41.6"
-          Id="Package\dim_Accidents\Sort to remove duplicate"
-          TopLeft="182.857145971181,884.905885237888" />
-        <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Merge Join Output2]"
+          Id="Package\dim_Accidents.Paths[Merge Join Output3]"
           TopLeft="295.514289643327,837.364708627879">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-15.4571436721453,47.5411766100093"
+              EndConnector="-28.0571440978929,44.4588241192707"
               Start="0,0"
-              End="-15.4571436721453,40.0411766100093">
+              End="-28.0571440978929,36.9588241192707">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7705883050047" />
+                    End="0,18.2294120596354" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,19.7705883050047"
-                    Point2="0,23.7705883050047"
-                    Point3="-4,23.7705883050047" />
+                    Point1="0,18.2294120596354"
+                    Point2="0,22.2294120596354"
+                    Point3="-4,22.2294120596354" />
                   <mssgle:LineSegment
-                    End="-11.4571436721453,23.7705883050047" />
+                    End="-24.0571440978929,22.2294120596354" />
                   <mssgle:CubicBezierSegment
-                    Point1="-11.4571436721453,23.7705883050047"
-                    Point2="-15.4571436721453,23.7705883050047"
-                    Point3="-15.4571436721453,27.7705883050047" />
+                    Point1="-24.0571440978929,22.2294120596354"
+                    Point2="-28.0571440978929,22.2294120596354"
+                    Point3="-28.0571440978929,26.2294120596354" />
                   <mssgle:LineSegment
-                    End="-15.4571436721453,40.0411766100093" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_Accidents.Paths[Sort Output8]"
-          TopLeft="280.057145971181,926.505885237888">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-9.02857179349809,44.7882369993469"
-              Start="0,0"
-              End="-9.02857179349809,37.2882369993469">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.3941184996734" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.3941184996734"
-                    Point2="0,22.3941184996734"
-                    Point3="-4,22.3941184996734" />
-                  <mssgle:LineSegment
-                    End="-5.02857179349809,22.3941184996734" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-5.02857179349809,22.3941184996734"
-                    Point2="-9.02857179349809,22.3941184996734"
-                    Point3="-9.02857179349809,26.3941184996734" />
-                  <mssgle:LineSegment
-                    End="-9.02857179349809,37.2882369993469" />
+                    End="-28.0571440978929,36.9588241192707" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6652,19 +6245,6 @@ WHERE [Accident_Index] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_Accidents\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

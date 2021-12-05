@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{F6D7E47A-E465-41E1-9920-AECC33D113D7}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{5425BE29-FFFF-4595-B625-0AF0AAF1A9D9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -104,9 +104,9 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Accident_Severity_NDS
-where (CreatedDate &gt;= ? and CreatedDate &lt; ?)
-or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Accident_Severity_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -123,11 +123,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};"Parameter1:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};</property>
               </properties>
               <connections>
                 <connection
@@ -761,7 +761,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Age_Band_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -778,11 +780,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};"Parameter1:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};</property>
               </properties>
               <connections>
                 <connection
@@ -1416,7 +1418,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Casualty_Severity_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1433,11 +1437,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};"Parameter1:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};</property>
               </properties>
               <connections>
                 <connection
@@ -2071,7 +2075,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Casualty_Type_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2088,11 +2094,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};"Parameter1:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};</property>
               </properties>
               <connections>
                 <connection
@@ -2726,7 +2732,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM City_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2743,11 +2751,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};"Parameter1:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};</property>
               </properties>
               <connections>
                 <connection
@@ -3353,7 +3361,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Country_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -3370,11 +3380,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};"Parameter1:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};</property>
               </properties>
               <connections>
                 <connection
@@ -4018,7 +4028,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM County_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -4035,11 +4047,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};"Parameter1:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};</property>
               </properties>
               <connections>
                 <connection
@@ -4645,7 +4657,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Journey_Purpose_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -4662,11 +4676,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};"Parameter1:Input",{B2B81E98-9F2C-4655-BC82-A70AEC55F428};</property>
               </properties>
               <connections>
                 <connection
@@ -5468,7 +5482,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Sources'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Age_Band'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5485,7 +5499,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Sources'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Casualty_Severity'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5502,7 +5516,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Sources'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Casualty_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5519,7 +5533,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Sources'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'City'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5536,7 +5550,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Sources'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Country'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5553,7 +5567,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Sources'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'County'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5570,7 +5584,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A0579AD7-4209-43FA-9EA0-6C65E3457A40}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Sources'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Journey_Purpose'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -5773,29 +5787,101 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="185,42"
+          Size="184.8,41.6"
           Id="Package\dim_Accident_Severity"
           TopLeft="133.285715635942,137.811767194015" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\dim_Age_Band"
           TopLeft="549.2857226182,397.235298847244" />
         <NodeLayout
-          Size="323,42"
+          Size="184.8,41.6"
+          Id="Package\dim_Casualty_Severity"
+          TopLeft="122.000000085149,652.48235741338" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\dim_Casualty_Type"
+          TopLeft="484.000000085149,896.48235741338" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\dim_City"
+          TopLeft="122.000000085149,1138.48235741338" />
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\dim_County"
+          TopLeft="122.000000085149,1616.48235741338" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\dim_Country"
+          TopLeft="486.000000085149,1374.48235741338" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\dim_Journey_Purpose"
+          TopLeft="496.000000085149,1860.48235741338" />
+        <NodeLayout
+          Size="323.2,41.6"
           Id="Package\Get LSET of dim_Accident_Severity in DB_MetaData"
           TopLeft="60,60" />
         <NodeLayout
-          Size="276,42"
+          Size="276,41.6"
           Id="Package\Get LSET of dim_Age_Band DB_MetaData"
           TopLeft="470.000006982259,321.423531653229" />
         <NodeLayout
-          Size="322,42"
+          Size="312,41.6"
+          Id="Package\Get LSET of dim_Casualty_Severity DB_MetaData"
+          TopLeft="56.0000000851494,582.48235741338" />
+        <NodeLayout
+          Size="296.8,41.6"
+          Id="Package\Get LSET of dim_Casualty_Type DB_MetaData"
+          TopLeft="418.000000085149,826.48235741338" />
+        <NodeLayout
+          Size="246.4,41.6"
+          Id="Package\Get LSET of dim_City DB_MetaData"
+          TopLeft="56.0000000851494,1068.48235741338" />
+        <NodeLayout
+          Size="262.4,41.6"
+          Id="Package\Get LSET of dim_County DB_MetaData"
+          TopLeft="56.0000000851494,1546.48235741338" />
+        <NodeLayout
+          Size="265.6,41.6"
+          Id="Package\Get LSET of dim_Country DB_MetaData"
+          TopLeft="420.000000085149,1304.48235741338" />
+        <NodeLayout
+          Size="308.8,41.6"
+          Id="Package\Get LSET of dim_Journey_Purpose DB_MetaData"
+          TopLeft="430.000000085149,1790.48235741338" />
+        <NodeLayout
+          Size="321.6,41.6"
           Id="Package\Set LSET of dim_Accident_Severity in DB_MetaData"
           TopLeft="56.0000000851494,218.823531653229" />
         <NodeLayout
-          Size="286,42"
+          Size="286.4,41.6"
           Id="Package\Set LSET of dim_Age_Band in DB_MetaData"
           TopLeft="475.714292793858,480.48235741338" />
+        <NodeLayout
+          Size="321.6,41.6"
+          Id="Package\Set LSET of dim_Casualty_Severity in DB_MetaData"
+          TopLeft="71.0000000851494,722.48235741338" />
+        <NodeLayout
+          Size="308,41.6"
+          Id="Package\Set LSET of dim_Casualty_Type in DB_MetaData"
+          TopLeft="433.000000085149,966.48235741338" />
+        <NodeLayout
+          Size="256.8,41.6"
+          Id="Package\Set LSET of dim_City in DB_MetaData"
+          TopLeft="71.0000000851494,1208.48235741338" />
+        <NodeLayout
+          Size="272,41.6"
+          Id="Package\Set LSET of dim_County in DB_MetaData"
+          TopLeft="71.0000000851494,1686.48235741338" />
+        <NodeLayout
+          Size="276,41.6"
+          Id="Package\Set LSET of dim_Country in DB_MetaData"
+          TopLeft="435.000000085149,1444.48235741338" />
+        <NodeLayout
+          Size="320,41.6"
+          Id="Package\Set LSET of dim_Journey_Purpose in DB_MetaData"
+          TopLeft="445.000000085149,1930.48235741338" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="223.642857817971,102">
@@ -5844,6 +5930,74 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                     Point3="15.6857156359416,21.1058835970077" />
                   <mssgle:LineSegment
                     End="15.6857156359416,26.7117671940154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="573.000000085149,1486.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-386,60"
+              Start="0,0"
+              End="-386,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-382,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-382,30"
+                    Point2="-386,30"
+                    Point3="-386,34" />
+                  <mssgle:LineSegment
+                    End="-386,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="207.000000085149,1728.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="377.5,62"
+              Start="0,0"
+              End="377.5,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27"
+                    Point2="0,31"
+                    Point3="4,31" />
+                  <mssgle:LineSegment
+                    End="373.5,31" />
+                  <mssgle:CubicBezierSegment
+                    Point1="373.5,31"
+                    Point2="377.5,31"
+                    Point3="377.5,35" />
+                  <mssgle:LineSegment
+                    End="377.5,54.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -5942,18 +6096,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="312,42"
-          Id="Package\Get LSET of dim_Casualty_Severity DB_MetaData"
-          TopLeft="56.0000000851494,582.48235741338" />
-        <NodeLayout
-          Size="322,42"
-          Id="Package\Set LSET of dim_Casualty_Severity in DB_MetaData"
-          TopLeft="71.0000000851494,722.48235741338" />
-        <NodeLayout
-          Size="185,42"
-          Id="Package\dim_Casualty_Severity"
-          TopLeft="122.000000085149,652.48235741338" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="618.714292793858,522.48235741338">
@@ -6011,6 +6153,116 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5 1]"
+          TopLeft="568.000000085149,868.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5 1 1]"
+          TopLeft="180.500000085149,1110.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5 1 1 1]"
+          TopLeft="554.250000085149,1346.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5 1 1 1 1]"
+          TopLeft="188.250000085149,1588.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5 1 1 1 1 1]"
+          TopLeft="586.000000085149,1832.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="214.500000085149,694.48235741338">
           <EdgeLayout.Curve>
@@ -6044,32 +6296,32 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="297,42"
-          Id="Package\Get LSET of dim_Casualty_Type DB_MetaData"
-          TopLeft="418.000000085149,826.48235741338" />
-        <NodeLayout
-          Size="308,42"
-          Id="Package\Set LSET of dim_Casualty_Type in DB_MetaData"
-          TopLeft="433.000000085149,966.48235741338" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\dim_Casualty_Type"
-          TopLeft="484.000000085149,896.48235741338" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5 1]"
-          TopLeft="568.000000085149,868.48235741338">
+          Id="Package.PrecedenceConstraints[Constraint 6 1]"
+          TopLeft="569.500000085149,938.48235741338">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28"
+              EndConnector="17.5,28"
               Start="0,0"
-              End="0,20.5">
+              End="17.5,20.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5" />
+                    End="0,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="4,14" />
+                  <mssgle:LineSegment
+                    End="13.5,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,14"
+                    Point2="17.5,14"
+                    Point3="17.5,18" />
+                  <mssgle:LineSegment
+                    End="17.5,20.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6079,8 +6331,110 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6 1]"
-          TopLeft="569.500000085149,938.48235741338">
+          Id="Package.PrecedenceConstraints[Constraint 6 1 1]"
+          TopLeft="182.000000085149,1180.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,28"
+              Start="0,0"
+              End="17.5,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="4,14" />
+                  <mssgle:LineSegment
+                    End="13.5,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,14"
+                    Point2="17.5,14"
+                    Point3="17.5,18" />
+                  <mssgle:LineSegment
+                    End="17.5,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6 1 1 1]"
+          TopLeft="555.500000085149,1416.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,28"
+              Start="0,0"
+              End="17.5,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="4,14" />
+                  <mssgle:LineSegment
+                    End="13.5,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,14"
+                    Point2="17.5,14"
+                    Point3="17.5,18" />
+                  <mssgle:LineSegment
+                    End="17.5,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6 1 1 1 1]"
+          TopLeft="189.500000085149,1658.48235741338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,28"
+              Start="0,0"
+              End="17.5,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10"
+                    Point2="0,14"
+                    Point3="4,14" />
+                  <mssgle:LineSegment
+                    End="13.5,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,14"
+                    Point2="17.5,14"
+                    Point3="17.5,18" />
+                  <mssgle:LineSegment
+                    End="17.5,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6 1 1 1 1 1]"
+          TopLeft="587.500000085149,1902.48235741338">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6146,74 +6500,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="246,42"
-          Id="Package\Get LSET of dim_City DB_MetaData"
-          TopLeft="56.0000000851494,1068.48235741338" />
-        <NodeLayout
-          Size="257,42"
-          Id="Package\Set LSET of dim_City in DB_MetaData"
-          TopLeft="71.0000000851494,1208.48235741338" />
-        <NodeLayout
-          Size="120,42"
-          Id="Package\dim_City"
-          TopLeft="122.000000085149,1138.48235741338" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5 1 1]"
-          TopLeft="180.500000085149,1110.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28"
-              Start="0,0"
-              End="0,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6 1 1]"
-          TopLeft="182.000000085149,1180.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.5,28"
-              Start="0,0"
-              End="17.5,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10"
-                    Point2="0,14"
-                    Point3="4,14" />
-                  <mssgle:LineSegment
-                    End="13.5,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5,14"
-                    Point2="17.5,14"
-                    Point3="17.5,18" />
-                  <mssgle:LineSegment
-                    End="17.5,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
           TopLeft="587.000000085149,1008.48235741338">
@@ -6240,74 +6526,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                     Point3="-408,34" />
                   <mssgle:LineSegment
                     End="-408,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="266,42"
-          Id="Package\Get LSET of dim_Country DB_MetaData"
-          TopLeft="420.000000085149,1304.48235741338" />
-        <NodeLayout
-          Size="276,42"
-          Id="Package\Set LSET of dim_Country in DB_MetaData"
-          TopLeft="435.000000085149,1444.48235741338" />
-        <NodeLayout
-          Size="139,42"
-          Id="Package\dim_Country"
-          TopLeft="486.000000085149,1374.48235741338" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5 1 1 1]"
-          TopLeft="554.250000085149,1346.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28"
-              Start="0,0"
-              End="0,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6 1 1 1]"
-          TopLeft="555.500000085149,1416.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.5,28"
-              Start="0,0"
-              End="17.5,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10"
-                    Point2="0,14"
-                    Point3="4,14" />
-                  <mssgle:LineSegment
-                    End="13.5,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5,14"
-                    Point2="17.5,14"
-                    Point3="17.5,18" />
-                  <mssgle:LineSegment
-                    End="17.5,20.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6350,210 +6568,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="262,42"
-          Id="Package\Get LSET of dim_County DB_MetaData"
-          TopLeft="56.0000000851494,1546.48235741338" />
-        <NodeLayout
-          Size="272,42"
-          Id="Package\Set LSET of dim_County in DB_MetaData"
-          TopLeft="71.0000000851494,1686.48235741338" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\dim_County"
-          TopLeft="122.000000085149,1616.48235741338" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5 1 1 1 1]"
-          TopLeft="188.250000085149,1588.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28"
-              Start="0,0"
-              End="0,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6 1 1 1 1]"
-          TopLeft="189.500000085149,1658.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.5,28"
-              Start="0,0"
-              End="17.5,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10"
-                    Point2="0,14"
-                    Point3="4,14" />
-                  <mssgle:LineSegment
-                    End="13.5,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5,14"
-                    Point2="17.5,14"
-                    Point3="17.5,18" />
-                  <mssgle:LineSegment
-                    End="17.5,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="573.000000085149,1486.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-386,60"
-              Start="0,0"
-              End="-386,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26"
-                    Point2="0,30"
-                    Point3="-4,30" />
-                  <mssgle:LineSegment
-                    End="-382,30" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-382,30"
-                    Point2="-386,30"
-                    Point3="-386,34" />
-                  <mssgle:LineSegment
-                    End="-386,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="309,42"
-          Id="Package\Get LSET of dim_Journey_Purpose DB_MetaData"
-          TopLeft="430.000000085149,1790.48235741338" />
-        <NodeLayout
-          Size="320,42"
-          Id="Package\Set LSET of dim_Journey_Purpose in DB_MetaData"
-          TopLeft="445.000000085149,1930.48235741338" />
-        <NodeLayout
-          Size="183,42"
-          Id="Package\dim_Journey_Purpose"
-          TopLeft="496.000000085149,1860.48235741338" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 5 1 1 1 1 1]"
-          TopLeft="586.000000085149,1832.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28"
-              Start="0,0"
-              End="0,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 6 1 1 1 1 1]"
-          TopLeft="587.500000085149,1902.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.5,28"
-              Start="0,0"
-              End="17.5,20.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10"
-                    Point2="0,14"
-                    Point3="4,14" />
-                  <mssgle:LineSegment
-                    End="13.5,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.5,14"
-                    Point2="17.5,14"
-                    Point3="17.5,18" />
-                  <mssgle:LineSegment
-                    End="17.5,20.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="207.000000085149,1728.48235741338">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="377.5,62"
-              Start="0,0"
-              End="377.5,54.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,27" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,27"
-                    Point2="0,31"
-                    Point3="4,31" />
-                  <mssgle:LineSegment
-                    End="373.5,31" />
-                  <mssgle:CubicBezierSegment
-                    Point1="373.5,31"
-                    Point2="377.5,31"
-                    Point3="377.5,35" />
-                  <mssgle:LineSegment
-                    End="377.5,54.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -6563,19 +6577,19 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Accident_Severity\Slowly Changing Dimension"
           TopLeft="207.5,107.5" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\dim_Accident_Severity\OLE DB Command"
           TopLeft="344,268.5" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\dim_Accident_Severity\Accident_Severity NDS"
           TopLeft="219,5.5" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\dim_Accident_Severity\Insert Destination"
           TopLeft="56.5000000000001,274.5" />
         <EdgeLayout
@@ -6762,19 +6776,19 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Age_Band\Slowly Changing Dimension"
           TopLeft="207.5,107.5" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\dim_Age_Band\OLE DB Command"
           TopLeft="229,209.5" />
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\dim_Age_Band\Age_Band NDS"
           TopLeft="237,5.5" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\dim_Age_Band\Insert Destination"
           TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
@@ -6796,9 +6810,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6950,13 +6962,21 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Casualty_Severity\Slowly Changing Dimension"
           TopLeft="448,107.5" />
         <NodeLayout
-          Size="185,42"
+          Size="166.4,41.6"
+          Id="Package\dim_Casualty_Severity\OLE DB Command"
+          TopLeft="465,209.5" />
+        <NodeLayout
+          Size="184.8,41.6"
           Id="Package\dim_Casualty_Severity\dim_Casualty_Severity"
           TopLeft="460,5.49999999999989" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\dim_Casualty_Severity\Insert Destination"
+          TopLeft="232.5,209.5" />
         <EdgeLayout
           Id="Package\dim_Casualty_Severity.Paths[OLE DB Source Output]"
           TopLeft="552.5,47.4999999999999">
@@ -6979,10 +6999,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\dim_Casualty_Severity\Insert Destination"
-          TopLeft="232.5,209.5" />
         <EdgeLayout
           Id="Package\dim_Casualty_Severity.Paths[New Output]"
           TopLeft="519,149.5">
@@ -7019,10 +7035,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\dim_Casualty_Severity\OLE DB Command"
-          TopLeft="465,209.5" />
         <EdgeLayout
           Id="Package\dim_Casualty_Severity.Paths[Changing Attribute Updates Output]"
           TopLeft="586,149.5">
@@ -7136,27 +7148,35 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Casualty_Type\Slowly Changing Dimension"
           TopLeft="296,123.5" />
         <NodeLayout
-          Size="171,42"
+          Size="166.4,41.6"
+          Id="Package\dim_Casualty_Type\OLE DB Command"
+          TopLeft="448,223.5" />
+        <NodeLayout
+          Size="170.4,41.6"
           Id="Package\dim_Casualty_Type\dim_Casualty_Type"
           TopLeft="315,21.4999999999999" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\dim_Casualty_Type\Insert Destination"
+          TopLeft="80.5000000000001,225.5" />
         <EdgeLayout
           Id="Package\dim_Casualty_Type.Paths[OLE DB Source Output]"
-          TopLeft="400.5,63.4999999999999">
+          TopLeft="400.3,63.0999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.4000000000001"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.9000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.9000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7165,10 +7185,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\dim_Casualty_Type\Insert Destination"
-          TopLeft="80.5000000000001,225.5" />
         <EdgeLayout
           Id="Package\dim_Casualty_Type.Paths[New Output]"
           TopLeft="367,165.5">
@@ -7205,10 +7221,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\dim_Casualty_Type\OLE DB Command"
-          TopLeft="448,223.5" />
         <EdgeLayout
           Id="Package\dim_Casualty_Type.Paths[Changing Attribute Updates Output]"
           TopLeft="434,165.5">
@@ -7322,13 +7334,21 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
-          Id="Package\dim_City\Slowly Changing Dimension"
-          TopLeft="207.5,107.5" />
+          Size="166.4,41.6"
+          Id="Package\dim_City\OLE DB Command"
+          TopLeft="372,209.5" />
         <NodeLayout
-          Size="120,42"
+          Size="163.2,41.6"
+          Id="Package\dim_City\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
+        <NodeLayout
+          Size="120,41.6"
           Id="Package\dim_City\dim_City"
           TopLeft="252,5.5" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\dim_City\Slowly Changing Dimension"
+          TopLeft="207.5,107.5" />
         <EdgeLayout
           Id="Package\dim_City.Paths[OLE DB Source Output]"
           TopLeft="312,47.5">
@@ -7351,10 +7371,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\dim_City\Insert Destination"
-          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\dim_City.Paths[New Output]"
           TopLeft="278.5,149.5">
@@ -7391,10 +7407,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\dim_City\OLE DB Command"
-          TopLeft="372,209.5" />
         <EdgeLayout
           Id="Package\dim_City.Paths[Changing Attribute Updates Output]"
           TopLeft="345.5,149.5">
@@ -7434,6 +7446,19 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_City\dim_City">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\dim_City\Slowly Changing Dimension">
     <Properties>
@@ -7483,8 +7508,126 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\dim_County">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="166.4,41.6"
+          Id="Package\dim_County\OLE DB Command"
+          TopLeft="229,209.5" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\dim_County\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
+        <NodeLayout
+          Size="135.2,41.6"
+          Id="Package\dim_County\dim_County"
+          TopLeft="244.5,5.5" />
+        <NodeLayout
+          Size="208.8,41.6"
+          Id="Package\dim_County\Slowly Changing Dimension"
+          TopLeft="207.5,107.5" />
+        <EdgeLayout
+          Id="Package\dim_County.Paths[OLE DB Source Output]"
+          TopLeft="312,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_County.Paths[New Output]"
+          TopLeft="278.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-191.5,60"
+              Start="0,0"
+              End="-191.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-187.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-187.5,24.2735042735043"
+                    Point2="-191.5,24.2735042735043"
+                    Point3="-191.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-191.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_County.Paths[Changing Attribute Updates Output]"
+          TopLeft="345.5,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-33.5,60"
+              Start="0,0"
+              End="-33.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.2735042735043"
+                    Point2="0,24.2735042735043"
+                    Point3="-4,24.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-29.5,24.2735042735043" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5,24.2735042735043"
+                    Point2="-33.5,24.2735042735043"
+                    Point3="-33.5,28.2735042735043" />
+                  <mssgle:LineSegment
+                    End="-33.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\dim_City\dim_City">
+    design-time-name="Package\dim_County\dim_County">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7496,19 +7639,76 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_County\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{0E0E1929-6AB8-4889-A816-850C4EBAF9C9}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dim_County]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;dim_County.Outputs[OLE DB Source Output].Columns[county_name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;county_name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;dim_County.Outputs[OLE DB Source Output].Columns[ID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;dim_County.Outputs[OLE DB Source Output].Columns[SourceID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SourceID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\dim_Country">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Country\Slowly Changing Dimension"
           TopLeft="207.5,107.5" />
         <NodeLayout
-          Size="139,42"
+          Size="166.4,41.6"
+          Id="Package\dim_Country\OLE DB Command"
+          TopLeft="229,209.5" />
+        <NodeLayout
+          Size="139.2,41.6"
           Id="Package\dim_Country\dim_Country"
           TopLeft="242.5,5.5" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\dim_Country\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\dim_Country.Paths[OLE DB Source Output]"
           TopLeft="312,47.5">
@@ -7531,10 +7731,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\dim_Country\Insert Destination"
-          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\dim_Country.Paths[New Output]"
           TopLeft="278.5,149.5">
@@ -7571,10 +7767,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\dim_Country\OLE DB Command"
-          TopLeft="229,209.5" />
         <EdgeLayout
           Id="Package\dim_Country.Paths[Changing Attribute Updates Output]"
           TopLeft="345.5,149.5">
@@ -7683,198 +7875,26 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\dim_County">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="209,42"
-          Id="Package\dim_County\Slowly Changing Dimension"
-          TopLeft="207.5,107.5" />
-        <NodeLayout
-          Size="135,42"
-          Id="Package\dim_County\dim_County"
-          TopLeft="244.5,5.5" />
-        <EdgeLayout
-          Id="Package\dim_County.Paths[OLE DB Source Output]"
-          TopLeft="312,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\dim_County\Insert Destination"
-          TopLeft="5.50000000000006,209.5" />
-        <EdgeLayout
-          Id="Package\dim_County.Paths[New Output]"
-          TopLeft="278.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-191.5,60"
-              Start="0,0"
-              End="-191.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-187.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-187.5,24.2735042735043"
-                    Point2="-191.5,24.2735042735043"
-                    Point3="-191.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-191.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\dim_County\OLE DB Command"
-          TopLeft="229,209.5" />
-        <EdgeLayout
-          Id="Package\dim_County.Paths[Changing Attribute Updates Output]"
-          TopLeft="345.5,149.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
-              Start="0,0"
-              End="-33.5,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
-                  <mssgle:LineSegment
-                    End="-33.5,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_County\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{0E0E1929-6AB8-4889-A816-850C4EBAF9C9}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[dim_County]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_County.Outputs[OLE DB Source Output].Columns[county_name]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;county_name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_County.Outputs[OLE DB Source Output].Columns[ID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_County.Outputs[OLE DB Source Output].Columns[SourceID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;SourceID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_County\dim_County">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\dim_Journey_Purpose">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Journey_Purpose\Slowly Changing Dimension"
           TopLeft="207.5,107.5" />
         <NodeLayout
-          Size="183,42"
+          Size="166.4,41.6"
+          Id="Package\dim_Journey_Purpose\OLE DB Command"
+          TopLeft="229,209.5" />
+        <NodeLayout
+          Size="183.2,41.6"
           Id="Package\dim_Journey_Purpose\dim_Journey_Purpose"
           TopLeft="220.5,5.5" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\dim_Journey_Purpose\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\dim_Journey_Purpose.Paths[OLE DB Source Output]"
           TopLeft="312,47.5">
@@ -7897,10 +7917,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\dim_Journey_Purpose\Insert Destination"
-          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\dim_Journey_Purpose.Paths[New Output]"
           TopLeft="278.5,149.5">
@@ -7937,10 +7953,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\dim_Journey_Purpose\OLE DB Command"
-          TopLeft="229,209.5" />
         <EdgeLayout
           Id="Package\dim_Journey_Purpose.Paths[Changing Attribute Updates Output]"
           TopLeft="345.5,149.5">

@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{5F9FE1A5-AE75-47F6-B71D-D310D99B05ED}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{6CBFCD52-3617-44E1-9C1D-1CEC3C82B1D4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -3397,7 +3397,7 @@ where [refTable].[Year] = ? and [refTable].[Quarter] = ?</property>
                   description="The SQL command to be executed."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
-CONVERT(TIME, Time) as 'Time',
+CONVERT(TIME, CASE Time WHEN '' THEN NULL ELSE convert(TIME, Time)  END)  AS 'Time',
 CONVERT(INT, Day(Date)) as 'Day',
 CONVERT(INT, Month(Date)) as 'Month',
 CONVERT(INT, DATENAME(qq, Date)) as 'Quarter',
@@ -3483,7 +3483,6 @@ ORDER BY Year(Date) , Month(Date)</property>
                       externalMetadataColumnId="Package\dim_TimeInDate\Get Date In Accidents_NDS.Outputs[OLE DB Source Output].ExternalColumns[Time]"
                       lineageId="Package\dim_TimeInDate\Get Date In Accidents_NDS.Outputs[OLE DB Source Output].Columns[Time]"
                       name="Time"
-                      scale="7"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -3610,7 +3609,6 @@ VALUES (?,?)</property>
                       refId="Package\dim_TimeInDate\Insert.Inputs[OLE DB Command Input].Columns[Time]"
                       cachedDataType="dbTime2"
                       cachedName="Time"
-                      cachedScale="7"
                       externalMetadataColumnId="Package\dim_TimeInDate\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\dim_TimeInDate\Merge Join.Outputs[Merge Join Output].Columns[Time]" />
                   </inputColumns>
@@ -3695,7 +3693,7 @@ VALUES (?,?)</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_TimeInDay]) [refTable]
-where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
+where [refTable].[ID_DayInMonth] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -3731,7 +3729,7 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\dim_TimeInDate\Merge Join.Outputs[Merge Join Output].Columns[Time]};#{Package\dim_TimeInDate\Merge Join.Outputs[Merge Join Output].Columns[ID_DayInMonth]};</property>
+                  name="ParameterMap">#{Package\dim_TimeInDate\Merge Join.Outputs[Merge Join Output].Columns[ID_DayInMonth]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -3754,23 +3752,6 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
                   refId="Package\dim_TimeInDate\Lookup.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_TimeInDate\Lookup.Inputs[Lookup Input].Columns[Time]"
-                      cachedDataType="dbTime2"
-                      cachedName="Time"
-                      cachedScale="7"
-                      lineageId="Package\dim_TimeInDate\Merge Join.Outputs[Merge Join Output].Columns[Time]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Time</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
                     <inputColumn
                       refId="Package\dim_TimeInDate\Lookup.Inputs[Lookup Input].Columns[ID_DayInMonth]"
                       cachedDataType="i4"
@@ -3893,7 +3874,6 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
                       refId="Package\dim_TimeInDate\Merge Join.Inputs[Merge Join Left Input].Columns[Time]"
                       cachedDataType="dbTime2"
                       cachedName="Time"
-                      cachedScale="7"
                       lineageId="Package\dim_TimeInDate\Sort Datetime by Year, Quarter, Month, Day.Outputs[Sort Output].Columns[Time]" />
                   </inputColumns>
                   <externalMetadataColumns />
@@ -3945,8 +3925,7 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
                       refId="Package\dim_TimeInDate\Merge Join.Outputs[Merge Join Output].Columns[Time]"
                       dataType="dbTime2"
                       lineageId="Package\dim_TimeInDate\Merge Join.Outputs[Merge Join Output].Columns[Time]"
-                      name="Time"
-                      scale="7">
+                      name="Time">
                       <properties>
                         <property
                           containsID="true"
@@ -4797,7 +4776,6 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
                       refId="Package\dim_TimeInDate\Sort Datetime by Year, Quarter, Month, Day.Inputs[Sort Input].Columns[Time]"
                       cachedDataType="dbTime2"
                       cachedName="Time"
-                      cachedScale="7"
                       lineageId="Package\dim_TimeInDate\Get Date In Accidents_NDS.Outputs[OLE DB Source Output].Columns[Time]">
                       <properties>
                         <property
@@ -4880,8 +4858,7 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
                       refId="Package\dim_TimeInDate\Sort Datetime by Year, Quarter, Month, Day.Outputs[Sort Output].Columns[Time]"
                       dataType="dbTime2"
                       lineageId="Package\dim_TimeInDate\Sort Datetime by Year, Quarter, Month, Day.Outputs[Sort Output].Columns[Time]"
-                      name="Time"
-                      scale="7">
+                      name="Time">
                       <properties>
                         <property
                           containsID="true"
@@ -6016,7 +5993,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6038,7 +6017,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6072,7 +6053,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6130,7 +6113,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6164,7 +6149,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6198,7 +6185,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6232,7 +6221,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6266,7 +6257,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6300,7 +6293,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6367,7 +6362,7 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
     design-time-name="Package\dim_MonthInQuarter">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="179.2,41.6"
           Id="Package\dim_MonthInQuarter\Sort By Year, Quarter"
@@ -6423,7 +6418,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6457,7 +6454,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6491,7 +6490,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6525,7 +6526,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6547,7 +6550,9 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6580,13 +6585,17 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="207.2,41.6"
-          Id="Package\dim_QuarterInYear\Get Date In Accidents_NDS"
-          TopLeft="179.285717338932,32.8823534023391" />
-        <NodeLayout
           Size="112.8,41.6"
           Id="Package\dim_QuarterInYear\Lookup"
           TopLeft="217.857146567228,126.94117825089" />
+        <NodeLayout
+          Size="106.4,41.6"
+          Id="Package\dim_QuarterInYear\Insert"
+          TopLeft="225.000003831727,221.764708992519" />
+        <NodeLayout
+          Size="207.2,41.6"
+          Id="Package\dim_QuarterInYear\Get Date In Accidents_NDS"
+          TopLeft="179.285717338932,32.8823534023391" />
         <EdgeLayout
           Id="Package\dim_QuarterInYear.Paths[OLE DB Source Output]"
           TopLeft="282.885717338932,74.4823534023391">
@@ -6618,13 +6627,11 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\dim_QuarterInYear\Insert"
-          TopLeft="225.000003831727,221.764708992519" />
         <EdgeLayout
           Id="Package\dim_QuarterInYear.Paths[Lookup Error Output]"
           TopLeft="276.228575199478,168.54117825089">
@@ -6689,29 +6696,37 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\dim_TimeInDate\Merge Join"
-          TopLeft="197,467" />
-        <NodeLayout
           Size="260,41.6"
           Id="Package\dim_TimeInDate\Sort this Merge by ID_MonthInQuarter"
           TopLeft="293,277" />
         <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\dim_TimeInDate\Merge Join"
+          TopLeft="160.714288451234,485.435296841724" />
+        <NodeLayout
           Size="240,41.6"
           Id="Package\dim_TimeInDate\Sort by Year, Quarter, Month, Day"
-          TopLeft="408,475" />
+          TopLeft="405.85714282065,476.529411786155" />
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\dim_TimeInDate\Insert"
-          TopLeft="203.857142857143,654.428571428572" />
+          TopLeft="168.857142261096,664.369748038581" />
+        <NodeLayout
+          Size="208,41.6"
+          Id="Package\dim_TimeInDate\Sort by ID_MonthInQuarter"
+          TopLeft="604,289" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\dim_TimeInDate\dim_MonthInQuarter"
           TopLeft="111.571428571429,23.2380952380953" />
         <NodeLayout
-          Size="168.8,41.6"
-          Id="Package\dim_TimeInDate\dim_QuarterInYear"
-          TopLeft="430.285714285714,16.8571428571429" />
+          Size="159.2,41.6"
+          Id="Package\dim_TimeInDate\dim_DayInMonth"
+          TopLeft="649,198.8" />
+        <NodeLayout
+          Size="285.6,41.6"
+          Id="Package\dim_TimeInDate\Sort Datetime by Year, Quarter, Month, Day"
+          TopLeft="22.5714283768012,387.647059113097" />
         <NodeLayout
           Size="348.8,41.6"
           Id="Package\dim_TimeInDate\Merge Join dim_MonthInQuarter AND dim_QuarterInYear"
@@ -6721,33 +6736,127 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
           Id="Package\dim_TimeInDate\Sort dim_MonthInQuarter by ID_QuarterInYear"
           TopLeft="78.571428571429,101.714285714286" />
         <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\dim_TimeInDate\dim_QuarterInYear"
+          TopLeft="430.285714285714,16.8571428571429" />
+        <NodeLayout
           Size="199.2,41.6"
           Id="Package\dim_TimeInDate\Sort by ID_QuarterInYear"
           TopLeft="426.571428571429,105.571428571428" />
         <NodeLayout
-          Size="285.6,41.6"
-          Id="Package\dim_TimeInDate\Sort Datetime by Year, Quarter, Month, Day"
-          TopLeft="34,367" />
-        <NodeLayout
           Size="112.8,41.6"
           Id="Package\dim_TimeInDate\Lookup"
-          TopLeft="206.714285714286,561.142857142857" />
+          TopLeft="174.571428024039,571.848739645944" />
         <NodeLayout
           Size="236.8,41.6"
           Id="Package\dim_TimeInDate\Merge Join with dim_DayInMonth"
           TopLeft="361,373" />
         <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\dim_TimeInDate\dim_DayInMonth"
-          TopLeft="649,198.8" />
-        <NodeLayout
-          Size="208,41.6"
-          Id="Package\dim_TimeInDate\Sort by ID_MonthInQuarter"
-          TopLeft="604,289" />
-        <NodeLayout
           Size="207.2,41.6"
           Id="Package\dim_TimeInDate\Get Date In Accidents_NDS"
           TopLeft="36.9523840055986,269.215686735672" />
+        <EdgeLayout
+          Id="Package\dim_TimeInDate.Paths[Sort Output4]"
+          TopLeft="165.371428376801,429.247059113097">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.1428600744325,56.1882377286267"
+              Start="0,0"
+              End="60.1428600744325,48.6882377286267">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.0941188643134" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0941188643134"
+                    Point2="0,28.0941188643134"
+                    Point3="4,28.0941188643134" />
+                  <mssgle:LineSegment
+                    End="56.1428600744325,28.0941188643134" />
+                  <mssgle:CubicBezierSegment
+                    Point1="56.1428600744325,28.0941188643134"
+                    Point2="60.1428600744325,28.0941188643134"
+                    Point3="60.1428600744325,32.0941188643134" />
+                  <mssgle:LineSegment
+                    End="60.1428600744325,48.6882377286267" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_TimeInDate.Paths[Sort Output3]"
+          TopLeft="708,330.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-190.466666666667,42.4"
+              Start="0,0"
+              End="-190.466666666667,34.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.2692617449665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.2692617449665"
+                    Point2="0,25.2692617449665"
+                    Point3="-4,25.2692617449665" />
+                  <mssgle:LineSegment
+                    End="-186.466666666667,25.2692617449665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-186.466666666667,25.2692617449665"
+                    Point2="-190.466666666667,25.2692617449665"
+                    Point3="-190.466666666667,29.2692617449665" />
+                  <mssgle:LineSegment
+                    End="-190.466666666667,34.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_TimeInDate.Paths[Sort Output2]"
+          TopLeft="423,318.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18.2666666666667,54.4000000000001"
+              Start="0,0"
+              End="18.2666666666667,46.9000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.4209395973155" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.4209395973155"
+                    Point2="0,32.4209395973155"
+                    Point3="4,32.4209395973155" />
+                  <mssgle:LineSegment
+                    End="14.2666666666667,32.4209395973155" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14.2666666666667,32.4209395973155"
+                    Point2="18.2666666666667,32.4209395973155"
+                    Point3="18.2666666666667,36.4209395973155" />
+                  <mssgle:LineSegment
+                    End="18.2666666666667,46.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\dim_TimeInDate.Paths[Sort Output1]"
           TopLeft="526.171428571429,147.171428571428">
@@ -6818,30 +6927,30 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\dim_TimeInDate.Paths[OLE DB Source Output3]"
-          TopLeft="140.552384005599,310.815686735673">
+          TopLeft="140.552384005599,310.815686735672">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="36.2476159944013,56.1843132643276"
+              EndConnector="24.8190443712026,76.8313723774249"
               Start="0,0"
-              End="36.2476159944013,48.6843132643276">
+              End="24.8190443712026,69.3313723774249">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.0921566321638" />
+                    End="0,34.4156861887125" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.0921566321638"
-                    Point2="0,28.0921566321638"
-                    Point3="4,28.0921566321638" />
+                    Point1="0,34.4156861887125"
+                    Point2="0,38.4156861887125"
+                    Point3="4,38.4156861887125" />
                   <mssgle:LineSegment
-                    End="32.2476159944013,28.0921566321638" />
+                    End="20.8190443712026,38.4156861887125" />
                   <mssgle:CubicBezierSegment
-                    Point1="32.2476159944013,28.0921566321638"
-                    Point2="36.2476159944013,28.0921566321638"
-                    Point3="36.2476159944013,32.0921566321638" />
+                    Point1="20.8190443712026,38.4156861887125"
+                    Point2="24.8190443712026,38.4156861887125"
+                    Point3="24.8190443712026,42.4156861887125" />
                   <mssgle:LineSegment
-                    End="36.2476159944013,48.6843132643276" />
+                    End="24.8190443712026,69.3313723774249" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6954,18 +7063,18 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\dim_TimeInDate.Paths[Merge Join Output2]"
-          TopLeft="262.457142857143,508.6">
+          TopLeft="228.242858237636,527.035296841724">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.5428571428571"
+              EndConnector="0,44.8134428042204"
               Start="0,0"
-              End="0,45.0428571428571">
+              End="0,37.3134428042204">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.0428571428571" />
+                    End="0,37.3134428042204" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6980,26 +7089,26 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="48.6000000000001,60.3999999999998"
+              EndConnector="46.4571428206502,61.9294117861553"
               Start="0,0"
-              End="48.6000000000001,52.8999999999998">
+              End="46.4571428206502,54.4294117861553">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.1999999999999" />
+                    End="0,26.9647058930777" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.1999999999999"
-                    Point2="0,30.1999999999999"
-                    Point3="4,30.1999999999999" />
+                    Point1="0,26.9647058930777"
+                    Point2="0,30.9647058930777"
+                    Point3="4,30.9647058930777" />
                   <mssgle:LineSegment
-                    End="44.6000000000001,30.1999999999999" />
+                    End="42.4571428206502,30.9647058930777" />
                   <mssgle:CubicBezierSegment
-                    Point1="44.6000000000001,30.1999999999999"
-                    Point2="48.6000000000001,30.1999999999999"
-                    Point3="48.6000000000001,34.1999999999999" />
+                    Point1="42.4571428206502,30.9647058930777"
+                    Point2="46.4571428206502,30.9647058930777"
+                    Point3="46.4571428206502,34.9647058930777" />
                   <mssgle:LineSegment
-                    End="48.6000000000001,52.8999999999998" />
+                    End="46.4571428206502,54.4294117861553" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7044,144 +7153,66 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\dim_TimeInDate.Paths[Lookup Error Output]"
-          TopLeft="260.085714285714,602.742857142857">
+          TopLeft="230.971428024039,613.448739645944">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,51.6857142857143"
+              EndConnector="-8.91428576294274,50.9210083926373"
               Start="0,0"
-              End="0,44.1857142857143">
+              End="-8.91428576294274,43.4210083926373">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.1857142857143" />
+                    End="0,21.4605041963187" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.4605041963187"
+                    Point2="0,25.4605041963187"
+                    Point3="-4,25.4605041963187" />
+                  <mssgle:LineSegment
+                    End="-4.91428576294274,25.4605041963187" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.91428576294274,25.4605041963187"
+                    Point2="-8.91428576294274,25.4605041963187"
+                    Point3="-8.91428576294274,29.4605041963187" />
+                  <mssgle:LineSegment
+                    End="-8.91428576294274,43.4210083926373" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-45.86638671875,16.2881696428572,91.7327734375,11.609375"
+              BoundingBox="-50.3235296002214,30.4605041963187,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\dim_TimeInDate.Paths[Sort Output5]"
-          TopLeft="408,491.8">
+          TopLeft="405.85714282065,497.329411786155">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-81.4000000000002,0"
+              EndConnector="-115.542854369417,8.90588505556843"
               Start="0,0"
-              End="-73.9000000000002,0">
+              End="-108.042854369417,8.90588505556843">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-73.9000000000002,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_TimeInDate.Paths[Sort Output4]"
-          TopLeft="176.8,408.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="85,58.3999999999999"
-              Start="0,0"
-              End="85,50.8999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.2" />
+                    End="-53.7714271847083,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.2"
-                    Point2="0,29.2"
-                    Point3="4,29.2" />
+                    Point1="-53.7714271847083,0"
+                    Point2="-57.7714271847083,0"
+                    Point3="-57.7714271847083,4" />
                   <mssgle:LineSegment
-                    End="81,29.2" />
+                    End="-57.7714271847083,4.90588505556843" />
                   <mssgle:CubicBezierSegment
-                    Point1="81,29.2"
-                    Point2="85,29.2"
-                    Point3="85,33.2" />
+                    Point1="-57.7714271847083,4.90588505556843"
+                    Point2="-57.7714271847083,8.90588505556843"
+                    Point3="-61.7714271847083,8.90588505556843" />
                   <mssgle:LineSegment
-                    End="85,50.8999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_TimeInDate.Paths[Sort Output3]"
-          TopLeft="708,330.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-190.466666666667,42.4"
-              Start="0,0"
-              End="-190.466666666667,34.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.2692617449665" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.2692617449665"
-                    Point2="0,25.2692617449665"
-                    Point3="-4,25.2692617449665" />
-                  <mssgle:LineSegment
-                    End="-186.466666666667,25.2692617449665" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-186.466666666667,25.2692617449665"
-                    Point2="-190.466666666667,25.2692617449665"
-                    Point3="-190.466666666667,29.2692617449665" />
-                  <mssgle:LineSegment
-                    End="-190.466666666667,34.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_TimeInDate.Paths[Sort Output2]"
-          TopLeft="423,318.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="18.2666666666667,54.4000000000001"
-              Start="0,0"
-              End="18.2666666666667,46.9000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.4209395973155" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,28.4209395973155"
-                    Point2="0,32.4209395973155"
-                    Point3="4,32.4209395973155" />
-                  <mssgle:LineSegment
-                    End="14.2666666666667,32.4209395973155" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14.2666666666667,32.4209395973155"
-                    Point2="18.2666666666667,32.4209395973155"
-                    Point3="18.2666666666667,36.4209395973155" />
-                  <mssgle:LineSegment
-                    End="18.2666666666667,46.9000000000001" />
+                    End="-108.042854369417,8.90588505556843" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7193,6 +7224,19 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_TimeInDate\dim_DayInMonth">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\dim_TimeInDate\Lookup">
     <Properties>
@@ -7213,19 +7257,6 @@ where [refTable].[Time] = ? and [refTable].[ID_DayInMonth] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_TimeInDate\dim_DayInMonth">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

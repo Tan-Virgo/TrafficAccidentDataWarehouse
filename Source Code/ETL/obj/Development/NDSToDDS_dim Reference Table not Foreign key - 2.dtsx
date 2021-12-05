@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{F24322E0-2CD0-4A6F-9888-932D3215A3F2}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{538F1285-F8C5-4305-A17C-28E933B6169C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -104,9 +104,9 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Accident_Severity_NDS
-where (CreatedDate &gt;= ? and CreatedDate &lt; ?)
-or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Local_Authority_District_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -123,11 +123,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};"Parameter1:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};</property>
               </properties>
               <connections>
                 <connection
@@ -761,9 +761,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Accident_Severity_NDS
-where (CreatedDate &gt;= ? and CreatedDate &lt; ?)
-or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Region_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -780,11 +780,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};"Parameter1:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};</property>
               </properties>
               <connections>
                 <connection
@@ -1436,9 +1436,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Accident_Severity_NDS
-where (CreatedDate &gt;= ? and CreatedDate &lt; ?)
-or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Road_Type_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1455,11 +1455,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};"Parameter1:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};</property>
               </properties>
               <connections>
                 <connection
@@ -2093,9 +2093,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Accident_Severity_NDS
-where (CreatedDate &gt;= ? and CreatedDate &lt; ?)
-or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM UK_Postcode_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2112,11 +2112,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};"Parameter1:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};</property>
               </properties>
               <connections>
                 <connection
@@ -3010,9 +3010,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Accident_Severity_NDS
-where (CreatedDate &gt;= ? and CreatedDate &lt; ?)
-or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Urban_Rural_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -3029,11 +3029,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};"Parameter1:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};</property>
               </properties>
               <connections>
                 <connection
@@ -3667,9 +3667,9 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from Accident_Severity_NDS
-where (CreatedDate &gt;= ? and CreatedDate &lt; ?)
-or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM Vehicle_Type_NDS
+WHERE  (CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
+OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -3686,11 +3686,11 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
                   dataType="System.Int32"
                   description="Specifies the mode used to access the database."
                   name="AccessMode"
-                  typeConverter="AccessMode">0</property>
+                  typeConverter="AccessMode">2</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
+                  name="ParameterMapping">"Parameter0:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};"Parameter1:Input",{9BEBB2C1-83D9-4FBD-96CE-C332E745B3B0};</property>
               </properties>
               <connections>
                 <connection
@@ -4435,7 +4435,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Region'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Road_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4452,7 +4452,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Urban_Rural'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'UK_Postcode'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4486,7 +4486,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Urban_Rural'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Vehicle_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -4641,75 +4641,75 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="213,42"
+          Size="212.8,41.6"
           Id="Package\dim_Local_Authority_District"
           TopLeft="65.2857155507926,126.811767194015" />
         <NodeLayout
-          Size="134,42"
+          Size="134.4,41.6"
           Id="Package\dim_Region"
           TopLeft="565.285715550793,281.635298847244" />
         <NodeLayout
-          Size="155,42"
+          Size="155.2,41.6"
           Id="Package\dim_Road_Type"
           TopLeft="67.2857155507926,425.458830500473" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\dim_UK_Postcode"
           TopLeft="564.285715635942,837.811767194015" />
         <NodeLayout
-          Size="161,42"
+          Size="160.8,41.6"
           Id="Package\dim_Urban_Rural"
           TopLeft="568.285715550793,561.282362153702" />
         <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\dim_Vehicle_Type"
           TopLeft="77.285715635942,699.811767194015" />
         <NodeLayout
-          Size="272,42"
+          Size="272,41.6"
           Id="Package\Get LSET of dim_Local_Authority_District"
           TopLeft="30.9999999148506,49" />
         <NodeLayout
-          Size="193,42"
+          Size="192.8,41.6"
           Id="Package\Get LSET of dim_Region"
           TopLeft="531.999999914851,206.823531653229" />
         <NodeLayout
-          Size="214,42"
+          Size="214.4,41.6"
           Id="Package\Get LSET of dim_Road_Type"
           TopLeft="32.9999999148506,354.647063306458" />
         <NodeLayout
-          Size="222,42"
+          Size="222.4,41.6"
           Id="Package\Get LSET of dim_UK_Postcode"
           TopLeft="530,767" />
         <NodeLayout
-          Size="220,42"
+          Size="220,41.6"
           Id="Package\Get LSET of dim_Urban_Rural"
           TopLeft="533.999999914851,490.470594959687" />
         <NodeLayout
-          Size="223,42"
+          Size="223.2,41.6"
           Id="Package\Get LSET of dim_Vehicle_Type"
           TopLeft="43,629" />
         <NodeLayout
-          Size="271,42"
+          Size="271.2,41.6"
           Id="Package\Set LSET of dim_Local_Authority_District"
           TopLeft="33,199.823531653229" />
         <NodeLayout
-          Size="192,42"
+          Size="192,41.6"
           Id="Package\Set LSET of dim_Region"
           TopLeft="533,349.647063306458" />
         <NodeLayout
-          Size="213,42"
+          Size="212.8,41.6"
           Id="Package\Set LSET of dim_Road_Type"
           TopLeft="43,490.470594959687" />
         <NodeLayout
-          Size="221,42"
+          Size="220.8,41.6"
           Id="Package\Set LSET of dim_UK_Postcode"
           TopLeft="540.000000085149,902.823531653229" />
         <NodeLayout
-          Size="218,42"
+          Size="217.6,41.6"
           Id="Package\Set LSET of dim_Urban_Rural"
           TopLeft="544,626.294126612916" />
         <NodeLayout
-          Size="222,42"
+          Size="222.4,41.6"
           Id="Package\Set LSET of dim_Vehicle_Type"
           TopLeft="53.0000000851494,764.823531653229" />
         <EdgeLayout
@@ -5095,13 +5095,21 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Local_Authority_District\Slowly Changing Dimension"
           TopLeft="207.5,107.5" />
         <NodeLayout
-          Size="213,42"
+          Size="166.4,41.6"
+          Id="Package\dim_Local_Authority_District\OLE DB Command"
+          TopLeft="229,209.5" />
+        <NodeLayout
+          Size="212.8,41.6"
           Id="Package\dim_Local_Authority_District\dim_Local_Authority_District"
           TopLeft="205.5,5.5" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\dim_Local_Authority_District\Insert Destination"
+          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\dim_Local_Authority_District.Paths[OLE DB Source Output]"
           TopLeft="312,47.5">
@@ -5124,10 +5132,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="163,42"
-          Id="Package\dim_Local_Authority_District\Insert Destination"
-          TopLeft="5.50000000000006,209.5" />
         <EdgeLayout
           Id="Package\dim_Local_Authority_District.Paths[New Output]"
           TopLeft="278.5,149.5">
@@ -5164,10 +5168,6 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="166,42"
-          Id="Package\dim_Local_Authority_District\OLE DB Command"
-          TopLeft="229,209.5" />
         <EdgeLayout
           Id="Package\dim_Local_Authority_District.Paths[Changing Attribute Updates Output]"
           TopLeft="345.5,149.5">
@@ -5281,19 +5281,19 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Region\Slowly Changing Dimension"
           TopLeft="440,107.5" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\dim_Region\OLE DB Command"
           TopLeft="461.5,209.5" />
         <NodeLayout
-          Size="134,42"
+          Size="134.4,41.6"
           Id="Package\dim_Region\dim_Region"
           TopLeft="477.5,5.49999999999989" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\dim_Region\Insert Destination"
           TopLeft="238,209.5" />
         <EdgeLayout
@@ -5315,9 +5315,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5469,19 +5467,19 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Road_Type\Slowly Changing Dimension"
           TopLeft="221,107.5" />
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\dim_Road_Type\OLE DB Command 1"
           TopLeft="238,209.5" />
         <NodeLayout
-          Size="155,42"
+          Size="155.2,41.6"
           Id="Package\dim_Road_Type\dim_Road_Type"
           TopLeft="248,5.49999999999989" />
         <NodeLayout
-          Size="172,42"
+          Size="172,41.6"
           Id="Package\dim_Road_Type\Insert Destination 1"
           TopLeft="5.5,209.5" />
         <EdgeLayout
@@ -5503,9 +5501,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5670,19 +5666,19 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\dim_UK_Postcode\OLE DB Command"
           TopLeft="465,209.5" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\dim_UK_Postcode\Insert Destination"
           TopLeft="241.5,209.5" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\dim_UK_Postcode\dim_UK_Postcode"
           TopLeft="466.5,5.49999999999989" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_UK_Postcode\Slowly Changing Dimension"
           TopLeft="443.5,107.5" />
         <EdgeLayout
@@ -5740,9 +5736,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5906,19 +5900,19 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Urban_Rural\Slowly Changing Dimension"
           TopLeft="443.5,107.5" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\dim_Urban_Rural\OLE DB Command"
           TopLeft="465,209.5" />
         <NodeLayout
-          Size="161,42"
+          Size="160.8,41.6"
           Id="Package\dim_Urban_Rural\dim_Urban_Rural"
           TopLeft="467.5,5.49999999999989" />
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\dim_Urban_Rural\Insert Destination"
           TopLeft="241.5,209.5" />
         <EdgeLayout
@@ -5940,9 +5934,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6094,19 +6086,19 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\dim_Vehicle_Type\Slowly Changing Dimension"
           TopLeft="448,107.5" />
         <NodeLayout
-          Size="175,42"
+          Size="175.2,41.6"
           Id="Package\dim_Vehicle_Type\OLE DB Command 1"
           TopLeft="465,209.5" />
         <NodeLayout
-          Size="164,42"
+          Size="164,41.6"
           Id="Package\dim_Vehicle_Type\dim_Vehicle_Type"
           TopLeft="470.5,5.49999999999989" />
         <NodeLayout
-          Size="172,42"
+          Size="172,41.6"
           Id="Package\dim_Vehicle_Type\Insert Destination 1"
           TopLeft="232.5,209.5" />
         <EdgeLayout
@@ -6128,9 +6120,7 @@ or (UpdatedDate &gt;= ? and UpdatedDate &lt; ?)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
