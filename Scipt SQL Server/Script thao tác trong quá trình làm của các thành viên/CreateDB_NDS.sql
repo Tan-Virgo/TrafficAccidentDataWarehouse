@@ -310,7 +310,8 @@ GO
 CREATE TABLE [Vehicles_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
-    [Accident_Index] INT,
+    [ID_Accident] INT,
+	[Accident_Index] VARCHAR(100),
     [Vehicle_Reference] VARCHAR(50),
     [Vehicle_Type] INT,
     [Journey_Purpose_of_Driver] INT,
@@ -319,23 +320,26 @@ CREATE TABLE [Vehicles_NDS]
 	SourceID INT,
 	
 	FOREIGN KEY (SourceID) REFERENCES Sources_NDS(ID),
-	FOREIGN KEY ([Accident_Index]) REFERENCES [Accidents_NDS](ID),
+	FOREIGN KEY ([ID_Accident]) REFERENCES [Accidents_NDS](ID),
 	FOREIGN KEY ([Vehicle_Type]) REFERENCES [Vehicle_Type_NDS](ID),
 	FOREIGN KEY ([Journey_Purpose_of_Driver]) REFERENCES [Journey_Purpose_NDS](ID)
 )
 GO
+
+--select * from Vehicles_NDS
 
 -- DROP TABLE [Casualties_NDS]
 CREATE TABLE [Casualties_NDS] 
 (
 	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
     [ID_Vehicles] INT,
-	[Accident_Index] INT,
+	[Accident_Index] VARCHAR(100),
     [Vehicle_Reference] VARCHAR(50),
-    [Casualty_Reference] INT,
+    [Casualty_Reference] VARCHAR(50),
     [Age_Band_of_Casualty] INT,
     [Casualty_Severity] INT,
     [Casualty_Type] INT,
+	[Sex_of_Casualty] INT,
 	[CreatedDate] DATETIME,
 	[UpdatedDate] DATETIME,
 	SourceID INT,
@@ -344,7 +348,22 @@ CREATE TABLE [Casualties_NDS]
 	FOREIGN KEY ([ID_Vehicles]) REFERENCES [Vehicles_NDS](ID),
 	FOREIGN KEY ([Age_Band_of_Casualty]) REFERENCES [Age_Band_NDS](ID),
 	FOREIGN KEY ([Casualty_Severity]) REFERENCES [Casualty_Severity_NDS](ID),
-	FOREIGN KEY ([Casualty_Type]) REFERENCES [Casualty_Type_NDS](ID)
+	FOREIGN KEY ([Casualty_Type]) REFERENCES [Casualty_Type_NDS](ID),
+	FOREIGN KEY ([Sex_of_Casualty]) REFERENCES [Sex_of_Driver_NDS](ID)
 )
 GO
 
+--SELECT * FROM Casualties_NDS
+
+CREATE TABLE [Sex_of_Driver_NDS]
+(
+	[ID] INT IDENTITY(1, 1) PRIMARY KEY,
+    [ID_SexOfDriver] INT,
+    [Name] varchar(50),
+	[CreatedDate] DATETIME,
+	[UpdatedDate] DATETIME,
+	SourceID INT,
+
+	FOREIGN KEY (SourceID) REFERENCES Sources_NDS(ID)
+)
+GO

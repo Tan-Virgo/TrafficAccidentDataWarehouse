@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{288742B9-E4EB-47D0-8867-430C0129C782}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{4FED7302-4616-41E3-B60B-0AF244B84C1B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -554,8 +554,8 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO Vehicles_NDS (Accident_Index, Vehicle_Reference, Vehicle_Type, Journey_Purpose_of_Driver, CreatedDate, UpdatedDate, SourceID)
-VALUES (?,?,?,?,?,?,?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO Vehicles_NDS ( Accident_Index, Vehicle_Reference, Vehicle_Type, Journey_Purpose_of_Driver, CreatedDate, UpdatedDate, SourceID, ID_Accident)
+VALUES (?,?,?,?,?,?,?,?)</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -577,13 +577,6 @@ VALUES (?,?,?,?,?,?,?)</property>
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].Columns[ID_Accident]"
-                      cachedDataType="i4"
-                      cachedName="ID_Accident"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[ID_Accident]" />
                     <inputColumn
                       refId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].Columns[Vehicle_Reference]"
                       cachedCodepage="1252"
@@ -623,12 +616,29 @@ VALUES (?,?,?,?,?,?,?)</property>
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       lineageId="Package\UK_CAR_Accident - Vehicle\Add column SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].Columns[Accident_Index]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Accident_Index"
+                      externalMetadataColumnId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[Accident_Index]" />
+                    <inputColumn
+                      refId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].Columns[ID_Accident]"
+                      cachedDataType="i4"
+                      cachedName="ID_Accident"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[ID_Accident]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
                       name="Param_0">
                       <properties>
                         <property
@@ -698,6 +708,17 @@ VALUES (?,?,?,?,?,?,?)</property>
                       refId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
                       dataType="i4"
                       name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\UK_CAR_Accident - Vehicle\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      dataType="i4"
+                      name="Param_7">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1089,12 +1110,12 @@ where [refTable].[Vehicle_Reference] = ? and [refTable].[Accident_Index] = ?</pr
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Accident_Index" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Vehicle_Reference" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Vehicle_Type" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Journey_Purpose_of_Driver" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_Accident" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Accident_Index" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Vehicle_Reference" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Vehicle_Type" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Journey_Purpose_of_Driver" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CreatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UpdatedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SourceID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[Vehicle_Reference]};#{Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[ID_Accident]};</property>
+                  name="ParameterMap">#{Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[Vehicle_Reference]};#{Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[Accident_Index]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1118,23 +1139,6 @@ where [refTable].[Vehicle_Reference] = ? and [refTable].[Accident_Index] = ?</pr
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\UK_CAR_Accident - Vehicle\Lookup.Inputs[Lookup Input].Columns[ID_Accident]"
-                      cachedDataType="i4"
-                      cachedName="ID_Accident"
-                      cachedSortKeyPosition="1"
-                      lineageId="Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[ID_Accident]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">Accident_Index</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\UK_CAR_Accident - Vehicle\Lookup.Inputs[Lookup Input].Columns[Vehicle_Reference]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -1147,6 +1151,24 @@ where [refTable].[Vehicle_Reference] = ? and [refTable].[Accident_Index] = ?</pr
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">Vehicle_Reference</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\UK_CAR_Accident - Vehicle\Lookup.Inputs[Lookup Input].Columns[Accident_Index]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Accident_Index"
+                      lineageId="Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[Accident_Index]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Accident_Index</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -3374,13 +3396,6 @@ WHERE Accident_Index = ? AND Vehicle_Reference = ? AND SourceID = ?</property>
                       externalMetadataColumnId="Package\UK_CAR_Accident - Vehicle\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
                       lineageId="Package\UK_CAR_Accident - Vehicle\Update UpdatedDate.Outputs[Derived Column Output].Columns[UpdatedDate]" />
                     <inputColumn
-                      refId="Package\UK_CAR_Accident - Vehicle\Update.Inputs[OLE DB Command Input].Columns[ID_Accident]"
-                      cachedDataType="i4"
-                      cachedName="ID_Accident"
-                      cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\UK_CAR_Accident - Vehicle\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[ID_Accident]" />
-                    <inputColumn
                       refId="Package\UK_CAR_Accident - Vehicle\Update.Inputs[OLE DB Command Input].Columns[Vehicle_Reference]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -3395,6 +3410,14 @@ WHERE Accident_Index = ? AND Vehicle_Reference = ? AND SourceID = ?</property>
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\UK_CAR_Accident - Vehicle\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
                       lineageId="Package\UK_CAR_Accident - Vehicle\Add column SourceID.Outputs[Derived Column Output].Columns[SourceID]" />
+                    <inputColumn
+                      refId="Package\UK_CAR_Accident - Vehicle\Update.Inputs[OLE DB Command Input].Columns[Accident_Index]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Accident_Index"
+                      externalMetadataColumnId="Package\UK_CAR_Accident - Vehicle\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\UK_CAR_Accident - Vehicle\Sort.Outputs[Sort Output].Columns[Accident_Index]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3433,7 +3456,9 @@ WHERE Accident_Index = ? AND Vehicle_Reference = ? AND SourceID = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\UK_CAR_Accident - Vehicle\Update.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
                       name="Param_3">
                       <properties>
                         <property
@@ -3993,24 +4018,24 @@ FROM Vehicle V</property>
               startId="Package\UK_CAR_Accident - Vehicle\Merge Join Vehicle - Accident.Outputs[Merge Join Output]" />
             <path
               refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output3]"
-              endId="Package\UK_CAR_Accident - Vehicle\Sort Vehicle type.Inputs[Sort Input]"
+              endId="Package\UK_CAR_Accident - Vehicle\Sort Journey_Purpose.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\UK_CAR_Accident - Vehicle\Vehicle Type NDS.Outputs[OLE DB Source Output]" />
+              startId="Package\UK_CAR_Accident - Vehicle\Journey_Purpose NDS.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output2]"
-              endId="Package\UK_CAR_Accident - Vehicle\Sort Vehicle - Vehicle Type.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\UK_CAR_Accident - Vehicle\Vehicle Stage.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output1]"
               endId="Package\UK_CAR_Accident - Vehicle\Sort Accident.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\UK_CAR_Accident - Vehicle\Accident NDS.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output]"
-              endId="Package\UK_CAR_Accident - Vehicle\Sort Journey_Purpose.Inputs[Sort Input]"
+              refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output1]"
+              endId="Package\UK_CAR_Accident - Vehicle\Sort Vehicle - Vehicle Type.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\UK_CAR_Accident - Vehicle\Journey_Purpose NDS.Outputs[OLE DB Source Output]" />
+              startId="Package\UK_CAR_Accident - Vehicle\Vehicle Stage.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output]"
+              endId="Package\UK_CAR_Accident - Vehicle\Sort Vehicle type.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\UK_CAR_Accident - Vehicle\Vehicle Type NDS.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\UK_CAR_Accident - Vehicle.Paths[Sort Output]"
               endId="Package\UK_CAR_Accident - Vehicle\Merge Join Vehicle - Vehicle Type.Inputs[Merge Join Right Input]"
@@ -4146,7 +4171,7 @@ FROM Vehicle V</property>
         <NodeLayout
           Size="236.8,41.6"
           Id="Package\UK_CAR_Accident - Vehicle\Merge Join Vehicle - Vehicle Type"
-          TopLeft="41.4285721340955,204.176473451733" />
+          TopLeft="42.1428578605454,204.176473451733" />
         <NodeLayout
           Size="141.6,41.6"
           Id="Package\UK_CAR_Accident - Vehicle\Accident NDS"
@@ -4331,26 +4356,26 @@ FROM Vehicle V</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-19.9904761539837,60.1058837793278"
+              EndConnector="-19.2761904275338,60.105883779328"
               Start="0,0"
-              End="-19.9904761539837,52.6058837793278">
+              End="-19.2761904275338,52.605883779328">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.8214931517068" />
+                    End="0,31.8214931517069" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.8214931517068"
-                    Point2="0,35.8214931517068"
-                    Point3="-4,35.8214931517068" />
+                    Point1="0,31.8214931517069"
+                    Point2="0,35.8214931517069"
+                    Point3="-4,35.8214931517069" />
                   <mssgle:LineSegment
-                    End="-15.9904761539837,35.8214931517068" />
+                    End="-15.2761904275338,35.8214931517069" />
                   <mssgle:CubicBezierSegment
-                    Point1="-15.9904761539837,35.8214931517068"
-                    Point2="-19.9904761539837,35.8214931517068"
-                    Point3="-19.9904761539837,39.8214931517068" />
+                    Point1="-15.2761904275338,35.8214931517069"
+                    Point2="-19.2761904275338,35.8214931517069"
+                    Point3="-19.2761904275338,39.8214931517069" />
                   <mssgle:LineSegment
-                    End="-19.9904761539837,52.6058837793278" />
+                    End="-19.2761904275338,52.605883779328" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4365,26 +4390,26 @@ FROM Vehicle V</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-168.695242291892,57.8117661000948"
+              EndConnector="-167.980956565442,57.811766100095"
               Start="0,0"
-              End="-168.695242291892,50.3117661000948">
+              End="-167.980956565442,50.311766100095">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.4542606019357" />
+                    End="0,30.4542606019358" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.4542606019357"
-                    Point2="0,34.4542606019357"
-                    Point3="-4,34.4542606019357" />
+                    Point1="0,30.4542606019358"
+                    Point2="0,34.4542606019358"
+                    Point3="-4,34.4542606019358" />
                   <mssgle:LineSegment
-                    End="-164.695242291892,34.4542606019357" />
+                    End="-163.980956565442,34.4542606019358" />
                   <mssgle:CubicBezierSegment
-                    Point1="-164.695242291892,34.4542606019357"
-                    Point2="-168.695242291892,34.4542606019357"
-                    Point3="-168.695242291892,38.4542606019357" />
+                    Point1="-163.980956565442,34.4542606019358"
+                    Point2="-167.980956565442,34.4542606019358"
+                    Point3="-167.980956565442,38.4542606019358" />
                   <mssgle:LineSegment
-                    End="-168.695242291892,50.3117661000948" />
+                    End="-167.980956565442,50.311766100095" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4395,30 +4420,18 @@ FROM Vehicle V</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output3]"
-          TopLeft="389.371433826369,53.0705883961648">
+          TopLeft="438.857148781115,228.952943804025">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-22.7142860670481,51.6941189554733"
+              EndConnector="0,75.400001640881"
               Start="0,0"
-              End="-22.7142860670481,44.1941189554733">
+              End="0,67.900001640881">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.8470594777367" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.8470594777367"
-                    Point2="0,25.8470594777367"
-                    Point3="-4,25.8470594777367" />
-                  <mssgle:LineSegment
-                    End="-18.7142860670481,25.8470594777367" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.7142860670481,25.8470594777367"
-                    Point2="-22.7142860670481,25.8470594777367"
-                    Point3="-22.7142860670481,29.8470594777367" />
-                  <mssgle:LineSegment
-                    End="-22.7142860670481,44.1941189554733" />
+                    End="0,67.900001640881" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4429,40 +4442,6 @@ FROM Vehicle V</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output2]"
-          TopLeft="124.371429483745,48.4823530376989">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="17.3142854710013,53.9882366347063"
-              Start="0,0"
-              End="17.3142854710013,46.4882366347063">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.9941183173531" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.9941183173531"
-                    Point2="0,26.9941183173531"
-                    Point3="4,26.9941183173531" />
-                  <mssgle:LineSegment
-                    End="13.3142854710013,26.9941183173531" />
-                  <mssgle:CubicBezierSegment
-                    Point1="13.3142854710013,26.9941183173531"
-                    Point2="17.3142854710013,26.9941183173531"
-                    Point3="17.3142854710013,30.9941183173531" />
-                  <mssgle:LineSegment
-                    End="17.3142854710013,46.4882366347063" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output1]"
           TopLeft="419.371434507564,446.776475092614">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -4496,19 +4475,65 @@ FROM Vehicle V</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output]"
-          TopLeft="438.857148781115,228.952943804025">
+          Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output1]"
+          TopLeft="124.371429483745,48.4823530376989">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,75.400001640881"
+              EndConnector="17.3142854710013,53.9882366347063"
               Start="0,0"
-              End="0,67.900001640881">
+              End="17.3142854710013,46.4882366347063">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,67.900001640881" />
+                    End="0,22.9941183173531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.9941183173531"
+                    Point2="0,26.9941183173531"
+                    Point3="4,26.9941183173531" />
+                  <mssgle:LineSegment
+                    End="13.3142854710013,26.9941183173531" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.3142854710013,26.9941183173531"
+                    Point2="17.3142854710013,26.9941183173531"
+                    Point3="17.3142854710013,30.9941183173531" />
+                  <mssgle:LineSegment
+                    End="17.3142854710013,46.4882366347063" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\UK_CAR_Accident - Vehicle.Paths[OLE DB Source Output]"
+          TopLeft="389.371433826369,53.0705883961648">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-22.7142860670481,51.6941189554733"
+              Start="0,0"
+              End="-22.7142860670481,44.1941189554733">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.8470594777367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.8470594777367"
+                    Point2="0,25.8470594777367"
+                    Point3="-4,25.8470594777367" />
+                  <mssgle:LineSegment
+                    End="-18.7142860670481,25.8470594777367" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.7142860670481,25.8470594777367"
+                    Point2="-22.7142860670481,25.8470594777367"
+                    Point3="-22.7142860670481,29.8470594777367" />
+                  <mssgle:LineSegment
+                    End="-22.7142860670481,44.1941189554733" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4553,13 +4578,13 @@ FROM Vehicle V</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\UK_CAR_Accident - Vehicle.Paths[Merge Join Output1]"
-          TopLeft="159.828572134096,245.776473451733">
+          TopLeft="160.542857860545,245.776473451733">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="14.0571432463981,51.6941189554739"
+              EndConnector="13.3428575199482,51.694118955474"
               Start="0,0"
-              End="14.0571432463981,44.1941189554739">
+              End="13.3428575199482,44.194118955474">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -4570,13 +4595,13 @@ FROM Vehicle V</property>
                     Point2="0,25.847059477737"
                     Point3="4,25.847059477737" />
                   <mssgle:LineSegment
-                    End="10.0571432463981,25.847059477737" />
+                    End="9.34285751994815,25.847059477737" />
                   <mssgle:CubicBezierSegment
-                    Point1="10.0571432463981,25.847059477737"
-                    Point2="14.0571432463981,25.847059477737"
-                    Point3="14.0571432463981,29.847059477737" />
+                    Point1="9.34285751994815,25.847059477737"
+                    Point2="13.3428575199482,25.847059477737"
+                    Point3="13.3428575199482,29.847059477737" />
                   <mssgle:LineSegment
-                    End="14.0571432463981,44.1941189554739" />
+                    End="13.3428575199482,44.194118955474" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4816,6 +4841,40 @@ FROM Vehicle V</property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
           type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Vehicles_NDS]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\UK_CAR_Accident - Vehicle\Vehicle Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\UK_CAR_Accident - Vehicle\Accident NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

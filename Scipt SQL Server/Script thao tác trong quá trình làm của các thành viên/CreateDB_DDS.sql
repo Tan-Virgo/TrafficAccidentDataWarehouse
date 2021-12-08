@@ -341,14 +341,15 @@ GO
 CREATE TABLE [fact_Vehicles] 
 (
 	[ID] INT PRIMARY KEY,
-    [Accident_Index] INT,
+	[ID_Accident] INT,
+    [Accident_Index] VARCHAR(50),
     [Vehicle_Reference] VARCHAR(50),
     [Vehicle_Type] INT,
     [Journey_Purpose_of_Driver] INT,
 	SourceID INT,
 	
 	FOREIGN KEY (SourceID) REFERENCES dim_Sources(ID),
-	FOREIGN KEY ([Accident_Index]) REFERENCES [fact_Accidents](ID),
+	FOREIGN KEY ([ID_Accident]) REFERENCES [fact_Accidents](ID),
 	FOREIGN KEY ([Vehicle_Type]) REFERENCES [dim_Vehicle_Type](ID),
 	FOREIGN KEY ([Journey_Purpose_of_Driver]) REFERENCES [dim_Journey_Purpose](ID)
 )
@@ -359,22 +360,34 @@ CREATE TABLE [fact_Casualties]
 (
 	[ID] INT PRIMARY KEY,
     [ID_Vehicles] INT,
-	[Accident_Index] INT,
+	[Accident_Index] VARCHAR(50),
     [Vehicle_Reference] VARCHAR(50),
-    [Casualty_Reference] INT,
+    [Casualty_Reference] VARCHAR(50),
     [Age_Band_of_Casualty] INT,
     [Casualty_Severity] INT,
     [Casualty_Type] INT,
+	[Sex_of_Casualty] INT,
 	SourceID INT,
 	
 	FOREIGN KEY (SourceID) REFERENCES dim_Sources(ID),
 	FOREIGN KEY ([ID_Vehicles]) REFERENCES [fact_Vehicles](ID),
 	FOREIGN KEY ([Age_Band_of_Casualty]) REFERENCES [dim_Age_Band](ID),
 	FOREIGN KEY ([Casualty_Severity]) REFERENCES [dim_Casualty_Severity](ID),
-	FOREIGN KEY ([Casualty_Type]) REFERENCES [dim_Casualty_Type](ID)
+	FOREIGN KEY ([Casualty_Type]) REFERENCES [dim_Casualty_Type](ID),
+	FOREIGN KEY ([Sex_of_Casualty]) REFERENCES [dim_Sex_of_Driver](ID)
 )
 GO
 
+CREATE TABLE [dim_Sex_of_Driver]
+(
+	[ID] INT PRIMARY KEY,
+    [ID_SexOfDriver] INT,
+    [Name] varchar(50),
+	SourceID INT,
+
+	FOREIGN KEY (SourceID) REFERENCES dim_Sources(ID)
+)
+GO
 
 
 -- 1. Thi
