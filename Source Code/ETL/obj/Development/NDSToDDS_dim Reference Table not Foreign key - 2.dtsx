@@ -11,21 +11,21 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{92739387-D591-4942-9E49-066A19522B02}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{B650E616-C8EC-4414-B82D-C3E757036B04}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{51D98373-A84E-4545-9A2B-623883F8BD70}"
-      DTS:ObjectName="LocalHost.DB_DDS">
+      DTS:DTSID="{45709992-7F85-4F4D-BAC8-02DB367EEEC0}"
+      DTS:ObjectName="LocalHost.DB_DDS_AccidentDW">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_DDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_DDS_AccidentDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -95,7 +95,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Local_Authority_District_NDS]</property>
+                  name="OpenRowset"></property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -152,6 +152,15 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                       name="ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
+                      refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[ID_LocalAuthorityDistrict]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[ID_LocalAuthorityDistrict]"
+                      lineageId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[ID_LocalAuthorityDistrict]"
+                      name="ID_LocalAuthorityDistrict"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
                       refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[Name]"
                       codePage="1252"
                       dataType="str"
@@ -161,24 +170,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                       length="50"
                       lineageId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[Name]"
                       name="Name"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[SourceID]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
-                      lineageId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[SourceID]"
-                      name="SourceID"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[ID_LocalAuthorityDistrict]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[ID_LocalAuthorityDistrict]"
-                      lineageId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[ID_LocalAuthorityDistrict]"
-                      name="ID_LocalAuthorityDistrict"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[CreatedDate]"
@@ -198,6 +189,15 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                       lineageId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[UpdatedDate]"
                       name="UpdatedDate"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[SourceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
+                      lineageId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[SourceID]"
+                      name="SourceID"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -206,19 +206,15 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                       dataType="i4"
                       name="ID" />
                     <externalMetadataColumn
+                      refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[ID_LocalAuthorityDistrict]"
+                      dataType="i4"
+                      name="ID_LocalAuthorityDistrict" />
+                    <externalMetadataColumn
                       refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Name" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
-                      dataType="i4"
-                      name="SourceID" />
-                    <externalMetadataColumn
-                      refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[ID_LocalAuthorityDistrict]"
-                      dataType="i4"
-                      name="ID_LocalAuthorityDistrict" />
                     <externalMetadataColumn
                       refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[CreatedDate]"
                       dataType="dbTimeStamp"
@@ -227,6 +223,10 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                       refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[UpdatedDate]"
                       dataType="dbTimeStamp"
                       name="UpdatedDate" />
+                    <externalMetadataColumn
+                      refId="Package\dim_Local_Authority_District\dim_Local_Authority_District.Outputs[OLE DB Source Output].ExternalColumns[SourceID]"
+                      dataType="i4"
+                      name="SourceID" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -342,8 +342,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               <connections>
                 <connection
                   refId="Package\dim_Local_Authority_District\Insert Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -457,8 +457,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               <connections>
                 <connection
                   refId="Package\dim_Local_Authority_District\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -596,8 +596,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               <connections>
                 <connection
                   refId="Package\dim_Local_Authority_District\Slowly Changing Dimension.Connections[LookupConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="Defines the connection to use for lookups in the dimension table"
                   name="LookupConnection" />
               </connections>
@@ -941,11 +941,11 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </outputs>
             </component>
             <component
-              refId="Package\dim_Road_Type\Insert Destination 1"
+              refId="Package\dim_Road_Type\Insert Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Insert Destination 1"
+              name="Insert Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -998,65 +998,65 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\dim_Road_Type\Insert Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  refId="Package\dim_Road_Type\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input]"
+                  refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[ID]"
+                      refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
-                      externalMetadataColumnId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      externalMetadataColumnId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                       lineageId="Package\dim_Road_Type\dim_Road_Type.Outputs[OLE DB Source Output].Columns[ID]" />
                     <inputColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[ID_RoadType]"
+                      refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_RoadType]"
                       cachedDataType="i4"
                       cachedName="ID_RoadType"
-                      externalMetadataColumnId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID_RoadType]"
+                      externalMetadataColumnId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_RoadType]"
                       lineageId="Package\dim_Road_Type\dim_Road_Type.Outputs[OLE DB Source Output].Columns[ID_RoadType]" />
                     <inputColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[Name]"
+                      refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].Columns[Name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Name"
-                      externalMetadataColumnId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\dim_Road_Type\dim_Road_Type.Outputs[OLE DB Source Output].Columns[Name]" />
                     <inputColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                      refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
-                      externalMetadataColumnId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      externalMetadataColumnId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
                       lineageId="Package\dim_Road_Type\dim_Road_Type.Outputs[OLE DB Source Output].Columns[SourceID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                       dataType="i4"
                       name="ID" />
                     <externalMetadataColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID_RoadType]"
+                      refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_RoadType]"
                       dataType="i4"
                       name="ID_RoadType" />
                     <externalMetadataColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      refId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
                       dataType="i4"
                       name="SourceID" />
                   </externalMetadataColumns>
@@ -1064,22 +1064,22 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\dim_Road_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\dim_Road_Type\Insert Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\dim_Road_Type\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\dim_Road_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\dim_Road_Type\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\dim_Road_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\dim_Road_Type\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\dim_Road_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\dim_Road_Type\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1088,11 +1088,11 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </outputs>
             </component>
             <component
-              refId="Package\dim_Road_Type\OLE DB Command 1"
+              refId="Package\dim_Road_Type\OLE DB Command"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
+              name="OLE DB Command"
               usesDispositions="true"
               version="2">
               <properties>
@@ -1113,39 +1113,39 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\dim_Road_Type\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  refId="Package\dim_Road_Type\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  refId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ID_RoadType]"
+                      refId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input].Columns[ID_RoadType]"
                       cachedDataType="i4"
                       cachedName="ID_RoadType"
-                      externalMetadataColumnId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\dim_Road_Type\dim_Road_Type.Outputs[OLE DB Source Output].Columns[ID_RoadType]" />
                     <inputColumn
-                      refId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Name]"
+                      refId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input].Columns[Name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Name"
-                      externalMetadataColumnId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\dim_Road_Type\dim_Road_Type.Outputs[OLE DB Source Output].Columns[Name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -1158,7 +1158,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="i4"
                       name="Param_1">
                       <properties>
@@ -1173,29 +1173,29 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\dim_Road_Type\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  refId="Package\dim_Road_Type\OLE DB Command.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\dim_Road_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  refId="Package\dim_Road_Type\OLE DB Command.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\dim_Road_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\dim_Road_Type\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\dim_Road_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\dim_Road_Type\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\dim_Road_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\dim_Road_Type\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\dim_Road_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\dim_Road_Type\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1253,8 +1253,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               <connections>
                 <connection
                   refId="Package\dim_Road_Type\Slowly Changing Dimension.Connections[LookupConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="Defines the connection to use for lookups in the dimension table"
                   name="LookupConnection" />
               </connections>
@@ -1362,12 +1362,12 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
           <paths>
             <path
               refId="Package\dim_Road_Type.Paths[Changing Attribute Updates Output]"
-              endId="Package\dim_Road_Type\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              endId="Package\dim_Road_Type\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Changing Attribute Updates Output"
               startId="Package\dim_Road_Type\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
             <path
               refId="Package\dim_Road_Type.Paths[New Output]"
-              endId="Package\dim_Road_Type\Insert Destination 1.Inputs[OLE DB Destination Input]"
+              endId="Package\dim_Road_Type\Insert Destination.Inputs[OLE DB Destination Input]"
               name="New Output"
               startId="Package\dim_Road_Type\Slowly Changing Dimension.Outputs[New Output]" />
             <path
@@ -1656,8 +1656,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               <connections>
                 <connection
                   refId="Package\dim_Urban_Rural\Insert Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1771,8 +1771,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               <connections>
                 <connection
                   refId="Package\dim_Urban_Rural\OLE DB Command.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1910,8 +1910,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               <connections>
                 <connection
                   refId="Package\dim_Urban_Rural\Slowly Changing Dimension.Connections[LookupConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="Defines the connection to use for lookups in the dimension table"
                   name="LookupConnection" />
               </connections>
@@ -2255,11 +2255,11 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </outputs>
             </component>
             <component
-              refId="Package\dim_Vehicle_Type\Insert Destination 1"
+              refId="Package\dim_Vehicle_Type\Insert Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Insert Destination 1"
+              name="Insert Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -2312,65 +2312,65 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\dim_Vehicle_Type\Insert Destination 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  refId="Package\dim_Vehicle_Type\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input]"
+                  refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[ID]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
-                      externalMetadataColumnId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      externalMetadataColumnId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                       lineageId="Package\dim_Vehicle_Type\dim_Vehicle_Type.Outputs[OLE DB Source Output].Columns[ID]" />
                     <inputColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[ID_VehicleType]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].Columns[ID_VehicleType]"
                       cachedDataType="i4"
                       cachedName="ID_VehicleType"
-                      externalMetadataColumnId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID_VehicleType]"
+                      externalMetadataColumnId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_VehicleType]"
                       lineageId="Package\dim_Vehicle_Type\dim_Vehicle_Type.Outputs[OLE DB Source Output].Columns[ID_VehicleType]" />
                     <inputColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[Name]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].Columns[Name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Name"
-                      externalMetadataColumnId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      externalMetadataColumnId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       lineageId="Package\dim_Vehicle_Type\dim_Vehicle_Type.Outputs[OLE DB Source Output].Columns[Name]" />
                     <inputColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].Columns[SourceID]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
-                      externalMetadataColumnId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      externalMetadataColumnId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
                       lineageId="Package\dim_Vehicle_Type\dim_Vehicle_Type.Outputs[OLE DB Source Output].Columns[SourceID]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
                       dataType="i4"
                       name="ID" />
                     <externalMetadataColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[ID_VehicleType]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_VehicleType]"
                       dataType="i4"
                       name="ID_VehicleType" />
                     <externalMetadataColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="Name" />
                     <externalMetadataColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceID]"
                       dataType="i4"
                       name="SourceID" />
                   </externalMetadataColumns>
@@ -2378,22 +2378,22 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\dim_Vehicle_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\dim_Vehicle_Type\Insert Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\dim_Vehicle_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\dim_Vehicle_Type\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\dim_Vehicle_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\dim_Vehicle_Type\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\dim_Vehicle_Type\Insert Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\dim_Vehicle_Type\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2402,11 +2402,11 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </outputs>
             </component>
             <component
-              refId="Package\dim_Vehicle_Type\OLE DB Command 1"
+              refId="Package\dim_Vehicle_Type\OLE DB Command"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
+              name="OLE DB Command"
               usesDispositions="true"
               version="2">
               <properties>
@@ -2427,39 +2427,39 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\dim_Vehicle_Type\OLE DB Command 1.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  refId="Package\dim_Vehicle_Type\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
-                  refId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  refId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[ID_VehicleType]"
+                      refId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input].Columns[ID_VehicleType]"
                       cachedDataType="i4"
                       cachedName="ID_VehicleType"
-                      externalMetadataColumnId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\dim_Vehicle_Type\dim_Vehicle_Type.Outputs[OLE DB Source Output].Columns[ID_VehicleType]" />
                     <inputColumn
-                      refId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Name]"
+                      refId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input].Columns[Name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Name"
-                      externalMetadataColumnId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      externalMetadataColumnId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       lineageId="Package\dim_Vehicle_Type\dim_Vehicle_Type.Outputs[OLE DB Source Output].Columns[Name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       codePage="1252"
                       dataType="str"
                       length="50"
@@ -2472,7 +2472,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="i4"
                       name="Param_1">
                       <properties>
@@ -2487,29 +2487,29 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\dim_Vehicle_Type\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  refId="Package\dim_Vehicle_Type\OLE DB Command.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\dim_Vehicle_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  refId="Package\dim_Vehicle_Type\OLE DB Command.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\dim_Vehicle_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\dim_Vehicle_Type\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\dim_Vehicle_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\dim_Vehicle_Type\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\dim_Vehicle_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\dim_Vehicle_Type\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\dim_Vehicle_Type\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\dim_Vehicle_Type\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2567,8 +2567,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
               <connections>
                 <connection
                   refId="Package\dim_Vehicle_Type\Slowly Changing Dimension.Connections[LookupConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="Defines the connection to use for lookups in the dimension table"
                   name="LookupConnection" />
               </connections>
@@ -2676,12 +2676,12 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
           <paths>
             <path
               refId="Package\dim_Vehicle_Type.Paths[Changing Attribute Updates Output]"
-              endId="Package\dim_Vehicle_Type\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              endId="Package\dim_Vehicle_Type\OLE DB Command.Inputs[OLE DB Command Input]"
               name="Changing Attribute Updates Output"
               startId="Package\dim_Vehicle_Type\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
             <path
               refId="Package\dim_Vehicle_Type.Paths[New Output]"
-              endId="Package\dim_Vehicle_Type\Insert Destination 1.Inputs[OLE DB Destination Input]"
+              endId="Package\dim_Vehicle_Type\Insert Destination.Inputs[OLE DB Destination Input]"
               name="New Output"
               startId="Package\dim_Vehicle_Type\Slowly Changing Dimension.Outputs[New Output]" />
             <path
@@ -2707,7 +2707,12 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM DB_DDS&#xA;WHERE  (TableName = 'dim_Local_Authority_District' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'Local_Authority_District')"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="LSET"
+            SQLTask:DtsVariableName="User::LSETResult" />
+        </SQLTask:SqlTaskData>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2724,7 +2729,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'dim_Road_Type' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'Road_Type' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2741,7 +2746,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'dim_Urban_Rural' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'Urban_Rural' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2758,7 +2763,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'dim_Vehicle_Type' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'Vehicle_Type' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2775,7 +2780,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Local_Authority_District'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Local_Authority_District'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2792,7 +2797,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Road_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Road_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2809,7 +2814,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Urban_Rural'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Urban_Rural'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2826,7 +2831,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{55015857-ABCC-442F-8F59-0EE16D81183F}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Vehicle_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Vehicle_Type'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -2951,7 +2956,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <NodeLayout
           Size="272,41.6"
           Id="Package\Get LSET of dim_Local_Authority_District"
-          TopLeft="372.428577157916,49.7647058930777" />
+          TopLeft="372.428577157916,49" />
         <NodeLayout
           Size="214.4,41.6"
           Id="Package\Get LSET of dim_Road_Type"
@@ -2982,18 +2987,52 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
           TopLeft="59.4285716231988,966.752943804025" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="510.821434975887,91.7647058930777">
+          TopLeft="510.771434975887,90.6000000000001">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35.811767194015"
+              EndConnector="0,36.976473087093"
               Start="0,0"
-              End="0,28.311767194015">
+              End="0,29.476473087093">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.311767194015" />
+                    End="0,29.476473087093" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="510.028577243065,242.188237546307">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-369.828577328215,112.458825760151"
+              Start="0,0"
+              End="-369.828577328215,104.958825760151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.2294128800757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.2294128800757"
+                    Point2="0,56.2294128800757"
+                    Point3="-4,56.2294128800757" />
+                  <mssgle:LineSegment
+                    End="-365.828577328215,56.2294128800757" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-365.828577328215,56.2294128800757"
+                    Point2="-369.828577328215,56.2294128800757"
+                    Point3="-369.828577328215,60.2294128800757" />
+                  <mssgle:LineSegment
+                    End="-369.828577328215,104.958825760151" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3224,40 +3263,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="510.028577243065,242.188237546307">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-369.828577328215,112.458825760151"
-              Start="0,0"
-              End="-369.828577328215,104.958825760151">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.2294128800757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,52.2294128800757"
-                    Point2="0,56.2294128800757"
-                    Point3="-4,56.2294128800757" />
-                  <mssgle:LineSegment
-                    End="-365.828577328215,56.2294128800757" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-365.828577328215,56.2294128800757"
-                    Point2="-369.828577328215,56.2294128800757"
-                    Point3="-369.828577328215,60.2294128800757" />
-                  <mssgle:LineSegment
-                    End="-369.828577328215,104.958825760151" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -3267,35 +3272,27 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\dim_Local_Authority_District\Slowly Changing Dimension"
-          TopLeft="207.5,107.5" />
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\dim_Local_Authority_District\OLE DB Command"
-          TopLeft="229,209.5" />
-        <NodeLayout
           Size="212.8,41.6"
           Id="Package\dim_Local_Authority_District\dim_Local_Authority_District"
-          TopLeft="205.5,5.5" />
+          TopLeft="204.3,5.50000000000007" />
         <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\dim_Local_Authority_District\Insert Destination"
-          TopLeft="5.50000000000006,209.5" />
+          Size="208,41.6"
+          Id="Package\dim_Local_Authority_District\Slowly Changing Dimension"
+          TopLeft="206.7,107.1" />
         <EdgeLayout
           Id="Package\dim_Local_Authority_District.Paths[OLE DB Source Output]"
-          TopLeft="312,47.5">
+          TopLeft="310.7,47.1000000000001">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,60.0000000000001"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.5000000000001">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.5000000000001" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3304,149 +3301,89 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\dim_Local_Authority_District\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\dim_Local_Authority_District.Paths[New Output]"
-          TopLeft="278.5,149.5">
+          TopLeft="277.366666666667,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-191.5,60"
+              EndConnector="-190.666666666667,60"
               Start="0,0"
-              End="-191.5,52.5">
+              End="-190.666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2748091603053" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2748091603053"
+                    Point2="0,24.2748091603053"
+                    Point3="-4,24.2748091603053" />
                   <mssgle:LineSegment
-                    End="-187.5,24.2735042735043" />
+                    End="-186.666666666667,24.2748091603053" />
                   <mssgle:CubicBezierSegment
-                    Point1="-187.5,24.2735042735043"
-                    Point2="-191.5,24.2735042735043"
-                    Point3="-191.5,28.2735042735043" />
+                    Point1="-186.666666666667,24.2748091603053"
+                    Point2="-190.666666666667,24.2748091603053"
+                    Point3="-190.666666666667,28.2748091603053" />
                   <mssgle:LineSegment
-                    End="-191.5,52.5" />
+                    End="-190.666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
+              BoundingBox="-122.424720052083,29.2748091603053,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\dim_Local_Authority_District\OLE DB Command"
+          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\dim_Local_Authority_District.Paths[Changing Attribute Updates Output]"
-          TopLeft="345.5,149.5">
+          TopLeft="344.033333333333,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
+              EndConnector="-33.3333333333333,60"
               Start="0,0"
-              End="-33.5,52.5">
+              End="-33.3333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2748091603054" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2748091603054"
+                    Point2="0,24.2748091603054"
+                    Point3="-4,24.2748091603054" />
                   <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
+                    End="-29.3333333333333,24.2748091603054" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
+                    Point1="-29.3333333333333,24.2748091603054"
+                    Point2="-33.3333333333333,24.2748091603054"
+                    Point3="-33.3333333333333,28.2748091603054" />
                   <mssgle:LineSegment
-                    End="-33.5,52.5" />
+                    End="-33.3333333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
+              BoundingBox="-95.2005729166667,29.2748091603054,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_Local_Authority_District\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{51D98373-A84E-4545-9A2B-623883F8BD70}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[dim_Local_Authority_District]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[ID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[ID_LocalAuthorityDistrict]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;ID_LocalAuthorityDistrict&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[Name]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Name&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[SourceID]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;SourceID&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn /&gt;
-  &lt;EndDateColumn /&gt;
-  &lt;DateVariable /&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_Local_Authority_District\dim_Local_Authority_District">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\dim_Road_Type">
     <LayoutInfo>
@@ -3455,22 +3392,14 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <NodeLayout
           Size="208.8,41.6"
           Id="Package\dim_Road_Type\Slowly Changing Dimension"
-          TopLeft="221,107.5" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\dim_Road_Type\OLE DB Command 1"
-          TopLeft="238,209.5" />
+          TopLeft="206.3,107.1" />
         <NodeLayout
           Size="155.2,41.6"
           Id="Package\dim_Road_Type\dim_Road_Type"
-          TopLeft="248,5.49999999999989" />
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\dim_Road_Type\Insert Destination 1"
-          TopLeft="5.5,209.5" />
+          TopLeft="233.1,5.49999999999995" />
         <EdgeLayout
           Id="Package\dim_Road_Type.Paths[OLE DB Source Output]"
-          TopLeft="325.5,47.4999999999999">
+          TopLeft="310.7,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3490,75 +3419,83 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\dim_Road_Type\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\dim_Road_Type.Paths[New Output]"
-          TopLeft="292,149.5">
+          TopLeft="277.233333333333,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-200.5,60.0000000000001"
+              EndConnector="-190.533333333333,60"
               Start="0,0"
-              End="-200.5,52.5000000000001">
+              End="-190.533333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2737642585551"
+                    Point2="0,24.2737642585551"
+                    Point3="-4,24.2737642585551" />
                   <mssgle:LineSegment
-                    End="-196.5,24.2735042735043" />
+                    End="-186.533333333333,24.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="-196.5,24.2735042735043"
-                    Point2="-200.5,24.2735042735043"
-                    Point3="-200.5,28.2735042735043" />
+                    Point1="-186.533333333333,24.2737642585551"
+                    Point2="-190.533333333333,24.2737642585551"
+                    Point3="-190.533333333333,28.2737642585551" />
                   <mssgle:LineSegment
-                    End="-200.5,52.5000000000001" />
+                    End="-190.533333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-127.34138671875,29.2735042735043,54.1827734375,11.43359375"
+              BoundingBox="-122.358053385417,29.2737642585551,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\dim_Road_Type\OLE DB Command"
+          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\dim_Road_Type.Paths[Changing Attribute Updates Output]"
-          TopLeft="359,149.5">
+          TopLeft="344.166666666667,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
+              EndConnector="-33.4666666666667,60"
               Start="0,0"
-              End="-33.5,52.5">
+              End="-33.4666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2737642585551"
+                    Point2="0,24.2737642585551"
+                    Point3="-4,24.2737642585551" />
                   <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
+                    End="-29.4666666666667,24.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
+                    Point1="-29.4666666666667,24.2737642585551"
+                    Point2="-33.4666666666667,24.2737642585551"
+                    Point3="-33.4666666666667,28.2737642585551" />
                   <mssgle:LineSegment
-                    End="-33.5,52.5" />
+                    End="-33.4666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
+              BoundingBox="-95.2672395833334,29.2737642585551,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3573,7 +3510,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{51D98373-A84E-4545-9A2B-623883F8BD70}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{45709992-7F85-4F4D-BAC8-02DB367EEEC0}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[dim_Road_Type]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -3602,8 +3539,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
   &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
@@ -3633,19 +3570,6 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_Road_Type\Insert Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\dim_Urban_Rural">
     <LayoutInfo>
@@ -3654,22 +3578,14 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <NodeLayout
           Size="208.8,41.6"
           Id="Package\dim_Urban_Rural\Slowly Changing Dimension"
-          TopLeft="443.5,107.5" />
-        <NodeLayout
-          Size="166.4,41.6"
-          Id="Package\dim_Urban_Rural\OLE DB Command"
-          TopLeft="465,209.5" />
+          TopLeft="206.3,107.1" />
         <NodeLayout
           Size="160.8,41.6"
           Id="Package\dim_Urban_Rural\dim_Urban_Rural"
-          TopLeft="467.5,5.49999999999989" />
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\dim_Urban_Rural\Insert Destination"
-          TopLeft="241.5,209.5" />
+          TopLeft="230.3,5.49999999999995" />
         <EdgeLayout
           Id="Package\dim_Urban_Rural.Paths[OLE DB Source Output]"
-          TopLeft="548,47.4999999999999">
+          TopLeft="310.7,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3689,75 +3605,83 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\dim_Urban_Rural\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\dim_Urban_Rural.Paths[New Output]"
-          TopLeft="514.5,149.5">
+          TopLeft="277.233333333333,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-191.5,60"
+              EndConnector="-190.533333333333,60"
               Start="0,0"
-              End="-191.5,52.5">
+              End="-190.533333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2737642585551"
+                    Point2="0,24.2737642585551"
+                    Point3="-4,24.2737642585551" />
                   <mssgle:LineSegment
-                    End="-187.5,24.2735042735043" />
+                    End="-186.533333333333,24.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="-187.5,24.2735042735043"
-                    Point2="-191.5,24.2735042735043"
-                    Point3="-191.5,28.2735042735043" />
+                    Point1="-186.533333333333,24.2737642585551"
+                    Point2="-190.533333333333,24.2737642585551"
+                    Point3="-190.533333333333,28.2737642585551" />
                   <mssgle:LineSegment
-                    End="-191.5,52.5" />
+                    End="-190.533333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-122.84138671875,29.2735042735043,54.1827734375,11.43359375"
+              BoundingBox="-122.358053385417,29.2737642585551,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\dim_Urban_Rural\OLE DB Command"
+          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\dim_Urban_Rural.Paths[Changing Attribute Updates Output]"
-          TopLeft="581.5,149.5">
+          TopLeft="344.166666666667,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
+              EndConnector="-33.4666666666667,60"
               Start="0,0"
-              End="-33.5,52.5">
+              End="-33.4666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2737642585551"
+                    Point2="0,24.2737642585551"
+                    Point3="-4,24.2737642585551" />
                   <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
+                    End="-29.4666666666667,24.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
+                    Point1="-29.4666666666667,24.2737642585551"
+                    Point2="-33.4666666666667,24.2737642585551"
+                    Point3="-33.4666666666667,28.2737642585551" />
                   <mssgle:LineSegment
-                    End="-33.5,52.5" />
+                    End="-33.4666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
+              BoundingBox="-95.2672395833334,29.2737642585551,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3772,7 +3696,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{51D98373-A84E-4545-9A2B-623883F8BD70}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{45709992-7F85-4F4D-BAC8-02DB367EEEC0}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[dim_Urban_Rural]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -3840,22 +3764,14 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <NodeLayout
           Size="208.8,41.6"
           Id="Package\dim_Vehicle_Type\Slowly Changing Dimension"
-          TopLeft="448,107.5" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\dim_Vehicle_Type\OLE DB Command 1"
-          TopLeft="465,209.5" />
+          TopLeft="206.3,107.1" />
         <NodeLayout
           Size="164,41.6"
           Id="Package\dim_Vehicle_Type\dim_Vehicle_Type"
-          TopLeft="470.5,5.49999999999989" />
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\dim_Vehicle_Type\Insert Destination 1"
-          TopLeft="232.5,209.5" />
+          TopLeft="228.7,5.49999999999995" />
         <EdgeLayout
           Id="Package\dim_Vehicle_Type.Paths[OLE DB Source Output]"
-          TopLeft="552.5,47.4999999999999">
+          TopLeft="310.7,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -3875,75 +3791,83 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\dim_Vehicle_Type\Insert Destination"
+          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\dim_Vehicle_Type.Paths[New Output]"
-          TopLeft="519,149.5">
+          TopLeft="277.233333333333,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-200.5,60"
+              EndConnector="-190.533333333333,60"
               Start="0,0"
-              End="-200.5,52.5">
+              End="-190.533333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2737642585551"
+                    Point2="0,24.2737642585551"
+                    Point3="-4,24.2737642585551" />
                   <mssgle:LineSegment
-                    End="-196.5,24.2735042735043" />
+                    End="-186.533333333333,24.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="-196.5,24.2735042735043"
-                    Point2="-200.5,24.2735042735043"
-                    Point3="-200.5,28.2735042735043" />
+                    Point1="-186.533333333333,24.2737642585551"
+                    Point2="-190.533333333333,24.2737642585551"
+                    Point3="-190.533333333333,28.2737642585551" />
                   <mssgle:LineSegment
-                    End="-200.5,52.5" />
+                    End="-190.533333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-127.34138671875,29.2735042735043,54.1827734375,11.43359375"
+              BoundingBox="-122.358053385417,29.2737642585551,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\dim_Vehicle_Type\OLE DB Command"
+          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\dim_Vehicle_Type.Paths[Changing Attribute Updates Output]"
-          TopLeft="586,149.5">
+          TopLeft="344.166666666667,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
+              EndConnector="-33.4666666666667,60"
               Start="0,0"
-              End="-33.5,52.5">
+              End="-33.4666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2737642585551"
+                    Point2="0,24.2737642585551"
+                    Point3="-4,24.2737642585551" />
                   <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
+                    End="-29.4666666666667,24.2737642585551" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
+                    Point1="-29.4666666666667,24.2737642585551"
+                    Point2="-33.4666666666667,24.2737642585551"
+                    Point3="-33.4666666666667,28.2737642585551" />
                   <mssgle:LineSegment
-                    End="-33.5,52.5" />
+                    End="-33.4666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
+              BoundingBox="-95.2672395833334,29.2737642585551,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -3958,7 +3882,7 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <Value
           type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionID&gt;{51D98373-A84E-4545-9A2B-623883F8BD70}&lt;/ConnectionID&gt;
+  &lt;ConnectionID&gt;{45709992-7F85-4F4D-BAC8-02DB367EEEC0}&lt;/ConnectionID&gt;
   &lt;TableName&gt;[dbo].[dim_Vehicle_Type]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
@@ -3987,8 +3911,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
     &lt;/InputColumnToDBColumn&gt;
   &lt;/InputToColumnsCollection&gt;
   &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
   &lt;/GeneratedComponentsIdentificationStrings&gt;
   &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
   &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
@@ -4015,6 +3939,69 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?)</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_Local_Authority_District\dim_Local_Authority_District">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_Local_Authority_District\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionID&gt;{45709992-7F85-4F4D-BAC8-02DB367EEEC0}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[dim_Local_Authority_District]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[ID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[ID_LocalAuthorityDistrict]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;ID_LocalAuthorityDistrict&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[Name]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Name&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;dim_Local_Authority_District.Outputs[OLE DB Source Output].Columns[SourceID]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;SourceID&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;false&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;false&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn /&gt;
+  &lt;EndDateColumn /&gt;
+  &lt;DateVariable /&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

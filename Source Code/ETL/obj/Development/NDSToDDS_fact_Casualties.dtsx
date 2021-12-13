@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{4CE2CD59-BE9C-402A-BC77-6366B180EDFE}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{DD88114E-8CE1-47D0-968B-E67B82AF7368}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -106,7 +106,7 @@
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
 ID, [ID_Vehicles], [Accident_Index], [Vehicle_Reference], [Casualty_Reference], [Age_Band_of_Casualty], [Casualty_Severity], [Casualty_Type], [Sex_of_Casualty],
-SourceID
+SourceID, Age_of_Casualty
 FROM Casualties_NDS
 WHERE  ((CreatedDate &lt; GETDATE() AND CreatedDate &gt;? ) 
 OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?))</property>
@@ -241,6 +241,15 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?))</property>
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Sex_of_Casualty]"
                       name="Sex_of_Casualty"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Age_of_Casualty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].ExternalColumns[Age_of_Casualty]"
+                      lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Age_of_Casualty]"
+                      name="Age_of_Casualty"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -290,6 +299,10 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?))</property>
                       refId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].ExternalColumns[Sex_of_Casualty]"
                       dataType="i4"
                       name="Sex_of_Casualty" />
+                    <externalMetadataColumn
+                      refId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].ExternalColumns[Age_of_Casualty]"
+                      dataType="i4"
+                      name="Age_of_Casualty" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -353,6 +366,11 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?))</property>
                       dataType="i4"
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Error Output].Columns[SourceID]"
                       name="SourceID" />
+                    <outputColumn
+                      refId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Error Output].Columns[Age_of_Casualty]"
+                      dataType="i4"
+                      lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Error Output].Columns[Age_of_Casualty]"
+                      name="Age_of_Casualty" />
                     <outputColumn
                       refId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -614,8 +632,8 @@ OR (UpdatedDate &lt; GETDATE() AND UpdatedDate &gt; ?))</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO fact_Casualties (ID, ID_Vehicles, Accident_Index, Vehicle_Reference, Casualty_Reference, Age_Band_of_Casualty, Casualty_Severity, Casualty_Type, SourceID, Sex_of_Casualty)
-VALUES (?,?,?,?,?,?,?,?,?,?)</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO fact_Casualties (ID, ID_Vehicles, Accident_Index, Vehicle_Reference, Casualty_Reference, Age_Band_of_Casualty, Casualty_Severity, Casualty_Type, SourceID, Sex_of_Casualty, Age_of_Casualty)
+VALUES (?,?,?,?,?,?,?,?,?,?,?)</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -642,13 +660,13 @@ VALUES (?,?,?,?,?,?,?,?,?,?)</property>
                       cachedDataType="i4"
                       cachedName="ID"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[ID]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[ID]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[ID_Vehicles]"
                       cachedDataType="i4"
                       cachedName="ID_Vehicles"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[ID_Vehicles]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[ID_Vehicles]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[Accident_Index]"
                       cachedCodepage="1252"
@@ -657,7 +675,7 @@ VALUES (?,?,?,?,?,?,?,?,?,?)</property>
                       cachedName="Accident_Index"
                       cachedSortKeyPosition="1"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Accident_Index]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Accident_Index]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[Vehicle_Reference]"
                       cachedCodepage="1252"
@@ -666,7 +684,7 @@ VALUES (?,?,?,?,?,?,?,?,?,?)</property>
                       cachedName="Vehicle_Reference"
                       cachedSortKeyPosition="2"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[Casualty_Reference]"
                       cachedCodepage="1252"
@@ -675,37 +693,43 @@ VALUES (?,?,?,?,?,?,?,?,?,?)</property>
                       cachedName="Casualty_Reference"
                       cachedSortKeyPosition="3"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[Age_Band_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Age_Band_of_Casualty"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Age_Band_of_Casualty]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Age_Band_of_Casualty]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[Casualty_Severity]"
                       cachedDataType="i4"
                       cachedName="Casualty_Severity"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Severity]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Severity]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[Casualty_Type]"
                       cachedDataType="i4"
                       cachedName="Casualty_Type"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Type]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Type]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[SourceID]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[SourceID]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[Sex_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Sex_of_Casualty"
                       externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Sex_of_Casualty]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Sex_of_Casualty]" />
+                    <inputColumn
+                      refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].Columns[Age_of_Casualty]"
+                      cachedDataType="i4"
+                      cachedName="Age_of_Casualty"
+                      externalMetadataColumnId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Age_of_Casualty]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -825,6 +849,17 @@ VALUES (?,?,?,?,?,?,?,?,?,?)</property>
                           name="DBParamInfoFlags">81</property>
                       </properties>
                     </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Casualties\Insert fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      dataType="i4"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -917,7 +952,7 @@ where [refTable].[Accident_Index] = ? and [refTable].[Vehicle_Reference] = ? and
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Accident_Index]};#{Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]};#{Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]};</property>
+                  name="ParameterMap">#{Package\dim_Casualties\980:invalid};#{Package\dim_Casualties\981:invalid};#{Package\dim_Casualties\982:invalid};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -947,7 +982,7 @@ where [refTable].[Accident_Index] = ? and [refTable].[Vehicle_Reference] = ? and
                       cachedLength="100"
                       cachedName="Accident_Index"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Accident_Index]">
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Accident_Index]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -966,7 +1001,7 @@ where [refTable].[Accident_Index] = ? and [refTable].[Vehicle_Reference] = ? and
                       cachedLength="50"
                       cachedName="Vehicle_Reference"
                       cachedSortKeyPosition="2"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]">
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -985,7 +1020,7 @@ where [refTable].[Accident_Index] = ? and [refTable].[Vehicle_Reference] = ? and
                       cachedLength="50"
                       cachedName="Casualty_Reference"
                       cachedSortKeyPosition="3"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]">
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -1650,7 +1685,7 @@ where [refTable].[ID] = ?</property>
                       cachedLength="100"
                       cachedName="Accident_Index"
                       cachedSortKeyPosition="1"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Accident_Index]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Accident_Index]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Vehicle_Reference]"
                       cachedCodepage="1252"
@@ -1658,49 +1693,54 @@ where [refTable].[ID] = ?</property>
                       cachedLength="50"
                       cachedName="Vehicle_Reference"
                       cachedSortKeyPosition="2"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Vehicle_Reference]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Vehicle_Reference]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[ID]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[ID]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[ID_Vehicles]"
                       cachedDataType="i4"
                       cachedName="ID_Vehicles"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[ID_Vehicles]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[ID_Vehicles]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Casualty_Reference]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="Casualty_Reference"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Reference]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Reference]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Age_Band_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Age_Band_of_Casualty"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Age_Band_of_Casualty]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Age_Band_of_Casualty]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Casualty_Severity]"
                       cachedDataType="i4"
                       cachedName="Casualty_Severity"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Severity]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Severity]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Casualty_Type]"
                       cachedDataType="i4"
                       cachedName="Casualty_Type"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Type]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Type]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[SourceID]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[SourceID]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Sex_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Sex_of_Casualty"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Sex_of_Casualty]" />
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Sex_of_Casualty]" />
+                    <inputColumn
+                      refId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Age_of_Casualty]"
+                      cachedDataType="i4"
+                      cachedName="Age_of_Casualty"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Age_of_Casualty]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1871,6 +1911,19 @@ where [refTable].[ID] = ?</property>
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Sex_of_Casualty]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Age_of_Casualty]"
+                      dataType="i4"
+                      lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Age_of_Casualty]"
+                      name="Age_of_Casualty">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input].Columns[Age_of_Casualty]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2130,11 +2183,11 @@ where [refTable].[ID] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference"
+              refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort by Accident_index, Vehicle_Reference"
+              name="Sort Casualty by Accident, Vehicle"
               version="1">
               <properties>
                 <property
@@ -2149,11 +2202,11 @@ where [refTable].[ID] = ?</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input]"
+                  refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[ID]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[ID]">
@@ -2169,7 +2222,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[ID_Vehicles]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[ID_Vehicles]"
                       cachedDataType="i4"
                       cachedName="ID_Vehicles"
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[ID_Vehicles]">
@@ -2185,7 +2238,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[Accident_Index]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[Accident_Index]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
@@ -2203,7 +2256,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[Vehicle_Reference]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[Vehicle_Reference]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -2221,7 +2274,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[Casualty_Reference]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[Casualty_Reference]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -2239,7 +2292,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[Age_Band_of_Casualty]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[Age_Band_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Age_Band_of_Casualty"
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Age_Band_of_Casualty]">
@@ -2255,7 +2308,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[Casualty_Severity]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[Casualty_Severity]"
                       cachedDataType="i4"
                       cachedName="Casualty_Severity"
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Casualty_Severity]">
@@ -2271,7 +2324,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[Casualty_Type]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[Casualty_Type]"
                       cachedDataType="i4"
                       cachedName="Casualty_Type"
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Casualty_Type]">
@@ -2287,7 +2340,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[SourceID]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[SourceID]">
@@ -2303,10 +2356,26 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input].Columns[Sex_of_Casualty]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[Sex_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Sex_of_Casualty"
                       lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Sex_of_Casualty]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input].Columns[Age_of_Casualty]"
+                      cachedDataType="i4"
+                      cachedName="Age_of_Casualty"
+                      lineageId="Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Age_of_Casualty]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2324,14 +2393,14 @@ where [refTable].[ID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output]"
+                  refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[ID]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[ID]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[ID]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[ID]"
                       name="ID">
                       <properties>
                         <property
@@ -2342,9 +2411,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[ID_Vehicles]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[ID_Vehicles]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[ID_Vehicles]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[ID_Vehicles]"
                       name="ID_Vehicles">
                       <properties>
                         <property
@@ -2355,11 +2424,11 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Accident_Index]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Accident_Index]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Accident_Index]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Accident_Index]"
                       name="Accident_Index"
                       sortKeyPosition="1">
                       <properties>
@@ -2371,11 +2440,11 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Vehicle_Reference]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Vehicle_Reference]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Vehicle_Reference]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Vehicle_Reference]"
                       name="Vehicle_Reference"
                       sortKeyPosition="2">
                       <properties>
@@ -2387,11 +2456,11 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Reference]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Reference]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Reference]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Reference]"
                       name="Casualty_Reference">
                       <properties>
                         <property
@@ -2402,9 +2471,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Age_Band_of_Casualty]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Age_Band_of_Casualty]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Age_Band_of_Casualty]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Age_Band_of_Casualty]"
                       name="Age_Band_of_Casualty">
                       <properties>
                         <property
@@ -2415,9 +2484,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Severity]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Severity]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Severity]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Severity]"
                       name="Casualty_Severity">
                       <properties>
                         <property
@@ -2428,9 +2497,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Type]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Type]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Casualty_Type]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Casualty_Type]"
                       name="Casualty_Type">
                       <properties>
                         <property
@@ -2441,9 +2510,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[SourceID]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[SourceID]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[SourceID]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[SourceID]"
                       name="SourceID">
                       <properties>
                         <property
@@ -2454,9 +2523,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Sex_of_Casualty]"
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Sex_of_Casualty]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output].Columns[Sex_of_Casualty]"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Sex_of_Casualty]"
                       name="Sex_of_Casualty">
                       <properties>
                         <property
@@ -2466,17 +2535,30 @@ where [refTable].[ID] = ?</property>
                           name="SortColumnId">#{Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Sex_of_Casualty]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Age_of_Casualty]"
+                      dataType="i4"
+                      lineageId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output].Columns[Age_of_Casualty]"
+                      name="Age_of_Casualty">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\dim_Casualties\Get Casualties in NDS.Outputs[OLE DB Source Output].Columns[Age_of_Casualty]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
             <component
-              refId="Package\dim_Casualties\Sort to remove duplication"
+              refId="Package\dim_Casualties\Sort tp remove duplication"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
-              name="Sort to remove duplication"
+              name="Sort tp remove duplication"
               version="1">
               <properties>
                 <property
@@ -2491,11 +2573,11 @@ where [refTable].[ID] = ?</property>
               </properties>
               <inputs>
                 <input
-                  refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input]"
+                  refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[ID]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
                       lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[ID]">
@@ -2511,7 +2593,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[ID_Vehicles]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[ID_Vehicles]"
                       cachedDataType="i4"
                       cachedName="ID_Vehicles"
                       lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[ID_Vehicles]">
@@ -2527,7 +2609,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[Accident_Index]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[Accident_Index]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
@@ -2546,7 +2628,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[Vehicle_Reference]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[Vehicle_Reference]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -2565,7 +2647,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[Casualty_Reference]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[Casualty_Reference]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
@@ -2583,7 +2665,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[Age_Band_of_Casualty]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[Age_Band_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Age_Band_of_Casualty"
                       lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Age_Band_of_Casualty]">
@@ -2599,7 +2681,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[Casualty_Severity]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[Casualty_Severity]"
                       cachedDataType="i4"
                       cachedName="Casualty_Severity"
                       lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Casualty_Severity]">
@@ -2615,7 +2697,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[Casualty_Type]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[Casualty_Type]"
                       cachedDataType="i4"
                       cachedName="Casualty_Type"
                       lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Casualty_Type]">
@@ -2631,7 +2713,7 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[SourceID]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[SourceID]"
                       cachedDataType="i4"
                       cachedName="SourceID"
                       lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[SourceID]">
@@ -2647,10 +2729,26 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input].Columns[Sex_of_Casualty]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[Sex_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Sex_of_Casualty"
                       lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Sex_of_Casualty]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input].Columns[Age_of_Casualty]"
+                      cachedDataType="i4"
+                      cachedName="Age_of_Casualty"
+                      lineageId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Age_of_Casualty]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2668,14 +2766,14 @@ where [refTable].[ID] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output]"
+                  refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[ID]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[ID]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[ID]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[ID]"
                       name="ID">
                       <properties>
                         <property
@@ -2686,9 +2784,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[ID_Vehicles]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[ID_Vehicles]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[ID_Vehicles]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[ID_Vehicles]"
                       name="ID_Vehicles">
                       <properties>
                         <property
@@ -2699,11 +2797,11 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Accident_Index]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Accident_Index]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Accident_Index]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Accident_Index]"
                       name="Accident_Index"
                       sortKeyPosition="1">
                       <properties>
@@ -2715,11 +2813,11 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]"
                       name="Vehicle_Reference"
                       sortKeyPosition="2">
                       <properties>
@@ -2731,11 +2829,11 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]"
                       name="Casualty_Reference"
                       sortKeyPosition="3">
                       <properties>
@@ -2747,9 +2845,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Age_Band_of_Casualty]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Age_Band_of_Casualty]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Age_Band_of_Casualty]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Age_Band_of_Casualty]"
                       name="Age_Band_of_Casualty">
                       <properties>
                         <property
@@ -2760,9 +2858,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Severity]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Severity]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Severity]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Severity]"
                       name="Casualty_Severity">
                       <properties>
                         <property
@@ -2773,9 +2871,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Type]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Type]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Type]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Type]"
                       name="Casualty_Type">
                       <properties>
                         <property
@@ -2786,9 +2884,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[SourceID]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[SourceID]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[SourceID]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[SourceID]"
                       name="SourceID">
                       <properties>
                         <property
@@ -2799,9 +2897,9 @@ where [refTable].[ID] = ?</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Sex_of_Casualty]"
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Sex_of_Casualty]"
                       dataType="i4"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Sex_of_Casualty]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Sex_of_Casualty]"
                       name="Sex_of_Casualty">
                       <properties>
                         <property
@@ -2809,6 +2907,19 @@ where [refTable].[ID] = ?</property>
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Sex_of_Casualty]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Age_of_Casualty]"
+                      dataType="i4"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Age_of_Casualty]"
+                      name="Age_of_Casualty">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\dim_Casualties\Merge Join.Outputs[Merge Join Output].Columns[Age_of_Casualty]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -2839,7 +2950,8 @@ SET
 [ID_Vehicles] = ?,
 [Age_Band_of_Casualty] = ?,
 [Casualty_Severity] = ?,
-[Casualty_Type] = ?
+[Casualty_Type] = ?,
+Age_of_Casualty = ?
 WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -2867,25 +2979,31 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
                       cachedDataType="i4"
                       cachedName="ID_Vehicles"
                       externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[ID_Vehicles]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[ID_Vehicles]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].Columns[Age_Band_of_Casualty]"
                       cachedDataType="i4"
                       cachedName="Age_Band_of_Casualty"
                       externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Age_Band_of_Casualty]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Age_Band_of_Casualty]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].Columns[Casualty_Severity]"
                       cachedDataType="i4"
                       cachedName="Casualty_Severity"
                       externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Severity]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Severity]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].Columns[Casualty_Type]"
                       cachedDataType="i4"
                       cachedName="Casualty_Type"
                       externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Type]" />
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Type]" />
+                    <inputColumn
+                      refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].Columns[Age_of_Casualty]"
+                      cachedDataType="i4"
+                      cachedName="Age_of_Casualty"
+                      externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Age_of_Casualty]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].Columns[Accident_Index]"
                       cachedCodepage="1252"
@@ -2893,8 +3011,8 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
                       cachedLength="100"
                       cachedName="Accident_Index"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Accident_Index]" />
+                      externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Accident_Index]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].Columns[Vehicle_Reference]"
                       cachedCodepage="1252"
@@ -2902,8 +3020,8 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
                       cachedLength="50"
                       cachedName="Vehicle_Reference"
                       cachedSortKeyPosition="2"
-                      externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]" />
+                      externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Vehicle_Reference]" />
                     <inputColumn
                       refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].Columns[Casualty_Reference]"
                       cachedCodepage="1252"
@@ -2911,8 +3029,8 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
                       cachedLength="50"
                       cachedName="Casualty_Reference"
                       cachedSortKeyPosition="3"
-                      externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
-                      lineageId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]" />
+                      externalMetadataColumnId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output].Columns[Casualty_Reference]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2962,9 +3080,7 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      codePage="1252"
-                      dataType="str"
-                      length="50"
+                      dataType="i4"
                       name="Param_4">
                       <properties>
                         <property
@@ -2997,6 +3113,19 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
                           dataType="System.Int32"
                           description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
                           name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
                       </properties>
                     </externalMetadataColumn>
                   </externalMetadataColumns>
@@ -3058,17 +3187,17 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
               startId="Package\dim_Casualties\Lookup Casualty_Type in DDS.Outputs[Lookup Match Output]" />
             <path
               refId="Package\dim_Casualties.Paths[Lookup Match Output3]"
-              endId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Inputs[Sort Input]"
-              name="Lookup Match Output"
-              startId="Package\dim_Casualties\Lookup Sex_of_Driver.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\dim_Casualties.Paths[Lookup Match Output4]"
               endId="Package\dim_Casualties\Update fact_Casualties.Inputs[OLE DB Command Input]"
               name="Lookup Match Output"
               startId="Package\dim_Casualties\Lookup.Outputs[Lookup Match Output]" />
             <path
+              refId="Package\dim_Casualties.Paths[Lookup Match Output4]"
+              endId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Inputs[Sort Input]"
+              name="Lookup Match Output"
+              startId="Package\dim_Casualties\Lookup Sex_of_Driver.Outputs[Lookup Match Output]" />
+            <path
               refId="Package\dim_Casualties.Paths[Merge Join Output]"
-              endId="Package\dim_Casualties\Sort to remove duplication.Inputs[Sort Input]"
+              endId="Package\dim_Casualties\Sort tp remove duplication.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\dim_Casualties\Merge Join.Outputs[Merge Join Output]" />
             <path
@@ -3085,7 +3214,7 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
               refId="Package\dim_Casualties.Paths[Sort Output]"
               endId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference.Outputs[Sort Output]" />
+              startId="Package\dim_Casualties\Sort Casualty by Accident, Vehicle.Outputs[Sort Output]" />
             <path
               refId="Package\dim_Casualties.Paths[Sort Output1]"
               endId="Package\dim_Casualties\Merge Join.Inputs[Merge Join Right Input]"
@@ -3095,7 +3224,7 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
               refId="Package\dim_Casualties.Paths[Sort Output2]"
               endId="Package\dim_Casualties\Lookup.Inputs[Lookup Input]"
               name="Sort Output"
-              startId="Package\dim_Casualties\Sort to remove duplication.Outputs[Sort Output]" />
+              startId="Package\dim_Casualties\Sort tp remove duplication.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -3257,25 +3386,37 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="198.4,41.6"
-          Id="Package\dim_Casualties\Lookup Age_Band in DDS"
-          TopLeft="98.57143025009,124.647060571657" />
+          Size="181.6,41.6"
+          Id="Package\dim_Casualties\Lookup Sex_of_Driver"
+          TopLeft="86.4285729004411,397.647064400379" />
         <NodeLayout
           Size="234.4,41.6"
           Id="Package\dim_Casualties\Lookup Casualty_Severity in DDS"
           TopLeft="65.7142868333934,226.352944350985" />
         <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\dim_Casualties\Update fact_Casualties"
-          TopLeft="42.8571435869957,856.164711909641" />
+          Size="97.6,41.6"
+          Id="Package\dim_Casualties\Sort"
+          TopLeft="405.000006897109,483.600003281762" />
+        <NodeLayout
+          Size="198.4,41.6"
+          Id="Package\dim_Casualties\Lookup Age_Band in DDS"
+          TopLeft="81.4285728152917,124.647060571657" />
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\dim_Casualties\Lookup Casualty_Type in DDS"
+          TopLeft="67.8571440127431,310.835298117964" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\dim_Casualties\Lookup"
+          TopLeft="217.857146567228,749.752944533305" />
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\dim_Casualties\Get fact_Vehicles in DDS"
           TopLeft="368.469394030098,367.852104462224" />
         <NodeLayout
-          Size="220,41.6"
-          Id="Package\dim_Casualties\Lookup Casualty_Type in DDS"
-          TopLeft="67.8571440127431,310.835298117964" />
+          Size="185.6,41.6"
+          Id="Package\dim_Casualties\Update fact_Casualties"
+          TopLeft="42.8571435869957,856.164711909641" />
         <NodeLayout
           Size="180,41.6"
           Id="Package\dim_Casualties\Insert fact_Casualties"
@@ -3283,109 +3424,7 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\dim_Casualties\Get Casualties in NDS"
-          TopLeft="89.285715806241,29.6235296477084" />
-        <EdgeLayout
-          Id="Package\dim_Casualties.Paths[OLE DB Source Output]"
-          TopLeft="179.685715806241,71.2235296477084">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="18.085714443849,53.423530923949"
-              Start="0,0"
-              End="18.085714443849,45.923530923949">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.7117654619745" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.7117654619745"
-                    Point2="0,26.7117654619745"
-                    Point3="4,26.7117654619745" />
-                  <mssgle:LineSegment
-                    End="14.085714443849,26.7117654619745" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14.085714443849,26.7117654619745"
-                    Point2="18.085714443849,26.7117654619745"
-                    Point3="18.085714443849,30.7117654619745" />
-                  <mssgle:LineSegment
-                    End="18.085714443849,45.923530923949" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_Casualties.Paths[Lookup Match Output1]"
-          TopLeft="180.385715423068,267.952944350985">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42.8823537669792"
-              Start="0,0"
-              End="0,35.3823537669792">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.3823537669792" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.8864893834896,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_Casualties.Paths[Lookup Match Output]"
-          TopLeft="197.77143025009,166.247060571657">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14.8571434166966,60.1058837793277"
-              Start="0,0"
-              End="-14.8571434166966,52.6058837793277">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.0529418896639" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.0529418896639"
-                    Point2="0,30.0529418896639"
-                    Point3="-4,30.0529418896639" />
-                  <mssgle:LineSegment
-                    End="-10.8571434166966,30.0529418896639" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.8571434166966,30.0529418896639"
-                    Point2="-14.8571434166966,30.0529418896639"
-                    Point3="-14.8571434166966,34.0529418896639" />
-                  <mssgle:LineSegment
-                    End="-14.8571434166966,52.6058837793277" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.6199584270983,35.0529418896639,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="279.2,41.6"
-          Id="Package\dim_Casualties\Sort by Accident_index, Vehicle_Reference"
-          TopLeft="39.2857149547459,480.541179709451" />
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\dim_Casualties\Sort"
-          TopLeft="405.000006897109,483.600003281762" />
+          TopLeft="92.8571444384906,28.0941178615531" />
         <EdgeLayout
           Id="Package\dim_Casualties.Paths[OLE DB Source Output1]"
           TopLeft="466.069394030098,409.452104462224">
@@ -3420,208 +3459,30 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\dim_Casualties\Lookup Sex_of_Driver"
-          TopLeft="86.4285729004411,397.647064400379" />
         <EdgeLayout
-          Id="Package\dim_Casualties.Paths[Lookup Match Output2]"
-          TopLeft="177.542858456592,352.435298117964">
+          Id="Package\dim_Casualties.Paths[OLE DB Source Output]"
+          TopLeft="181.942858626891,69.6941178615531">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45.2117662824152"
+              EndConnector="0,54.9529427101039"
               Start="0,0"
-              End="0,37.7117662824152">
+              End="0,47.4529427101039">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.7117662824152" />
+                    End="0,47.4529427101039" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,13.0511956412076,96.3827734375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\dim_Casualties.Paths[Lookup Match Output3]"
-          TopLeft="178.057143927594,439.247064400379">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.2941153090719"
-              Start="0,0"
-              End="0,33.7941153090719">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.7941153090719" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.0923701545359,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\dim_Casualties\Merge Join"
-          TopLeft="214.285717934978,588.364707716279" />
-        <EdgeLayout
-          Id="Package\dim_Casualties.Paths[Sort Output]"
-          TopLeft="178.885714954746,522.141179709451">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="79.9333363135656,66.2235280068277"
-              Start="0,0"
-              End="79.9333363135656,58.7235280068277">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.2495544040467" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.2495544040467"
-                    Point2="0,39.2495544040467"
-                    Point3="4,39.2495544040467" />
-                  <mssgle:LineSegment
-                    End="75.9333363135656,39.2495544040467" />
-                  <mssgle:CubicBezierSegment
-                    Point1="75.9333363135656,39.2495544040467"
-                    Point2="79.9333363135656,39.2495544040467"
-                    Point3="79.9333363135656,43.2495544040467" />
-                  <mssgle:LineSegment
-                    End="79.9333363135656,58.7235280068277" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_Casualties.Paths[Sort Output1]"
-          TopLeft="453.800006897109,525.200003281762">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-154.447622295464,63.1647044345171"
-              Start="0,0"
-              End="-154.447622295464,55.6647044345171">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.4366418965553" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.4366418965553"
-                    Point2="0,37.4366418965553"
-                    Point3="-4,37.4366418965553" />
-                  <mssgle:LineSegment
-                    End="-150.447622295464,37.4366418965553" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-150.447622295464,37.4366418965553"
-                    Point2="-154.447622295464,37.4366418965553"
-                    Point3="-154.447622295464,41.4366418965553" />
-                  <mssgle:LineSegment
-                    End="-154.447622295464,55.6647044345171" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\dim_Casualties\Sort to remove duplication"
-          TopLeft="190.714288962131,660.68235467858" />
-        <EdgeLayout
-          Id="Package\dim_Casualties.Paths[Merge Join Output]"
-          TopLeft="279.085717934978,629.964707716279">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13.2285710271524,30.7176469623008"
-              Start="0,0"
-              End="13.2285710271524,23.2176469623008">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.3588234811504" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.3588234811504"
-                    Point2="0,15.3588234811504"
-                    Point3="4,15.3588234811504" />
-                  <mssgle:LineSegment
-                    End="9.22857102715244,15.3588234811504" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.22857102715244,15.3588234811504"
-                    Point2="13.2285710271524,15.3588234811504"
-                    Point3="13.2285710271524,19.3588234811504" />
-                  <mssgle:LineSegment
-                    End="13.2285710271524,23.2176469623008" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\dim_Casualties\Lookup"
-          TopLeft="217.857146567228,749.752944533305" />
-        <EdgeLayout
-          Id="Package\dim_Casualties.Paths[Sort Output2]"
-          TopLeft="292.314288962131,702.28235467858">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-18.0571423949028,47.4705898547256"
-              Start="0,0"
-              End="-18.0571423949028,39.9705898547256">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.7352949273628" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.7352949273628"
-                    Point2="0,23.7352949273628"
-                    Point3="-4,23.7352949273628" />
-                  <mssgle:LineSegment
-                    End="-14.0571423949028,23.7352949273628" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-14.0571423949028,23.7352949273628"
-                    Point2="-18.0571423949028,23.7352949273628"
-                    Point3="-18.0571423949028,27.7352949273628" />
-                  <mssgle:LineSegment
-                    End="-18.0571423949028,39.9705898547256" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\dim_Casualties.Paths[Lookup Match Output4]"
           TopLeft="274.257146567228,791.352944533305">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -3657,6 +3518,78 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\dim_Casualties.Paths[Lookup Match Output2]"
+          TopLeft="177.542858456592,352.435298117964">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.2117662824152"
+              Start="0,0"
+              End="0,37.7117662824152">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.7117662824152" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,13.0511956412076,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_Casualties.Paths[Lookup Match Output1]"
+          TopLeft="180.385715423068,267.952944350985">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.8823537669792"
+              Start="0,0"
+              End="0,35.3823537669792">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.3823537669792" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.8864893834896,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_Casualties.Paths[Lookup Match Output]"
+          TopLeft="181.771429824343,166.247060571657">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.105883779328"
+              Start="0,0"
+              End="0,52.605883779328">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.605883779328" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,20.498254389664,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\dim_Casualties.Paths[Lookup Error Output]"
           TopLeft="291.723813233895,791.352944533305">
           <EdgeLayout.Curve>
@@ -3688,20 +3621,227 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0.0574234497627657,30.6758222792546,91.7327734375,11.609375"
+              BoundingBox="0.0574234497627444,30.6758222792546,91.7327734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="237.6,41.6"
+          Id="Package\dim_Casualties\Sort Casualty by Accident, Vehicle"
+          TopLeft="80.7142870888419,484.752943621705" />
+        <EdgeLayout
+          Id="Package\dim_Casualties.Paths[Lookup Match Output4]"
+          TopLeft="177.228572900441,439.247064400379">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.2857141884008,45.5058792213256"
+              Start="0,0"
+              End="22.2857141884008,38.0058792213256">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.7529396106628" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.7529396106628"
+                    Point2="0,22.7529396106628"
+                    Point3="4,22.7529396106628" />
+                  <mssgle:LineSegment
+                    End="18.2857141884008,22.7529396106628" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.2857141884008,22.7529396106628"
+                    Point2="22.2857141884008,22.7529396106628"
+                    Point3="22.2857141884008,26.7529396106628" />
+                  <mssgle:LineSegment
+                    End="22.2857141884008,38.0058792213256" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.0485296245496,27.7529396106628,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\dim_Casualties\Merge Join"
+          TopLeft="288.571433485771,559.164708810199" />
+        <EdgeLayout
+          Id="Package\dim_Casualties.Paths[Sort Output]"
+          TopLeft="199.514287088842,526.352943621705">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.857146396929,32.8117651884944"
+              Start="0,0"
+              End="153.857146396929,25.3117651884944">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.4058825942472" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.4058825942472"
+                    Point2="0,16.4058825942472"
+                    Point3="4,16.4058825942472" />
+                  <mssgle:LineSegment
+                    End="149.857146396929,16.4058825942472" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.857146396929,16.4058825942472"
+                    Point2="153.857146396929,16.4058825942472"
+                    Point3="153.857146396929,20.4058825942472" />
+                  <mssgle:LineSegment
+                    End="153.857146396929,25.3117651884944" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_Casualties.Paths[Sort Output1]"
+          TopLeft="453.800006897109,525.200003281762">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-80.1619067446715,33.9647055284371"
+              Start="0,0"
+              End="-80.1619067446715,26.4647055284371">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.1303010814883" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.1303010814883"
+                    Point2="0,20.1303010814883"
+                    Point3="-4,20.1303010814883" />
+                  <mssgle:LineSegment
+                    End="-76.1619067446715,20.1303010814883" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-76.1619067446715,20.1303010814883"
+                    Point2="-80.1619067446715,20.1303010814883"
+                    Point3="-80.1619067446715,24.1303010814883" />
+                  <mssgle:LineSegment
+                    End="-80.1619067446715,26.4647055284371" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\dim_Casualties\Sort tp remove duplication"
+          TopLeft="202.14286058533,653.400002005521" />
+        <EdgeLayout
+          Id="Package\dim_Casualties.Paths[Merge Join Output]"
+          TopLeft="353.371433485771,600.764708810199">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.6285729004412,52.635293195322"
+              Start="0,0"
+              End="-49.6285729004412,45.135293195322">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.317646597661" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.317646597661"
+                    Point2="0,26.317646597661"
+                    Point3="-4,26.317646597661" />
+                  <mssgle:LineSegment
+                    End="-45.6285729004412,26.317646597661" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.6285729004412,26.317646597661"
+                    Point2="-49.6285729004412,26.317646597661"
+                    Point3="-49.6285729004412,30.317646597661" />
+                  <mssgle:LineSegment
+                    End="-49.6285729004412,45.135293195322" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_Casualties.Paths[Sort Output2]"
+          TopLeft="303.74286058533,695.000002005521">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-29.4857140181017,54.7529425277839"
+              Start="0,0"
+              End="-29.4857140181017,47.2529425277839">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.376471263892" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.376471263892"
+                    Point2="0,27.376471263892"
+                    Point3="-4,27.376471263892" />
+                  <mssgle:LineSegment
+                    End="-25.4857140181017,27.376471263892" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.4857140181017,27.376471263892"
+                    Point2="-29.4857140181017,27.376471263892"
+                    Point3="-29.4857140181017,31.376471263892" />
+                  <mssgle:LineSegment
+                    End="-29.4857140181017,47.2529425277839" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\dim_Casualties\Lookup Sex_of_Driver">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_Sex_of_Driver]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\dim_Casualties\Lookup Casualty_Severity in DDS">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3724,12 +3864,58 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
           type="q3:string">[dbo].[dim_Age_Band]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_Casualties\Lookup Casualty_Type in DDS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_Casualty_Type]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_Casualties\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[fact_Casualties]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -3755,29 +3941,6 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\dim_Casualties\Lookup Casualty_Type in DDS">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[dim_Casualty_Type]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\dim_Casualties\Get Casualties in NDS">
     <Properties>
       <Property>
@@ -3787,52 +3950,6 @@ WHERE [Accident_Index] = ? and [Vehicle_Reference] = ? and  [Casualty_Reference]
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_Casualties\Lookup Sex_of_Driver">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[dim_Sex_of_Driver]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_Casualties\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[fact_Casualties]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

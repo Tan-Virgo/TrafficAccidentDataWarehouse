@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{EFAAAE62-CEAE-461F-8FB9-B6854963696E}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{80FB8066-9254-4F2F-9C17-522656DD5015}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_DDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_DDS_AccidentDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -895,7 +895,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0DC0B39B-7239-4DA7-9103-B322514E0068}"
-          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS] WHERE TableName = 'LSOA_Postcode_Mapping'"
+          SQLTask:SqlStatementSource="SELECT LSET FROM DB_DDS_AccidentDW WHERE TableName = 'LSOA_Postcode_Mapping'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -917,7 +917,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0DC0B39B-7239-4DA7-9103-B322514E0068}"
-          SQLTask:SqlStatementSource="UPDATE [DB_DDS] SET LSET = GETDATE()&#xA;WHERE TableName = 'LSOA_Postcode_Mapping'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW SET LSET = GETDATE()&#xA;WHERE TableName = 'LSOA_Postcode_Mapping'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1174,7 +1174,7 @@ where [refTable].[ID] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1184,7 +1184,7 @@ where [refTable].[ID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

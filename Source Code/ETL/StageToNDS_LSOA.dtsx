@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{E9D84BE2-706B-4938-B3AC-021C89CEA11F}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{0D4C26FE-12E2-4B01-A215-A38DB1385598}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2130,151 +2130,53 @@ WHERE LSOA_code = ? AND SourceID = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="144,41.6"
-          Id="Package\LSOA_Postcode_Mapping\Update  LSOA"
-          TopLeft="77.1428584565922,693.188241010389" />
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\LSOA_Postcode_Mapping\Sort by Postcode"
-          TopLeft="317.142862543768,146.411766647055" />
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\LSOA_Postcode_Mapping\Merge Join"
-          TopLeft="182.857145971181,235.458826124792" />
-        <NodeLayout
-          Size="235.2,41.6"
-          Id="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate"
-          TopLeft="247.857147078125,591.952947268106" />
-        <NodeLayout
-          Size="134.4,41.6"
-          Id="Package\LSOA_Postcode_Mapping\Insert LSOA"
-          TopLeft="378.571435018462,681.858829041913" />
-        <NodeLayout
-          Size="220,41.6"
-          Id="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping"
-          TopLeft="31.3571421394543,146.51960737125" />
-        <NodeLayout
-          Size="197.6,41.6"
-          Id="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping"
-          TopLeft="32.7142862373471,47.3221280793613" />
+          Size="165.6,41.6"
+          Id="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS"
+          TopLeft="327.285712740859,50.0117619067328" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\LSOA_Postcode_Mapping\Update UpdatedDate"
           TopLeft="32.8571434166967,597.835300852765" />
         <NodeLayout
-          Size="165.6,41.6"
-          Id="Package\LSOA_Postcode_Mapping\UK_Postcode_NDS"
-          TopLeft="327.285712740859,50.0117619067328" />
+          Size="220,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Sort LSOA_Postcode_Mapping"
+          TopLeft="31.3571421394543,146.51960737125" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Merge Join"
+          TopLeft="182.857145971181,235.458826124792" />
+        <NodeLayout
+          Size="134.4,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Insert LSOA"
+          TopLeft="378.571435018462,681.858829041913" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Sort by Postcode"
+          TopLeft="317.142862543768,146.411766647055" />
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Lookup"
+          TopLeft="165.714288536383,485.611771022737" />
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Sort to remove duplication"
+          TopLeft="155.714288366084,308.011767376336" />
+        <NodeLayout
+          Size="235.2,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Insert CreatedDate, updatedDate"
+          TopLeft="247.857147078125,591.952947268106" />
+        <NodeLayout
+          Size="144,41.6"
+          Id="Package\LSOA_Postcode_Mapping\Update  LSOA"
+          TopLeft="77.1428584565922,693.188241010389" />
         <NodeLayout
           Size="152.8,41.6"
           Id="Package\LSOA_Postcode_Mapping\Derived Column"
           TopLeft="160.857140521614,385.592154717803" />
         <NodeLayout
-          Size="112.8,41.6"
-          Id="Package\LSOA_Postcode_Mapping\Lookup"
-          TopLeft="165.714288536383,485.611771022737" />
-        <EdgeLayout
-          Id="Package\LSOA_Postcode_Mapping.Paths[Sort Output1]"
-          TopLeft="395.942862543768,188.011766647055">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-128.01904990592,47.4470594777368"
-              Start="0,0"
-              End="-128.01904990592,39.9470594777368">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.1210620807074" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.1210620807074"
-                    Point2="0,28.1210620807074"
-                    Point3="-4,28.1210620807074" />
-                  <mssgle:LineSegment
-                    End="-124.01904990592,28.1210620807074" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-124.01904990592,28.1210620807074"
-                    Point2="-128.01904990592,28.1210620807074"
-                    Point3="-128.01904990592,32.1210620807074" />
-                  <mssgle:LineSegment
-                    End="-128.01904990592,39.9470594777368" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LSOA_Postcode_Mapping.Paths[Sort Output]"
-          TopLeft="141.357142139454,188.11960737125">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="86.0333371650605,47.339218753542"
-              Start="0,0"
-              End="86.0333371650605,39.839218753542">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.0571467246603" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.0571467246603"
-                    Point2="0,28.0571467246603"
-                    Point3="4,28.0571467246603" />
-                  <mssgle:LineSegment
-                    End="82.0333371650605,28.0571467246603" />
-                  <mssgle:CubicBezierSegment
-                    Point1="82.0333371650605,28.0571467246603"
-                    Point2="86.0333371650605,28.0571467246603"
-                    Point3="86.0333371650605,32.0571467246603" />
-                  <mssgle:LineSegment
-                    End="86.0333371650605,39.839218753542" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\LSOA_Postcode_Mapping.Paths[OLE DB Source Output1]"
-          TopLeft="410.085712740859,91.6117619067328">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14.1428501970906,54.8000047403223"
-              Start="0,0"
-              End="-14.1428501970906,47.3000047403223">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.4000023701611" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.4000023701611"
-                    Point2="0,27.4000023701611"
-                    Point3="-4,27.4000023701611" />
-                  <mssgle:LineSegment
-                    End="-10.1428501970906,27.4000023701611" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.1428501970906,27.4000023701611"
-                    Point2="-14.1428501970906,27.4000023701611"
-                    Point3="-14.1428501970906,31.4000023701611" />
-                  <mssgle:LineSegment
-                    End="-14.1428501970906,47.3000047403223" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="197.6,41.6"
+          Id="Package\LSOA_Postcode_Mapping\LSOA_Postcode_Mapping"
+          TopLeft="32.7142862373471,47.3221280793613" />
         <EdgeLayout
           Id="Package\LSOA_Postcode_Mapping.Paths[OLE DB Source Output]"
           TopLeft="131.514286237347,88.9221280793613">
@@ -2301,6 +2203,40 @@ WHERE LSOA_code = ? AND SourceID = ?</property>
                     Point3="9.84285590210723,32.7987396459443" />
                   <mssgle:LineSegment
                     End="9.84285590210723,50.0974792918886" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Merge Join Output]"
+          TopLeft="247.657145971181,277.058826124792">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.65714239490325,30.9529412515436"
+              Start="0,0"
+              End="9.65714239490325,23.4529412515436">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.4764706257718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.4764706257718"
+                    Point2="0,15.4764706257718"
+                    Point3="4,15.4764706257718" />
+                  <mssgle:LineSegment
+                    End="5.65714239490325,15.4764706257718" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.65714239490325,15.4764706257718"
+                    Point2="9.65714239490325,15.4764706257718"
+                    Point3="9.65714239490325,19.4764706257718" />
+                  <mssgle:LineSegment
+                    End="9.65714239490325,23.4529412515436" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2377,7 +2313,7 @@ WHERE LSOA_code = ? AND SourceID = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="17.0717092187877,31.4397530960108,91.7327734375,11.609375"
+              BoundingBox="17.0717092187875,31.4397530960108,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2483,44 +2419,6 @@ WHERE LSOA_code = ? AND SourceID = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\LSOA_Postcode_Mapping\Sort to remove duplication"
-          TopLeft="155.714288366084,308.011767376336" />
-        <EdgeLayout
-          Id="Package\LSOA_Postcode_Mapping.Paths[Merge Join Output]"
-          TopLeft="247.657145971181,277.058826124792">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="9.65714239490325,30.9529412515436"
-              Start="0,0"
-              End="9.65714239490325,23.4529412515436">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.4764706257718" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.4764706257718"
-                    Point2="0,15.4764706257718"
-                    Point3="4,15.4764706257718" />
-                  <mssgle:LineSegment
-                    End="5.65714239490325,15.4764706257718" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.65714239490325,15.4764706257718"
-                    Point2="9.65714239490325,15.4764706257718"
-                    Point3="9.65714239490325,19.4764706257718" />
-                  <mssgle:LineSegment
-                    End="9.65714239490325,23.4529412515436" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\LSOA_Postcode_Mapping.Paths[Sort Output2]"
           TopLeft="257.314288366084,349.611767376336">
@@ -2547,6 +2445,108 @@ WHERE LSOA_code = ? AND SourceID = ?</property>
                     Point3="-20.0571478444703,21.9901936707339" />
                   <mssgle:LineSegment
                     End="-20.0571478444703,28.4803873414677" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Sort Output1]"
+          TopLeft="395.942862543768,188.011766647055">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.01904990592,47.4470594777368"
+              Start="0,0"
+              End="-128.01904990592,39.9470594777368">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.1210620807074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.1210620807074"
+                    Point2="0,28.1210620807074"
+                    Point3="-4,28.1210620807074" />
+                  <mssgle:LineSegment
+                    End="-124.01904990592,28.1210620807074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.01904990592,28.1210620807074"
+                    Point2="-128.01904990592,28.1210620807074"
+                    Point3="-128.01904990592,32.1210620807074" />
+                  <mssgle:LineSegment
+                    End="-128.01904990592,39.9470594777368" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[Sort Output]"
+          TopLeft="141.357142139454,188.11960737125">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.0333371650605,47.339218753542"
+              Start="0,0"
+              End="86.0333371650605,39.839218753542">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.0571467246603" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0571467246603"
+                    Point2="0,28.0571467246603"
+                    Point3="4,28.0571467246603" />
+                  <mssgle:LineSegment
+                    End="82.0333371650605,28.0571467246603" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.0333371650605,28.0571467246603"
+                    Point2="86.0333371650605,28.0571467246603"
+                    Point3="86.0333371650605,32.0571467246603" />
+                  <mssgle:LineSegment
+                    End="86.0333371650605,39.839218753542" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LSOA_Postcode_Mapping.Paths[OLE DB Source Output1]"
+          TopLeft="410.085712740859,91.6117619067328">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.1428501970906,54.8000047403223"
+              Start="0,0"
+              End="-14.1428501970906,47.3000047403223">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.4000023701611" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.4000023701611"
+                    Point2="0,27.4000023701611"
+                    Point3="-4,27.4000023701611" />
+                  <mssgle:LineSegment
+                    End="-10.1428501970906,27.4000023701611" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.1428501970906,27.4000023701611"
+                    Point2="-14.1428501970906,27.4000023701611"
+                    Point3="-14.1428501970906,31.4000023701611" />
+                  <mssgle:LineSegment
+                    End="-14.1428501970906,47.3000047403223" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

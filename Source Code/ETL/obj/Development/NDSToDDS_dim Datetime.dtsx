@@ -11,21 +11,21 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{6CBFCD52-3617-44E1-9C1D-1CEC3C82B1D4}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{C31D55F5-DF11-4213-9BC0-804698D28F48}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+      DTS:refId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{4F650059-B526-4D86-8F12-1C6E6469DBDF}"
-      DTS:ObjectName="LocalHost.DB_DDS">
+      DTS:DTSID="{41A6B1F8-CBA2-407D-A96E-676A7B144F27}"
+      DTS:ObjectName="LocalHost.DB_DDS_AccidentDW">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_DDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_DDS_AccidentDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -130,8 +130,8 @@
               <connections>
                 <connection
                   refId="Package\dim_DayInMonth\dim_MonthInQuarter.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -272,8 +272,8 @@
               <connections>
                 <connection
                   refId="Package\dim_DayInMonth\dim_QuarterInYear.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -557,8 +557,8 @@ VALUES (?,?)</property>
               <connections>
                 <connection
                   refId="Package\dim_DayInMonth\Insert.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -712,8 +712,8 @@ where [refTable].[Day] = ? and [refTable].[ID_MonthInQuarter] = ?</property>
               <connections>
                 <connection
                   refId="Package\dim_DayInMonth\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -1751,8 +1751,8 @@ where [refTable].[Day] = ? and [refTable].[ID_MonthInQuarter] = ?</property>
               <connections>
                 <connection
                   refId="Package\dim_MonthInQuarter\dim_QuarterInYear.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2018,8 +2018,8 @@ VALUES (?,?)</property>
               <connections>
                 <connection
                   refId="Package\dim_MonthInQuarter\Insert.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2096,6 +2096,164 @@ VALUES (?,?)</property>
                       refId="Package\dim_MonthInQuarter\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\dim_MonthInQuarter\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dim_MonthInQuarter\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dim_MonthInQuarter]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dim_MonthInQuarter]) [refTable]
+where [refTable].[Month] = ? and [refTable].[ID_QuarterInYear] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_MonthInQuarter" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Month" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_QuarterInYear" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\dim_MonthInQuarter\Merge Join.Outputs[Merge Join Output].Columns[Month]};#{Package\dim_MonthInQuarter\Merge Join.Outputs[Merge Join Output].Columns[ID_QuarterInYear]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dim_MonthInQuarter\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dim_MonthInQuarter\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dim_MonthInQuarter\Lookup.Inputs[Lookup Input].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      lineageId="Package\dim_MonthInQuarter\Merge Join.Outputs[Merge Join Output].Columns[Month]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Month</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\dim_MonthInQuarter\Lookup.Inputs[Lookup Input].Columns[ID_QuarterInYear]"
+                      cachedDataType="i4"
+                      cachedName="ID_QuarterInYear"
+                      lineageId="Package\dim_MonthInQuarter\Merge Join.Outputs[Merge Join Output].Columns[ID_QuarterInYear]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ID_QuarterInYear</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dim_MonthInQuarter\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\dim_MonthInQuarter\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\dim_MonthInQuarter\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\dim_MonthInQuarter\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\dim_MonthInQuarter\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\dim_MonthInQuarter\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dim_MonthInQuarter\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dim_MonthInQuarter\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dim_MonthInQuarter\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dim_MonthInQuarter\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2474,8 +2632,13 @@ VALUES (?,?)</property>
           </components>
           <paths>
             <path
-              refId="Package\dim_MonthInQuarter.Paths[Merge Join Output]"
+              refId="Package\dim_MonthInQuarter.Paths[Lookup Error Output]"
               endId="Package\dim_MonthInQuarter\Insert.Inputs[OLE DB Command Input]"
+              name="Lookup Error Output"
+              startId="Package\dim_MonthInQuarter\Lookup.Outputs[Lookup Error Output]" />
+            <path
+              refId="Package\dim_MonthInQuarter.Paths[Merge Join Output]"
+              endId="Package\dim_MonthInQuarter\Lookup.Inputs[Lookup Input]"
               name="Merge Join Output"
               startId="Package\dim_MonthInQuarter\Merge Join.Outputs[Merge Join Output]" />
             <path
@@ -2645,119 +2808,6 @@ ORDER BY Year(Date)</property>
               </outputs>
             </component>
             <component
-              refId="Package\dim_QuarterInYear\Insert"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="Insert"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">INSERT INTO [dim_QuarterInYear] (Year, Quarter)
-VALUES (?,?)</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\dim_QuarterInYear\Insert.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input].Columns[Year]"
-                      cachedDataType="i4"
-                      cachedName="Year"
-                      externalMetadataColumnId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\dim_QuarterInYear\Get Date In Accidents_NDS.Outputs[OLE DB Source Output].Columns[Year]" />
-                    <inputColumn
-                      refId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input].Columns[Quarter]"
-                      cachedDataType="i4"
-                      cachedName="Quarter"
-                      externalMetadataColumnId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\dim_QuarterInYear\Get Date In Accidents_NDS.Outputs[OLE DB Source Output].Columns[Quarter]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="i4"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\dim_QuarterInYear\Insert.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\dim_QuarterInYear\Insert.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\dim_QuarterInYear\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\dim_QuarterInYear\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\dim_QuarterInYear\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\dim_QuarterInYear\Insert.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\dim_QuarterInYear\Lookup"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -2827,8 +2877,8 @@ where [refTable].[Year] = ? and [refTable].[Quarter] = ?</property>
               <connections>
                 <connection
                   refId="Package\dim_QuarterInYear\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -2915,11 +2965,138 @@ where [refTable].[Year] = ? and [refTable].[Quarter] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\dim_QuarterInYear\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_QuarterInYear]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1258</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dim_QuarterInYear\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\dim_QuarterInYear\Get Date In Accidents_NDS.Outputs[OLE DB Source Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quarter]"
+                      cachedDataType="i4"
+                      cachedName="Quarter"
+                      externalMetadataColumnId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      lineageId="Package\dim_QuarterInYear\Get Date In Accidents_NDS.Outputs[OLE DB Source Output].Columns[Quarter]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_QuarterInYear]"
+                      dataType="i4"
+                      name="ID_QuarterInYear" />
+                    <externalMetadataColumn
+                      refId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      dataType="i4"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dim_QuarterInYear\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dim_QuarterInYear\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dim_QuarterInYear\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dim_QuarterInYear\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dim_QuarterInYear\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
               refId="Package\dim_QuarterInYear.Paths[Lookup Error Output]"
-              endId="Package\dim_QuarterInYear\Insert.Inputs[OLE DB Command Input]"
+              endId="Package\dim_QuarterInYear\OLE DB Destination.Inputs[OLE DB Destination Input]"
               name="Lookup Error Output"
               startId="Package\dim_QuarterInYear\Lookup.Outputs[Lookup Error Output]" />
             <path
@@ -2996,8 +3173,8 @@ where [refTable].[Year] = ? and [refTable].[Quarter] = ?</property>
               <connections>
                 <connection
                   refId="Package\dim_TimeInDate\dim_DayInMonth.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3138,8 +3315,8 @@ where [refTable].[Year] = ? and [refTable].[Quarter] = ?</property>
               <connections>
                 <connection
                   refId="Package\dim_TimeInDate\dim_MonthInQuarter.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3280,8 +3457,8 @@ where [refTable].[Year] = ? and [refTable].[Quarter] = ?</property>
               <connections>
                 <connection
                   refId="Package\dim_TimeInDate\dim_QuarterInYear.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3586,8 +3763,8 @@ VALUES (?,?)</property>
               <connections>
                 <connection
                   refId="Package\dim_TimeInDate\Insert.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3742,8 +3919,8 @@ where [refTable].[ID_DayInMonth] = ?</property>
               <connections>
                 <connection
                   refId="Package\dim_TimeInDate\Lookup.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS]"
-                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.DB_DDS_AccidentDW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -5243,7 +5420,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3ABDFA23-0B17-40BE-A2A1-9E2E37707DAC}"
-          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS] WHERE TableName = 'DayInMonth'"
+          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS_AccidentDW]  WHERE TableName = 'DayInMonth'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -5265,7 +5442,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3ABDFA23-0B17-40BE-A2A1-9E2E37707DAC}"
-          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS] WHERE TableName = 'MonthInQuarter'"
+          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS_AccidentDW] WHERE TableName = 'MonthInQuarter'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -5287,7 +5464,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3ABDFA23-0B17-40BE-A2A1-9E2E37707DAC}"
-          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS] WHERE TableName = 'QuarterInYear'"
+          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS_AccidentDW] WHERE TableName = 'QuarterInYear'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -5309,7 +5486,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3ABDFA23-0B17-40BE-A2A1-9E2E37707DAC}"
-          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS] WHERE TableName = 'TimeInDay'"
+          SQLTask:SqlStatementSource="SELECT LSET FROM [DB_DDS_AccidentDW]  WHERE TableName = 'TimeInDay'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -5331,7 +5508,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3ABDFA23-0B17-40BE-A2A1-9E2E37707DAC}"
-          SQLTask:SqlStatementSource="UPDATE [DB_DDS] SET LSET = GETDATE()&#xA;WHERE TableName = 'DayInMonth'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE [DB_DDS_AccidentDW]  SET LSET = GETDATE()&#xA;WHERE TableName = 'DayInMonth'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5348,7 +5525,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3ABDFA23-0B17-40BE-A2A1-9E2E37707DAC}"
-          SQLTask:SqlStatementSource="UPDATE [DB_DDS] SET LSET = GETDATE()&#xA;WHERE TableName = 'MonthInQuarter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE [DB_DDS_AccidentDW] SET LSET = GETDATE()&#xA;WHERE TableName = 'MonthInQuarter'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5365,7 +5542,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3ABDFA23-0B17-40BE-A2A1-9E2E37707DAC}"
-          SQLTask:SqlStatementSource="UPDATE [DB_DDS] SET LSET = GETDATE()&#xA;WHERE TableName = 'QuarterInYear'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE [DB_DDS_AccidentDW] SET LSET = GETDATE()&#xA;WHERE TableName = 'QuarterInYear'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -5382,7 +5559,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{3ABDFA23-0B17-40BE-A2A1-9E2E37707DAC}"
-          SQLTask:SqlStatementSource="UPDATE [DB_DDS] SET LSET = GETDATE()&#xA;WHERE TableName = 'TimeInDay'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE [DB_DDS_AccidentDW]  SET LSET = GETDATE()&#xA;WHERE TableName = 'TimeInDay'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -5993,9 +6170,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6017,9 +6192,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6053,9 +6226,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6113,9 +6284,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6149,9 +6318,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6185,9 +6352,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6221,9 +6386,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6257,9 +6420,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6293,9 +6454,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6328,7 +6487,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -6338,7 +6497,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6378,7 +6537,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
         <NodeLayout
           Size="106.4,41.6"
           Id="Package\dim_MonthInQuarter\Insert"
-          TopLeft="252.952380855068,285.588235540786" />
+          TopLeft="231.952380855068,402.588235540786" />
         <NodeLayout
           Size="207.2,41.6"
           Id="Package\dim_MonthInQuarter\Get Date In Accidents_NDS"
@@ -6386,7 +6545,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
         <NodeLayout
           Size="168.8,41.6"
           Id="Package\dim_MonthInQuarter\dim_QuarterInYear"
-          TopLeft="332,22.6666666666667" />
+          TopLeft="349,22.6666666666667" />
         <EdgeLayout
           Id="Package\dim_MonthInQuarter.Paths[Sort Output1]"
           TopLeft="438.266666666667,136.933333333333">
@@ -6418,9 +6577,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6454,45 +6611,29 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\dim_MonthInQuarter.Paths[OLE DB Source Output1]"
-          TopLeft="416.4,64.2666666666667">
+          TopLeft="435.833333333334,64.2666666666667">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="21.8666666666666,31.0666666666667"
+              EndConnector="0,31.0666666666666"
               Start="0,0"
-              End="21.8666666666666,23.5666666666667">
+              End="0,23.5666666666666">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.5333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5333333333333"
-                    Point2="0,15.5333333333333"
-                    Point3="4,15.5333333333333" />
-                  <mssgle:LineSegment
-                    End="17.8666666666666,15.5333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="17.8666666666666,15.5333333333333"
-                    Point2="21.8666666666666,15.5333333333333"
-                    Point3="21.8666666666666,19.5333333333333" />
-                  <mssgle:LineSegment
-                    End="21.8666666666666,23.5666666666667" />
+                    End="0,23.5666666666666" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -6526,32 +6667,80 @@ where [refTable].[ID_DayInMonth] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="112.8,41.6"
+          Id="Package\dim_MonthInQuarter\Lookup"
+          TopLeft="239,295" />
         <EdgeLayout
           Id="Package\dim_MonthInQuarter.Paths[Merge Join Output]"
-          TopLeft="308.476190427534,230.933333333333">
+          TopLeft="310.8,230.933333333333">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,54.6549022074531"
+              EndConnector="-15.4,64.066666666667"
               Start="0,0"
-              End="0,47.1549022074531">
+              End="-15.4,56.566666666667">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.1549022074531" />
+                    End="0,28.0333333333335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.0333333333335"
+                    Point2="0,32.0333333333335"
+                    Point3="-4,32.0333333333335" />
+                  <mssgle:LineSegment
+                    End="-11.4,32.0333333333335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.4,32.0333333333335"
+                    Point2="-15.4,32.0333333333335"
+                    Point3="-15.4,36.0333333333335" />
+                  <mssgle:LineSegment
+                    End="-15.4,56.566666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\dim_MonthInQuarter.Paths[Lookup Error Output]"
+          TopLeft="295.4,336.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.247619144932,65.9882355407859"
+              Start="0,0"
+              End="-10.247619144932,58.4882355407859">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.994117770393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.994117770393"
+                    Point2="0,32.994117770393"
+                    Point3="-4,32.994117770393" />
+                  <mssgle:LineSegment
+                    End="-6.247619144932,32.994117770393" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.247619144932,32.994117770393"
+                    Point2="-10.247619144932,32.994117770393"
+                    Point3="-10.247619144932,36.994117770393" />
+                  <mssgle:LineSegment
+                    End="-10.247619144932,58.4882355407859" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
+              BoundingBox="-50.990196291216,37.994117770393,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6589,10 +6778,6 @@ where [refTable].[ID_DayInMonth] = ?</property>
           Id="Package\dim_QuarterInYear\Lookup"
           TopLeft="217.857146567228,126.94117825089" />
         <NodeLayout
-          Size="106.4,41.6"
-          Id="Package\dim_QuarterInYear\Insert"
-          TopLeft="225.000003831727,221.764708992519" />
-        <NodeLayout
           Size="207.2,41.6"
           Id="Package\dim_QuarterInYear\Get Date In Accidents_NDS"
           TopLeft="179.285717338932,32.8823534023391" />
@@ -6602,57 +6787,59 @@ where [refTable].[ID_DayInMonth] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.62857077170389,52.4588248485513"
+              EndConnector="-8.62857077170395,52.4588248485509"
               Start="0,0"
-              End="-8.62857077170389,44.9588248485513">
+              End="-8.62857077170395,44.9588248485509">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.2294124242756" />
+                    End="0,22.2294124242755" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,22.2294124242756"
-                    Point2="0,26.2294124242756"
-                    Point3="-4,26.2294124242756" />
+                    Point1="0,22.2294124242755"
+                    Point2="0,26.2294124242755"
+                    Point3="-4,26.2294124242755" />
                   <mssgle:LineSegment
-                    End="-4.62857077170389,26.2294124242756" />
+                    End="-4.62857077170395,26.2294124242755" />
                   <mssgle:CubicBezierSegment
-                    Point1="-4.62857077170389,26.2294124242756"
-                    Point2="-8.62857077170389,26.2294124242756"
-                    Point3="-8.62857077170389,30.2294124242756" />
+                    Point1="-4.62857077170395,26.2294124242755"
+                    Point2="-8.62857077170395,26.2294124242755"
+                    Point3="-8.62857077170395,30.2294124242755" />
                   <mssgle:LineSegment
-                    End="-8.62857077170389,44.9588248485513" />
+                    End="-8.62857077170395,44.9588248485509" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\dim_QuarterInYear\OLE DB Destination"
+          TopLeft="185.714288876981,262.294121325635" />
         <EdgeLayout
           Id="Package\dim_QuarterInYear.Paths[Lookup Error Output]"
-          TopLeft="276.228575199478,168.54117825089">
+          TopLeft="272.585717722105,168.54117825089">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,53.2235307416288"
+              EndConnector="0,93.7529430747447"
               Start="0,0"
-              End="0,45.7235307416288">
+              End="0,86.2529430747447">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,45.7235307416288" />
+                    End="0,86.2529430747447" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-45.86638671875,17.0570778708144,91.7327734375,11.609375"
+              BoundingBox="-45.86638671875,37.3217840373724,91.7327734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6665,7 +6852,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -6675,7 +6862,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7225,7 +7412,33 @@ where [refTable].[ID_DayInMonth] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\dim_TimeInDate\dim_MonthInQuarter">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\dim_TimeInDate\dim_DayInMonth">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_TimeInDate\dim_QuarterInYear">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7243,7 +7456,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7253,7 +7466,7 @@ where [refTable].[ID_DayInMonth] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7263,6 +7476,42 @@ where [refTable].[ID_DayInMonth] = ?</property>
   <PipelineComponentMetadata
     design-time-name="Package\dim_TimeInDate\Get Date In Accidents_NDS">
     <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_QuarterInYear\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_MonthInQuarter\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_MonthInQuarter]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>

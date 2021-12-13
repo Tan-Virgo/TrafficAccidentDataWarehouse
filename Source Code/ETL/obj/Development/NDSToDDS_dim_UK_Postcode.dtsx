@@ -11,8 +11,8 @@
   DTS:LocaleID="1066"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="22"
-  DTS:VersionGUID="{97E20FB0-33FF-4626-BF18-81E610F921AE}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{C6A7D22B-3FBA-4D59-8B7D-CCF37F6E6A53}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_DDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DB_DDS_AccidentDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -4046,7 +4046,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'Sources' )"
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'Sources' )"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -4068,7 +4068,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'Sources' )"
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'Country' )"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -4090,7 +4090,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'Sources' )"
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'Sources' )"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -4112,7 +4112,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'Region' )"
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'Region' )"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LSET"
@@ -4134,7 +4134,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS&#xA;WHERE  (TableName = 'dim_UK_Postcode' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="SELECT LSET&#xA;FROM     DB_DDS_AccidentDW&#xA;WHERE  (TableName = 'dim_UK_Postcode' )" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4151,7 +4151,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'City'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'City'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4168,7 +4168,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Country'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Country'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4185,7 +4185,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'County'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'County'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4202,7 +4202,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Region'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'Region'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4219,7 +4219,7 @@ where [refTable].[ID] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0065C904-40BA-4EB8-B5AB-7F78996C9BA0}"
-          SQLTask:SqlStatementSource="UPDATE DB_DDS&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'UK_Postcode'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="UPDATE DB_DDS_AccidentDW&#xA;SET LSET = GETDATE()&#xA;WHERE TableName = 'UK_Postcode'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -5204,9 +5204,7 @@ where [refTable].[ID] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -5751,37 +5749,6 @@ where [refTable].[ID] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\dim_UK_Postcode\Get UK_Postcode in NDS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\dim_UK_Postcode\Lookup ID_City in DDS">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[dim_City]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\dim_UK_Postcode\Slowly Changing Dimension">
     <Properties>
       <Property>
@@ -5863,6 +5830,37 @@ where [refTable].[ID] = ?</property>
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_UK_Postcode\Get UK_Postcode in NDS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dim_UK_Postcode\Lookup ID_City in DDS">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_City]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
