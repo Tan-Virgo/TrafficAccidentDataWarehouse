@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>ETL</Name>
-    <LastWriteTime>2021-12-13T13:02:35.6586692Z</LastWriteTime>
+    <LastWriteTime>2022-01-04T11:13:12.0543789Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -78,7 +78,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>NDSToDDS_fact_Accidents.dtsx</Name>
-      <LastWriteTime>2021-12-13T13:18:36.158427Z</LastWriteTime>
+      <LastWriteTime>2022-01-04T11:17:31.9094427Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -114,6 +114,11 @@
     <ProjectBuildItemInfo>
       <Name>NDSToDDS_Split_into_dim_Speed_and_dim_AgeOfCasualty.dtsx</Name>
       <LastWriteTime>2021-12-13T12:05:36.406934Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Package1.dtsx</Name>
+      <LastWriteTime>2022-01-04T11:13:09.858098Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
