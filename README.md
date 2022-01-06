@@ -1,4 +1,4 @@
-# TrafficAccidentDataWarehouse
+﻿# TrafficAccidentDataWarehouse
 **Nhóm TTKD-19**
 + 18120553 - Nguyễn Lê Ngọc Tần
 + 18120560 - Lê Hữu Thanh
@@ -14,7 +14,6 @@
 + ./Config.docx : File word hướng dẫn
 + ./Data.docx : File word chứa link dữ liệu từ file .csv
 + ./DataProfiling : File kết quả Data Profiling trước khi thực hiện Stage -> NDS
-+ ./OLAP_AccidentDW : Project thực hiện build OLAP cube phục vụ Report
 
 
 **QUÁ TRÌNH THỰC HIỆN:**
@@ -22,4 +21,4 @@
 2. Thực hiện ETL đổ dữ liệu từ Source -> Stage
 3. Thực hiện ETL từ Stage -> NDS
 4. Thực hiện ETL từ NDS -> DDS
-5. Thực hiện build OLAP Cube
+
