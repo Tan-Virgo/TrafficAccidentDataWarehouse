@@ -22,3 +22,4 @@
 3. Thực hiện ETL từ Stage -> NDS
 4. Thực hiện ETL từ NDS -> DDS
 
+Link data : https://drive.google.com/drive/folders/1QFyj1eRjr3DRaqYx2wZvgSUxGhh5GbWM?usp=sharing
